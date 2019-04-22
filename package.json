@@ -8,7 +8,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "next",
+    "gatsby": "2.3.25",
     "gatsby-plugin-intercom-spa": "^0.1.0",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-typography": "^1.7.19",
