@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "gatsby": "next",
+    "gatsby-plugin-intercom-spa": "^0.1.0",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-typography": "^1.7.19",
     "gatsby-source-filesystem": "^1.5.39",

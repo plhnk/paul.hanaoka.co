@@ -39,7 +39,7 @@ export default () => (
         <Grid.Item className={styles.photoContainer}  area="lb"><img className={styles.photo} alt="paul is a 100% normal human" src="assets/images/cool-guy.png" /></Grid.Item>
         <Grid.Item area="rb"><Footer></Footer></Grid.Item>
       </MyGrid>
-      <Box>
+      {/* <Box>
         <Heading mb={3}>Normal Theme</Heading>
         <DarkMode p={3}>
           <Heading>Dark Mode</Heading>
@@ -50,6 +50,6 @@ export default () => (
           <Button mr={3}>Beep</Button>
           <ButtonOutline>Boop</ButtonOutline>
         </DarkMode>
-      </Box>
+      </Box> */}
     </Provider>
   );

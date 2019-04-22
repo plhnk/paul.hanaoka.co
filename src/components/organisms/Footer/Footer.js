@@ -17,8 +17,8 @@ export default () =>
     <footer>
         <Base>
             <Base>
-                <p>Financed by <a href="https://liferay.com" target="_new">Liferay</a>, powered by <a href="https://gatsbyjs.com" target="_new">Gatsby</a>, hosted by <a href="https://wedeploy.com" target="_new">WeDeploy</a>.</p>
-                <p className={styles.finePrint}>Copyright © 2018 Paul Hanaoka. Alt right reversed.</p></Base>
+                <p>Financed by <a href="https://liferay.com" target="_new">Liferay</a>, powered by <a href="https://gatsbyjs.com" target="_new">Gatsby</a>, hosted by <a href="https://netlify.com" target="_new">Netlify</a>.</p>
+                <p className={styles.finePrint}>Copyright © {new Date().getFullYear()} Paul Hanaoka. Alt right reversed.</p></Base>
             {/* <NightModeToggle className={styles.nightMode}><NightMode></NightMode></NightModeToggle> */}
         </Base>
     </footer>
