@@ -16,6 +16,7 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https:/
    1. All the power of react in markdown (components, etc)
 1. Organize / document process for archiving the site
    1. v1.paul.hanaoka.co etc
+1. Use [Typescript](https://github.com/liferay-design/liferay.design/issues/711)
 
 ### Decisions to Make
 
