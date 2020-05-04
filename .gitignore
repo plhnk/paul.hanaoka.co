@@ -60,6 +60,8 @@ typings/
 .cache/
 
 # Public folder shouldn't be added to git
-public
+public/
 
 yarn-error.log
+
+.DS_Store
