@@ -4,7 +4,7 @@ This is my website &mdash; there are many like it, but this is mine.
 
 Check it out at [paul.hanaoka.co](https://paul.hanaoka.co).
 
-It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https://wedeploy.com).
+It's built with [Gatsby](https://gatsbyjs.org) and powered by [Netlify](https://netlify.com).
 
 ## Architecture
 
@@ -32,9 +32,14 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https:/
 ### Decisions
 
 1. Keep using [Rebass](https://rebassjs.org/) — primitive component library
-1.
+   1. Uninstall styled-components / plugin
 
 ## TODOs
+
+1. Install Theme UI
+1. Refactor site from the TU paradigm
+
+## Long-Term TODOs
 
 1. Make a [Gatsby Theme](https://www.gatsbyjs.org/docs/themes/) to use as a boilerplate for other sites.
 1. Make a [typography.js theme](https://kyleamathews.github.io/typography.js/).
