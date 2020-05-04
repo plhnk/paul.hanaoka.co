@@ -8,6 +8,5 @@ module.exports = {
             path: `${__dirname}/assets/images/`,
           },
         },
-        `gatsby-plugin-styled-components`,
       ],
     }
