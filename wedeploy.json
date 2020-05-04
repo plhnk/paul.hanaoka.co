@@ -1,7 +1,0 @@
-{
-  "id": "paul",
-  "image": "wedeploy/hosting:2.0.0",
-  "env": {
-    "WEDEPLOY_WEB_PATH": "./public"
-  }
-}

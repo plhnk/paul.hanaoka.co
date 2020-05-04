@@ -58,5 +58,8 @@ typings/
 .env
 
 .cache/
+
+# Public folder shouldn't be added to git
 public
+
 yarn-error.log

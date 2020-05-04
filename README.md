@@ -8,6 +8,8 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https:/
 
 ## Architecture
 
+### Would like to use
+
 1. Use [Theme UI](www.theme-ui.com) to design/theme/style the site.
    1. Gives me multiple themes — light/dark/etc
    1. Makes styling easier and more consistent
@@ -18,7 +20,7 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https:/
    1. v1.paul.hanaoka.co etc
 1. Use [Typescript](https://github.com/liferay-design/liferay.design/issues/711)
 
-### Decisions to Make
+### Need to decide
 
 1. Use [Sanity](wwww.sanity.io) as the backend/CMS ?
    1. Do I want to be dependant on a CMS?
@@ -26,3 +28,14 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [WeDeploy](https:/
    1. MDX is more powerful? Can I use MDX in Sanity?
 1. Start fresh or continue in this repo?
    1. Figure out what would best facilitate #3 in Architecture
+
+### Decisions
+
+1. Keep using [Rebass](https://rebassjs.org/) — primitive component library
+1.
+
+## TODOs
+
+1. Make a [Gatsby Theme](https://www.gatsbyjs.org/docs/themes/) to use as a boilerplate for other sites.
+1. Make a [typography.js theme](https://kyleamathews.github.io/typography.js/).
+1. Learn about Jest/[testing in general](https://www.gatsbyjs.org/docs/testing-react-components/).
