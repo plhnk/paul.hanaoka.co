@@ -1,12 +1,12 @@
 module.exports = {
-    plugins:
-    [
-        {
-          resolve: `gatsby-source-filesystem`,
-          options: {
-            name: `images`,
-            path: `${__dirname}/static/assets/images/`,
-          },
-        },
-      ],
-    }
+  plugins: [
+    'gatsby-plugin-theme-ui',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/assets/images/`,
+      },
+    },
+  ],
+};

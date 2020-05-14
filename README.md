@@ -38,9 +38,11 @@ It's built with [Gatsby](https://gatsbyjs.org) and powered by [Netlify](https://
 
 1. Install Theme UI
 1. Refactor site from the TU paradigm
+1. Use [gatsby-theme-style-guide](https://theme-ui.com/packages/gatsby-theme-style-guide)
 
 ## Long-Term TODOs
 
 1. Make a [Gatsby Theme](https://www.gatsbyjs.org/docs/themes/) to use as a boilerplate for other sites.
 1. Make a [typography.js theme](https://kyleamathews.github.io/typography.js/).
 1. Learn about Jest/[testing in general](https://www.gatsbyjs.org/docs/testing-react-components/).
+1. Clean up repo (make branches for the first two versions of the site)
