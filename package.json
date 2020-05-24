@@ -3,7 +3,7 @@
   "description": "Paul's website.",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0 -p 7777 -o",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
