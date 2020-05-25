@@ -8,14 +8,13 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "^2.21.9",
+    "gatsby": "^2.22.9",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typography": "^1.7.19",
     "gatsby-source-filesystem": "2.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "reakit": "^0.14.6",
-    "rebass": "^2.3.4",
+    "rebass": "^4.0.7",
     "theme-ui": "^0.3.1"
   }
 }
