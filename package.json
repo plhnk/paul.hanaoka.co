@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "gatsby": "^2.22.9",
+    "gatsby-plugin-mdx": "^1.2.12",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typography": "^1.7.19",
     "gatsby-source-filesystem": "2.3.0",
