@@ -1,5 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from "prop-types"
+import { jsx } from 'theme-ui'
 
 const Icon = props => {
   const styles = {
@@ -8,12 +10,15 @@ const Icon = props => {
       verticalAlign: 'middle',
     },
     path: {
-      fill: props.color,
+      fill: 'currentColor',
     },
   };
 
   return (
     <svg
+      sx={{
+        color: 'accent',
+      }}
       id={`${props.id}`}
       class={`${props.class}`}
       style={styles.svg}
@@ -41,7 +46,6 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: 40,
-  color: 'var(--lighter)',
   label: 'icon',
 };
 

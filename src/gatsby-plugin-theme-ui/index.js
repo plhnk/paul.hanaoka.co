@@ -23,9 +23,8 @@ export default {
     },
   },
   fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'Avenir, sans-serif',
+    body: 'system-ui, sans-serif',
+    heading: 'serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
@@ -53,97 +52,6 @@ export default {
     img: {
       maxWidth: '100%',
       height: 'auto',
-    },
-    h1: {
-      variant: 'display',
-    },
-    h2: {
-      variant: 'heading',
-      fontSize: 5,
-    },
-    h3: {
-      variant: 'heading',
-      fontSize: 4,
-    },
-    h4: {
-      variant: 'heading',
-      fontSize: 3,
-    },
-    h5: {
-      variant: 'heading',
-      fontSize: 2,
-    },
-    h6: {
-      variant: 'heading',
-      fontSize: 1,
-    },
-    a: {
-      color: 'primary',
-      '&:hover': {
-        color: 'secondary',
-      },
-    },
-    pre: {
-      fontFamily: 'monospace',
-      fontSize: 1,
-      p: 3,
-      color: 'text',
-      bg: 'muted',
-      overflow: 'auto',
-      code: {
-        color: 'inherit',
-      },
-      variant: 'prism',
-    },
-    code: {
-      fontFamily: 'monospace',
-      fontSize: 1,
-    },
-    inlineCode: {
-      fontFamily: 'monospace',
-      color: 'secondary',
-      bg: 'muted',
-    },
-    table: {
-      width: '100%',
-      my: 4,
-      borderCollapse: 'separate',
-      borderSpacing: 0,
-      [['th', 'td']]: {
-        textAlign: 'left',
-        py: '4px',
-        pr: '4px',
-        pl: 0,
-        borderColor: 'muted',
-        borderBottomStyle: 'solid',
-      },
-    },
-    th: {
-      verticalAlign: 'bottom',
-      borderBottomWidth: '2px',
-    },
-    td: {
-      verticalAlign: 'top',
-      borderBottomWidth: '1px',
-    },
-    hr: {
-      border: 0,
-      borderBottom: '1px solid',
-      borderColor: 'muted',
-    },
-    xray: {
-      '*': {
-        outline: '1px solid rgba(0, 192, 255, .25)',
-      },
-    },
-    navlink: {
-      display: 'inline-block',
-      fontWeight: 'bold',
-      color: 'inherit',
-      textDecoration: 'none',
-      ':hover,:focus': {
-        color: 'primary',
-      },
     },
   },
 };
