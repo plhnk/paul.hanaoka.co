@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    'gatsby-theme-style-guide',
     'gatsby-plugin-theme-ui',
     {
       resolve: `gatsby-source-filesystem`,
