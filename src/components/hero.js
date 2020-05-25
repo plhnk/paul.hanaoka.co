@@ -27,7 +27,7 @@ export default ({ image, pretitle, title, subtitle }) => (
         position: 'absolute',
         width: '100%',
         height: '100vh',
-        zIndex: 1,
+        zIndex: -1,
       }}
       >
       <Img
