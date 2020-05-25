@@ -10,6 +10,6 @@ export default props => {
         const next = mode === 'dark' ? 'light' : 'dark'
         setMode(next)
       }}
-    >toggle</button>
+    >[switch theme]</button>
   )
 }

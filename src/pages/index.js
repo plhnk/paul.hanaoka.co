@@ -3,11 +3,13 @@
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Feed from "../components/feed";
+import NavBar from "../components/navbar";
 
 import { jsx, ThemeProvider } from 'theme-ui';
 
 const Homepage = (props) => (
   <ThemeProvider>
+    <NavBar />
     <Hero
       pretitle="Friendly introduction"
       title="paul.hanaoka.co"

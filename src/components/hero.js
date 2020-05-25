@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { Text, Heading, Box, Flex } from 'theme-ui';
-import NavBar from '../components/navbar'
 import Wrapper from '../components/wrapper'
 import Img from 'gatsby-image'
 import { jsx } from 'theme-ui'
@@ -37,6 +36,5 @@ export default ({ image, pretitle, title, subtitle }) => (
         }}
         fluid={image} />
     </Flex>
-    <NavBar />
   </Wrapper>
 );
