@@ -1,10 +1,9 @@
 import React from 'react';
-import Icon from '../../atoms/Icon';
-import {ICONS} from '../../../utilities/constants.js';
-import styles from './socialicons.module.css'
+import Icon from '../components/icon';
+import {ICONS} from '../utilities/constants.js';
 
 export default props => (
-    <div className={styles.wrapper}>
+    <div>
         <a href="https://dribbble.com/plhnk"><Icon class="no-invert" label={'dribbble'} icon={ICONS.dribbble} /></a>
         <a href="https://github.com/plhnk"><Icon class="no-invert" label={'github'} icon={ICONS.github} /></a>
         <a href="https://twitter.com/plhnk"><Icon class="no-invert" label={'twitter'} icon={ICONS.twitter} /></a>
