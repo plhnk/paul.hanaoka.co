@@ -1,5 +1,5 @@
 import React from "react"
-import { Text } from 'rebass'
+import { Text } from 'theme-ui'
 import SocialIcons from '../components/socialIcons'
 import Wrapper from '../components/wrapper';
 
