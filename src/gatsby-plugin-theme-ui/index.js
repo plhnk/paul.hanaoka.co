@@ -28,6 +28,7 @@ export default {
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  zIndices: [-99, -10, -1, 0, 1, 10, 99],
   fontWeights: {
     body: 400,
     heading: 900,
