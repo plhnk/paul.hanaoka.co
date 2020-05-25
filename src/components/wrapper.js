@@ -1,10 +1,13 @@
 /** @jsx jsx */
 
-import React from "react"
 import { Box, jsx } from "theme-ui"
 
 export default ({ children }) => (
-    <Box>
+    <Box
+        sx={{
+            p: 3,
+        }}
+    >
         {children}
     </Box>
 )

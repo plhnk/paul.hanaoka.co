@@ -1,5 +1,6 @@
-import React from "react"
-import { Text } from 'theme-ui'
+/** @jsx jsx */
+
+import { jsx, Text } from 'theme-ui'
 import SocialIcons from '../components/socialIcons'
 import Wrapper from '../components/wrapper';
 
@@ -24,7 +25,6 @@ export default () => (
       <Text>
         Copyright © {new Date().getFullYear()} Paul Hanaoka. Alt right reversed.
       </Text>
-      <SocialIcons />
     </Wrapper>
   </footer>
 );

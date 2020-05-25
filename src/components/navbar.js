@@ -1,25 +1,25 @@
 /** @jsx jsx */
 
-import React from "react"
-import Wrapper from './Wrapper'
-import ThemeToggle from "./ThemeToggle"
-import { jsx, Link } from "theme-ui"
+import ThemeToggle from './ThemeToggle';
+import { jsx, Link } from 'theme-ui';
+import SocialIcons from './socialIcons';
 
-export default () => (
-  <Wrapper>
-    <nav
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <Link>[logo]</Link>
-      <div sx={{ mx: 'auto' }} />
-      <Link>[feed]</Link>
-      <Link>[about]</Link>
-      <Link>[design]</Link>
-      <div sx={{ mx: 'auto' }} />
-      <ThemeToggle />
-    </nav>
-  </Wrapper>
+export default (props) => (
+  <nav
+    {...props}
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+    }}
+  >
+    <Link>[logo]</Link>
+    <div sx={{ mx: 'auto' }} />
+    <SocialIcons/>
+    {/* <Link>[feed]</Link>
+    <Link>[about]</Link>
+    <Link>[design]</Link> */}
+    <div sx={{ mx: 'auto' }} />
+    <ThemeToggle />
+  </nav>
 );

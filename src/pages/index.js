@@ -9,14 +9,20 @@ import { jsx, ThemeProvider } from 'theme-ui';
 
 const Homepage = (props) => (
   <ThemeProvider>
-    <NavBar />
+    <NavBar
+      sx={{
+        p: 3,
+        position: 'absolute',
+        bottom: 0,
+      }}
+    />
     <Hero
       pretitle="Friendly introduction"
       title="paul.hanaoka.co"
       subtitle="Brief, witty bio — a small, but noteworthy acheivment."
       image={props.data.heroImage.childImageSharp.fluid}
     ></Hero>
-    <Feed />
+    {/* <Feed /> */}
     <Footer />
   </ThemeProvider>
 );
