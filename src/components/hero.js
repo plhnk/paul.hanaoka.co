@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Text, Heading, Box, Flex } from 'theme-ui';
+import { Text, Heading } from 'theme-ui';
 import Wrapper from '../components/wrapper';
 import { jsx } from 'theme-ui';
 

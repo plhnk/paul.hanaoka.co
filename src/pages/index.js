@@ -6,7 +6,6 @@ import NavBar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 
 import { jsx, ThemeProvider, Box } from 'theme-ui';
-import wrapper from "../components/wrapper";
 
 const Homepage = (props) => (
   <ThemeProvider>
