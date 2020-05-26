@@ -1,12 +1,12 @@
 /** @jsx jsx */
 
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './themeToggle';
 import { jsx, Link, useColorMode } from 'theme-ui';
 import SocialIcons from './socialIcons';
-import theme from '../gatsby-plugin-theme-ui'
+// import theme from '../gatsby-plugin-theme-ui'
 
 export default (props) => {
-    const colorMode = useColorMode()
+    // const colorMode = useColorMode()
   return (
     <nav
       {...props}
