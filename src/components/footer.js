@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { jsx, Text } from 'theme-ui'
-import SocialIcons from '../components/socialIcons'
 import Wrapper from '../components/wrapper';
 
 export default () => (
