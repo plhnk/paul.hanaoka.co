@@ -14,7 +14,9 @@ export default (props) => (
     }}
   >
     <Link>[logo]</Link>
-    <div sx={{ mx: 'auto' }} />
+    <div sx={{ 
+        mx: ['auto', null, '10%' ]
+        }} />
     <SocialIcons/>
     {/* <Link>[feed]</Link>
     <Link>[about]</Link>

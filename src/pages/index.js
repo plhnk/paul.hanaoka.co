@@ -6,18 +6,26 @@ import NavBar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 
 import { jsx, ThemeProvider, Box } from 'theme-ui';
+import wrapper from "../components/wrapper";
 
 const Homepage = (props) => (
   <ThemeProvider>
     <Sidebar
       image={props.data.heroImage.childImageSharp.fluid}
     />
-    <Box>
+    <Box
+      sx={{
+        width: ['100%', null, '56%'],
+        ml: [null, null, '44%'],
+      }}
+      >
       <header>
         <NavBar
           sx={{
             p: 3,
-            position: 'absolute',
+            width: '100%',
+            ml: [null, null, '-44%'],
+            position: 'fixed',
             bottom: 0,
           }}
         />

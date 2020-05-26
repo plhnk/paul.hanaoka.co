@@ -4,7 +4,11 @@ import { jsx, Text } from 'theme-ui'
 import Wrapper from '../components/wrapper';
 
 export default () => (
-  <footer>
+  <footer
+    sx={{
+      mb:[5,null, 1]
+    }}
+  >
     <Wrapper>
       <Text>
         Financed by{' '}
