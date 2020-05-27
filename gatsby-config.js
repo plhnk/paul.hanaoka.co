@@ -1,9 +1,9 @@
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md'],
+        extensions: [`.mdx`, `.md`],
       },
     },
     {
@@ -14,15 +14,15 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-page-creator',
+      resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/posts`,
       },
     },
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-theme-ui',
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-theme-style-guide',
+    `gatsby-plugin-theme-ui`,
+    `gatsby-transformer-sharp`,
+    `gatsby-theme-style-guide`,
   ],
 };

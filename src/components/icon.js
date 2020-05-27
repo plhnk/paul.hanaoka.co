@@ -20,7 +20,6 @@ const Icon = props => {
         color: 'accent',
       }}
       id={`${props.id}`}
-      class={`${props.class}`}
       style={styles.svg}
       width={`${props.size}px`}
       height={`${props.size}px`}
@@ -40,7 +39,6 @@ Icon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
   id: PropTypes.string,
-  class: PropTypes.string,
   label: PropTypes.string,
 };
 

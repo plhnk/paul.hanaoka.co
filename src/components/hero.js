@@ -1,8 +1,8 @@
 /** @jsx jsx */
 
-import { Text, Heading } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
+import { Text } from 'theme-ui';
 import Wrapper from '../components/wrapper';
-import { jsx } from 'theme-ui';
 
 export default ({ pretitle, title, subtitle }) => (
   <Wrapper
@@ -12,14 +12,11 @@ export default ({ pretitle, title, subtitle }) => (
     }}
   >
     <Text as="span">{pretitle}</Text>
-    <Text
-      as="h1"
-      sx={{
-        fontSize: [6, 7],
-      }}
+    <Styled.h1 
+      as="h1" 
     >
       {title}
-    </Text>
+    </Styled.h1>
     <Text as="h2">{subtitle}</Text>
   </Wrapper>
 );
