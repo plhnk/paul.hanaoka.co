@@ -28,8 +28,8 @@ export default {
     },
   },
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'serif',
+    body: 'Work Sans Var, system-ui, sans-serif',
+    heading: 'Work Sans Var',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
@@ -45,6 +45,17 @@ export default {
   letterSpacings: {
     body: 'normal',
     caps: '0.2em',
+  },
+  text: {
+     caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.2em',
+    },
+    heading: {
+      fontFamily: 'red',
+      fontWeight: 'heading',
+      lineHeight: 'heading',
+    },
   },
   breakpoints: ['40em', '56em', '64em'],
   styles: {

@@ -19,6 +19,7 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
+    `gatsby-plugin-react-helmet`,
     'gatsby-plugin-theme-ui',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

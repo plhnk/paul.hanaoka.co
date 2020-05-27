@@ -12,14 +12,14 @@ export default ({ pretitle, title, subtitle }) => (
     }}
   >
     <Text as="span">{pretitle}</Text>
-    <Heading
+    <Text
       as="h1"
       sx={{
         fontSize: [6, 7],
       }}
     >
       {title}
-    </Heading>
+    </Text>
     <Text as="h2">{subtitle}</Text>
   </Wrapper>
 );
