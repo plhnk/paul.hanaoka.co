@@ -9,7 +9,7 @@ export default ({ image }) => (
       sx={{
         alignItems: 'flex-end',
         bottom: 0,
-        position: ['absolute', null, 'fixed'],
+        position: ['fixed'],
         width: ['100%', '100%', '50%'],
         height: '100vh',
         zIndex: -1,
@@ -17,7 +17,7 @@ export default ({ image }) => (
     >
       <Img
         sx={{
-          maxWidth: ['100vw', null, '50vw'],
+          maxWidth: ['100vw', null, '46vw'],
           width: '100%',
         }}
         fluid={image}

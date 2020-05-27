@@ -11,7 +11,11 @@ export default ({ pretitle, title, subtitle }) => (
       mt: '24vh',
     }}
   >
-    <Text as="span">{pretitle}</Text>
+    <Text
+    sx={{
+      variant:'italic',
+    }}
+    as="span">{pretitle}</Text>
     <Styled.h1 
       as="h1" 
     >

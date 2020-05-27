@@ -8,6 +8,5 @@ export default props => (
         <a aria-label="GitHub Link" href="https://github.com/plhnk"><Icon label={'github'} icon={ICONS.github} /></a>
         <a aria-label="Twitter Link" href="https://twitter.com/plhnk"><Icon label={'twitter'} icon={ICONS.twitter} /></a>
         <a aria-label="Unsplash Link" href="https://unsplash.com/paul_"><Icon label={'unsplash'}icon={ICONS.unsplash} /></a>
-        <a aria-label="YouTube Link" href="https://www.youtube.com/channel/UCigojBfH5N25aoGwrQRzK4A"><Icon label={'youtube'} icon={ICONS.youtube} /></a>
     </div>
 );

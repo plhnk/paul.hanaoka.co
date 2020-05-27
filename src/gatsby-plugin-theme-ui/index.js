@@ -46,7 +46,7 @@ export default {
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.1,
+    heading: 0.9,
   },
   letterSpacings: {
     body: 'normal',
@@ -68,6 +68,9 @@ export default {
       fontSize: 8,
       lineHeight: 'heading',
     },
+    italic: {
+      fontStyle: 'italic',
+    },
   },
   breakpoints: ['40em', '56em', '64em'],
   styles: {
@@ -76,11 +79,13 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      h1: {
-        variant: 'text.heading',
-        fontSize: [5, 6, 7],
-        color: 'primary',
-      },
+    },
+    h1: {
+      variant: 'text.heading',
+      fontSize: [6, null, 7],
+      color: 'primary',
+      m: 0,
+      mb: [3, null, 4],
     },
     img: {
       maxWidth: '100%',
