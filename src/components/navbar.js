@@ -1,16 +1,16 @@
 /** @jsx jsx */
 
 import ThemeToggle from './themeToggle';
-import { jsx, Link } from 'theme-ui';
+import { jsx, Link, Flex } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
 export default (props) => {
     // const colorMode = useColorMode()
   return (
-    <nav
+    <Flex
+      as='nav'
       {...props}
       sx={{
-        display: 'flex',
         alignItems: 'center',
         width: '100%',
       }}
@@ -22,11 +22,8 @@ export default (props) => {
         }}
       />
       <SocialIcons />
-      {/* <Link>[feed]</Link>
-    <Link>[about]</Link>
-    <Link>[design]</Link> */}
       <div sx={{ mx: 'auto' }} />
       <ThemeToggle />
-    </nav>
+    </Flex>
   );
 };

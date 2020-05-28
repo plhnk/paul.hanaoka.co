@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Styled } from 'theme-ui';
-import { Text } from 'theme-ui';
+import { jsx, Styled, Text } from 'theme-ui';
 import Wrapper from '../components/wrapper';
 
 export default ({ pretitle, title, subtitle }) => (

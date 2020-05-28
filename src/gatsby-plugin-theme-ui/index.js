@@ -24,7 +24,7 @@ export default {
     },
   },
   fonts: {
-    body: 'Work Sans Var, system-ui, sans-serif',
+    body: 'Athelas, Courier, serif',
     heading: 'Work Sans Var, system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
@@ -79,17 +79,17 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-    },
-    h1: {
-      variant: 'text.heading',
-      fontSize: [6, null, 7],
-      color: 'primary',
-      m: 0,
-      mb: [3, null, 4],
-    },
-    img: {
-      maxWidth: '100%',
-      height: 'auto',
+      h1: {
+        variant: 'text.heading',
+        fontSize: [6, null, 7],
+        color: 'primary',
+        m: 0,
+        mb: [3, null, 4],
+      },
+      img: {
+        maxWidth: '100%',
+        height: 'auto',
+      },
     },
   },
   gradients: {
