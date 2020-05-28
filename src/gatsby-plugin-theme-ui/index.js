@@ -1,5 +1,12 @@
 export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  buttons: {
+    icon: {
+      padding: 1,
+      margin: 1,
+      color: 'text',
+    },
+  },
   colors: {
     text: '#171617',
     background: '#ffffff',
@@ -8,7 +15,7 @@ export default {
     muted: '#4d5868',
     highlight: 'red', // '#ffffcc',
     gray: 'grey',
-    accent: 'green',
+    accent: 'yellow',
     darken: 'rgba(0, 0, 0, .25)',
     modes: {
       dark: {
