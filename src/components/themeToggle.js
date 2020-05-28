@@ -13,9 +13,7 @@ export default props => {
         setMode(next);
       }}
     >
-      <Icon
-        icon={`${mode === 'dark' ? ICONS.darkMode : ICONS.lightMode}`}
-      />
+      <Icon icon={`${mode === 'dark' ? ICONS.lightMode : ICONS.darkMode}`} />
     </IconButton>
   );
 }
