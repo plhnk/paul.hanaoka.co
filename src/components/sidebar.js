@@ -22,5 +22,12 @@ export default ({ image }) => (
         }}
         fluid={image}
       />
+      <div sx={{
+        background: theme => `${theme.gradients.modes.dark.transparentToBackground}`,
+        position: 'fixed',
+        bottom: -6,
+        width: '100%',
+        height: 7,
+      }} />
     </Flex>
 );

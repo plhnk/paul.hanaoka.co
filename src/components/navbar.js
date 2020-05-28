@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import ThemeToggle from './themeToggle';
-import { jsx, Link, Flex } from 'theme-ui';
+import { jsx, Flex, NavLink } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
 export default (props) => {
@@ -15,7 +15,7 @@ export default (props) => {
         width: '100%',
       }}
     >
-      <Link>[logo]</Link>
+      <NavLink href='/' sx={{fontFamily: 'heading', fontWeight:'heading', size:3,}}>H</NavLink>
       <div
         sx={{
           mx: ['auto', null, '14vw'],
