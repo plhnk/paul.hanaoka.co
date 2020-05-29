@@ -1,14 +1,7 @@
 export default {
+  useColorSchemeMediaQuery: true, // set color mode based on user's settings
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   sizes: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  buttons: {
-    icon: {
-      padding: 1,
-      margin: 1,
-      color: 'text',
-      size: '4',
-    },
-  },
   colors: {
     text: '#171617',
     background: '#ffffff',
@@ -18,6 +11,7 @@ export default {
     highlight: 'red', // '#ffffcc',
     gray: 'grey',
     accent: 'yellow',
+    white: 'white',
     darken: 'rgba(0, 0, 0, .25)',
     modes: {
       dark: {
@@ -25,10 +19,6 @@ export default {
         background: '#171617',
         primary: '#ff0000',
         secondary: 'orange',
-        muted: 'purple',
-        highlight: 'red',
-        gray: 'grey',
-        accent: 'green',
       },
     },
   },
@@ -56,6 +46,16 @@ export default {
   lineHeights: {
     body: 1.5,
     heading: 0.9,
+  },
+  buttons: {
+    icon: {
+      padding: 1,
+      margin: 1,
+      color: 'text',
+      size: 4,
+    },
+  },
+  links: {
   },
   letterSpacings: {
     body: 'normal',

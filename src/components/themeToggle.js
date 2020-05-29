@@ -13,7 +13,7 @@ export default props => {
         setMode(next);
       }}
     >
-      <Icon icon={`${mode === 'dark' ? ICONS.lightMode : ICONS.darkMode}`} />
+      <Icon label={'Theme Toggle'} icon={`${mode === 'dark' ? ICONS.lightMode : ICONS.darkMode}`} />
     </IconButton>
   );
 }

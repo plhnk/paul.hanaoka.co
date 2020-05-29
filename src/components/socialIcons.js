@@ -2,35 +2,39 @@
 
 import Icon from '../components/icon';
 import {ICONS} from '../utilities/constants.js';
-import { jsx, IconButton } from 'theme-ui';
+import { jsx, Grid, IconButton } from 'theme-ui';
 
 export default (props) => (
-  <div>
+  <Grid gap={3} columns={4}>
     <IconButton
+      {...props}
       as="a"
       target="_new"
       aria-label="Dribbble Link"
       href="https://dribbble.com/plhnk"
-    >
+      >
       <Icon label={'dribbble'} icon={ICONS.dribbble} />
     </IconButton>
     <IconButton
+      {...props}
       as="a"
       target="_new"
       aria-label="GitHub Link"
       href="https://GitHub.com/plhnk"
-    >
+      >
       <Icon label={'github'} icon={ICONS.github} />
     </IconButton>
     <IconButton
+      {...props}
       as="a"
       target="_new"
       aria-label="Twitter Link"
       href="https://Twitter.com/plhnk"
-    >
+      >
       <Icon label={'twitter'} icon={ICONS.twitter} />
     </IconButton>
     <IconButton
+      {...props}
       as="a"
       target="_new"
       aria-label="Unsplash Link"
@@ -38,5 +42,5 @@ export default (props) => (
     >
       <Icon label={'unsplash'} icon={ICONS.unsplash} />
     </IconButton>
-  </div>
+  </Grid>
 );

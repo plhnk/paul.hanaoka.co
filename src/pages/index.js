@@ -1,16 +1,16 @@
 /** @jsx jsx */
 
+import React from 'react'
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import NavBar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 import Typography from '../components/typography'
-import theme from '../gatsby-plugin-theme-ui'
 
-import { jsx, ThemeProvider, Box } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 
 const Homepage = (props) => (
-  <ThemeProvider theme={theme}>
+  <>
     <Typography />
     <Sidebar
       image={props.data.heroImage.childImageSharp.fluid}
@@ -41,7 +41,7 @@ const Homepage = (props) => (
       </main>
       <Footer />
     </Box>
-  </ThemeProvider>
+  </>
 );
 
 export default Homepage;

@@ -5,7 +5,6 @@ import { jsx, Flex, NavLink } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
 export default (props) => {
-    // const colorMode = useColorMode()
   return (
     <Flex
       as='nav'
@@ -15,15 +14,15 @@ export default (props) => {
         width: '100%',
       }}
     >
-      <NavLink href='/' sx={{fontFamily: 'heading', fontWeight:'heading', size:3,}}>H</NavLink>
+      <NavLink href='/' sx={{color: 'white', fontFamily: 'heading', fontWeight:'heading', size:3,}}>H</NavLink>
       <div
         sx={{
           mx: ['auto', null, '14vw'],
         }}
       />
-      <SocialIcons />
+      <SocialIcons sx={{color: 'white',}} />
       <div sx={{ mx: 'auto' }} />
-      <ThemeToggle />
+      <ThemeToggle sx={{color: ['white', null, 'text']}} />
     </Flex>
   );
 };

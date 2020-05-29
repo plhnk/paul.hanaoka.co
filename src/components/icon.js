@@ -16,9 +16,6 @@ const Icon = props => {
 
   return (
     <svg
-      sx={{
-        color: 'accent',
-      }}
       id={`${props.id}`}
       style={styles.svg}
       width={`${props.size}px`}
@@ -37,13 +34,12 @@ const Icon = props => {
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   size: PropTypes.number,
-  color: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
 };
 
 Icon.defaultProps = {
-  size: 40,
+  size: '1em',
   label: 'icon',
 };
 
