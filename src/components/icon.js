@@ -18,8 +18,8 @@ const Icon = props => {
     <svg
       id={`${props.id}`}
       style={styles.svg}
-      width={`${props.size}px`}
-      height={`${props.size}px`}
+      width={`${props.size}`}
+      height={`${props.size}`}
       viewBox="0 0 48 48"
       aria-label={`${props.label}`}
     >
@@ -39,7 +39,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  size: '1em',
+  size: '100%',
   label: 'icon',
 };
 
