@@ -1,10 +1,14 @@
 /** @jsx jsx */
 
-import { Flex } from 'theme-ui';
+import { Flex, useColorMode } from 'theme-ui';
 import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
 
-export default ({ image }) => (
+export default ({ image, darkImage }) => {
+  const [ mode ] = useColorMode();
+  const isDark = mode === 'dark'
+
+  return (
     <Flex
       sx={{
         alignItems: 'flex-end',
@@ -20,7 +24,7 @@ export default ({ image }) => (
           maxWidth: ['100vw', null, '46vw'],
           width: '100%',
         }}
-        fluid={image}
+        fluid={isDark ? darkImage : image}
       />
       <div sx={{
         background: theme => `${theme.gradients.modes.dark.transparentToBackground}`,
@@ -29,5 +33,5 @@ export default ({ image }) => (
         width: '100%',
         height: 7,
       }} />
-    </Flex>
-);
+    </Flex>)
+}
