@@ -8,7 +8,7 @@ import Sidebar from '../components/sidebar';
 import Typography from '../components/typography';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { jsx, Box, useColorMode } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 
 export default () => {
   const data = useStaticQuery(graphql`

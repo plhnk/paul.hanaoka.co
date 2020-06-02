@@ -56,6 +56,12 @@ export default {
     },
   },
   links: {
+    text: {
+      color: 'inherit',
+      '&.active': {
+        color: 'primary',
+      },
+    },
   },
   letterSpacings: {
     body: 'normal',
@@ -79,6 +85,7 @@ export default {
     },
     italic: {
       fontStyle: 'italic',
+      letterSpacing: '0.04em',
     },
   },
   breakpoints: ['40em', '56em', '64em'],
@@ -88,17 +95,23 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      h1: {
-        variant: 'text.heading',
-        fontSize: [6, null, 7],
-        color: 'primary',
-        m: 0,
-        mb: [3, null, 4],
-      },
-      img: {
-        maxWidth: '100%',
-        height: 'auto',
-      },
+    },
+    h1: {
+      variant: 'text.heading',
+      fontSize: [6, null, 7],
+      color: 'primary',
+      m: 0,
+      mb: [3, null, 4],
+    },
+    img: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
+    a: {
+      variant: 'links.text'
+    },
+    italic: {
+      variant: 'text.italic'
     },
   },
   gradients: {

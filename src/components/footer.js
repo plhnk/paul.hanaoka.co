@@ -2,30 +2,33 @@
 
 import { jsx, Text } from 'theme-ui'
 import Wrapper from '../components/wrapper';
+import Link from './link';
 
 export default () => (
   <footer
     sx={{
-      mb:[5,null, 1]
+      mb:[5,null, 4]
     }}
   >
     <Wrapper>
       <Text>
         Financed by{' '}
-        <a href="https://liferay.com" target="_new">
+        <Link to="https://liferay.com">
           Liferay
-        </a>
+        </Link>
         , powered by{' '}
-        <a href="https://gatsbyjs.com" target="_new">
+        <Link to="https://gatsbyjs.com">
           Gatsby
-        </a>
+        </Link>
         , hosted by{' '}
-        <a href="https://netlify.com" target="_new">
+        <Link to="https://netlify.com">
           Netlify
-        </a>
+        </Link>
         .
       </Text>
-      <Text>
+      <Text 
+        sx={{color: 'muted'}}
+      >
         Copyright © {new Date().getFullYear()} Paul Hanaoka. Alt right reversed.
       </Text>
     </Wrapper>

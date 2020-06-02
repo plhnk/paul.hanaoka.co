@@ -12,7 +12,7 @@ export default ({ pretitle, title, subtitle }) => (
   >
     <Text
     sx={{
-      variant:'italic',
+      variant:'styles.italic',
     }}
     as="span">{pretitle}</Text>
     <Styled.h1 
