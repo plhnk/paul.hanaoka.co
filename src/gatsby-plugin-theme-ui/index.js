@@ -70,19 +70,22 @@ export default {
       margin: 1,
       color: 'text',
       size: 4,
-      variant: 'states.hover',
+      variant: 'states',
     },
   },
   links: {
     text: {
       color: 'inherit',
-      variant: 'states.hover',
+      variant: 'states',
     },
   },
   states: {
-    hover: {
-      '&:hover':{
-      color: 'primary',},
+    '&:hover': {
+      color: 'primary',
+    },
+    '&:focus': {
+      outlineColor: 'primary',
+      color: 'text',
     },
   },
   letterSpacings: {
