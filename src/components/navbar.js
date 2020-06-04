@@ -14,7 +14,7 @@ export default (props) => {
         width: '100%',
       }}
     >
-      <NavLink href='/' sx={{fontFamily: 'heading', fontWeight:'heading', size:3,}}>H</NavLink>
+      <NavLink href='/' sx={{fontFamily: 'heading', fontWeight:'heading'}}>H</NavLink>
       <div
         sx={{
           mx: ['auto', null, '14vw'],

@@ -83,6 +83,10 @@ export default {
       color: 'inherit',
       variant: 'states',
     },
+    nav: {
+      fontSize: 3,
+      mt:'0.2em',
+    }
   },
   states: {
     '&:hover': {
