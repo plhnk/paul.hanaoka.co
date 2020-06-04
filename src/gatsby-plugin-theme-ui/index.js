@@ -24,7 +24,7 @@ export default {
   },
   fonts: {
     body: 'Athelas, Courier, serif',
-    heading: 'Work Sans Var, system-ui, sans-serif',
+    heading: 'Avenir Black, system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [

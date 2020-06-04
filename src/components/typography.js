@@ -1,15 +1,16 @@
 import React from 'react';
 import { Global } from '@emotion/core';
-import WorkSans from '../utilities/WorkSans-Roman-VF.ttf';
+
+import AvenirBlack from '../utilities/fonts/avenir/Avenir-Black-03.ttf';
 
 export default (props) => (
-  <Global
-    styles={{
-      '@font-face': {
-        fontFamily: 'Work Sans Var',
-        src: `url(${WorkSans}) format('truetype')`,
-        fontWeight: '100 900',
-      },
-    }}
-  />
+    <Global
+      styles={{
+        '@font-face': {
+          fontFamily: 'Avenir Black',
+          src: `url(${AvenirBlack}) format('truetype')`,
+          fontWeight: '900',
+        },
+      }}
+    />
 );
