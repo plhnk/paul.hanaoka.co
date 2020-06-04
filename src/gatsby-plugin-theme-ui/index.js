@@ -108,10 +108,10 @@ export default {
       height: 'auto',
     },
     a: {
-      variant: 'links.text'
+      variant: 'links.text',
     },
     italic: {
-      variant: 'text.italic'
+      variant: 'text.italic',
     },
   },
   gradients: {
@@ -122,6 +122,11 @@ export default {
         transparentToBackground:
           'linear-gradient(to bottom,hsla(300, 2%, 9%, 0) 0%,hsla(300, 2%, 9%, 0.013) 8.1%,hsla(300, 2%, 9%, 0.049) 15.5%,hsla(300, 2%, 9%, 0.104) 22.5%,hsla(300, 2%, 9%, 0.175) 29%,hsla(300, 2%, 9%, 0.259) 35.3%,hsla(300, 2%, 9%, 0.352) 41.2%,hsla(300, 2%, 9%, 0.45) 47.1%,hsla(300, 2%, 9%, 0.55) 52.9%,hsla(300, 2%, 9%, 0.648) 58.8%,hsla(300, 2%, 9%, 0.741) 64.7%,hsla(300, 2%, 9%, 0.825) 71%,hsla(300, 2%, 9%, 0.896) 77.5%,hsla(300, 2%, 9%, 0.951) 84.5%,hsla(300, 2%, 9%, 0.987) 91.9%,hsl(300, 2%, 9%) 100%)',
       },
+    },
+  },
+  layout: {
+    sidebar: {
+      background: 'primary', // trying to figure out how to switch the gradient background TODO
     },
   },
 };
