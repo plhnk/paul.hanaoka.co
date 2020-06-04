@@ -70,7 +70,10 @@ export default {
       margin: 1,
       color: 'text',
       size: 4,
-      variant: 'states',
+      '&:hover':{
+        color: 'primary',
+        transform: 'translateY(-0.2em)',
+      },
     },
   },
   links: {
