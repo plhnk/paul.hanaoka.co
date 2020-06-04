@@ -4,7 +4,16 @@ export default {
   sizes: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   colors: {
     text: '#171617',
-    background: '#ffffff',
+    neutral1: '#333333',
+    neutral2: '#4D4D4D',
+    neutral3: '#666666',
+    neutral4: '#808080',
+    neutral5: '#999999',
+    neutral6: '#B3B3B3',
+    neutral7: '#CCCCCC',
+    neutral8: '#E6E6E6',
+    neutral9: '#FFFFFF',
+    background: '#F2F2F2',
     primary: '#0b5fff',
     secondary: '#2b323a',
     muted: '#4d5868',
@@ -16,6 +25,14 @@ export default {
     modes: {
       dark: {
         text: '#ffffff',
+        neutral1: '#F2F2F2',
+        neutral2: '#E6E6E6',
+        neutral3: '#CCCCCC',
+        neutral4: '#B3B3B3',
+        neutral6: '#808080',
+        neutral7: '#666666',
+        neutral8: '#4D4D4D',
+        neutral9: '#333333',
         background: '#171617',
         primary: '#ff0000',
         secondary: 'orange',
@@ -53,14 +70,19 @@ export default {
       margin: 1,
       color: 'text',
       size: 4,
+      variant: 'states.hover',
     },
   },
   links: {
     text: {
       color: 'inherit',
-      '&.active': {
-        color: 'primary',
-      },
+      variant: 'states.hover',
+    },
+  },
+  states: {
+    hover: {
+      '&:hover':{
+      color: 'primary',},
     },
   },
   letterSpacings: {
@@ -101,7 +123,11 @@ export default {
       fontSize: [6, null, 7],
       color: 'primary',
       m: 0,
+      mt: [2, 1, 0],
       mb: [3, null, 4],
+    },
+    h2: {
+      variant: 'text.heading',
     },
     img: {
       maxWidth: '100%',

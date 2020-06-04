@@ -7,12 +7,13 @@ export default ({ pretitle, title, subtitle }) => (
   <Wrapper
     sx={{
       height: '88vh',
-      mt: '24vh',
+      mt: '20vh',
     }}
   >
     <Text
       sx={{
         variant: 'styles.italic',
+        color: 'neutral2',
       }}
       as="span"
     >
@@ -21,11 +22,12 @@ export default ({ pretitle, title, subtitle }) => (
     <Styled.h1
       as="h1"
       sx={{
+        ml: '-0.05em',
         fontSize: ['12vw', 7, '6.9vw'],
       }}
     >
       {title}
     </Styled.h1>
-    <Text as="h2">{subtitle}</Text>
+    <Styled.h2 sx={{fontFamily: 'body', color: 'neutral2',}}>{subtitle}</Styled.h2>
   </Wrapper>
 );

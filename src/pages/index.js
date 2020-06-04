@@ -57,7 +57,13 @@ export default () => {
         <main>
           <Hero
             pretitle="Friendly introduction"
-            title="paul.hanaoka.co"
+            title={
+              <>
+                <span sx={{ color: 'neutral1' }}>paul</span>
+                <span sx={{ color: 'neutral5' }}>.hanaoka</span>
+                <span sx={{ color: 'neutral7' }}>.co</span>
+              </>
+            }
             subtitle="Brief, witty bio — a small, but noteworthy acheivment."
           />
         </main>

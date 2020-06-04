@@ -11,7 +11,7 @@ export default () => (
     }}
   >
     <Wrapper>
-      <Text>
+      <Text sx={{color: 'neutral1'}}>
         Financed by{' '}
         <Link to="https://liferay.com">
           Liferay
@@ -27,9 +27,9 @@ export default () => (
         .
       </Text>
       <Text 
-        sx={{color: 'muted'}}
+        sx={{color: 'neutral3'}}
       >
-        Copyright © {new Date().getFullYear()} Paul Hanaoka. Alt right reversed.
+        Copyright © {new Date().getFullYear()} Paul Hanaoka.
       </Text>
     </Wrapper>
   </footer>
