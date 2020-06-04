@@ -70,9 +70,11 @@ export default {
       margin: 1,
       color: 'text',
       size: 4,
+      transition: 'transform .2s ease-in-out',
       '&:hover':{
         color: 'primary',
         transform: 'translateY(-0.2em)',
+        transition: 'transform .2s ease-in-out',
       },
     },
   },
