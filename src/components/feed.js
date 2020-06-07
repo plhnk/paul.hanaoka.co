@@ -6,6 +6,6 @@ import Photos from "./photos"
 
 export default ({children}) => (
     <Wrapper sx={{ }}>
-        <Photos />
+        <Photos align='flex-end' />
     </Wrapper>
 )
