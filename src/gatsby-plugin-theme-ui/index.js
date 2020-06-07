@@ -16,7 +16,6 @@ export default {
     background: '#F2F2F2',
     primary: '#0b5fff',
     secondary: '#2b323a',
-    muted: '#4d5868',
     highlight: 'red', // '#ffffcc',
     gray: 'grey',
     accent: 'yellow',

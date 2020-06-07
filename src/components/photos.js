@@ -38,20 +38,25 @@ export default ({}) => {
         width: ['initial', null, '30vmax'],
       }}
     >
-      <Image
-        src={node.urls.small}
+      <Box
         sx={{
+          p: 3,
+          backgroundColor: 'neutral9',
+          position: 'inherit',
+          '::before': {
+          content: '""',
+          background: `${'url(' + node.urls.small + ')'}`,
           position: 'absolute',
-          top: '80px',
+          bottom: '2%',
           left: '10%',
           filter: 'blur(24px)',
           opacity: 0.8,
-          height: 'auto',
+          height: '80%',
           width: '80%',
           zIndex: 1,
+        },
         }}
-      />
-      <Box sx={{ p: 3, backgroundColor: 'neutral9' }}>
+      >
         <Link to={node.links.html}>
           <Image src={node.urls.small} sx={{ width: '100%' }} />
         </Link>
@@ -64,7 +69,7 @@ export default ({}) => {
           <Text>{node.created_at}</Text>
         </Flex>
       </Box>
-      <Text sx={{ mt: 2, ml: 3, color: 'muted', variant: 'text.italic' }}>
+      <Text sx={{ mt: 3, ml: 3, color: 'neutral4', variant: 'text.italic' }}>
         {node.description}
       </Text>
     </Card>

@@ -16,7 +16,7 @@ export default ({ image, darkImage }) => {
         position: ['fixed'],
         width: ['100%', '100%', '50%'],
         height: '100vh',
-        zIndex: -1,
+        zIndex: 0,
       }}
     >
       <Img
