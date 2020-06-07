@@ -9,6 +9,7 @@ import Typography from '../components/typography';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { jsx, Box } from 'theme-ui';
+import Feed from '../components/feed';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -66,6 +67,7 @@ export default () => {
             }
             subtitle="Brief, witty bio — a small, but noteworthy acheivment."
           />
+          <Feed />
         </main>
         <Footer />
       </Box>

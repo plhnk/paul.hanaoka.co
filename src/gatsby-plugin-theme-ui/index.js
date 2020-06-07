@@ -123,6 +123,7 @@ export default {
     },
   },
   breakpoints: ['40em', '56em', '64em'],
+  zIndices: [-99, -1, 0, 1, 99, 999],
   styles: {
     root: {
       margin: 0,
