@@ -6,7 +6,7 @@ import {
   Flex,
   useColorMode,
 } from 'theme-ui';
-import Card from './Card';
+import Card from '../components/card';
 
 export default ({}) => {
 
