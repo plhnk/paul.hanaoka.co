@@ -65,7 +65,7 @@ export default () => {
                 <span sx={{ color: 'neutral7' }}>.co</span>
               </>
             }
-            subtitle="Brief, witty bio — a small, but noteworthy acheivment."
+            subtitle="Brief, witty bio — a small, but noteworthy achievement."
           />
           <Feed />
         </main>
