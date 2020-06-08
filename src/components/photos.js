@@ -1,26 +1,14 @@
 /** @jsx jsx */
 
 import { useStaticQuery, graphql } from 'gatsby';
-import moment from 'moment';
 import {
   jsx,
-  Text,
-  Image,
   Flex,
-  Box,
-  IconButton,
   useColorMode,
 } from 'theme-ui';
-import Icon from './icon';
-import { ICONS } from '../utilities/constants.js';
-import Link from './link';
 import Card from './Card';
 
-export default ({ align }) => {
-  let alignments = ['flex-start', 'center', 'flex-end'];
-
-  let randomAlignment =
-    alignments[Math.floor(Math.random() * alignments.length)];
+export default ({}) => {
 
   const [mode] = useColorMode();
   const isDark = mode === 'dark';

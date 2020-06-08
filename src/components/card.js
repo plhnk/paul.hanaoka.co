@@ -12,11 +12,10 @@ import {
 } from 'theme-ui';
 import Link from './link';
 import Icon from './icon';
-import { ICONS } from '../utilities/constants.js';
 
 export default ({
   cardStyles,
-  priamryAssetLink,
+  primaryAssetLink,
   primaryAsset,
   iconLink,
   icon,
@@ -53,13 +52,13 @@ export default ({
           position: 'inherit',
         }}
       >
-        <Link to={priamryAssetLink}>
+        <Link to={primaryAssetLink}>
           <Image src={primaryAsset} sx={{ width: '100%' }} />
         </Link>
         <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to={iconLink}>
             <IconButton>
-              <Icon label={icon} icon={`${ICONS.icon}`} />
+              <Icon label={icon} name={icon} />
             </IconButton>
           </Link>
           <Text>{date}</Text>

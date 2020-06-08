@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, useColorMode, IconButton } from 'theme-ui'
 import Icon from '../components/icon';
-import { ICONS } from '../utilities/constants.js';
 
 export default props => {
   const [ mode, setMode ] = useColorMode()
@@ -13,7 +12,7 @@ export default props => {
         setMode(next);
       }}
     >
-      <Icon label={'Theme Toggle'} icon={`${mode === 'dark' ? ICONS.lightMode : ICONS.darkMode}`} />
+      <Icon label={'Theme Toggle'} name={`${mode === 'dark' ? 'lightMode' : 'darkMode'}`} />
     </IconButton>
   );
 }

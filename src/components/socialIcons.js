@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import Icon from '../components/icon';
-import {ICONS} from '../utilities/constants.js';
 import { jsx, Grid, IconButton } from 'theme-ui';
 
 export default (props) => (
@@ -13,7 +12,7 @@ export default (props) => (
       aria-label="Dribbble Link"
       href="https://dribbble.com/plhnk"
       >
-      <Icon label={'dribbble'} icon={ICONS.dribbble} />
+      <Icon label={'dribbble'} name='dribbble' />
     </IconButton>
     <IconButton
       {...props}
@@ -22,7 +21,7 @@ export default (props) => (
       aria-label="GitHub Link"
       href="https://GitHub.com/plhnk"
       >
-      <Icon label={'github'} icon={ICONS.github} />
+      <Icon label={'github'} name='github' />
     </IconButton>
     <IconButton
       {...props}
@@ -31,7 +30,7 @@ export default (props) => (
       aria-label="Twitter Link"
       href="https://Twitter.com/plhnk"
       >
-      <Icon label={'twitter'} icon={ICONS.twitter} />
+      <Icon label={'twitter'} name='twitter' />
     </IconButton>
     <IconButton
       {...props}
@@ -40,7 +39,7 @@ export default (props) => (
       aria-label="Unsplash Link"
       href="https://Unsplash.com/plhnk"
     >
-      <Icon label={'unsplash'} icon={ICONS.unsplash} />
+      <Icon label={'unsplash'} name='unsplash' />
     </IconButton>
   </Grid>
 );

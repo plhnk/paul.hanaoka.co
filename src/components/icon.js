@@ -1,46 +1,26 @@
 /** @jsx jsx */
 
-import PropTypes from "prop-types"
-import { jsx } from 'theme-ui'
+import { jsx } from 'theme-ui';
+import PropTypes from 'prop-types';
+import IconsObject from '../utilities/icons';
 
-const Icon = props => {
-  const styles = {
-    svg: {
-      display: 'inline-block',
-      verticalAlign: 'middle',
-    },
-    path: {
-      fill: 'currentColor',
-    },
-  };
+const Icon = ({ name, ...props }) => {
+  
+  const DynamicIcon = IconsObject[name];
 
-  return (
-    <svg
-      id={`${props.id}`}
-      style={styles.svg}
-      width={`${props.size}`}
-      height={`${props.size}`}
-      viewBox="0 0 48 48"
-      aria-label={`${props.label}`}
-    >
-      <path
-        style={styles.path}
-        d={props.icon}
-      ></path>
-    </svg>
+  if (!DynamicIcon) {
+    console.log(`${name} icon not found`);
+  }
+
+  return DynamicIcon ? (
+    <DynamicIcon height='100%' fill='currentColor' width='100%' name={name} {...props} />
+  ) : (
+    <span />
   );
 };
 
 Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  size: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-};
-
-Icon.defaultProps = {
-  size: '100%',
-  label: 'icon',
+  name: PropTypes.string.isRequired,
 };
 
 export default Icon;
