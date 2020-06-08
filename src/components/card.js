@@ -37,7 +37,7 @@ export default ({
         mt: 6,
         mb: 7,
         position: 'relative',
-        width: ['initial', null, '30vmax'],
+        width: ['initial', null, '40vmax'],
       }}
     >
       <Box
