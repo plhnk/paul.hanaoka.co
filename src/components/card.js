@@ -14,6 +14,7 @@ import Link from './link';
 import Icon from './icon';
 
 export default ({
+  alt,
   cardStyles,
   primaryAssetLink,
   primaryAsset,
@@ -55,7 +56,7 @@ export default ({
         }}
       >
         <Link to={primaryAssetLink}>
-          <Image src={primaryAsset} sx={{ width: '100%' }} />
+          <Image alt={alt} src={primaryAsset} sx={{ width: '100%' }} loading='lazy' />
         </Link>
         <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to={iconLink}>

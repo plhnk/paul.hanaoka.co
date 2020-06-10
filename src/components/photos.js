@@ -19,6 +19,7 @@ export default ({}) => {
       allUnsplashPhoto {
         edges {
           node {
+            alt_description
             description
             created_at(fromNow: true)
             urls {
@@ -60,6 +61,7 @@ export default ({}) => {
               zIndex: 1,
             },
       }}
+      alt={node.alt_description}
       primaryAssetLink={addReferral(node.links.html)}
       primaryAsset={node.urls.regular}
       iconLink={addReferral(node.user.links.html)}
