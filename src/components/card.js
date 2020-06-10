@@ -55,11 +55,11 @@ export default ({
           position: 'inherit',
         }}
       >
-        <Link to={primaryAssetLink}>
+        <Link to={primaryAssetLink} aria-label={'link to photo of ' + alt + ' on Unsplash.com'}>
           <Image alt={alt} src={primaryAsset} sx={{ width: '100%' }} loading='lazy' />
         </Link>
         <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link to={iconLink}>
+          <Link to={iconLink} aria-label={`link to @plhnk's profile on` + icon + '.com'}>
             <IconButton>
               <Icon label={icon} name={icon} />
             </IconButton>
