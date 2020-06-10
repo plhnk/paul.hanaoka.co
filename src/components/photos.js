@@ -7,6 +7,7 @@ import {
   useColorMode,
 } from 'theme-ui';
 import Card from '../components/card';
+import {addReferral } from '../utilities'
 
 export default ({}) => {
 
@@ -25,6 +26,12 @@ export default ({}) => {
               regular
             }
             likes
+            id
+            user {
+              links {
+                html
+              }
+            }
             links {
               html
             }
@@ -36,6 +43,7 @@ export default ({}) => {
 
   const UnsplashPhotos = data.allUnsplashPhoto.edges.map(({ node }) => (
     <Card
+      id={node.id}
       cardStyles={{
         '::before': isDark
           ? null
@@ -52,9 +60,9 @@ export default ({}) => {
               zIndex: 1,
             },
       }}
-      primaryAssetLink={node.links.html}
+      primaryAssetLink={addReferral(node.links.html)}
       primaryAsset={node.urls.regular}
-      iconLink="https://unsplash.com/@plhnk"
+      iconLink={addReferral(node.user.links.html)}
       icon="unsplash"
       date={node.created_at}
       caption={node.description}

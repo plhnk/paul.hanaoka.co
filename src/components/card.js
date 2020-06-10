@@ -20,6 +20,7 @@ export default ({
   iconLink,
   icon,
   date,
+  id,
   caption,
 }) => {
   let alignments = ['flex-start', 'center', 'flex-end'];
@@ -32,6 +33,7 @@ export default ({
 
   return (
     <Card
+      id={id}
       sx={{
         alignSelf: `${randomAlignment}`,
         mt: 6,
@@ -70,3 +72,6 @@ export default ({
     </Card>
   );
 };
+
+// TODOs
+// add copy ID to clipboard
