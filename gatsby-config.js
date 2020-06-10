@@ -1,3 +1,5 @@
+
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -24,8 +26,17 @@ module.exports = {
         secretKey: process.env.UNSPLASH_SECRET_KEY,
         appId: process.env.UNSPLASH_ACCESS_KEY,
         collections: [`10621197`],
-        // optional: will only get page 1, so increase this count to include > 10 photos
         perPage: `100`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Paul Hanaoka`,
+        short_name: `paul.hanaoka.co`,
+        background_color: `#FFF`,
+        theme_color: `#0b5fff`,
+        include_favicon: false,
       },
     },
     {
