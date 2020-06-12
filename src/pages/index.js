@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { jsx, Box } from 'theme-ui';
 import Feed from '../components/feed';
+import SEO from '../components/seo';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -33,6 +34,11 @@ export default () => {
 
   return (
     <>
+      <SEO
+        description="Paul Hanaoka's website"
+        pageTitle="paul.hanaoka.co | Articles and resources for designers and developers."
+        twitterHandle='@plhnk'
+       />
       <Typography />
       <Sidebar
         image={data.lightImage.childImageSharp.fluid}

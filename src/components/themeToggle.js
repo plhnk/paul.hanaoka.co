@@ -6,13 +6,14 @@ export default props => {
   const [ mode, setMode ] = useColorMode()
   return (
     <IconButton
+      aria-label="Theme toggle"
       {...props}
       onClick={(e) => {
         const next = mode === 'dark' ? 'light' : 'dark';
         setMode(next);
       }}
     >
-      <Icon label={'Theme Toggle'} name={`${mode === 'dark' ? 'lightMode' : 'darkMode'}`} />
+      <Icon name={`${mode === 'dark' ? 'lightMode' : 'darkMode'}`} />
     </IconButton>
   );
 }

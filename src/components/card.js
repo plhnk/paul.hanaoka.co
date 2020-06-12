@@ -56,11 +56,11 @@ export default ({
         }}
       >
         <Link to={primaryAssetLink} aria-label={'link to photo of ' + alt + ' on Unsplash.com'}>
-          <Image alt={alt} src={primaryAsset} sx={{ width: '100%' }} loading='lazy' />
+          <Image alt={alt ? alt : 'photo by Paul Hanaoka from Unsplash.com'} src={primaryAsset} sx={{ width: '100%' }} loading='lazy' />
         </Link>
         <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to={iconLink} aria-label={`link to @plhnk's profile on` + icon + '.com'}>
-            <IconButton>
+            <IconButton aria-label={icon + 'button'}>
               <Icon label={icon} name={icon} />
             </IconButton>
           </Link>
