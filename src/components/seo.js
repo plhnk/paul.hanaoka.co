@@ -14,6 +14,7 @@ const SEO = ({
   return (
     <Helmet>
       <title>{pageTitle}</title>
+      <html lang="en" />
       {contentType ? (
         <meta property="og:type" content={contentType} />
       ) : (
