@@ -9,7 +9,7 @@ import {
 import Card from '../components/card';
 import {addReferral } from '../utilities'
 
-export default ({}) => {
+export default () => {
 
   const [mode] = useColorMode();
   const isDark = mode === 'dark';
