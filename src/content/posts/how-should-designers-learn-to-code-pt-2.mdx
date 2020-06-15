@@ -1,0 +1,455 @@
+---
+date: '2020-03-25'
+
+---
+
+
+[Source](https://www.smashingmagazine.com/2020/03/designers-code-git-hmtl-css-engineering-principles/ "Permalink to How Should Designers Learn To Code? Git, HTML/CSS, Engineering Principles (Part 2) — Smashing Magazine")
+
+# How Should Designers Learn To Code? Git, HTML/CSS, Engineering Principles (Part 2) — Smashing Magazine
+
+### About The Author
+
+Paul Hanaoka is a Design Manager at Liferay, based in the suburbs of Los Angeles, and serving the North American teams. His passion is at the intersection of … [More about Paul …][1]
+
+In [Part 1][2], Paul explained the basics of the terminal, shared a few productivity hacks to get you started, and how to choose a code editor. In this part, he'll continue with the topics of version control (Git), HTML and CSS, semantic code, and a brief introduction to some key engineering principles.
+
+![][3]![][4]
+
+Literally, [tomes][5] have been written on version control. Nevertheless, I will start by sharing a brief explanation and other introductory content to whet your appetite for further study.
+
+_Version control_ ([not to be confused with _version history_][6]) is basically a way for people to collaborate in their own environments on a single project, with a single main source of truth (often called the "master" branch).
+
+I'll go over today is the bare minimum you'll need to know in order to download a project, make a change, and then send it to master.
+
+_There are [many types][7] of version control software and many tools for managing and hosting your source code (you may have heard of GitLab or Bitbucket). Git and GitHub are one of the more common pairs, my examples will reference GitHub but the principles will apply to most other source code managers._
+
+**Aside**:
+
+#### Collecting Data, The Powerful Way
+
+Did you know that CSS can be used for collecting statistics? Indeed, there's even a CSS-only approach for tracking UI interactions using Google Analytics. [Read a related article →][8]
+
+### Your First Contribution
+
+Before doing these steps, you'll need a few things set up:
+
+1. A [GitHub][9] account,
+2. [Node and NPM installed][10] on your computer,
+3. A high tolerance for pain or a low threshold for asking others for help.
+
+#### Step 1: Fork (Get A Copy Of The Code On Your GitHub Account)
+
+On GitHub, you will fork _(fork = create a copy of the code in your account; in the following illustration, the blue, orange, red, and green lines show forks)_ the repository (repo) in question.
+
+![][11]By creating branches off of the master, it's possible for multiple people to contribute to different areas of a project and then merge their work together. ([Large preview][12])
+
+You do this by navigating to [the repo in GitHub][13] and clicking the "Fork" button, currently at the top right-hand corner of a repo. This will be the "origin" — your fork on your GitHub account.
+
+As an example, navigating to  should show your fork of the Liferay.Design repo.
+
+![][14]This is victorvalle's GitHub fork. ([Large preview][15])
+
+#### Step 2: Clone (Download The Code To Your Computer)
+
+In your terminal, navigate to where you'd like to store the code. Personally, I have a `/github` folder in my `/user` folder — it makes it easier for me to organize it this way. If you'd like to do that, here are the steps — after typing these commands into your terminal window, press the ↵ key to execute:
+    
+    
+    cd ~/             ## you'll usually start in your root directory, but just in case you don't this will take you there
+    mkdir github      ## this creates a "github" folder — on OSX it will now be located at users/your-username/github
+    cd github         ## this command navigates you inside the github folder
+
+Now that you're in the `/github` folder, you will clone (download a copy of the code onto your computer) the repo.
+    
+    
+    clone https://github.com/yourGitHubUsername/liferay.design
+
+Once you enter this command, you'll see a bunch of activity in the terminal — something like this:
+    
+    
+    Cloning into 'liferay.design'...
+    remote: Enumerating objects: 380, done.
+    remote: Total 380 (delta 0), reused 0 (delta 0), pack-reused 380
+    Receiving objects: 100% (380/380), 789.24 KiB | 2.78 MiB/s, done.
+    Resolving deltas: 100% (189/189), done.
+    
+
+#### Step 3: Install (Get It Running On Your Machine)
+
+Navigate into the `/project` folder. In this case, we'll enter `cd liferay.design`. Most projects will include a _README.md_ file in the `/root` folder, this is typically the starting place for installing and running the project. For our purposes, to install, enter `npm install`. Once it's installed, enter `npm run dev`.
+
+Congratulations! You now have the site available on your local computer — typically projects will tell you where it's running. In this case, open up a browser and go to `localhost:7777`.
+
+#### Step 4: Commit (Make Some Changes And Save Them)
+
+A commit is a collection of changes that you make; I've heard it described as saving your progress in a game. There are many opinions on how commits should be structured: mine is that you should create a commit when you've achieved one thing, and if you were to remove the commit, it wouldn't completely break the project (within reason).
+
+If you aren't coming to a repo with a change in mind, a good place to go is the 'Issues' tab. This is where you can see what needs to be done in the project.
+
+If you do have an idea for some change, go ahead and make it. Once you've saved the file(s), here are the steps required to create a commit:
+    
+    
+    git status                                         ## this will print out a list of files that you've made changes in
+    git add path/to/folder/or/file.ext                 ## this will add the file or folder to the commit
+    git commit -m 'Summarize the changes you've made'  ## this command creates a commit and a commit message
+
+**Tip**: _The best recommendation I've ever seen for commit messages is from Chris Breams's "[How To Write A Git Commit Message][16]". A properly formed Git commit subject line should always be able to complete the following sentence: "If applied, this commit will [your subject line here]." For more info on commits, check "[Why I Create Atomic Commits In Git][17]" by Clarice Bouwer._
+
+#### Step 5: Push (Send Your Changes To Your Origin)
+
+Once you've made some changes on your computer, before they can be merged into the master branch (added to the project), they need to be moved from your local to your remote repo. To do this, enter `git push origin` in the command line.
+
+#### Step 6: Pull Request (Ask For Your Changes To Be Merged Into Upstream)
+
+Now that your changes have gone from your fingers to your computer, to your remote repository — it's now time to ask for them to be merged into the project via a pull request (PR).
+
+The easiest way to do this is by going to your repo's page in GitHub. There will be a small message right above the file window that says "This branch is X commits ahead repo-name:branch" and then options to "Pull request" or "Compare".
+
+Clicking the "Pull request" option here will take you to a page where you can compare the changes and a button that says "Create pull request" will then take you to the "Open a pull request" page where you'll add a title and include a comment. Being brief, but detailed enough in the comment, will help project maintainers understand your proposed changes.
+
+There are CLI tools like [Node GH][18] (GitHub also recently released [a beta of their CLI tool][19]) that allow you to initiate and manage pull requests in the terminal. At this point you may prefer to use the web interface, and that's great! So do I.
+
+![][20]The 'Pull request' and 'Compare' options will appear once your fork has diverged from the upstream repo. ([Large preview][21])
+
+#### Bonus Step: Remote (Link All The Repos)
+
+At this point, we have three repository references:
+
+1. `upstream`: the main repo that you're tracking, often it's the repo that you forked;
+2. `origin`: the default name of the remote that you clone;
+3. `local`: the code that is currently on your computer.
+
+So far, you have #2 and #3 — but #1 is important because it's the primary source. Keeping these three things in-line with each other is going to help the commit history stay clean. This helps project maintainers as it eliminates (or at least minimizes) merge conflicts when you send pull requests (PR's) and it helps you get the latest code and keep your local and origin repositories up-to-date.
+
+#### Set An Upstream Remote
+
+To track the upstream remote, in your terminal enter the following:
+    
+    
+    git remote add upstream https://github.com/liferay-design/liferay.design
+
+Now, check to see what remotes you have available — enter `git remote -v` into your terminal, you should see something like:
+
+![][22]`origin` and `upstream` are the most common labels for remotes — 'origin' is your fork, 'upstream' is the source. ([Large preview][23])
+    
+    
+    origin   https://github.com/yourGitHubUsername/liferay.design (fetch)
+    origin    https://github.com/yourGitHubUsername/liferay.design (push)
+    upstream  https://github.com/liferay-design/liferay.design (fetch)
+    upstream  https://github.com/liferay-design/liferay.design (push)
+
+This will allow you to quickly get the latest version of what is upstream — if you haven't worked in a repo in a long time and don't have any local changes that you want to keep, this is a handy command that I use:
+    
+    
+    git pull upstream master && git reset --hard upstream/master
+
+[GitHub Help is a great resource for this][24] and many other questions you might have.
+
+### HTML And CSS: Starting With Semantics
+
+On the web, there is an endless supply of resources for learning HTML and CSS. For the purposes of this article, I'm sharing what I would recommend based on the mistakes I made how I first learned to write HTML and CSS.
+
+#### What Are HTML And CSS?
+
+Before we get any further, let's define HTML and CSS.
+
+HTML stands for HyperText Markup Language.
+
+Hypertext:
+
+> **"Hypertext** is text displayed on a [computer display][25] or other [electronic devices][26] with references ([hyperlinks][27]) to other text that the reader can immediately access."
+> 
+> — "Hypertext" on [Wikipedia][28]
+
+Markup Language:
+
+> "…a system for [annotating][29] a [document][30] in a way that is [syntactically distinguishable][31] from the text."
+> 
+> — "Markup Language" on [Wikipedia][32]
+
+In case you also don't know what a lot of those words mean — briefly put, HTML is the combination of references (links) between _documents_ on the web, and _tags_ that you use to give structure to those documents.
+
+![][33]There's an HTML5 tag for pretty much any basic element — otherwise you can always use a `div`! ([Large preview][34])
+
+For a thorough introduction to HTML and CSS, I highly recommend the [Introduction to HTML][35] and [CSS first steps][36], both on the _Mozilla Developer Network (MDN)_ web docs. That, along with the excellent articles that websites such as [CSS Tricks][37], [24 Ways][38] and countless of others provide, contain basically everything you'll ever need to reference with regards to HTML/CSS.
+
+There are two main parts of an **HTML** document: the `` and the ``. \- The `` contains things that aren't displayed by the browser — metadata and links to imported [stylesheets][39] and scripts. \- The `` contains the actual content that will be rendered by the browser. To render the content, the browser reads the HTML, provides a base layer of styles depending on the types of tags used, adds additional layers of styles provided by the website itself (the styles are included in/referenced from the ``, or are inline), and that is what we see in the end. (Note: There is often also the [additional layer of JavaScript][40] but it's outside of the scope of this article.)
+
+**CSS** stands for Cascading Style Sheets — it is used to extend the HTML by making it easier to give documents a custom look and feel. A style sheet is a document that tells the HTML what elements should look like (and how they should be positioned) by setting rules based on tags, classes, IDs, and other selectors. _Cascading_ refers to the method for determining which rules in a sheet take priority in the inevitable event of a rule conflict.
+
+> "'Cascading' means that styles can fall (or cascade) from one style sheet to another, enabling multiple style sheets to be used on one HTML document."
+> 
+> — [Cascade — Max Design][41]
+
+CSS often gets a bad reputation — in sites with lots of style sheets it can quickly become unwieldy, especially if there aren't documented, consistent methods used (more on that later) — but if you use it in an organized fashion and following all the best practices, CSS can be your best friend. Especially with the [layout capabilities][42] that are now available in most modern browsers, CSS is not nearly as necessary to hack and fight as it once was.
+
+Rachel Andrew wrote a great guide, [How To Learn CSS][43] — and one of the best things to know before you start is that:
+
+> "You don't need to commit to memorizing every CSS Property and Value."
+> 
+> — Rachel Andrew
+
+Instead, it's far more vital to learn the **fundamentals** — [selectors][44], [inheritance][45], [the box model][46], and most importantly, [how to debug your CSS][47] code (hint: you will need the [browser developer tools][48]).
+
+Don't worry about memorizing the syntax for the `background` property, and don't worry if you forget about how exactly to align stuff in Flexbox (the [CSS Tricks Guide to Flexbox][49] is possibly one of my top-10 most visited pages, ever!); Google and Stack Overflow are your friends when it comes to CSS properties and values.
+
+Some code editors even [have built-in autocomplete][50] so you don't even need to search on the web in order to be able to figure out all the possible properties of a border, for example.
+
+One of my favorite new features in Firefox 70 is the [inactive CSS rules indicator][51]. It will save you hours of time trying to figure out why a style isn't being applied.
+
+![][52]Kids these days have it so easy! ([Large preview][53])
+
+### Semantics
+
+Let's start with **semantic code**. Semantics refers to the meanings of words, semantic code refers to the idea that there is meaning to the markup in any given language.
+
+There are many reasons why semantics are important. If I could summarize this, I would say that if you learn and use semantic code, it will make your life a lot easier because you will get a lot of things for free — and who doesn't like free stuff?
+
+For a more complete introduction to semantic code, see [Paul Boag's brief blog post on the topic][54].
+
+Semantics gives you many benefits:
+
+1. **Default styles**  
+For example, using a headline tag `
+` for the title of your document will make it stand out from the rest of the document's contents, much like a headline would.
+2. **Accessible content**  
+[Your code will be accessible by default][55], meaning it will work with [screen readers][56] and will be easier to [navigate with a keyboard][57].
+3. **SEO benefits**  
+Semantic markup is easier for a machine to read, which makes it [more accessible to search engines][58].
+4. **Performance benefits**  
+[Clean HTML is the foundation][59] for a high-performing site. And clean HTML will also likely lead to cleaner CSS which means less code overall, making your site or app faster.
+
+**Note:** _For a more in-depth look into semantics and HTML, [Heydon Pickering][60] wrote "[Structural Semantics: The Importance Of HTML5 Sectioning Elements][61]" which I highly recommend reading._
+
+### Engineering Principles And Paradigms: The Basics
+
+#### Abstraction
+
+There are tons of applications, tangents, and levels we could explore over the concept of abstraction — too many for this article which is intended to give you a brief introduction into concepts so that you are aware of them as you continue to learn.
+
+Abstraction is a foundational engineering paradigm with a wide variety of applications — for the purposes of this article, abstraction is separating form from function. We'll apply this in three areas: tokens, components, and the Don't Repeat Yourself principle.
+
+##### Tokens
+
+If you've used a modern design tool for any length of time, you've probably encountered the idea of a **token**. Even Photoshop and Illustrator now have this idea of shared styles in a centralized library — instead of hard-coding values into a design, you use a token. If you're familiar with the concept of CSS or SASS variables, you're already familiar with tokens.
+
+One layer of abstraction with tokens is to assign a name to a color — for example, `$blue-00` can be mapped to a hex value (or an HSL value, or whatever you want) — let's say `#0B5FFF`. Now, instead of using the hex value in your stylesheets, you use the token value — that way if you decide that `blue-00` is actually `#0B36CE`, then you only have to change it in a single place. This is a nice concept.
+
+![][62]Tokens for colors in the Lexicon Alerts component helps keep things DRY. ([Large preview][63])
+
+If you take this same paradigm of abstraction and go a layer further, you can _token-ception_ — and assign a variable to a functional value. This is particularly useful if you have a robust system and want to have different themes within the system. A functional example of this would be assigning a variable like `$primary-color` and map that to `$blue-00` — so now you can create markup and instead of referencing blue, you're referencing a functional variable. If you ever want to use the same markup, but with a different style (theme), then you only need to map `$primary-color` to a new color, and your markup doesn't need to change at all! Magic!
+
+##### Components
+
+In the past 3-4 years, the idea of components and [componentization][64] has become more relevant and accessible to designers. The concept of symbols ([pioneered by Macromedia/Adobe Fireworks][65], later [expanded by Sketch][66], and then taken to the next level by Figma and Framer), is now more widely available in most design tools (Adobe XD, InVision Studio, Webflow, and many others). Componentization, even more than tokens, can separate the form of something from the function of it — which helps to improve both the form and the function.
+
+One of the more notable early examples is [Nicole Sullivan's media object component][67]. At first glance you might not realize that a whole page is essentially composed of a single component, rendered in different ways. In this way, we can re-use the same markup (form), modifying it slightly by passing in options or parameters, and styles — and have it provide a variety of value (function).
+
+##### Don't Repeat Yourself
+
+**DRY** ([Don't Repeat Yourself][68]) is one of my favorite principles — creating things that can be reused over and over is one of the small victories you can have when coding.
+
+While you often can't ([and arguably shouldn't][69]) strive to apply the DRY principle 100% of the time, every time — it's at least beneficial to be aware of this so that as you're working, you can consider how you can make whatever you're working on more reusable.
+
+**A note on the Rule of Three:** A corollary to the DRY principle is the rule of three — essentially, once you re-use (copy/paste) something three times, you should rewrite it into a reusable component. Like the [Pirate's Code][70], it's more of a guideline than a hard and fast rule, and can vary from component to component and from project to project.
+
+### CSS And Styling Methodologies: Atomic vs. BEM
+
+There are a lot of different ways to organize and write CSS code — Atomic and BEM are only two of the many that you're likely to come across. You don't have to "pick" a single one, nor do you have to follow them exactly. Most of the teams I've worked with usually have their own unique blend, based on the project or technology. It is helpful to be familiar with them so that over time, you can learn which approach to take depending on the situation.
+
+All of these approaches go beyond "just" CSS and styling, and can often influence the tooling you use, the way you organize your files, and potentially the markup.
+
+#### Atomic CSS
+
+Not to be confused with Atomic Web Design — atomic (perhaps more aptly referred to as "functional") CSS, is a methodology that essentially favors using small, single-purpose classes to define visual functions. A few notable libraries:
+
+1. [Atomic CSS][71] by [Steve Carlson][72];
+2. [Tachyons][73] by [Adam Morse][74];
+3. [Tailwind CSS][75] by [Adam Wathan][76].
+
+What I like about this method is that it allows you to quickly style and theme things — one of the biggest drawbacks is that your markup can get pretty cluttered, pretty fast.
+
+Check [John Polacek's article on CSS-tricks][77] for a full introduction to Atomic CSS.
+
+#### BEM
+
+The BEM philosophy is a great precursor to a lot of the modern JavaScript frameworks like Angular, React, and Vue.
+
+> "BEM (Block, Element, Modifier) is a component-based approach to web development."
+> 
+> — [BEM: Quick Start][78]
+
+Basically, everything that can be reused is a block. Blocks are comprised of elements, something that can't be used outside of a block, and potentially other blocks. Modifiers are things that describe the status of something or the way it looks or behaves.
+
+Personally, I like the theory and philosophy of BEM. What I do not like is the way that things are named. Way too many underscores, hyphens, and it can feel unnecessarily repetitive (`.menu`, `.menu__item`, etc).
+
+**Recommended reading**: [_BEM For Beginners][79] written by Inna Belaya_
+
+### Thank U, Next(.js)
+
+After you have sufficiently mastered these topics, don't worry, there is still plenty to learn. Some suggestions:
+
+1. **Functional and object-oriented programming**  
+We touched on it lightly, but there's plenty more to learn beyond CSS.
+2. **Higher-level languages and frameworks**  
+Typescript, Ruby, React, Vue are the next things you'll tackle once you have a strong grasp of HTML and CSS.
+3. **Querying languages and using data**  
+Learning about GraphQL, MySQL, REST APIs will take your coding ability to the next level.
+
+### Conclusion: Designers Who Code != Software Engineers
+
+Hopefully, this article has shown you that learning to code isn't as difficult as you may have previously thought. It can take a lot of time, but the amount of resources available on the internet is astounding, and they're not decreasing — quite the opposite!
+
+One significant point that I want to emphasize is that "coding" is not the same as "software engineering" — being able to fork a repo and copy/paste in code from Stack Overflow can get you a long way, and while most, if not all, software engineers that I know have done that — you must use your new-found skills with wisdom and humility. For everything you can now access with some engineering prowess, there is that much more that you don't know. While you may think that a feature or style is easy to accomplish because — "Hey, I got it working in devtools!" or "I made it work in Codepen." — there are many engineering processes, dependencies, and methods that you probably don't know that you don't know.
+
+All of that is to say — don't forget that we are still designers. Our primary function is to add business value through the lens of understanding customer or user problems and synthesizing them with our knowledge of design patterns, methods, and processes. Yes, being a "designer who writes code" can be very useful and will expand your ability to add this value — but we still need to let engineers make the engineering decisions.
+
+### Anything Amiss?
+
+There's a good chance that something in this post was obscure, obtuse, and/or obsolete and I'd love the opportunity to make it better! Please leave a comment below, [DM me][80], or [@mention][81] me on Twitter so I can improve.
+
+#### Further Reading
+
+1. [Coding Bootcamps vs. Computer Science Degrees: What Employers Want and Other Perspectives][82] (Kyle Thayer)
+2. [How To Start Using Sketch And Framer X][83] (by Martina Pérez, _Smashing Magazine_)
+3. [Introduction To Linux Commands][84] (by Paul Tero, _Smashing Magazine_)
+4. [Become A Command-Line Power User With Oh My ZSH And Z][85] (by Wes Bos, _Smashing Magazine_)
+5. [A list of the common cmd.exe and Unix commands that you can use in PowerShell][86] (_Microsoft Docs_)
+6. [regular-expressions.info][87] (by Jan Goyvaerts)
+7. [regexone.com][88] (learn regular expressions with simple interactive exercises)
+8. [Batch Resizing Using Command Line and ImageMagick][89] (by Vlad Gerasimov, _Smashing Magazine_)
+9. [Shortcuts And Tips For Improving Your Productivity With Sublime Text][90] (by Jai Pandya, _Smashing Magazine_)
+10. [Visual Studio Code Can Do That?][91] (by Burke Holland, _Smashing Magazine_)
+11. [Why version history is not version control][6] (by Josh Brewer)
+12. [Modern Version Control With Git][5] (by Tobias Günther, _Smashing Magazine_)
+13. "[Hello World][92]" (a GitHub step-by-step guide)
+14. [How to Install Node.js and NPM on a Mac][10] (by Dave McFarland)
+15. [How to Install Node.js and NPM on Windows][93] (by Dejan Tucakov)
+16. [Why I Create Atomic Commits In Git][17] (by Clarice Bouwer)
+17. [How to Write a Git Commit Message][16] (by Chris Breams)
+18. [Semantic code: What? Why? How?][54] (by Paul Boag)
+19. [Structural Semantics: The Importance Of HTML5 Sectioning Elements][61] (by Heydon Pickering, _Smashing Magazine_)
+20. [Designing for Performance: Chapter 4. Optimizing Markup and Styles][59] (by Lara C. Hogan, _O'Reilly Media_)
+21. [The media object saves hundreds of lines of code][67] (by Nicole Sullivan)
+22. [Let's Define Exactly What Atomic CSS is][77] (by John Polacek, _CSS Tricks_)
+23. [BEM For Beginners: Why You Need BEM][79] (by Inna Belaya, _Smashing Magazine_)
+24. [Javascript for Cats: An Introduction for New Programmers][94]
+25. [Roadmap.sh: Frontend Developer][95]
+26. [Functional Programming vs OOPS : Explain Like I'm Five][96]
+27. [Why, How, and When to Use Semantic HTML and ARIA][97] (by Adam Silver, _CSS Tricks_)
+28. [HTML Semantics][98] (an eBook by _Smashing Magazine_)
+29. [The Fundamentals - HTML + CSS][99] (on _Syntax.fm_)
+30. [Cascade and inheritance][100] (_westciv.com_)
+31. [CSS Tricks][37] (by Chris Coyier)
+32. [Getting Started With CSS Layout][42] (by Rachel Andrew, _Smashing Magazine_)
+33. [Introduction to HTML][35] (MDN web docs)
+34. [CSS first steps][36] (MDN web docs)
+35. [JavaScript First Steps][101] (MDN web docs)
+36. [24 Ways][38] (by Drew McLellan)
+
+![Smashing Editorial][102](mb, yk, il)
+
+[1]: https://www.smashingmagazine.com/author/paul-hanaoka
+[2]: https://www.smashingmagazine.com/2020/03/designers-code-terminal-text-editors-part-1/
+[3]: https://d33wubrfki0l68.cloudfront.net/73ae9a5f3947dc0730d42afa48120e36f5c13df0/0b5f8/images/drop-caps/l.svg
+[4]: https://d33wubrfki0l68.cloudfront.net/2d4a805b5770b0063ce363f2fe29b980ed891889/c08aa/images/drop-caps/character-11.svg
+[5]: https://www.smashingmagazine.com/2011/07/modern-version-control-with-git-series/
+[6]: https://www.abstract.com/blog/version-history-version-control/
+[7]: https://en.wikipedia.org/wiki/Version_control
+[8]: https://www.smashingmagazine.com/2014/10/css-only-solution-for-ui-tracking/
+[9]: https://github.com/join
+[10]: https://blog.teamtreehouse.com/install-node-js-npm-mac
+[11]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/eb358ddf-c45f-419c-a1d4-758874fd5d78/1-git-hmtl-css-engineering-principles.png
+[12]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/de0fca56-aa6f-48bb-9608-12800110d89d/1-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[13]: http://github.com/liferay-design/liferay.design
+[14]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0852a45-02a9-4e4a-8342-6311e4258ab6/7-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[15]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0852a45-02a9-4e4a-8342-6311e4258ab6/7-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[16]: https://chris.beams.io/posts/git-commit/
+[17]: https://dev.to/cbillowes/why-i-create-atomic-commits-in-git-kfi
+[18]: http://nodegh.io/
+[19]: https://cli.github.com/
+[20]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/c6750237-a47a-4bd2-8635-cf2e37a7b75a/6-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[21]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/c6750237-a47a-4bd2-8635-cf2e37a7b75a/6-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[22]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/e51fc5e1-1cf1-4da9-a8ac-bf7d55305b29/5-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[23]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/e51fc5e1-1cf1-4da9-a8ac-bf7d55305b29/5-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[24]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
+[25]: https://en.wikipedia.org/wiki/Computer_display
+[26]: https://en.wikipedia.org/wiki/Electronic_devices
+[27]: https://en.wikipedia.org/wiki/Hyperlinks
+[28]: https://en.wikipedia.org/wiki/Hypertext
+[29]: https://en.wikipedia.org/wiki/Annotation
+[30]: https://en.wikipedia.org/wiki/Document
+[31]: https://en.wikipedia.org/wiki/Syntax_(logic)
+[32]: https://en.wikipedia.org/wiki/Markup_language
+[33]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/27ad60d8-9636-4806-a770-ddabeb324e64/3-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[34]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/27ad60d8-9636-4806-a770-ddabeb324e64/3-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[35]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML
+[36]: https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps
+[37]: https://css-tricks.com/
+[38]: https://24ways.org/
+[39]: https://www.w3.org/TR/REC-html40/present/styles.html
+[40]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[41]: http://css.maxdesign.com.au/selectutorial/advanced_cascade.htm
+[42]: https://www.smashingmagazine.com/2018/05/guide-css-layout/
+[43]: https://www.smashingmagazine.com/2019/01/how-to-learn-css/
+[44]: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
+[45]: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance
+[46]: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model
+[47]: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS
+[48]: https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools
+[49]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+[50]: https://code.visualstudio.com/docs/editor/intellisense
+[51]: https://hacks.mozilla.org/2019/10/firefox-70-a-bountiful-release-for-all/#developertools
+[52]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/4b1c7302-d01f-4869-b491-bb5cdc6c9e84/4-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[53]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/4b1c7302-d01f-4869-b491-bb5cdc6c9e84/4-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[54]: https://boagworld.com/dev/semantic-code-what-why-how/
+[55]: https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML
+[56]: https://alistapart.com/article/semantics-to-screen-readers/
+[57]: https://web.dev/use-semantic-html/
+[58]: https://dev.to/yashints/let-s-talk-seo-10-tips-you-should-know-4n6k
+[59]: https://www.oreilly.com/library/view/designing-for-performance/9781491903704/ch04.html
+[60]: https://twitter.com/heydonworks
+[61]: https://www.smashingmagazine.com/2013/01/the-importance-of-sections/
+[62]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/8e93dd0c-6186-431c-a40c-40f7a7161b66/2-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[63]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/8e93dd0c-6186-431c-a40c-40f7a7161b66/2-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+[64]: https://en.wikipedia.org/wiki/Component-based_software_engineering
+[65]: https://www.smashingmagazine.com/2012/06/developing-a-design-workflow-in-adobe-fireworks/#creating-and-using-symbols
+[66]: https://www.smashingmagazine.com/2017/04/symbols-sketch/
+[67]: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+[68]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+[69]: https://dev.to/wuz/stop-trying-to-be-so-dry-instead-write-everything-twice-wet-5g33
+[70]: https://www.youtube.com/watch?v=k9ojK9Q_ARE
+[71]: https://acss.io/
+[72]: https://github.com/src-code
+[73]: http://tachyons.io/
+[74]: http://mrmrs.cc/
+[75]: https://tailwindcss.com/
+[76]: https://github.com/adamwathan
+[77]: https://css-tricks.com/lets-define-exactly-atomic-css/
+[78]: https://en.bem.info/methodology/quick-start/
+[79]: https://www.smashingmagazine.com/2018/06/bem-for-beginners/
+[80]: https://twitter.com/messages/compose?recipient_id=46027705
+[81]: https://twitter.com/compose/tweet
+[82]: https://medium.com/bits-and-behavior/coding-bootcamps-vs-computer-science-degrees-what-employers-want-and-other-perspectives-4058a67e4f15
+[83]: https://www.smashingmagazine.com/2019/06/start-using-sketch-framer-x/
+[84]: https://www.smashingmagazine.com/2012/01/introduction-to-linux-commands/
+[85]: https://www.smashingmagazine.com/2015/07/become-command-line-power-user-oh-my-zsh-z/
+[86]: https://docs.microsoft.com/en-us/powershell/scripting/learn/using-familiar-command-names?view=powershell-7
+[87]: https://www.regular-expressions.info
+[88]: http://regexone.com
+[89]: https://www.smashingmagazine.com/2012/09/resizing-bash-script-batch-resizing-using-command-line/
+[90]: https://www.smashingmagazine.com/2016/06/shortcuts-and-tips-for-improving-your-productivity-with-sublime-text/
+[91]: https://www.smashingmagazine.com/2018/01/visual-studio-code/
+[92]: https://guides.github.com/activities/hello-world/
+[93]: https://phoenixnap.com/kb/install-node-js-npm-on-windows
+[94]: http://jsforcats.com/
+[95]: https://roadmap.sh/frontend
+[96]: https://dev.to/nijeesh4all/functional-programming-vs-oops--explain-x-like-im-five-2fnc
+[97]: https://css-tricks.com/why-how-and-when-to-use-semantic-html-and-aria/
+[98]: https://www.smashingmagazine.com/ebooks/html-semantics/
+[99]: https://syntax.fm/show/158/the-fundamentals-html-css
+[100]: http://www.westciv.com/style_master/academy/css_tutorial/advanced/cascade_inheritance.html
+[101]: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps
+[102]: https://www.smashingmagazine.com/images/logo/logo--red.png
+
+  
