@@ -8,6 +8,6 @@ import Posts from './posts';
 export default () => 
 
     <Wrapper>
-      <Photos />
       <Posts />
+      <Photos />
     </Wrapper>

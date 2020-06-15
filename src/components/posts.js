@@ -24,6 +24,8 @@ export default () => {
             frontmatter {
               tags
               title
+              sortDate: date(formatString: "YY-MM-DD")
+              displayDate: date(fromNow: true)
             }
             fields {
               slug
@@ -36,9 +38,10 @@ export default () => {
   `);
 
   const Posts = data.allMdx.edges.map(({ node }) => (
-    <Box>
+    <Box sortDate={node.frontmatter.sortDate}>
       <Link to={node.fields.slud}>{node.frontmatter.title}</Link>
       <Text>{node.excerpt}</Text>
+      <Text>{node.frontmatter.displayDate}</Text>
     </Box>
   ));
 
