@@ -1,19 +1,21 @@
+/** @jsx jsx */
+
+import { jsx, Box } from 'theme-ui';
+import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-
 import { graphql } from 'gatsby';
-import React, { Component } from 'react';
 
-export default class Posts extends Component {
+export default class Posts extends React.Component {
   render() {
     const post = this.props.data.mdx;
 
     return (
-      <div>
+      <Box>
         {post.frontmatter.tags}
         <MDXRenderer>
           <div>{post.body}</div>
         </MDXRenderer>
-      </div>
+      </Box>
     );
   }
 }
