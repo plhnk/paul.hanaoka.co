@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import {
   Text,
   jsx,
-  Flex,
   useColorMode,
   Box,
 } from 'theme-ui';
@@ -45,5 +44,5 @@ export default () => {
     </Box>
   ));
 
-  return <Flex sx={{ flexDirection: 'column' }}>{Posts}</Flex>;
+  return Posts;
 };

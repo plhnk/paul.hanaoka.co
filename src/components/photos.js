@@ -73,5 +73,5 @@ export default () => {
     />
   ));
 
-  return <Flex sx={{ flexDirection: 'column' }}>{UnsplashPhotos}</Flex>;
+  return UnsplashPhotos;
 };
