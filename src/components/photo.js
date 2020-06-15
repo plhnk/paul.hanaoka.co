@@ -33,7 +33,7 @@ export default ({
   const isDark = mode === 'dark';
 
   return (
-    <Photo
+    <Card
       id={id}
       sx={{
         alignSelf: `${randomAlignment}`,
@@ -70,7 +70,7 @@ export default ({
       <Text sx={{ mt: 3, ml: 3, color: 'neutral4', variant: 'text.italic' }}>
         {caption}
       </Text>
-    </Photo>
+    </Card>
   );
 };
 
