@@ -6,7 +6,7 @@ import {
   Flex,
   useColorMode,
 } from 'theme-ui';
-import Card from '../components/card';
+import Photo from './photo';
 import {addReferral } from '../utilities'
 
 export default () => {
@@ -43,7 +43,7 @@ export default () => {
   `);
 
   const UnsplashPhotos = data.allUnsplashPhoto.edges.map(({ node }) => (
-    <Card
+    <Photo
       id={node.id}
       cardStyles={{
         '::before': isDark
