@@ -21,7 +21,8 @@ export default () => {
           node {
             alt_description
             description
-            created_at(fromNow: true)
+            displayDate: created_at(fromNow: true) 
+            sortDate: created_at(formatString: "YY-MM-DD")
             urls {
               small
               regular
@@ -66,7 +67,8 @@ export default () => {
       primaryAsset={node.urls.regular}
       iconLink={addReferral(node.user.links.html)}
       icon="unsplash"
-      date={node.created_at}
+      displayDate={node.displayDate}
+      sortDate={node.sortDate}
       caption={node.description}
     />
   ));

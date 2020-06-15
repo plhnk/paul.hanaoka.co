@@ -20,7 +20,8 @@ export default ({
   primaryAsset,
   iconLink,
   icon,
-  date,
+  displayDate,
+  sortDate,
   id,
   caption,
 }) => {
@@ -34,6 +35,7 @@ export default ({
 
   return (
     <Card
+      sortDate={sortDate}
       id={id}
       sx={{
         alignSelf: `${randomAlignment}`,
@@ -64,7 +66,7 @@ export default ({
               <Icon label={icon} name={icon} />
             </IconButton>
           </Link>
-          <Text>{date}</Text>
+          <Text>{displayDate}</Text>
         </Flex>
       </Box>
       <Text sx={{ mt: 3, ml: 3, color: 'neutral4', variant: 'text.italic' }}>
