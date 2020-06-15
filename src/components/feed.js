@@ -3,7 +3,7 @@
 import { sortBy } from 'lodash';
 import moment from 'moment';
 import { useStaticQuery, graphql } from 'gatsby';
-import { jsx, Text, Box, useColorMode } from 'theme-ui';
+import { jsx, Text, Flex, Box, useColorMode } from 'theme-ui';
 import Photo from './photo';
 import { addReferral } from '../utilities';
 import Link from './link';
@@ -104,5 +104,6 @@ export default () => {
 
   const LinearFeed = sortBy(Feed, sortByProperty);
 
-  return <div>{LinearFeed}</div>;
+  return <Flex sx={{flexDirection: 'column'}}>{UnsplashPhotos}</Flex>;
+  // return <div>{LinearFeed}</div>;
 };
