@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { jsx, Box } from 'theme-ui';
 import Feed from '../components/feed';
 import SEO from '../components/seo';
+import TimeSensitiveTheme from '../components/timeSensitiveTheme';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -40,6 +41,7 @@ export default () => {
         twitterHandle='@plhnk'
        />
       <Typography />
+      <TimeSensitiveTheme />
       <Sidebar
         image={data.lightImage.childImageSharp.fluid}
         darkImage={data.darkImage.childImageSharp.fluid}
