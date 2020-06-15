@@ -1,7 +1,9 @@
 /** @jsx jsx */
 
+import { sortBy } from 'lodash';
+import moment from 'moment';
 import { useStaticQuery, graphql } from 'gatsby';
-import { jsx, Text, Box, Flex, useColorMode } from 'theme-ui';
+import { jsx, Text, Box, useColorMode } from 'theme-ui';
 import Photo from './photo';
 import { addReferral } from '../utilities';
 import Link from './link';
@@ -18,7 +20,7 @@ export default () => {
             alt_description
             description
             displayDate: created_at(fromNow: true)
-            sortDate: created_at(formatString: "YY-MM-DD")
+            sortDate: created_at
             urls {
               small
               regular
@@ -43,7 +45,7 @@ export default () => {
             frontmatter {
               tags
               title
-              sortDate: date(formatString: "YY-MM-DD")
+              sortDate: date
               displayDate: date(fromNow: true)
             }
             fields {
@@ -56,9 +58,10 @@ export default () => {
     }
   `);
 
-  const UnsplashPhotos = data.allUnsplashPhoto.edges.map(({ node }) => (
+  const UnsplashPhotos = data.allUnsplashPhoto.edges.map(({ node }, index) => (
     <Photo
       id={node.id}
+      key={node.id}
       cardStyles={{
         '::before': isDark
           ? null
@@ -81,23 +84,25 @@ export default () => {
       iconLink={addReferral(node.user.links.html)}
       icon="unsplash"
       displayDate={node.displayDate}
-      sortDate={node.sortDate}
+      sortDate={moment(node.sortDate).toDate()}
       caption={node.description}
     />
   ));
 
-  const Posts = data.allMdx.edges.map(({ node }) => (
-    <Box sortDate={node.frontmatter.sortDate}>
+  const Posts = data.allMdx.edges.map(({ node }, index) => (
+    <Box sortDate={moment(node.frontmatter.sortDate).toDate()} key={node.id}>
       <Link to={node.fields.slud}>{node.frontmatter.title}</Link>
       <Text>{node.excerpt}</Text>
       <Text>{node.frontmatter.displayDate}</Text>
     </Box>
   ));
 
-  return (
-    <Flex>
-      <div>{Posts}</div>
-      <div>{UnsplashPhotos}</div>
-    </Flex>
-  );
+  const Feed = [...Posts, ...UnsplashPhotos]; // make a new array w/all items
+
+  // choose a way to sort — note the negative sets its to most recent post first
+  const sortByProperty = (obj) => -obj.props.sortDate;
+
+  const LinearFeed = sortBy(Feed, sortByProperty);
+
+  return <div>{LinearFeed}</div>;
 };
