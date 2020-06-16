@@ -1,36 +1,49 @@
 /** @jsx jsx */
 
-import React from 'react';
-import { graphql } from 'gatsby';
-import { Layout } from '../layouts/posts'
+// import { sortBy } from 'lodash';
+import moment from 'moment';
+import { useStaticQuery, graphql } from 'gatsby';
+import { jsx, Text, Flex, Box, useColorMode } from 'theme-ui';
+import Wrapper from '../components/wrapper';
+import Link from '../components/link';
 
-import { jsx } from 'theme-ui';
+export default () => {
+  const [mode] = useColorMode();
+  const isDark = mode === 'dark';
 
-export default ({ data }) => {
-  return (
-      <Layout>
-        {data.allMdx.edges.map(({ node }, index) => (
-            <div>{node.fields.slug}</div>
-        ))}
-      </Layout>
-  );
-};
-
-export const query = graphql`
-  {
-    allMdx {
-      edges {
-        node {
-          id
-          frontmatter {
-            tags
-            title
-          }
-          fields {
-            slug
+  const data = useStaticQuery(graphql`
+    {
+      allMdx {
+        edges {
+          node {
+            id
+            frontmatter {
+              tags
+              title
+              sortDate: date
+              displayDate: date(fromNow: true)
+            }
+            fields {
+              slug
+            }
+            excerpt
           }
         }
       }
     }
-  }
-`;
+  `);
+
+  const Posts = data.allMdx.edges.map(({ node }, index) => (
+    <Box sortDate={moment(node.frontmatter.sortDate).toDate()} key={node.id}>
+      <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+      <Text>{node.excerpt}</Text>
+      <Text>{node.frontmatter.displayDate}</Text>
+    </Box>
+  ));
+
+  return (
+    <Wrapper>
+      <Flex sx={{ flexDirection: 'column' }}>{Posts}</Flex>;
+    </Wrapper>
+  );
+};
