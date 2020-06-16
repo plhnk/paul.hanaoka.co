@@ -7,6 +7,7 @@ import { jsx, Flex, useColorMode } from 'theme-ui';
 // import { jsx, Text, Flex, Box, useColorMode } from 'theme-ui';
 import Photo from './photo';
 import { addReferral } from '../utilities';
+import Wrapper from './wrapper';
 // import Link from './link';
 
 export default () => {
@@ -105,6 +106,10 @@ export default () => {
 
   // const LinearFeed = sortBy(Feed, sortByProperty);
 
-  return <Flex sx={{flexDirection: 'column'}}>{UnsplashPhotos}</Flex>;
+  return (
+    <Wrapper>
+      <Flex sx={{ flexDirection: 'column' }}>{UnsplashPhotos}</Flex>;
+    </Wrapper>
+  );
   // return <div>{LinearFeed}</div>;
 };
