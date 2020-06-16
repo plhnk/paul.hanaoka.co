@@ -5,11 +5,11 @@ import Footer from '../components/footer';
 import NavBar from '../components/navbar';
 
 import Typography from '../components/typography';
-
+import SEO from '../components/seo';
+import TimeSensitiveTheme from '../components/timeSensitiveTheme';
 import { jsx, Box } from 'theme-ui';
 
-export default ({children}) => {
-
+function MainLayout(props) {
   return (
     <>
       <SEO
@@ -18,6 +18,8 @@ export default ({children}) => {
         twitterHandle="@plhnk"
       />
       <Typography />
+      <TimeSensitiveTheme />
+      <>{props.sidebar}</>
       <Box
         sx={{
           width: ['100%', null, '56%'],
@@ -35,11 +37,11 @@ export default ({children}) => {
             }}
           />
         </header>
-        <main>
-          {children}
-        </main>
+        <main>{props.mainContent}</main>
         <Footer />
       </Box>
     </>
   );
-};
+}
+
+export default MainLayout;

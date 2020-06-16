@@ -1,17 +1,14 @@
 /** @jsx jsx */
 
 import React from 'react';
-import Footer from '../components/footer';
 import Hero from '../components/hero';
-import NavBar from '../components/navbar';
 import Sidebar from '../components/sidebar';
-import Typography from '../components/typography';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { jsx, Box } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import Feed from '../components/feed';
-import SEO from '../components/seo';
-import TimeSensitiveTheme from '../components/timeSensitiveTheme';
+
+import MainLayout from '../layouts/main';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -34,36 +31,17 @@ export default () => {
   `);
 
   return (
-    <>
-      <SEO
-        description="Paul Hanaoka's website"
-        pageTitle="paul.hanaoka.co | Articles and resources for designers and developers."
-        twitterHandle='@plhnk'
-       />
-      <Typography />
-      <TimeSensitiveTheme />
-      <Sidebar
-        image={data.lightImage.childImageSharp.fluid}
-        darkImage={data.darkImage.childImageSharp.fluid}
-      />
-      <Box
-        sx={{
-          width: ['100%', null, '56%'],
-          ml: [null, null, '44%'],
-        }}
-      >
-        <header>
-          <NavBar
-            sx={{
-              p: 3,
-              width: '100%',
-              ml: [null, null, '-44%'],
-              position: 'fixed',
-              bottom: 0,
-            }}
-          />
-        </header>
-        <main>
+    <MainLayout
+      sidebar=
+      {
+        <Sidebar
+          image={data.lightImage.childImageSharp.fluid}
+          darkImage={data.darkImage.childImageSharp.fluid}
+        />
+      }
+      mainContent=
+      {
+        <>
           <Hero
             pretitle="Friendly introduction"
             title={
@@ -76,9 +54,8 @@ export default () => {
             subtitle="Brief, witty bio — a small, but noteworthy achievement."
           />
           <Feed />
-        </main>
-        <Footer />
-      </Box>
-    </>
+        </>
+      }
+    />
   );
 };
