@@ -1,67 +1,61 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
-const _ = require('lodash');
-const moment = require(`moment`);
+const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
+  // you only want to operate on `Mdx` nodes for now. 
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode }).replace('/content/', '/');
+    const value = createFilePath({ node, getNode });
 
     createNodeField({
-      node,
+      // Name of the field you are adding
       name: 'slug',
-      value: slug,
+      // Individual MDX node
+      node,
+      // use filename as slug
+      value: `${value}`,
     });
   }
 };
 
-// disable createPages until I can figure out layouts 
-// exports.createPages = ({ actions, graphql }) => {
-//   const { createPage } = actions;
+const path = require('path');
 
-//   const markdown = graphql(`
-//     {
-//       markdown: allMdx {
-//         edges {
-//           node {
-//             id
-//             fields {
-//               slug
-//             }
-//             frontmatter {
-//               tags
-//             }
-//             body
-//           }
-//         }
-//       }
-//     }
-//   `).then(({ data, errors }) => {
-//     if (errors) {
-//       console.log(
-//         'Error creating markdown pages in `createPages` call ==>',
-//         errors
-//       );
-//       reject(errors);
-//     }
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // Destructure the createPage function from the actions object
+  const { createPage } = actions;
 
-//     const pages = data.markdown.edges;
-//     pages.forEach(({ node }) => {
-//       const template = node.fields.slug.split('/')[1];
+  const result = await graphql(`
+    query {
+      allMdx {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
 
-//       const templateFile = path.resolve(`./src/layouts/${template}.js`);
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
 
-//       createPage({
-//         path: node.fields.slug,
-//         component: templateFile,
-//         context: {
-//           slug: node.fields.slug,
-//         },
-//       });
-//     });
-//   });
+  // Create blog post pages.
+  const posts = result.data.allMdx.edges;
 
-//   return Promise.all([markdown]);
-// };
+  // you'll call `createPage` for each result
+  posts.forEach(({ node }, index) => {
+    createPage({
+      // This is the slug craeted above
+      path: node.fields.slug,
+      // This component will wrap our MDX content
+      component: path.resolve(`./src/layouts/posts.js`),
+      // You can use the values in this context in
+      // our page layout component
+      context: { id: node.id },
+    });
+  });
+};

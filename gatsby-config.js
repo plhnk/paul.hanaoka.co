@@ -11,7 +11,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/src/content`,
+        path: `${__dirname}/src/content/posts/`,
       },
     },
     {
@@ -38,12 +38,6 @@ module.exports = {
         background_color: `#FFF`,
         theme_color: `#0b5fff`,
         include_favicon: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/content`,
       },
     },
     {

@@ -1,34 +1,44 @@
 /** @jsx jsx */
 
-import { jsx, Box } from 'theme-ui';
-import React from 'react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { jsx, Styled, Flex } from 'theme-ui';
 import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import MainLayout from './main';
 
-export default class Posts extends React.Component {
-  render() {
-    const post = this.props.data.mdx;
+import Link from '../components/link';
+import SEO from '../components/seo';
 
-    return (
-      <Box>
-        {post.frontmatter.tags}
-        <MDXRenderer>
-          <div>{post.body}</div>
-        </MDXRenderer>
-      </Box>
-    );
-  }
-}
+const shortcodes = { Link }; // Provide common components here
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      timeToRead
-      frontmatter {
-        tags
+export default function PageTemplate({ data: { mdx } }) {
+  const H1 = Styled.h1
+
+  return (
+    <MainLayout
+      sidebar={
+        <Flex>
+          <SEO canonicalLink={mdx.frontmatter.canonicalLink} />
+          <H1>{mdx.frontmatter.title}</H1>
+        </Flex>
       }
-      excerpt
+      mainContent={
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </MDXProvider>
+      }
+    />
+  );
+}
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
       body
+      frontmatter {
+        title
+        canonicalLink
+      }
     }
   }
 `;
