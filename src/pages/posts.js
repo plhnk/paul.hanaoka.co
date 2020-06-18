@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { jsx, Text, Flex, Box, useColorMode, Styled } from 'theme-ui';
 import Wrapper from '../components/wrapper';
 import Link from '../components/link';
+import MainLayout from '../layouts/main';
 
 export default () => {
   const [mode] = useColorMode();
@@ -36,33 +37,23 @@ export default () => {
   const H2 = Styled.h2;
 
   const Posts = data.allMdx.edges.map(({ node }, index) => (
-    <Link to={node.fields.slug} sx={{textDecoration:'none'}}>
+    <Link to={node.fields.slug} sx={{ textDecoration: 'none' }}>
       <Box
         sx={{
-          margin: 4,
+          mt: 6,
+          maxWidth: '70ch',
         }}
         sortDate={moment(node.frontmatter.sortDate).toDate()}
         key={node.id}
       >
         <H2>{node.frontmatter.title}</H2>
         <Text>{node.excerpt}</Text>
-        <Text>{node.frontmatter.displayDate}</Text>
+        <Text
+          sx={{mt:2,}}
+        >{node.frontmatter.displayDate}</Text>
       </Box>
     </Link>
   ));
 
-  return (
-    <Wrapper>
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          maxWidth: '80ch',
-          margin: '0 auto',
-        }}
-      >
-        {Posts}
-      </Flex>
-      ;
-    </Wrapper>
-  );
+  return <MainLayout sidebar="" mainContent={Posts} />;
 };

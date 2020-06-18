@@ -22,7 +22,7 @@ function MainLayout(props) {
       <Typography />
       <TimeSensitiveTheme />
       <Wrapper>
-        {props.sidebarContent}
+        {props.sidebar}
       </Wrapper>
       <Box
         sx={{

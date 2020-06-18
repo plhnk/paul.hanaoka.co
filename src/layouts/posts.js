@@ -15,7 +15,7 @@ export default function PageTemplate({ data: { mdx } }) {
   // const H1 = Styled.h1
   return (
     <MainLayout
-      sidebarContent={
+      sidebar={
         <Flex
           sx={{
             justifyContent: 'center',

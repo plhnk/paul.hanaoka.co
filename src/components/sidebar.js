@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { Flex, useColorMode } from 'theme-ui';
 import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
-import Wrapper from '../components/wrapper';
 
 export default ({ image, darkImage }) => {
   useEffect(() => {
