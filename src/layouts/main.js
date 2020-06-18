@@ -8,6 +8,8 @@ import Typography from '../components/typography';
 import SEO from '../components/seo';
 import TimeSensitiveTheme from '../components/timeSensitiveTheme';
 import { jsx, Box } from 'theme-ui';
+import Wrapper from '../components/wrapper';
+import Sidebar from '../components/sidebar';
 
 function MainLayout(props) {
   return (
@@ -19,7 +21,9 @@ function MainLayout(props) {
       />
       <Typography />
       <TimeSensitiveTheme />
-      <>{props.sidebar}</>
+      <Wrapper>
+        {props.sidebarContent}
+      </Wrapper>
       <Box
         sx={{
           width: ['100%', null, '56%'],
@@ -37,7 +41,9 @@ function MainLayout(props) {
             }}
           />
         </header>
-        <main>{props.mainContent}</main>
+        <main>
+          <Wrapper>{props.mainContent}</Wrapper>
+        </main>
         <Footer />
       </Box>
     </>

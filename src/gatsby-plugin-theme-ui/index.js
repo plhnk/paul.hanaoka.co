@@ -61,7 +61,7 @@ export default {
   },
   lineHeights: {
     body: 1.5,
-    heading: 0.9,
+    heading: 1.1,
   },
   buttons: {
     icon: {
@@ -101,6 +101,11 @@ export default {
     caps: '0.2em',
   },
   text: {
+    body: {
+      fontFamily: 'body',
+      fontSize: 3,
+
+    },
     caps: {
       textTransform: 'uppercase',
       letterSpacing: '0.2em',
@@ -133,7 +138,7 @@ export default {
     h1: {
       variant: 'text.heading',
       fontSize: [6, null, 7],
-      color: 'primary',
+      color: 'neutral8',
       m: 0,
       mt: [2, 1, 0],
       mb: [3, null, 4],
@@ -151,6 +156,9 @@ export default {
     italic: {
       variant: 'text.italic',
     },
+    p: {
+      variant:'text.body',
+    }
   },
   gradients: {
     transparentToBackground:

@@ -1,25 +1,26 @@
 /** @jsx jsx */
 
-import {useEffect} from 'react'
+import { useEffect } from 'react';
 import { Flex, useColorMode } from 'theme-ui';
 import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
+import Wrapper from '../components/wrapper';
 
 export default ({ image, darkImage }) => {
-  useEffect(()=> {
-     document.addEventListener('scroll', (_) =>
-       document
-         .getElementById('photo')
-         .style.setProperty('transform', 'translateY(' + window.scrollY + 'px)')
-     );
-  })
+  useEffect(() => {
+    document.addEventListener('scroll', (_) =>
+      document
+        .getElementById('photo')
+        .style.setProperty('transform', 'translateY(' + window.scrollY + 'px)')
+    );
+  });
 
-  const [ mode ] = useColorMode();
-  const isDark = mode === 'dark'
+  const [mode] = useColorMode();
+  const isDark = mode === 'dark';
 
   return (
     <Flex
-      id='photo'
+      id="photo"
       sx={{
         alignItems: 'flex-end',
         bottom: 0,
@@ -38,4 +39,4 @@ export default ({ image, darkImage }) => {
       />
     </Flex>
   );
-}
+};
