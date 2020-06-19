@@ -6,11 +6,13 @@ import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
 
 export default ({ image, darkImage }) => {
+  // const disappearingPhoto = 
+
   useEffect(() => {
+    const disappearingPhoto = document.getElementById('photo')
+
     document.addEventListener('scroll', (_) =>
-      document
-        .getElementById('photo')
-        .style.setProperty('transform', 'translateY(' + window.scrollY + 'px)')
+     disappearingPhoto.style.setProperty('transform', 'translateY(' + window.scrollY + 'px)')
     );
   });
 

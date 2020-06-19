@@ -8,7 +8,7 @@ import {
   Styled
 } from 'theme-ui';
 import Link from './link';
-import moment from 'moment';
+
 
 export default ({
   id,
@@ -46,7 +46,3 @@ export default ({
     </Link>
   )
 };
-
-// TODOs
-// add copy ID to clipboard
-// add actual date on year hover
