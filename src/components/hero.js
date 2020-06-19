@@ -1,13 +1,12 @@
 /** @jsx jsx */
 
-import { jsx, Styled, Text } from 'theme-ui';
-import Wrapper from '../components/wrapper';
+import { jsx, Styled, Text, Box } from 'theme-ui';
 
 const H1 = Styled.h1
 const H2 = Styled.h2
 
 export default ({ pretitle, title, subtitle }) => (
-  <Wrapper
+  <Box
     sx={{
       height: '88vh',
       mt: ['20vh', null, '30vh'],
@@ -32,5 +31,5 @@ export default ({ pretitle, title, subtitle }) => (
       {title}
     </H1>
     <H2 sx={{fontFamily: 'body', fontWeight: 'body', color: 'neutral2',}}>{subtitle}</H2>
-  </Wrapper>
+  </Box>
 );

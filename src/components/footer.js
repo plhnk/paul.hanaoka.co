@@ -11,6 +11,7 @@ export default () => {
     <footer
       sx={{
         mb: [5, null, 4],
+        ml: [null, 3, null]
       }}
     >
       <Wrapper>

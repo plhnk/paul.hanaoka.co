@@ -44,6 +44,7 @@ export default () => {
         edges {
           node {
             id
+            timeToRead
             frontmatter {
               tags
               title
@@ -98,6 +99,7 @@ export default () => {
       postTitle={node.frontmatter.title}
       postExcerpt={node.excerpt}
       postDate={node.frontmatter.displayDate}
+      readTime={node.timeToRead}
     />
   ));
 
@@ -109,8 +111,6 @@ export default () => {
   const LinearFeed = sortBy(Feed, sortByProperty);
 
   return (
-    <Wrapper>
-      <Flex sx={{ flexDirection: 'column' }}>{LinearFeed}</Flex>;
-    </Wrapper>
+      <Flex sx={{ mr: [null, 5, null], flexDirection: 'column' }}>{LinearFeed}</Flex>
   );
 };

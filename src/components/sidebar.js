@@ -6,7 +6,6 @@ import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
 
 export default ({ image, darkImage }) => {
-  // const disappearingPhoto = 
 
   useEffect(() => {
     const disappearingPhoto = document.getElementById('photo')

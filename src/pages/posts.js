@@ -12,6 +12,7 @@ export default () => {
         edges {
           node {
             id
+            timeToRead
             frontmatter {
               tags
               title
@@ -35,6 +36,7 @@ export default () => {
       postTitle={node.frontmatter.title}
       postExcerpt={node.excerpt}
       postDate={node.frontmatter.displayDate}
+      readTime={node.timeToRead}
       id={node.id}
     />
   ))
