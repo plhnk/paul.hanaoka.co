@@ -7,6 +7,7 @@ export default ({ children, ...props }) => (
         {...props}
         sx={{
             p: 3,
+            maxWidth: '100vw',
         }}
     >
         {children}

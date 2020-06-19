@@ -11,8 +11,9 @@ import { jsx, Box } from 'theme-ui';
 import Wrapper from '../components/wrapper';
 
 function MainLayout(props) {
+
   return (
-    <>
+    <Box>
       <SEO
         description="Paul Hanaoka's website"
         pageTitle="paul.hanaoka.co | Articles and resources for designers and developers."
@@ -24,12 +25,14 @@ function MainLayout(props) {
       <Box
         sx={{
           width: ['100%', null, '56%'],
+          maxWidth: '100vw',
           ml: [null, null, '44%'],
         }}
-      >
+        >
         <header>
           <NavBar
             sx={{
+              maxWidth: '100vw',
               p: 3,
               width: '100%',
               ml: [null, null, '-44%'],
@@ -45,7 +48,7 @@ function MainLayout(props) {
         </main>
         <Footer />
       </Box>
-    </>
+    </Box>
   );
 }
 

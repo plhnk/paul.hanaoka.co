@@ -19,18 +19,16 @@ export default function PageTemplate({ data: { mdx } }) {
         <Flex
           sx={{
             justifyContent: 'center',
-
             bottom: 0,
-            position: ['fixed'],
+            position: ['relative', 'fixed' , null],
             width: ['100%', '100%', '40%'],
-            height: '100vh',
+            height: ['80vh', '100vh', null],
             zIndex: 0,
             flexDirection: 'column',
             p: 3,
             zIndex: 2,
           }}
         >
-          <Link sx={{alignSelf:'flex-start'}} to="/posts">All posts</Link>
           <div sx={{margin:'auto'}}/>
           <Styled.h1>{mdx.frontmatter.title}</Styled.h1>
           <div sx={{margin:'auto'}}/>
@@ -39,6 +37,7 @@ export default function PageTemplate({ data: { mdx } }) {
       mainContent={
         <Box
           sx={{
+            ml: [null, 3, null],
             maxWidth: '80ch',
           }}
         >

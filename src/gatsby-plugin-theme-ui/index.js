@@ -70,7 +70,7 @@ export default {
       color: 'text',
       size: 4,
       transition: 'transform .2s ease-in-out',
-      '&:hover':{
+      '&:hover': {
         color: 'primary',
         transform: 'translateY(-0.2em)',
         transition: 'transform .2s ease-in-out',
@@ -84,8 +84,8 @@ export default {
     },
     nav: {
       fontSize: 3,
-      mt:'0.2em',
-    }
+      mt: '0.2em',
+    },
   },
   states: {
     '&:hover': {
@@ -104,7 +104,6 @@ export default {
     body: {
       fontFamily: 'body',
       fontSize: 3,
-
     },
     caps: {
       textTransform: 'uppercase',
@@ -157,8 +156,11 @@ export default {
       variant: 'text.italic',
     },
     p: {
-      variant:'text.body',
-    }
+      variant: 'text.body',
+    },
+    pre: {
+      overflow: 'scroll',
+    },
   },
   gradients: {
     transparentToBackground:
