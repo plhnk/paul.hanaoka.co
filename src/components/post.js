@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Text, Flex, Box, Styled, Card } from 'theme-ui';
+import { jsx, Text, Flex, Styled } from 'theme-ui';
 import Link from './link';
 
 export default ({
@@ -16,13 +16,13 @@ export default ({
   const H2 = Styled.h2;
   return (
     <Link
-      sortDate={sortDate}
+      sortdate={sortDate}
       to={postSlug}
       sx={{
         textDecoration: 'none',
         mt: 6,
         '&:hover': { backgroundColor: ['initial','neutral9', null] },
-        '&:hover h2': { color: ['primary','initial', null] },
+        '&:hover h2': { color: ['primary','neutral1', null] },
         p: [null, 3, null],
         maxWidth: '70ch',
       }}

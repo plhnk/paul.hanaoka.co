@@ -3,7 +3,7 @@
 import { sortBy } from 'lodash';
 import moment from 'moment';
 import { useStaticQuery, graphql } from 'gatsby';
-import { jsx, Text, Flex, useColorMode } from 'theme-ui';
+import { jsx, Flex, useColorMode } from 'theme-ui';
 import Photo from './photo';
 import { addReferral } from '../utilities';
 import Post from './post';
@@ -93,6 +93,7 @@ export default () => {
 
   const Posts = data.allMdx.edges.map(({ node }, index) => (
     <Post
+      key={node.id}
       sortDate={moment(node.frontmatter.sortDate).toDate()}
       postSlug={node.fields.slug}
       superTitle={node.frontmatter.superTitle}

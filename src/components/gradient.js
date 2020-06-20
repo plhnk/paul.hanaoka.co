@@ -31,7 +31,6 @@ const Gradient = ({ to, ...props }) => {
   };
 
   return (
-    console.log(directionMap[to.x2], 'prop passed in'),
     (
       <svg
         width="100%"

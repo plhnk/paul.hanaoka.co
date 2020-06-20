@@ -2,7 +2,7 @@
 
 import ThemeToggle from './themeToggle';
 import Gradient from './gradient';
-import { jsx, Flex, useColorMode, NavLink } from 'theme-ui';
+import { jsx, Flex, NavLink } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
 // TODO show/hide nav on scroll https://www.digitalocean.com/community/tutorials/gatsbyjs-react-hooks-gatsby

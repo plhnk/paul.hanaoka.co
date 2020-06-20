@@ -8,9 +8,8 @@ const SocialIcons = (props) => {
   const data = props.display;
 
   const icons = data.map((site, i) => (
-    <Link to={'https://' + site + '.com/plhnk'}>
+    <Link to={'https://' + site + '.com/plhnk'} key={i}>
       <IconButton
-        key={i}
         sx={{ backdropFilter: 'blur(4px)' }}
         aria-label={site + ' link'}
       >

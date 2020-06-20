@@ -35,7 +35,7 @@ export default ({
 
   return (
     <Card
-      sortDate={sortDate}
+      sortdate={sortDate}
       id={id}
       sx={{
         alignSelf: `${randomAlignment}`,

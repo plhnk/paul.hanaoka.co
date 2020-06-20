@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Styled, Button, Flex, Box } from 'theme-ui';
+import { jsx, Styled, Flex, Box } from 'theme-ui';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -23,7 +23,6 @@ export default function PageTemplate({ data: { mdx } }) {
             position: ['relative', 'fixed' , null],
             width: ['100%', '100%', '40%'],
             height: ['80vh', '100vh', null],
-            zIndex: 0,
             flexDirection: 'column',
             p: 3,
             zIndex: 2,
