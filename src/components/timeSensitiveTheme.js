@@ -10,24 +10,25 @@ import moment from 'moment';
 
 const TimeSensitiveTheme = () => {
   const [mode, setMode] = useColorMode();
-  useEffect(() => {
-
-    const timeFormat = 'HH'; // set time format to something easy
-    const time = moment();
-    const dayStart = moment('08', timeFormat);
-    const dayEnd = moment('20', timeFormat); // 24h time is better
-    function SetTheme() {
-      if (time.isBetween(dayStart, dayEnd)) {
-        setMode('default');
-      } else {
-        setMode('dark');
-      }
+  const timeFormat = 'HH'; // set time format to something easy
+  const time = moment();
+  const dayStart = moment('08', timeFormat);
+  const dayEnd = moment('20', timeFormat); // 24h time is better
+  function SetTheme() {
+    if (time.isBetween(dayStart, dayEnd)) {
+      setMode('default');
+    } else {
+      setMode('dark');
     }
+  }
+  console.log(mode);
+  useEffect(() => {
     SetTheme();
-    console.log(mode);
   }, []);
-
   return null;
 };
 
 export default TimeSensitiveTheme;
+
+//theme problems
+//feed order
