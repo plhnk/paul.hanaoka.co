@@ -3,11 +3,9 @@
 import { sortBy } from 'lodash';
 import moment from 'moment';
 import { useStaticQuery, graphql } from 'gatsby';
-import { jsx, Text, Flex, Box, useColorMode } from 'theme-ui';
+import { jsx, Text, Flex, useColorMode } from 'theme-ui';
 import Photo from './photo';
 import { addReferral } from '../utilities';
-import Wrapper from './wrapper';
-import Link from './link';
 import Post from './post';
 
 export default () => {
@@ -47,6 +45,7 @@ export default () => {
             timeToRead
             frontmatter {
               tags
+              superTitle
               title
               sortDate: date
               displayDate: date(fromNow: true)
@@ -96,6 +95,7 @@ export default () => {
     <Post
       sortDate={moment(node.frontmatter.sortDate).toDate()}
       postSlug={node.fields.slug}
+      superTitle={node.frontmatter.superTitle}
       postTitle={node.frontmatter.title}
       postExcerpt={node.excerpt}
       postDate={node.frontmatter.displayDate}

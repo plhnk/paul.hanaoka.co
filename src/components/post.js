@@ -14,6 +14,7 @@ export default ({
   id,
   sortDate,
   postSlug,
+  superTitle,
   postTitle,
   postExcerpt,
   postDate,
@@ -31,6 +32,7 @@ export default ({
         }}
         key={id}
       >
+        <Text as='h3' sx={{fontSize:2, color: 'neutral2', variant: 'text.smallcaps'}}>{superTitle}</Text>
         <H2 sx={{ color: 'neutral2' }}>{postTitle}</H2>
         <Text sx={{ color: 'neutral3' }}>{postExcerpt}</Text>
         <Flex

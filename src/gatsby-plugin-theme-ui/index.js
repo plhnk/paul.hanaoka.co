@@ -109,6 +109,11 @@ export default {
       textTransform: 'uppercase',
       letterSpacing: '0.2em',
     },
+    smallcaps: {
+      textTransform: 'lowercase',
+      fontVariant: 'small-caps',
+      letterSpacing: '0.1em',
+    },
     heading: {
       fontFamily: 'heading',
       fontWeight: 'heading',
@@ -154,6 +159,9 @@ export default {
     },
     italic: {
       variant: 'text.italic',
+    },
+    smallCaps: {
+      variant: 'text.smallcaps'
     },
     p: {
       variant: 'text.body',
