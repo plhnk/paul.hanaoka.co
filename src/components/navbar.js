@@ -1,20 +1,47 @@
 /** @jsx jsx */
 
 import ThemeToggle from './themeToggle';
-import { jsx, Flex, NavLink } from 'theme-ui';
+import Gradient from './gradient';
+import { jsx, Flex, useColorMode, NavLink } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
-export default (props) => {
+// TODO show/hide nav on scroll https://www.digitalocean.com/community/tutorials/gatsbyjs-react-hooks-gatsby
+
+const NavBar = (props) => {
+  
   return (
     <Flex
-      as='nav'
+      id='hidingNav'
+      as="nav"
       {...props}
       sx={{
         alignItems: 'center',
         width: '100%',
       }}
     >
-      <NavLink href='/' sx={{fontFamily: 'heading', fontWeight:'heading'}}>H</NavLink>
+      <Gradient
+        to='top'
+        sx={{
+          fill: 'background',
+          position: 'absolute',
+          zIndex: 0,
+          left: 0,
+          width: '100vw',
+          bottom: 0,
+          height: '24vh',
+          minHeight: '200px',
+          maxHeight: '400px',
+        }}
+      />
+      <NavLink
+        href="/"
+        sx={{
+          fontFamily: 'heading',
+          fontWeight: 'heading',
+        }}
+      >
+        H
+      </NavLink>
       <div
         sx={{
           mx: ['auto', null, '14vw'],
@@ -26,3 +53,5 @@ export default (props) => {
     </Flex>
   );
 };
+
+export default NavBar;
