@@ -58,7 +58,6 @@ const Gradient = ({ to, ...props }) => {
           </mask>
         </defs>
         <rect
-          style={{ backdropFilter: 'blur(8px)' }}
           x="0"
           y="0"
           width="100%"

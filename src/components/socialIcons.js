@@ -2,44 +2,28 @@
 
 import Icon from '../components/icon';
 import { jsx, Grid, IconButton } from 'theme-ui';
+import Link from './link';
 
-export default (props) => (
-  <Grid gap={3} columns={4}>
-    <IconButton
-      {...props}
-      as="a"
-      target="_new"
-      aria-label="Dribbble Link"
-      href="https://dribbble.com/plhnk"
+const SocialIcons = (props) => {
+  const data = props.display;
+
+  const icons = data.map((site, i) => (
+    <Link to={'https://' + site + '.com/plhnk'}>
+      <IconButton
+        key={i}
+        sx={{ backdropFilter: 'blur(4px)' }}
+        aria-label={site + ' link'}
       >
-      <Icon label={'dribbble'} name='dribbble' />
-    </IconButton>
-    <IconButton
-      {...props}
-      as="a"
-      target="_new"
-      aria-label="GitHub Link"
-      href="https://GitHub.com/plhnk"
-      >
-      <Icon label={'github'} name='github' />
-    </IconButton>
-    <IconButton
-      {...props}
-      as="a"
-      target="_new"
-      aria-label="Twitter Link"
-      href="https://Twitter.com/plhnk"
-      >
-      <Icon label={'twitter'} name='twitter' />
-    </IconButton>
-    <IconButton
-      {...props}
-      as="a"
-      target="_new"
-      aria-label="Unsplash Link"
-      href="https://Unsplash.com/plhnk"
-    >
-      <Icon label={'unsplash'} name='unsplash' />
-    </IconButton>
-  </Grid>
-);
+        <Icon label={site} name={site} />
+      </IconButton>
+    </Link>
+  ));
+
+  return (
+    <Grid gap={3} columns={4}>
+      {icons}
+    </Grid>
+  );
+};
+
+export default SocialIcons;

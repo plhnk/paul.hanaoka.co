@@ -47,7 +47,7 @@ const NavBar = (props) => {
           mx: ['auto', null, '14vw'],
         }}
       />
-      <SocialIcons />
+      <SocialIcons display={['dribbble', 'github', 'twitter', 'unsplash']} />
       <div sx={{ mx: 'auto' }} />
       <ThemeToggle />
     </Flex>
