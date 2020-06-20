@@ -21,7 +21,8 @@ export default ({
       sx={{
         textDecoration: 'none',
         mt: 6,
-        '&:hover': { backgroundColor: 'neutral9' },
+        '&:hover': { backgroundColor: ['initial','neutral9', null] },
+        '&:hover h2': { color: ['primary','initial', null] },
         p: [null, 3, null],
         maxWidth: '70ch',
       }}
