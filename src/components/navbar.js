@@ -17,6 +17,7 @@ const NavBar = (props) => {
       sx={{
         alignItems: 'center',
         width: '100%',
+        zIndex: 3,
       }}
     >
       <Gradient
