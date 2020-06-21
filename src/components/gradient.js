@@ -42,9 +42,9 @@ const Gradient = ({ to, ...props }) => {
           {/* thanks to https://larsenwork.com/easing-gradients/ */}
           <linearGradient id="gradient" {...directionMap[to]}>
             <stop offset="0" stopColor="white" stopOpacity="0" />
-            <stop offset="24%" stopColor="white" stopOpacity="8%" />
-            <stop offset="50%" stopColor="white" stopOpacity="36%" />
-            <stop offset="98%" stopColor="white" stopOpacity="92%" />
+            <stop offset=".24" stopColor="white" stopOpacity=".08" />
+            <stop offset=".50" stopColor="white" stopOpacity=".36" />
+            <stop offset=".98" stopColor="white" stopOpacity=".92" />
             <stop offset="1" stopColor="white" stopOpacity="1" />
           </linearGradient>
           <mask id="gradient-mask">
