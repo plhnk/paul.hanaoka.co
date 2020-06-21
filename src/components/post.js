@@ -5,7 +5,7 @@ import Link from './link';
 
 export default ({
   id,
-  sortDate,
+  sortdate,
   postSlug,
   superTitle,
   postTitle,
@@ -16,7 +16,7 @@ export default ({
   const H2 = Styled.h2;
   return (
     <Link
-      sortdate={sortDate}
+      sortdate={sortdate}
       to={postSlug}
       sx={{
         textDecoration: 'none',

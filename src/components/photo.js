@@ -21,7 +21,7 @@ export default ({
   iconLink,
   icon,
   displayDate,
-  sortDate,
+  sortdate,
   id,
   caption,
 }) => {
@@ -35,7 +35,7 @@ export default ({
 
   return (
     <Card
-      sortdate={sortDate}
+      sortdate={sortdate}
       id={id}
       sx={{
         alignSelf: `${randomAlignment}`,

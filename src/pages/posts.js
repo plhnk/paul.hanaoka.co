@@ -17,7 +17,7 @@ export default () => {
             frontmatter {
               tags
               title
-              sortDate: date
+              sortdate: date
               displayDate: date(fromNow: true)
             }
             fields {
@@ -33,7 +33,7 @@ export default () => {
   const Posts = data.allMdx.edges.map(({ node }, index) => (
     <Post
       key={node.id}
-      sortDate={moment(node.frontmatter.sortDate).toDate()}
+      sortdate={moment(node.frontmatter.sortdate).toDate()}
       postSlug={node.fields.slug}
       superTitle={node.frontmatter.superTitle}
       postTitle={node.frontmatter.title}

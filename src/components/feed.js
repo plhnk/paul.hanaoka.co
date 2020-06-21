@@ -20,7 +20,7 @@ export default () => {
             alt_description
             description
             displayDate: created_at(fromNow: true)
-            sortDate: created_at
+            sortdate: created_at
             urls {
               small
               regular
@@ -47,7 +47,7 @@ export default () => {
               tags
               superTitle
               title
-              sortDate: date
+              sortdate: date
               displayDate: date(fromNow: true)
             }
             fields {
@@ -86,7 +86,7 @@ export default () => {
       iconLink={addReferral(node.user.links.html)}
       icon="unsplash"
       displayDate={node.displayDate}
-      sortDate={moment(node.sortDate).toDate()}
+      sortdate={moment(node.sortdate).toDate()}
       caption={node.description}
     />
   ));
@@ -94,7 +94,7 @@ export default () => {
   const Posts = data.allMdx.edges.map(({ node }, index) => (
     <Post
       key={node.id}
-      sortDate={moment(node.frontmatter.sortDate).toDate()}
+      sortdate={moment(node.frontmatter.sortdate).toDate()}
       postSlug={node.fields.slug}
       superTitle={node.frontmatter.superTitle}
       postTitle={node.frontmatter.title}
@@ -107,7 +107,7 @@ export default () => {
   const Feed = [...Posts, ...UnsplashPhotos]; // make a new array w/all items
 
   // choose a way to sort — note the negative sets its to most recent post first
-  const sortByProperty = (obj) => -obj.props.sortDate;
+  const sortByProperty = (obj) => -obj.props.sortdate;
 
   const LinearFeed = sortBy(Feed, sortByProperty);
 

@@ -19,7 +19,7 @@ export default () => {
             alt_description
             description
             displayDate: created_at(fromNow: true)
-            sortDate: created_at
+            sortdate: created_at
             urls {
               small
               regular
@@ -66,7 +66,7 @@ export default () => {
       iconLink={addReferral(node.user.links.html)}
       icon="unsplash"
       displayDate={node.displayDate}
-      sortDate={moment(node.sortDate).toDate()}
+      sortdate={moment(node.sortdate).toDate()}
       caption={node.description}
     />
   ));
