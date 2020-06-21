@@ -1,9 +1,10 @@
 /** @jsx jsx */
 
 import { useStaticQuery, graphql } from 'gatsby';
-import { jsx } from 'theme-ui';
+import { jsx, Flex } from 'theme-ui';
 import MainLayout from '../layouts/main';
 import Post from '../components/post';
+import moment from 'moment';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -31,15 +32,20 @@ export default () => {
 
   const Posts = data.allMdx.edges.map(({ node }, index) => (
     <Post
-      sortDate={node.frontmatter.sortDate}
+      key={node.id}
+      sortDate={moment(node.frontmatter.sortDate).toDate()}
       postSlug={node.fields.slug}
+      superTitle={node.frontmatter.superTitle}
       postTitle={node.frontmatter.title}
       postExcerpt={node.excerpt}
       postDate={node.frontmatter.displayDate}
       readTime={node.timeToRead}
-      id={node.id}
     />
-  ))
+  ));
 
-  return <MainLayout sidebar="" mainContent={Posts} />
+  return <MainLayout sidebar="" mainContent={
+    <Flex sx={{mr: [null, 5, null], flexDirection: 'column',}}>
+      {Posts}
+    </Flex>
+  } />
 }
