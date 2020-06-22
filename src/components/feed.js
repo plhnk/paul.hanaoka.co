@@ -107,10 +107,9 @@ export default () => {
   const Feed = [...Posts, ...UnsplashPhotos]; // make a new array w/all items
 
   // choose a way to sort — note the negative sets its to most recent post first
-  // const sortByProperty = (obj) => -obj.props.sortdate;
+  const sortByProperty = (obj) => -obj.props.sortdate;
 
-  // const LinearFeed = sortBy(Feed, sortByProperty);
-  const LinearFeed = Feed
+  const LinearFeed = sortBy(Feed, sortByProperty);
 
   return (
       <Flex sx={{ mr: [null, 5, null], flexDirection: 'column' }}>{LinearFeed}</Flex>
