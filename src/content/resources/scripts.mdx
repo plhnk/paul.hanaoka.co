@@ -1,0 +1,22 @@
+
+
+To batch create a bunch of folders based on the name of mdx files (change file extention if you want to use on a different type of file): 
+
+``` sh
+for x in ./*.mdx; do
+  mkdir "${x%.*}" && mv "$x" "${x%.*}"
+done
+```
+
+From [StackExchange](https://unix.stackexchange.com/questions/219991/how-do-i-create-a-directory-for-every-file-in-a-parent-directory).
+
+
+To batch rename files from filename.mdx to index.mdx:
+
+``` sh
+for f in */*.mdx; do 
+    mv -- "$f" "index.mdx"
+done
+```
+
+From [Linuxize.com](https://linuxize.com/post/how-to-rename-files-in-linux/).
