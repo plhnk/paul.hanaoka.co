@@ -14,6 +14,8 @@ module.exports = {
         path: `${__dirname}/src/content/posts/`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,16 +42,23 @@ module.exports = {
         include_favicon: false,
       },
     },
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1035,
+            },
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-theme-ui`,
-    `gatsby-transformer-sharp`,
     `gatsby-theme-style-guide`,
   ],
 };

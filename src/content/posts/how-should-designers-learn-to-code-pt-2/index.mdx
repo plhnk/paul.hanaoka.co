@@ -3,6 +3,7 @@ date: '2020-03-25'
 superTitle: 'How Should Designers Learn to Code?'
 title: 'Part 2: Git, HTML/CSS, Engineering Principles'
 canonicalLink: 'https://www.smashingmagazine.com/2020/03/designers-code-git-hmtl-css-engineering-principles/'
+featuredImage: ./images/inactive-css.png
 ---
 
 _In [Part 1][2], I explained the basics of the terminal, shared a few productivity hacks to get you started, and how to choose a code editor. In this part, he'll continue with the topics of version control (Git), HTML and CSS, semantic code, and a brief introduction to some key engineering principles._
@@ -33,13 +34,13 @@ Before doing these steps, you'll need a few things set up:
 
 On GitHub, you will fork _(fork = create a copy of the code in your account; in the following illustration, the blue, orange, red, and green lines show forks)_ the repository (repo) in question.
 
-![][11]By creating branches off of the master, it's possible for multiple people to contribute to different areas of a project and then merge their work together. ([Large preview][12])
+![](./images/branches.png)By creating branches off of the master, it's possible for multiple people to contribute to different areas of a project and then merge their work together.
 
 You do this by navigating to [the repo in GitHub][13] and clicking the "Fork" button, currently at the top right-hand corner of a repo. This will be the "origin" — your fork on your GitHub account.
 
 As an example, navigating to  should show your fork of the Liferay.Design repo.
 
-![][14]This is victorvalle's GitHub fork. ([Large preview][15])
+![](./images/user-victorvalle-s-fork.png)This is victorvalle's GitHub fork. 
 
 #### Step 2: Clone (Download The Code To Your Computer)
 
@@ -100,7 +101,7 @@ Clicking the "Pull request" option here will take you to a page where you can co
 
 There are CLI tools like [Node GH][18] (GitHub also recently released [a beta of their CLI tool][19]) that allow you to initiate and manage pull requests in the terminal. At this point you may prefer to use the web interface, and that's great! So do I.
 
-![][20]The 'Pull request' and 'Compare' options will appear once your fork has diverged from the upstream repo. ([Large preview][21])
+![](./images/pull-request-and-compare)The 'Pull request' and 'Compare' options will appear once your fork has diverged from the upstream repo. 
 
 #### Bonus Step: Remote (Link All The Repos)
 
@@ -121,8 +122,7 @@ To track the upstream remote, in your terminal enter the following:
 
 Now, check to see what remotes you have available — enter `git remote -v` into your terminal, you should see something like:
 
-![][22]`origin` and `upstream` are the most common labels for remotes — 'origin' is your fork, 'upstream' is the source. ([Large preview][23])
-    
+![](./images/origin-and-upstream.png)`origin` and `upstream` are the most common labels for remotes — 'origin' is your fork, 'upstream' is the source. 
     
     origin   https://github.com/yourGitHubUsername/liferay.design (fetch)
     origin    https://github.com/yourGitHubUsername/liferay.design (push)
@@ -160,7 +160,7 @@ Markup Language:
 
 In case you also don't know what a lot of those words mean — briefly put, HTML is the combination of references (links) between _documents_ on the web, and _tags_ that you use to give structure to those documents.
 
-![][33]There's an HTML5 tag for pretty much any basic element — otherwise you can always use a `div`! ([Large preview][34])
+![](./images/html-tags.png)There's an HTML5 tag for pretty much any basic element — otherwise you can always use a `div`!
 
 For a thorough introduction to HTML and CSS, I highly recommend the [Introduction to HTML][35] and [CSS first steps][36], both on the _Mozilla Developer Network (MDN)_ web docs. That, along with the excellent articles that websites such as [CSS Tricks][37], [24 Ways][38] and countless of others provide, contain basically everything you'll ever need to reference with regards to HTML/CSS.
 
@@ -188,7 +188,7 @@ Some code editors even [have built-in autocomplete][50] so you don't even need t
 
 One of my favorite new features in Firefox 70 is the [inactive CSS rules indicator][51]. It will save you hours of time trying to figure out why a style isn't being applied.
 
-![][52]Kids these days have it so easy! ([Large preview][53])
+![](./images/inactive-css.png)Kids these days have it so easy!
 
 ### Semantics
 
@@ -226,7 +226,7 @@ If you've used a modern design tool for any length of time, you've probably enco
 
 One layer of abstraction with tokens is to assign a name to a color — for example, `$blue-00` can be mapped to a hex value (or an HSL value, or whatever you want) — let's say `#0B5FFF`. Now, instead of using the hex value in your stylesheets, you use the token value — that way if you decide that `blue-00` is actually `#0B36CE`, then you only have to change it in a single place. This is a nice concept.
 
-![][62]Tokens for colors in the Lexicon Alerts component helps keep things DRY. ([Large preview][63])
+![](./images/color-tokens.png)Tokens for colors in the Lexicon Alerts component helps keep things DRY.
 
 If you take this same paradigm of abstraction and go a layer further, you can _token-ception_ — and assign a variable to a functional value. This is particularly useful if you have a robust system and want to have different themes within the system. A functional example of this would be assigning a variable like `$primary-color` and map that to `$blue-00` — so now you can create markup and instead of referencing blue, you're referencing a functional variable. If you ever want to use the same markup, but with a different style (theme), then you only need to map `$primary-color` to a new color, and your markup doesn't need to change at all! Magic!
 
@@ -338,7 +338,6 @@ There's a good chance that something in this post was obscure, obtuse, and/or ob
 35. [JavaScript First Steps][101] (MDN web docs)
 36. [24 Ways][38] (by Drew McLellan)
 
-![Smashing Editorial][102](mb, yk, il)
 
 [1]: https://www.smashingmagazine.com/author/paul-hanaoka
 [2]: https://www.smashingmagazine.com/2020/03/designers-code-terminal-text-editors-part-1/
@@ -350,19 +349,15 @@ There's a good chance that something in this post was obscure, obtuse, and/or ob
 [8]: https://www.smashingmagazine.com/2014/10/css-only-solution-for-ui-tracking/
 [9]: https://github.com/join
 [10]: https://blog.teamtreehouse.com/install-node-js-npm-mac
-[11]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/eb358ddf-c45f-419c-a1d4-758874fd5d78/1-git-hmtl-css-engineering-principles.png
-[12]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/de0fca56-aa6f-48bb-9608-12800110d89d/1-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
 [13]: http://github.com/liferay-design/liferay.design
-[14]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0852a45-02a9-4e4a-8342-6311e4258ab6/7-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[15]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0852a45-02a9-4e4a-8342-6311e4258ab6/7-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
 [16]: https://chris.beams.io/posts/git-commit/
 [17]: https://dev.to/cbillowes/why-i-create-atomic-commits-in-git-kfi
 [18]: http://nodegh.io/
 [19]: https://cli.github.com/
-[20]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/c6750237-a47a-4bd2-8635-cf2e37a7b75a/6-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[21]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/c6750237-a47a-4bd2-8635-cf2e37a7b75a/6-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[22]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/e51fc5e1-1cf1-4da9-a8ac-bf7d55305b29/5-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[23]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/e51fc5e1-1cf1-4da9-a8ac-bf7d55305b29/5-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
+
 [24]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
 [25]: https://en.wikipedia.org/wiki/Computer_display
 [26]: https://en.wikipedia.org/wiki/Electronic_devices
@@ -372,8 +367,7 @@ There's a good chance that something in this post was obscure, obtuse, and/or ob
 [30]: https://en.wikipedia.org/wiki/Document
 [31]: https://en.wikipedia.org/wiki/Syntax_(logic)
 [32]: https://en.wikipedia.org/wiki/Markup_language
-[33]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/27ad60d8-9636-4806-a770-ddabeb324e64/3-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[34]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/27ad60d8-9636-4806-a770-ddabeb324e64/3-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
 [35]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML
 [36]: https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps
 [37]: https://css-tricks.com/
@@ -391,8 +385,7 @@ There's a good chance that something in this post was obscure, obtuse, and/or ob
 [49]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 [50]: https://code.visualstudio.com/docs/editor/intellisense
 [51]: https://hacks.mozilla.org/2019/10/firefox-70-a-bountiful-release-for-all/#developertools
-[52]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/4b1c7302-d01f-4869-b491-bb5cdc6c9e84/4-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[53]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/4b1c7302-d01f-4869-b491-bb5cdc6c9e84/4-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
 [54]: https://boagworld.com/dev/semantic-code-what-why-how/
 [55]: https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML
 [56]: https://alistapart.com/article/semantics-to-screen-readers/
@@ -401,8 +394,7 @@ There's a good chance that something in this post was obscure, obtuse, and/or ob
 [59]: https://www.oreilly.com/library/view/designing-for-performance/9781491903704/ch04.html
 [60]: https://twitter.com/heydonworks
 [61]: https://www.smashingmagazine.com/2013/01/the-importance-of-sections/
-[62]: https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_400/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/8e93dd0c-6186-431c-a40c-40f7a7161b66/2-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
-[63]: https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/8e93dd0c-6186-431c-a40c-40f7a7161b66/2-how-should-designers-learn-to-code-git-hmtl-css-engineering-principles.png
+
 [64]: https://en.wikipedia.org/wiki/Component-based_software_engineering
 [65]: https://www.smashingmagazine.com/2012/06/developing-a-design-workflow-in-adobe-fireworks/#creating-and-using-symbols
 [66]: https://www.smashingmagazine.com/2017/04/symbols-sketch/
