@@ -18,9 +18,10 @@ const NavBar = (props) => {
         alignItems: 'center',
         width: '100%',
         zIndex: 3,
+        backgroundColor: ['text', 'transparent', null],
       }}
     >
-      <Gradient
+      {/* <Gradient
         to='top'
         sx={{
           fill: 'background',
@@ -33,12 +34,13 @@ const NavBar = (props) => {
           minHeight: '200px',
           maxHeight: '400px',
         }}
-      />
+      /> */}
       <NavLink
         href="/"
         sx={{
           fontFamily: 'heading',
           fontWeight: 'heading',
+          color: ['background', 'text', null],
         }}
       >
         H

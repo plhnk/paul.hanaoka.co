@@ -14,6 +14,7 @@ export default {
     neutral8: '#E6E6E6',
     neutral9: '#FFFFFF',
     background: '#F2F2F2',
+    transparent: 'regba(0,0,0,0)',
     primary: '#0b5fff',
     secondary: '#2b323a',
     highlight: 'red', // '#ffffcc',
@@ -67,7 +68,7 @@ export default {
     icon: {
       padding: 1,
       margin: 1,
-      color: 'text',
+      color: ['background', 'text', null],
       size: 4,
       transition: 'transform .2s ease-in-out',
       '&:hover': {
