@@ -148,7 +148,7 @@ export default {
     h1: {
       variant: 'text.heading',
       fontSize: [6, null, 7],
-      color: 'neutral8',
+      color: 'neutral7',
       m: 0,
       mt: [2, 1, 0],
       mb: [3, null, 4],

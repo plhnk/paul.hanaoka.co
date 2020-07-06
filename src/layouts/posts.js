@@ -13,7 +13,7 @@ import SEO from '../components/seo';
 const shortcodes = { Link }; // Provide common components here
 
 export default function PageTemplate({ data: { mdx } }) {
-  let featuredImgFluid = mdx.frontmatter.featuredImage.childImageSharp.fluid;
+  const featuredImgFluid = mdx.frontmatter.featuredImage ? mdx.frontmatter.featuredImage.childImageSharp.fluid : null;
   // const H1 = Styled.h1
   return (
     <MainLayout
@@ -31,8 +31,10 @@ export default function PageTemplate({ data: { mdx } }) {
           }}
         >
           <div sx={{ margin: 'auto' }} />
-          {featuredImgFluid ? <Img fluid={featuredImgFluid} /> : null}
-          <Styled.h1>{mdx.frontmatter.title}</Styled.h1>
+          {mdx.frontmatter.featuredImage ? <Img fluid={featuredImgFluid} /> : null}
+          <Styled.h2>{mdx.frontmatter.superTitle}</Styled.h2>
+          <Styled.h1 sx={{mb: 1,}}>{mdx.frontmatter.title}</Styled.h1>
+          <Styled.h2 sx={{m:0}}>{mdx.frontmatter.subtitle}</Styled.h2>
           <div sx={{ margin: 'auto' }} />
         </Flex>
       }
@@ -53,21 +55,25 @@ export default function PageTemplate({ data: { mdx } }) {
   );
 }
 export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-      frontmatter {
-        title
-        canonicalLink
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+         query BlogPostQuery($id: String) {
+           mdx(
+             id: { eq: $id }
+           ) {
+             id
+             body
+             frontmatter {
+               superTitle
+               title
+               subtitle
+               canonicalLink
+               featuredImage {
+                 childImageSharp {
+                   fluid(maxWidth: 800) {
+                     ...GatsbyImageSharpFluid
+                   }
+                 }
+               }
+             }
+           }
+         }
+       `;

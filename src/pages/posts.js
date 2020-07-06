@@ -9,7 +9,10 @@ import moment from 'moment';
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      allMdx(
+        filter: { frontmatter: { draft: { ne: "yes" } } },
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             id

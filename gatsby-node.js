@@ -3,7 +3,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  // you only want to operate on `Mdx` nodes for now. 
+  // you only want to operate on `Mdx` nodes for now.
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
 
@@ -26,7 +26,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
-      allMdx {
+      development: allMdx {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      production: allMdx(filter: { frontmatter: { draft: { ne: "yes" } } }) {
         edges {
           node {
             id
@@ -43,8 +53,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
 
+  // check to see what the env is before building — thx to https://pantaley.com/blog/Implementing-draft-status-for-your-blog-posts-in-GatsbyJS/
+  const environment = process.env.NODE_ENV;
   // Create blog post pages.
-  const posts = result.data.allMdx.edges;
+  const posts = result.data[environment].edges;
 
   // you'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
@@ -55,7 +67,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/layouts/posts.js`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id },
+      context: {
+        id: node.id,
+      },
     });
   });
 };

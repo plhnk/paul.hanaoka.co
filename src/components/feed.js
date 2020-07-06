@@ -38,7 +38,7 @@ export default () => {
           }
         }
       }
-      allMdx {
+      allMdx(filter: { frontmatter: { draft: { ne: "yes" } } }) {
         edges {
           node {
             id
