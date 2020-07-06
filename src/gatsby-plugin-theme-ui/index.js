@@ -4,15 +4,15 @@ export default {
   sizes: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   colors: {
     text: '#171617',
-    neutral1: '#333333',
+    neutral1: '#333',
     neutral2: '#4D4D4D',
-    neutral3: '#666666',
+    neutral3: '#666',
     neutral4: '#808080',
-    neutral5: '#999999',
+    neutral5: '#999',
     neutral6: '#B3B3B3',
-    neutral7: '#CCCCCC',
+    neutral7: '#CCC',
     neutral8: '#E6E6E6',
-    neutral9: '#FFFFFF',
+    neutral9: '#FFF',
     background: '#F2F2F2',
     transparent: 'regba(0,0,0,0)',
     primary: '#0b5fff',
@@ -20,7 +20,8 @@ export default {
     highlight: 'red', // '#ffffcc',
     gray: 'grey',
     accent: 'yellow',
-    white: 'white',
+    white: '#FFF',
+    black: '#171617',
     darken: 'rgba(0, 0, 0, .25)',
     modes: {
       dark: {
@@ -84,8 +85,13 @@ export default {
       variant: 'states',
     },
     nav: {
+      color: ['white', null, 'text'],
       fontSize: 3,
       mt: '0.2em',
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      pl: 3,
+      pr: 3,
     },
   },
   states: {
@@ -162,7 +168,7 @@ export default {
       variant: 'text.italic',
     },
     smallCaps: {
-      variant: 'text.smallcaps'
+      variant: 'text.smallcaps',
     },
     p: {
       variant: 'text.body',

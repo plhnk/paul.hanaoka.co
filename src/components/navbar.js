@@ -1,8 +1,7 @@
 /** @jsx jsx */
 
 import ThemeToggle from './themeToggle';
-import Gradient from './gradient';
-import { jsx, Flex, NavLink } from 'theme-ui';
+import { jsx, Flex, NavLink, useColorMode } from 'theme-ui';
 import SocialIcons from './socialIcons';
 
 // TODO show/hide nav on scroll https://www.digitalocean.com/community/tutorials/gatsbyjs-react-hooks-gatsby
@@ -11,48 +10,46 @@ const NavBar = (props) => {
   
   return (
     <Flex
-      id='hidingNav'
+      id="hidingNav"
       as="nav"
       {...props}
       sx={{
         alignItems: 'center',
-        width: '100%',
+        backgroundColor: ['black', null, 'transparent'],
         zIndex: 3,
-        backgroundColor: ['text', 'transparent', null],
+        maxWidth: '100vw',
+        p: 3,
+        m: 3,
+        // ml: [null, null, '-44%'],
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
       }}
     >
-      {/* <Gradient
-        to='top'
-        sx={{
-          fill: 'background',
-          position: 'absolute',
-          zIndex: 0,
-          left: 0,
-          width: '100vw',
-          bottom: 0,
-          height: '24vh',
-          minHeight: '200px',
-          maxHeight: '400px',
-        }}
-      /> */}
       <NavLink
         href="/"
         sx={{
           fontFamily: 'heading',
           fontWeight: 'heading',
-          color: ['background', 'text', null],
+          pl: 0,
         }}
       >
         H
       </NavLink>
+      <div sx={{mx:['auto', 3, null]}}/>
+          <Flex>
+            <NavLink href="/photos">Photos</NavLink>
+            <NavLink href="/posts">Posts</NavLink>
+          </Flex>
       <div
         sx={{
-          mx: ['auto', null, '14vw'],
+          mx: ['auto', 3, '7vw'],
         }}
       />
-      <SocialIcons display={['dribbble', 'github', 'twitter', 'unsplash']} />
+        <SocialIcons sx={{display: ['none', 'grid', null]}} show={['dribbble', 'github', 'twitter', 'unsplash']} />
       <div sx={{ mx: 'auto' }} />
-      <ThemeToggle />
+      <ThemeToggle sx={{color: 'white'}} />
     </Flex>
   );
 };

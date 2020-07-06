@@ -29,16 +29,7 @@ function MainLayout(props) {
         }}
         >
         <header>
-          <NavBar
-            sx={{
-              maxWidth: '100vw',
-              p: 3,
-              width: '100%',
-              ml: [null, null, '-44%'],
-              position: 'fixed',
-              bottom: 0,
-            }}
-          />
+          <NavBar />
         </header>
         <main>
           <Wrapper>

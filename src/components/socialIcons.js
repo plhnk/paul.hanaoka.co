@@ -5,7 +5,7 @@ import { jsx, Grid, IconButton } from 'theme-ui';
 import Link from './link';
 
 const SocialIcons = (props) => {
-  const data = props.display;
+  const data = props.show;
 
   const icons = data.map((site, i) => (
     <Link to={'https://' + site + '.com/plhnk'} key={i}>
@@ -19,7 +19,7 @@ const SocialIcons = (props) => {
   ));
 
   return (
-    <Grid gap={3} columns={4}>
+  <Grid {...props} gap={3} columns={4}>
       {icons}
     </Grid>
   );
