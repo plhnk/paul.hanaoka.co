@@ -30,26 +30,28 @@ const NavBar = (props) => {
       <NavLink
         href="/"
         sx={{
-          fontFamily: 'heading',
-          fontWeight: 'heading',
           pl: 0,
+          fontWeight: 'heading',
         }}
       >
         H
       </NavLink>
-      <div sx={{mx:['auto', 3, null]}}/>
-          <Flex>
-            <NavLink href="/photos">Photos</NavLink>
-            <NavLink href="/posts">Posts</NavLink>
-          </Flex>
+      <div sx={{ mx: ['auto', 3, null] }} />
+      <Flex>
+        <NavLink href="/photos">Photos</NavLink>
+        <NavLink href="/posts">Posts</NavLink>
+      </Flex>
       <div
         sx={{
           mx: ['auto', 3, '7vw'],
         }}
       />
-        <SocialIcons sx={{display: ['none', 'grid', null]}} show={['dribbble', 'github', 'twitter', 'unsplash']} />
+      <SocialIcons
+        sx={{ display: ['none', 'grid', null] }}
+        show={['dribbble', 'github', 'twitter', 'unsplash']}
+      />
       <div sx={{ mx: 'auto' }} />
-      <ThemeToggle sx={{color: 'white'}} />
+      <ThemeToggle sx={{ color: 'white' }} />
     </Flex>
   );
 };

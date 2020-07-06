@@ -86,12 +86,11 @@ export default {
     },
     nav: {
       color: ['white', null, 'text'],
-      fontSize: 3,
-      mt: '0.2em',
+      fontSize: 4,
       fontFamily: 'heading',
-      fontWeight: 'heading',
-      pl: 3,
-      pr: 3,
+      lineHeight: 'heading',
+      px: 3,
+      variant: 'text.smallcaps',
     },
   },
   states: {
