@@ -47,7 +47,6 @@ const NavBar = (props) => {
       />
       <SocialIcons
         sx={{ display: ['none', 'grid', null] }}
-        show={['dribbble', 'github', 'twitter', 'unsplash']}
       />
       <div sx={{ mx: 'auto' }} />
       <ThemeToggle sx={{ color: 'white' }} />

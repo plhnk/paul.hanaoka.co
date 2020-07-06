@@ -25,4 +25,8 @@ const SocialIcons = (props) => {
   );
 };
 
+SocialIcons.defaultProps = {
+  show: ['dribbble', 'github', 'twitter', 'unsplash'],
+};
+
 export default SocialIcons;

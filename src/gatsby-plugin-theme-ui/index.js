@@ -69,7 +69,7 @@ export default {
     icon: {
       padding: 1,
       margin: 1,
-      color: ['background', 'text', null],
+      color: 'text',
       size: 4,
       transition: 'transform .2s ease-in-out',
       '&:hover': {
