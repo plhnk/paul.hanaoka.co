@@ -31,7 +31,6 @@ const NavBar = (props) => {
         href="/"
         sx={{
           pl: 0,
-          fontWeight: 'heading',
         }}
       >
         H
