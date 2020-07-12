@@ -46,10 +46,10 @@ const NavBar = (props) => {
         }}
       />
       <SocialIcons
-        sx={{ display: ['none', 'grid', null] }}
+        sx={{ display: ['none', 'grid', null], color: ['white', null, 'text'],}}
       />
       <div sx={{ mx: 'auto' }} />
-      <ThemeToggle sx={{ color: 'white' }} />
+      <ThemeToggle sx={{ color: ['white', null, 'text'] }} />
     </Flex>
   );
 };

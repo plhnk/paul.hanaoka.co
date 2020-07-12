@@ -10,6 +10,7 @@ const SocialIcons = (props) => {
   const icons = data.map((site, i) => (
     <Link to={'https://' + site + '.com/plhnk'} key={i}>
       <IconButton
+        {...props}
         sx={{ backdropFilter: 'blur(4px)' }}
         aria-label={site + ' link'}
       >
