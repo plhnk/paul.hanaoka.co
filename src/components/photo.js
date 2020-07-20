@@ -25,7 +25,7 @@ export default ({
   id,
   caption,
 }) => {
-  let alignments = ['flex-start', 'center', 'flex-end'];
+  let alignments = ['0', '12%', '24%'];
 
   let randomAlignment =
     alignments[Math.floor(Math.random() * alignments.length)];
@@ -38,11 +38,23 @@ export default ({
       sortdate={sortdate}
       id={id}
       sx={{
-        alignSelf: `${randomAlignment}`,
+        // alignSelf: `${randomAlignment}`,
         mt: 6,
         mb: 7,
         position: 'relative',
         width: ['initial', null, '40vmax'],
+        transition: 'transform .4s ease-in-out',
+        transform: [0, 0, `translateX(${randomAlignment})`],
+        // save animation example for when I need it
+        // animation: 'animateIn .5s ease-in-out',
+        // '@keyframes animateIn': {
+        //   'from': {
+        //     transform: 'translateX(40px)',
+        //   },
+        //   'to': {
+        //     transform: 'translateX(0)',
+        //   },
+        // },
       }}
     >
       <Box
@@ -57,11 +69,22 @@ export default ({
           position: 'inherit',
         }}
       >
-        <Link to={primaryAssetLink} aria-label={'link to photo of ' + alt + ' on Unsplash.com'}>
-          <Image alt={alt ? alt : 'photo by Paul Hanaoka from Unsplash.com'} src={primaryAsset} sx={{ width: '100%' }} loading='lazy' />
+        <Link
+          to={primaryAssetLink}
+          aria-label={'link to photo of ' + alt + ' on Unsplash.com'}
+        >
+          <Image
+            alt={alt ? alt : 'photo by Paul Hanaoka from Unsplash.com'}
+            src={primaryAsset}
+            sx={{ width: '100%' }}
+            loading="lazy"
+          />
         </Link>
         <Flex sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link to={iconLink} aria-label={`link to @plhnk's profile on` + icon + '.com'}>
+          <Link
+            to={iconLink}
+            aria-label={`link to @plhnk's profile on` + icon + '.com'}
+          >
             <IconButton aria-label={icon + 'button'}>
               <Icon label={icon} name={icon} />
             </IconButton>
