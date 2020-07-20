@@ -46,7 +46,11 @@ export default function PageTemplate({ data: { mdx } }) {
           }}
         >
           <MDXProvider components={shortcodes}>
-            <SEO canonicalLink={mdx.frontmatter.canonicalLink} />
+            <SEO 
+              canonicalLink={mdx.frontmatter.canonicalLink}
+              pageTitle={mdx.frontmatter.title + ' ' + mdx.timeToRead + ' min read by Paul Hanaoka'}
+              description={mdx.excerpt}
+             />
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
         </Box>
@@ -61,6 +65,8 @@ export const pageQuery = graphql`
            ) {
              id
              body
+             excerpt
+             timeToRead
              frontmatter {
                superTitle
                title
