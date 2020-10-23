@@ -8,12 +8,15 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import MainLayout from './main';
 
 import Link from '../components/link';
+import Icon from '../components/icon';
 import SEO from '../components/seo';
 
-const shortcodes = { Link }; // Provide common components here
+const shortcodes = { Link, Icon, Flex }; // Provide common components here
 
 export default function PageTemplate({ data: { mdx } }) {
-  const featuredImgFluid = mdx.frontmatter.featuredImage ? mdx.frontmatter.featuredImage.childImageSharp.fluid : null;
+  const featuredImgFluid = mdx.frontmatter.featuredImage
+    ? mdx.frontmatter.featuredImage.childImageSharp.fluid
+    : null;
   // const H1 = Styled.h1
   return (
     <MainLayout
@@ -31,10 +34,12 @@ export default function PageTemplate({ data: { mdx } }) {
           }}
         >
           <div sx={{ margin: 'auto' }} />
-          {mdx.frontmatter.featuredImage ? <Img fluid={featuredImgFluid} /> : null}
+          {mdx.frontmatter.featuredImage ? (
+            <Img fluid={featuredImgFluid} />
+          ) : null}
           <Styled.h2>{mdx.frontmatter.superTitle}</Styled.h2>
-          <Styled.h1 sx={{mb: 1,}}>{mdx.frontmatter.title}</Styled.h1>
-          <Styled.h2 sx={{m:0}}>{mdx.frontmatter.subtitle}</Styled.h2>
+          <Styled.h1 sx={{ mb: 1 }}>{mdx.frontmatter.title}</Styled.h1>
+          <Styled.h2 sx={{ m: 0 }}>{mdx.frontmatter.subtitle}</Styled.h2>
           <div sx={{ margin: 'auto' }} />
         </Flex>
       }
@@ -46,11 +51,16 @@ export default function PageTemplate({ data: { mdx } }) {
           }}
         >
           <MDXProvider components={shortcodes}>
-            <SEO 
+            <SEO
               canonicalLink={mdx.frontmatter.canonicalLink}
-              pageTitle={mdx.frontmatter.title + ' ' + mdx.timeToRead + ' min read by Paul Hanaoka'}
+              pageTitle={
+                mdx.frontmatter.title +
+                ' ' +
+                mdx.timeToRead +
+                ' min read by Paul Hanaoka'
+              }
               description={mdx.excerpt}
-             />
+            />
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
         </Box>
@@ -59,27 +69,25 @@ export default function PageTemplate({ data: { mdx } }) {
   );
 }
 export const pageQuery = graphql`
-         query BlogPostQuery($id: String) {
-           mdx(
-             id: { eq: $id }
-           ) {
-             id
-             body
-             excerpt
-             timeToRead
-             frontmatter {
-               superTitle
-               title
-               subtitle
-               canonicalLink
-               featuredImage {
-                 childImageSharp {
-                   fluid(maxWidth: 800) {
-                     ...GatsbyImageSharpFluid
-                   }
-                 }
-               }
-             }
-           }
-         }
-       `;
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      excerpt
+      timeToRead
+      frontmatter {
+        superTitle
+        title
+        subtitle
+        canonicalLink
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
