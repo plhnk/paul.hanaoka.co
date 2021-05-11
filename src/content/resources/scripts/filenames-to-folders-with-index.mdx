@@ -1,6 +1,6 @@
-To batch create a bunch of folders based on the name of mdx files (change file extention if you want to use on a different type of file): 
+To batch create a bunch of folders based on the name of mdx files (change file extention if you want to use on a different type of file):
 
-``` sh
+```sh
 for x in ./*.mdx; do
   mkdir "${x%.*}" && mv "$x" "${x%.*}"
 done
@@ -12,7 +12,7 @@ From [StackExchange](https://unix.stackexchange.com/questions/219991/how-do-i-cr
 
 To rename all of the aforementioned mdx files to 'index.mdx', go up one level `cd ..` and use:
 
-``` sh
+```sh
 find ./posts/ -iname '*.mdx' -execdir mv -i '{}' index.mdx \;
 ```
 
@@ -20,8 +20,19 @@ find ./posts/ -iname '*.mdx' -execdir mv -i '{}' index.mdx \;
 
 To create `images` subfolders in all of the post subfolders, run:
 
-``` sh
+```sh
 for dir in */; do mkdir -- "$dir/images"; done
 ```
 
 From [StackExchange](https://unix.stackexchange.com/questions/61907/how-do-i-create-a-directory-in-all-subdirectories)
+
+## Create $filename based on a directory name
+
+```sh
+for dir in $(find . -maxdepth 1 ! -path . -type d)
+do
+    base_dir=$(basename $dir)
+
+    touch "$base_dir"/"$base_dir".yaml
+done
+```
