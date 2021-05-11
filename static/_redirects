@@ -1,0 +1,5 @@
+# how to use this file: https://www.netlify.com/docs/redirects/
+
+# these are basically redirects for shortlinks
+
+https://paul.hanaoka.co/house https://docs.google.com/document/d/1JkaOMj2_Wwqb__aQmXAav0uRWpQdHxeXGk81JTgay78/preview 302
