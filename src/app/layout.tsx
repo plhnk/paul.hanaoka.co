@@ -19,8 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " ml-80 m-8"}
-        style={{ height: "calc(100vh - 4rem)" }}
+        className={inter.className + " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)]"}
       >
         <Theme
           panelBackground="translucent"
