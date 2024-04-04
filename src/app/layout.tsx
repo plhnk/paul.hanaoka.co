@@ -18,10 +18,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Theme panelBackground="translucent" accentColor="red" grayColor="gray" appearance="dark">
+      <body
+        className={inter.className + " ml-80 m-8"}
+        style={{ height: "calc(100vh - 4rem)" }}
+      >
+        <Theme
+          panelBackground="translucent"
+          accentColor="red"
+          grayColor="gray"
+          appearance="dark"
+          style={{minHeight:'unset'}}
+        >
           {children}
-          <ThemePanel />
+          {/* <ThemePanel /> */}
         </Theme>
       </body>
     </html>
