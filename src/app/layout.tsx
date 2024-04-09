@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
-import { Theme, ThemePanel } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,18 +20,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)]"}
+        className={
+          inter.className + " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)]"
+        }
       >
-        <Theme
-          panelBackground="translucent"
-          accentColor="red"
-          grayColor="gray"
-          appearance="dark"
-          style={{minHeight:'unset'}}
-        >
-          {children}
-          {/* <ThemePanel /> */}
-        </Theme>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Theme
+            // panelBackground="translucent"
+            // accentColor="red"
+            // grayColor="gray"
+            // appearance="dark"
+            style={{ minHeight: "unset" }}
+          >
+            {children}
+            {/* <ThemePanel /> */}
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );

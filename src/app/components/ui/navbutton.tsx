@@ -1,13 +1,17 @@
 "use client";
 import { ReactNode, useState, useEffect } from "react";
 import { install } from "@github/hotkey";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
 interface NavButtonProps {
   icon: ReactNode;
   label: string;
   hotkey: string;
+  // options
   url?: string;
-  textToCopy?: string; // Add a new prop for the text to copy
+  textToCopy?: string;
+  theme?: string;
 }
 
 const NavButton: React.FC<NavButtonProps> = ({
@@ -16,7 +20,15 @@ const NavButton: React.FC<NavButtonProps> = ({
   url,
   hotkey,
   textToCopy,
+  theme,
 }) => {
+  const { setTheme } = useTheme();
+
+  const handleTheme = () => {
+    if (theme) {
+      setTheme(theme);
+    }
+  };
   const handleCopy = () => {
     if (textToCopy) {
       navigator.clipboard.writeText(textToCopy);
@@ -36,7 +48,10 @@ const NavButton: React.FC<NavButtonProps> = ({
   return (
     <button
       className="group hover:bg-neutral-800 active:bg-neutral-700 focus:ring-1 ring-inset focus:ring-neutral-700 focus:bg-neutral-900 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-neutral-300 hover:text-neutral-50"
-      onClick={handleCopy} // Add onClick event handler
+      onClick={() => {
+        handleCopy();
+        handleTheme();
+      }}
       data-hotkey={hotkey}
     >
       {icon}

@@ -80,13 +80,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <NavButton
             icon={<Github {...iconStyle} />}
             label={"GitHub"}
-            url={"url"}
+            url={"https://github.com/plhnk"}
             hotkey={"g"}
           />
           <NavButton
             icon={<Twitter {...iconStyle} />}
             label={"Twitter"}
-            url={"url"}
+            url={"https://twitter.com/plhnk"}
             hotkey={"t"}
           />
 
@@ -100,18 +100,21 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <NavButton
             icon={<WandSparkles {...iconStyle} />}
             label={"System"}
+            theme={"system"}
             url={"url"}
             hotkey={"s"}
-          />
+            />
           <NavButton
             icon={<Moon {...iconStyle} />}
             label={"Dark"}
+            theme={"dark"}
             url={"url"}
             hotkey={"d"}
-          />
+            />
           <NavButton
             icon={<Sun {...iconStyle} />}
             label={"Light"}
+            theme={"light"}
             url={"url"}
             hotkey={"l"}
           />
