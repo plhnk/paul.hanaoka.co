@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Fira_Sans } from "next/font/google";
-import "./globals.css";
-import "@radix-ui/themes/styles.css";
+import { Fira_Code, Fira_Sans } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "./components/theme-provider";
+import "./globals.css";
 
-const typeface = Fira_Sans({
+const fira_code = Fira_Code({
   subsets: ["latin"],
-  weight: "100"
+  display: "swap",
+  variable: "--font-fira-code",
+});
+
+const fira_sans = Fira_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fira-sans",
+  weight: ["200", "400", "600", "900"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -21,11 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      className={`${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'}
+      lang="en"
+    >
       <body
         className={
-          typeface.className +
-          " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)] business:bg-lime-950 fun:bg-rose-200 dark:bg-neutral-900 light:bg-neutral-50 transition-colors duration-200"
+          "m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)] business:bg-lime-950 fun:bg-rose-200 dark:bg-neutral-900 light:bg-neutral-50 transition-colors duration-200"
         }
       >
         <ThemeProvider

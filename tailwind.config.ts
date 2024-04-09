@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 const config = {
   darkMode: ["class"],
@@ -18,6 +20,18 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: [
+          "var(--font-fira-sans)",
+          "Fira Sans",
+          ...defaultTheme.fontFamily.sans,
+        ],
+        mono: [
+          "var(--font-fira-code)",
+          "Fira Code",
+          ...defaultTheme.fontFamily.mono,
+        ],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -35,14 +49,18 @@ const config = {
     },
   },
   plugins: [
-    require("tailwindcss/plugin")(function ({
-      addVariant,
-    }: {
-      addVariant: any;
-    }) {
+    plugin(function ({ addComponents }: { addComponents: any }) {
+      addComponents({
+        ".radix-themes": {
+          "--default-font-family": [config.theme.extend.fontFamily.sans],
+          "--mono-font-family": [config.theme.extend.fontFamily.mono],
+        },
+      });
+    }),
+    function ({ addVariant }: { addVariant: any }) {
       addVariant("fun", `:is(.fun &)`);
       addVariant("business", `:is(.business &)`);
-    }),
+    },
     require("tailwindcss-animate"),
   ],
 } satisfies Config;

@@ -11,6 +11,9 @@ import {
   WandSparkles,
   Moon,
   Sun,
+  Terminal,
+  Pizza,
+
 } from "lucide-react";
 import { Label } from "@/components/ui/label";
 
@@ -39,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           className="sm:h-full sm:w-56 my-1 py-2"
         >
           <Label
-            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            className="uppercase text-xs tracking-widest text-neutral-600 font-semibold ml-3  my-2"
             htmlFor="span"
           >
             Browse
@@ -64,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           />
           <Box className="m-2" />
           <Label
-            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            className="uppercase text-xs tracking-widest text-neutral-600 font-semibold ml-3  my-2"
             htmlFor="span"
           >
             Connect
@@ -91,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
           <Box style={{ flexGrow: 1 }} />
           <Label
-            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            className="uppercase text-xs tracking-widest text-neutral-600 font-semibold ml-3  my-2"
             htmlFor="span"
           >
             Theme
@@ -115,13 +118,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             hotkey={"l"}
           />
           <NavButton
-            icon={<Sun {...iconStyle} />}
+            icon={<Pizza {...iconStyle} />}
             label={"Fun"}
             theme={"fun"}
             hotkey={"f"}
           />
           <NavButton
-            icon={<Sun {...iconStyle} />}
+            icon={<Terminal {...iconStyle} />}
             label={"CLI"}
             theme={"business"}
             hotkey={"c"}
