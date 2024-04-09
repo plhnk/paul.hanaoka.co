@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 
 interface SidebarProps {
   children?: ReactNode;
-  iconStyle: object;
+  iconStyle?: object;
 }
 
 const iconStyle = {
@@ -27,10 +27,9 @@ const iconStyle = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
-
   return (
     <nav className="z-50 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen  sm:pb-16">
-      <Card size="3" className="m-4 p-4 sm:m-8 sm:p-8 h-full">
+      <Card size="3" className="m-4 p-4 sm:m-8 sm:p-4 h-full">
         <Flex
           direction={{
             initial: "row",
@@ -101,22 +100,31 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             icon={<WandSparkles {...iconStyle} />}
             label={"System"}
             theme={"system"}
-            url={"url"}
             hotkey={"s"}
-            />
+          />
           <NavButton
             icon={<Moon {...iconStyle} />}
             label={"Dark"}
             theme={"dark"}
-            url={"url"}
             hotkey={"d"}
-            />
+          />
           <NavButton
             icon={<Sun {...iconStyle} />}
             label={"Light"}
             theme={"light"}
-            url={"url"}
             hotkey={"l"}
+          />
+          <NavButton
+            icon={<Sun {...iconStyle} />}
+            label={"Fun"}
+            theme={"fun"}
+            hotkey={"f"}
+          />
+          <NavButton
+            icon={<Sun {...iconStyle} />}
+            label={"CLI"}
+            theme={"business"}
+            hotkey={"c"}
           />
         </Flex>
       </Card>

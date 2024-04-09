@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "./components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const typeface = Fira_Sans({
+  subsets: ["latin"],
+  weight: "100"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,20 +24,18 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          inter.className + " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)]"
+          typeface.className +
+          " m-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)] business:bg-lime-950 fun:bg-rose-200 dark:bg-neutral-900 light:bg-neutral-50 transition-colors duration-200"
         }
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Theme
-            // panelBackground="translucent"
-            // accentColor="red"
-            // grayColor="gray"
-            // appearance="dark"
-            style={{ minHeight: "unset" }}
-          >
-            {children}
-            {/* <ThemePanel /> */}
-          </Theme>
+        <ThemeProvider
+          themes={["light", "dark", "fun", "business"]}
+          // add any new themes to this list, but also don't forget to add them to the tailwind config file
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <Theme style={{ minHeight: "unset" }}>{children}</Theme>
         </ThemeProvider>
       </body>
     </html>
