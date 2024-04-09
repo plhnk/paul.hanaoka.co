@@ -1,28 +1,124 @@
 import React, { ReactNode } from "react";
 import { Card, Flex, Box } from "@radix-ui/themes";
+import NavButton from "./ui/navbutton";
+import {
+  CircleUserRound,
+  Layers,
+  PenLine,
+  Mail,
+  Github,
+  Twitter,
+  WandSparkles,
+  Moon,
+  Sun,
+} from "lucide-react";
+import { Label } from "@/components/ui/label";
 
 interface SidebarProps {
   children?: ReactNode;
+  iconStyle: object;
 }
 
+const iconStyle = {
+  size: 16,
+  color: "currentColor",
+  strokeWidth: 2,
+  className: "text-neutral-700 self-center mr-2 group-hover:text-neutral-400",
+};
+
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+
   return (
     <nav className="z-50 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen  sm:pb-16">
-        <Card size="3" className="m-4 p-4 sm:m-8 sm:p-8 h-full">
-          <Flex direction={{
-            initial: 'row',
-            xs: 'column', 
+      <Card size="3" className="m-4 p-4 sm:m-8 sm:p-8 h-full">
+        <Flex
+          direction={{
+            initial: "row",
+            xs: "column",
             // TODO match up radix and tailwind breakpoints
-          }} className="sm:h-full sm:w-56">
-            {'<TODO:Title>'}
-            {'<TODO:Browse>'}
-            {'<TODO:Connect>'}
-            <Box style={{ flexGrow: 1 }} />
-            {'<TODO:ThemeSwitcher>'}
-          </Flex>
-        </Card>
-      </nav>
+          }}
+          className="sm:h-full sm:w-56 my-1 py-2"
+        >
+          <Label
+            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            htmlFor="span"
+          >
+            Browse
+          </Label>
+          <NavButton
+            icon={<CircleUserRound {...iconStyle} />}
+            label={"About"}
+            url={"url"}
+            hotkey={"a"}
+          />
+          <NavButton
+            icon={<Layers {...iconStyle} />}
+            label={"Portfolio"}
+            url={"url"}
+            hotkey={"p"}
+          />
+          <NavButton
+            icon={<PenLine {...iconStyle} />}
+            label={"Blog"}
+            url={"url"}
+            hotkey={"b"}
+          />
+          <Box className="m-2" />
+          <Label
+            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            htmlFor="span"
+          >
+            Connect
+          </Label>
+          <NavButton
+            icon={<Mail {...iconStyle} />}
+            label={"Email"}
+            url={"url"}
+            hotkey={"e"}
+            textToCopy="paul@hanaoka.co"
+          />
+          <NavButton
+            icon={<Github {...iconStyle} />}
+            label={"GitHub"}
+            url={"url"}
+            hotkey={"g"}
+          />
+          <NavButton
+            icon={<Twitter {...iconStyle} />}
+            label={"Twitter"}
+            url={"url"}
+            hotkey={"t"}
+          />
+
+          <Box style={{ flexGrow: 1 }} />
+          <Label
+            className="uppercase text-xs tracking-widest text-neutral-600 font-bold ml-3  my-2"
+            htmlFor="span"
+          >
+            Theme
+          </Label>
+          <NavButton
+            icon={<WandSparkles {...iconStyle} />}
+            label={"System"}
+            url={"url"}
+            hotkey={"s"}
+          />
+          <NavButton
+            icon={<Moon {...iconStyle} />}
+            label={"Dark"}
+            url={"url"}
+            hotkey={"d"}
+          />
+          <NavButton
+            icon={<Sun {...iconStyle} />}
+            label={"Light"}
+            url={"url"}
+            hotkey={"l"}
+          />
+        </Flex>
+      </Card>
+    </nav>
   );
-}
+};
 
 export default Sidebar;
