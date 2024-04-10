@@ -50,19 +50,19 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <NavButton
             icon={<CircleUserRound {...iconStyle} />}
             label={"About"}
-            url={"url"}
+            url={"/about"}
             hotkey={"a"}
           />
           <NavButton
             icon={<Layers {...iconStyle} />}
             label={"Portfolio"}
-            url={"url"}
+            url={"/portfolio"}
             hotkey={"p"}
           />
           <NavButton
             icon={<PenLine {...iconStyle} />}
             label={"Blog"}
-            url={"url"}
+            url={"/blog"}
             hotkey={"b"}
           />
           <Box className="m-2" />
@@ -75,7 +75,6 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <NavButton
             icon={<Mail {...iconStyle} />}
             label={"Email"}
-            url={"url"}
             hotkey={"e"}
             textToCopy="paul@hanaoka.co"
           />
