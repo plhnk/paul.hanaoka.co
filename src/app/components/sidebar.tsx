@@ -14,6 +14,7 @@ import {
   Pizza,
 } from 'lucide-react';
 import NavSection from './ui/navsection';
+import NavButton from './ui/navbutton';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -114,6 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           }}
           className="sm:h-full sm:w-56 my-1 py-2"
         >
+          <NavButton icon={null} label={'Paul Hanaoka'} hotkey={'h'} url={'/'}/>
           <NavSection label="Browse" buttons={browse} />
           <Box className="m-2" />
           <NavSection label="Connect" buttons={connect} />
