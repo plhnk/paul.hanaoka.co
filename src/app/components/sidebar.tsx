@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Card, Flex, Box } from '@radix-ui/themes';
+import { Card } from '@radix-ui/themes';
 import {
   CircleUserRound,
   Layers,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
+import MobileMenu from './ui/mobilemenu';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -54,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     {
       icon: <Mail {...iconStyle} />,
       label: 'Email',
-      hotkey: 'e',
+      hotkey: 'm',
       textToCopy: 'paul@hanaoka.co',
     },
     {
@@ -86,14 +87,14 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     },
     {
       icon: <Terminal {...iconStyle} />,
-      label: 'CLI',
-      hotkey: 'c',
+      label: 'Elite',
+      hotkey: 'e',
       theme: 'business',
     },
     {
       icon: <Pizza {...iconStyle} />,
-      label: 'Fun',
-      hotkey: 'f',
+      label: 'Exec',
+      hotkey: 'c',
       theme: 'fun',
     },
     {
@@ -106,22 +107,20 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
   return (
     <nav className="z-50 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen  sm:pb-16">
-      <Card size="3" className="m-4 p-4 sm:m-8 sm:p-4 h-full">
-        <Flex
-          direction={{
-            initial: 'row',
-            xs: 'column',
-            // TODO match up radix and tailwind breakpoints
-          }}
-          className="sm:h-full sm:w-56 my-1 py-2"
-        >
-          <NavButton icon={null} label={'Paul Hanaoka'} hotkey={'h'} url={'/'}/>
-          <NavSection label="Browse" buttons={browse} />
-          <Box className="m-2" />
-          <NavSection label="Connect" buttons={connect} />
-          <Box style={{ flexGrow: 1 }} />
-          <NavSection label="Theme" buttons={theme} />
-        </Flex>
+      <Card size="3" className="m-4 p-2 sm:m-8 sm:p-4 h-full">
+        <div className="grid gap-2 sm:gap-0 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start sm:h-full sm:w-56 my-1 py-2">
+          <div className='col-span-2 sm:col-auto'>
+            <NavButton
+              icon={null}
+              label={'Paul Hanaoka'}
+              hotkey={'h'}
+              url={'/'}
+            />
+          </div>
+          <NavSection className="order-2 sm:order-1" label="Browse" buttons={browse} />
+          <NavSection className="order-3 sm:order-2" label="Connect" buttons={connect} />
+          <NavSection className="order-1 sm:order-3 row-span-2 sm:row-span-1" label="Theme" buttons={theme} />
+        </div>
       </Card>
     </nav>
   );

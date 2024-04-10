@@ -41,6 +41,7 @@ export default function RootLayout({
           'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)] business:bg-lime-950 fun:bg-rose-200 dark:bg-neutral-900 light:bg-neutral-50 transition-colors duration-200'
         }
         // TODO design themes, abstract them somehow
+        // TODO add Sonner for clipboard notification
       >
         <ThemeProvider
           themes={['light', 'dark', 'fun', 'business']}

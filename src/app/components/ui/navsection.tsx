@@ -6,11 +6,16 @@ import { NavButtonProps } from '../../utilities/types';
 interface NavSectionProps {
   label: string;
   buttons: NavButtonProps[];
+  className?: string;
 }
 
-const NavSection: React.FC<NavSectionProps> = ({ label, buttons }) => {
+const NavSection: React.FC<NavSectionProps> = ({
+  label,
+  buttons,
+  className,
+}) => {
   return (
-    <>
+    <div className={`${className ? className + ' ' : ''}` + 'block'}>
       <Label
         className="uppercase text-xs tracking-widest text-neutral-600 font-semibold ml-3 my-2"
         htmlFor="span"
@@ -28,7 +33,7 @@ const NavSection: React.FC<NavSectionProps> = ({ label, buttons }) => {
           theme={button.theme}
         />
       ))}
-    </>
+    </div>
   );
 };
 
