@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Card } from '@radix-ui/themes';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   CircleUserRound,
   Layers,
@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
-import MobileMenu from './ui/mobilemenu';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -92,18 +91,18 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       hotkey: 'l',
       theme: 'light',
     },
-    // {
-    //   icon: <Terminal {...iconStyle} />,
-    //   label: 'Elite',
-    //   hotkey: 'e',
-    //   theme: 'business',
-    // },
-    // {
-    //   icon: <Pizza {...iconStyle} />,
-    //   label: 'Exec',
-    //   hotkey: 'c',
-    //   theme: 'fun',
-    // },
+    {
+      icon: <Terminal {...iconStyle} />,
+      label: 'Elite',
+      hotkey: 'e',
+      theme: 'business',
+    },
+    {
+      icon: <Pizza {...iconStyle} />,
+      label: 'Exec',
+      hotkey: 'c',
+      theme: 'fun',
+    },
     // TODO polish themes
     {
       icon: <WandSparkles {...iconStyle} />,
@@ -115,8 +114,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
   return (
     <nav className="z-50 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen  sm:pb-16">
-      <Card size="3" className="m-4 p-2 sm:m-8 sm:p-4 h-full">
-        <div className="grid gap-2 sm:gap-0 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start sm:h-full sm:w-56 my-1 py-2">
+      <Card className="rounded-xl m-4 p-2 sm:m-8 sm:p-4 h-full">
+        <CardContent className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-2 sm:gap-2 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
           <div className='col-span-2 sm:col-auto'>
             <NavButton
               icon={null}
@@ -128,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <NavSection className="order-2 sm:order-1" label="Browse" buttons={browse} />
           <NavSection className="order-3 sm:order-2" label="Connect" buttons={connect} />
           <NavSection className="order-1 sm:order-3 row-span-2 sm:row-span-1" label="Theme" buttons={theme} />
-        </div>
+        </CardContent>
       </Card>
     </nav>
   );

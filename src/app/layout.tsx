@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Fira_Code, Fira_Sans } from 'next/font/google';
-import { Theme } from '@radix-ui/themes';
 import { ThemeProvider } from './components/theme-provider';
 import Sidebar from './components/sidebar';
 import './globals.css';
@@ -50,10 +49,8 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <Theme style={{ minHeight: 'unset' }}>
-            <Sidebar />
-            <main className="">{children}</main>
-          </Theme>
+          <Sidebar />
+          <main className="">{children}</main>
         </ThemeProvider>
       </body>
     </html>

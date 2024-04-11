@@ -3,5 +3,5 @@ export default function AboutLayout({
   }: {
     children: React.ReactNode
   }) {
-    return <section>{children}</section>
+    return <section className="max-w-2xl mx-auto my-32">{children}</section>
   }
