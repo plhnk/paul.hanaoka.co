@@ -10,6 +10,7 @@ import {
   WandSparkles,
   Moon,
   Sun,
+  FileText,
   Terminal,
   Pizza,
 } from 'lucide-react';
@@ -65,6 +66,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       url: 'https://github.com/plhnk',
     },
     {
+      icon: <FileText {...iconStyle} />,
+      label: 'Read.cv',
+      hotkey: 'r',
+      url: 'https://read.cv/plhnk',
+    },
+    {
       icon: <Twitter {...iconStyle} />,
       label: 'Twitter',
       hotkey: 't',
@@ -85,18 +92,19 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       hotkey: 'l',
       theme: 'light',
     },
-    {
-      icon: <Terminal {...iconStyle} />,
-      label: 'Elite',
-      hotkey: 'e',
-      theme: 'business',
-    },
-    {
-      icon: <Pizza {...iconStyle} />,
-      label: 'Exec',
-      hotkey: 'c',
-      theme: 'fun',
-    },
+    // {
+    //   icon: <Terminal {...iconStyle} />,
+    //   label: 'Elite',
+    //   hotkey: 'e',
+    //   theme: 'business',
+    // },
+    // {
+    //   icon: <Pizza {...iconStyle} />,
+    //   label: 'Exec',
+    //   hotkey: 'c',
+    //   theme: 'fun',
+    // },
+    // TODO polish themes
     {
       icon: <WandSparkles {...iconStyle} />,
       label: 'System',
