@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Card, Inset, Box, Container } from '@radix-ui/themes';
 import Billboard from './components/ui/billboard';
 
 export default function Home() {
