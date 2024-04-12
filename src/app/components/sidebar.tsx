@@ -27,7 +27,7 @@ const iconStyle = {
   size: 16,
   color: 'currentColor',
   strokeWidth: 2,
-  className: 'text-neutral-700 self-center mr-2 group-hover:text-neutral-400',
+  className: 'text-element/50 self-center mr-2 group-hover:text-accent',
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
@@ -115,7 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
   return (
     <nav className="z-50 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen  sm:pb-16">
-      <div className="backdrop-blur-lg rounded-xl m-4 p-2 sm:m-8 sm:p-4 h-full bg-card/20">
+      <div className="backdrop-blur-lg rounded-xl m-4 p-2 sm:m-8 sm:p-4 h-full bg-card/65">
         <div className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-2 sm:gap-2 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
           <div className='col-span-2 sm:col-auto'>
             <NavButton

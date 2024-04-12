@@ -38,7 +38,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className:
-      ' group w-full max-w-36 sm:max-w-full hover:bg-neutral-800 active:bg-neutral-700 focus:ring-1 ring-inset focus:ring-neutral-700 focus:bg-neutral-900 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-neutral-50',
+      ' group w-full max-w-36 sm:max-w-full hover:bg-accent/10 active:bg-accent/20 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
   };
 
   const ButtonContent = (
@@ -54,7 +54,7 @@ const NavButton: React.FC<NavButtonProps> = ({
       {label}
       <kbd
         key={hotkey}
-        className="hidden sm:block text-neutral-400 bg-neutral-800 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
+        className="hidden sm:block text-text/60 bg-element/10 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
         // TODO add popover for hotkey
       >
         {hotkey}

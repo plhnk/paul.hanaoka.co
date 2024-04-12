@@ -17,7 +17,7 @@ const NavSection: React.FC<NavSectionProps> = ({
   return (
     <div className={`${className ? className + ' ' : ''}` + 'block'}>
       <Label
-        className="uppercase text-xs tracking-widest text-neutral-600 font-semibold ml-3 my-2"
+        className="uppercase text-xs tracking-widest text-text/50 font-semibold ml-3 my-2"
         htmlFor="span"
       >
         {label}

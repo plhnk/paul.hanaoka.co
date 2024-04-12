@@ -9,32 +9,32 @@
 /* wasnt super obvious to me that you need to specify the rgb values in this format — i.e. each value separated without a comma */
 
 .dark {
-  --background: 11 10 10; /* hsl(0 4 4) */
-  --text: 245 245 245; /* hsl(0 3 96) */
-  --card: 35 31 31; /* hsl(0 6 13) */
-  --element: 168 159 159; /* hsl(0 5 64) */
-  --accent: 193 11 11; /* hsl(0, 89, 40) */
+  --background: 11 10 10;
+  --text: 245 245 245;
+  --card: 35 31 31;
+  --element: 168 159 159;
+  --accent: 193 11 11;
 }
 .light {
-  --background: 245 244 244; /* hsl(0 4 96) */
-  --text: 16 15 15; /* hsl(0 5 6) */
-  --card: 235 230 230; /* hsl(0 11 91) */
-  --element: 107 97 97; /* hsl(0 5 40) */
-  --accent: 193 11 11; /* hsl(0, 89, 40) */
+  --background: 245 244 244; 
+  --text: 16 15 15; 
+  --card: 235 230 230; 
+  --element: 107 97 97; 
+  --accent: 193 11 11; 
 }
 .elite {
-  --background: 12 19 12; /* hsl(122, 21%, 6%) */
-  --text: 245 245 245; /* hsl(112, 3%, 96%) */
-  --card: 32 35 31; /* hsl(108, 6%, 13%) */
-  --element: 160 168 159; /* hsl(112, 5%, 64%) */
-  --accent: 69 193 11; /* hsl(101, 89%, 40%) */
+  --background: 12 19 12;
+  --text: 245 245 245;
+  --card: 32 35 31;
+  --element: 160 168 159;
+  --accent: 69 193 11;
 }
 .exec {
-  --background: 8 7 7; /* hsl(3, 3%, 3%) */
-  --text: 249 244 144; /* hsl(57, 90%, 77%) */
-  --card: 0 28 41; /* hsl(199, 100%, 8%) */
-  --element: 218 47 58; /* hsl(356, 70%, 52%) */
-  --accent: 16 77 158; /* hsl(214, 82%, 34%) */
+  --background: 8 7 7;
+  --text: 249 248 233;
+  --card: 28 26 0;
+  --element: 178 175 145; 
+  --accent: 236 225 0;
 }
 
 .theme-object {
