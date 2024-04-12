@@ -10,7 +10,6 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: '',
   theme: {
     container: {
       center: true,
@@ -21,10 +20,11 @@ const config = {
     },
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        card: 'hsl(var(--card))',
-        'card-foreground': 'hsl(var(--card-foreground))',
+        background: 'rgb(var(--background))',
+        text: 'rgb(var(--text))',
+        card: 'rgb(var(--card))',
+        element: 'rgb(var(--element))',
+        accent: 'rgb(var(--accent))',
       },
       borderRadius: {
         xl: '1rem',
@@ -67,8 +67,8 @@ const config = {
       });
     }),
     function ({ addVariant }: { addVariant: any }) {
-      addVariant('fun', `:is(.fun &)`);
-      addVariant('business', `:is(.business &)`);
+      addVariant('elite', `:is(.elite &)`);
+      addVariant('exec', `:is(.exec &)`);
     },
     require('tailwindcss-animate'),
   ],

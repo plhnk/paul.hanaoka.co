@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Billboard from './components/ui/billboard';
+import ModeToggle from './components/ui/modetoggle';
 
 export default function Home() {
   return (

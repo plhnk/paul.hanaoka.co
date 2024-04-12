@@ -38,20 +38,20 @@ export default function RootLayout({
     >
       <body
         className={
-          'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-card-foreground text-foreground-100'
+          'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-background text-text'
         }
         // TODO design themes, abstract them somehow
         // TODO add Sonner for clipboard notification
       >
         <ThemeProvider
-          themes={['light', 'dark', 'fun', 'business']}
+          themes={['light', 'dark', 'elite', 'exec']}
           // add any new themes to this list, but also don't forget to add them to the tailwind config file
           attribute="class"
           defaultTheme="system"
           enableSystem
         >
           <Sidebar />
-          <main className="max-w-2xl mx-auto my-32">{children}</main>
+          <main className="max-w-2xl mx-auto my-32 bg-surface">{children}</main>
         </ThemeProvider>
       </body>
     </html>
