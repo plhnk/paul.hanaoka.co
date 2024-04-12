@@ -54,7 +54,7 @@ const NavButton: React.FC<NavButtonProps> = ({
       {label}
       <kbd
         key={hotkey}
-        className="hidden sm:block text-text/60 bg-element/10 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
+        className="hidden sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
         // TODO add popover for hotkey
       >
         {hotkey}
