@@ -50,7 +50,7 @@ export default function RootLayout({
           enableSystem
         >
           <Sidebar />
-          <main className="">{children}</main>
+          <main className="max-w-2xl mx-auto my-32">{children}</main>
         </ThemeProvider>
       </body>
     </html>
