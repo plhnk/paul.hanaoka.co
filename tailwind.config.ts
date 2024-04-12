@@ -54,10 +54,10 @@ const config = {
   plugins: [
     plugin(function ({ addComponents }: { addComponents: any }) {
       addComponents({
-        '.radix-themes': {
-          '--default-font-family': [config.theme.extend.fontFamily.sans],
-          '--mono-font-family': [config.theme.extend.fontFamily.mono],
-        },
+        // '.radix-themes': {
+        //   '--default-font-family': [config.theme.extend.fontFamily.sans],
+        //   '--mono-font-family': [config.theme.extend.fontFamily.mono],
+        // },
       });
     }),
     function ({ addVariant }: { addVariant: any }) {
@@ -66,6 +66,9 @@ const config = {
     },
     require('tailwindcss-animate'),
   ],
+  purge: {
+    enabled: true,
+  },
 } satisfies Config;
 
 export default config;

@@ -1,4 +1,20 @@
-@import "@radix-ui/themes/styles.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fun {
+  --background: 0 90% 40%;
+  --foreground: 222.2 47.4% 11.2%;
+}
+/* test extending theme - but this would be for adding a brand new color */
+
+/* I think I need to add the classes for each theme in here and it should work? */
+
+/* these are all HSL */
+
+.dark {
+  --background: 234 75% 30%;
+  --foreground: 222.2 47.4% 11.2%;
+  --card: 90 20% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+}

@@ -34,10 +34,11 @@ export default function RootLayout({
         `${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'
       }
       lang="en"
+      suppressHydrationWarning
     >
       <body
         className={
-          'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem)] business:bg-lime-950 fun:bg-rose-200 dark:bg-neutral-900 light:bg-neutral-50 transition-colors duration-200'
+          'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 dark:bg-primary'
         }
         // TODO design themes, abstract them somehow
         // TODO add Sonner for clipboard notification
