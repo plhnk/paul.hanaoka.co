@@ -25,6 +25,7 @@ const NavButton: React.FC<NavButtonProps> = ({
       navigator.clipboard.writeText(textToCopy);
       setShowMessage(true);
     }
+    // TODO Sonner when text is copied
   };
 
   const [showMessage, setShowMessage] = useState(false);
@@ -34,11 +35,13 @@ const NavButton: React.FC<NavButtonProps> = ({
     for (const el of elements) {
       install(el as HTMLElement, el.getAttribute('data-hotkey')!);
     }
+    // TODO set class when hotkey is pressed
   }, []);
 
   const ButtonStyles = {
     className:
-      ' group w-full hover:bg-accent/10 active:bg-accent/20 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+      ' group w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+      // TODO add styles for when hotkey is pressed
   };
 
   const ButtonContent = (
@@ -61,7 +64,7 @@ const NavButton: React.FC<NavButtonProps> = ({
       </kbd>
     </button>
   );
-
+// TODO skip focus on button if there's a link (redundant tabbing)
   return <>{url ? <Link className='flex sm:block' href={url}>{ButtonContent}</Link> : ButtonContent}</>;
 };
 

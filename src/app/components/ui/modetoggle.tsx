@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { install } from '@github/hotkey';
 
 interface ModeToggleProps {
   className?: string;
@@ -18,9 +19,9 @@ const iconStyle = {
 };
 const ModeToggle: React.FC<ModeToggleProps> = ({ className }) => {
   const modes = [
-    { mode: 'dark', label: 'Dark', icon: <Moon {...iconStyle} /> },
-    { mode: 'light', label: 'Light', icon: <Sun {...iconStyle} /> },
-    { mode: 'system', label: 'Auto', icon: <WandSparkles {...iconStyle} /> },
+    { mode: 'dark', label: 'Dark', hotkey: 'd', icon: <Moon {...iconStyle} /> },
+    { mode: 'light', label: 'Light', hotkey: 'l', icon: <Sun {...iconStyle} /> },
+    { mode: 'system', label: 'Auto', hotkey: 's', icon: <WandSparkles {...iconStyle} /> },
   ];
   const { setTheme, resolvedTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,16 +34,24 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ className }) => {
     setIsDarkMode(!isDarkMode);
     setTheme(isDarkMode ? 'light' : 'dark');
   };
+  useEffect(() => {
+    const elements = document.querySelectorAll('[data-hotkey]');
+    for (const el of elements) {
+      install(el as HTMLElement, el.getAttribute('data-hotkey')!);
+    }
+    // TODO set class when hotkey is pressed
+  }, []);
 
   return (
-    <div className="col-span-2 sm:col-span-1 flex justify-between bg-background rounded-md">
+    <div className="col-span-2 sm:col-span-1 flex justify-between rounded-md">
       {modes.map((modes, index) => (
         <button
           onClick={() => {
             setTheme(`${modes.mode}`);
           }}
+          data-hotkey={modes.hotkey}
           className={
-            `${resolvedTheme === modes.mode ? 'bg-background ' : 'bg-card/65 '}` +
+            `${resolvedTheme === modes.mode ? 'bg-background/50 ' : ' '}` +
             `${resolvedTheme === 'light' ? 'first:rounded-r-0 last:rounded-r-0 ' : ''}` +
             'group flex justify-center pr-5 sm:pr-2 px-2 py-1 w-full first:rounded-l-md last:rounded-r-md hover:bg-accent/10 hover:text-text'
           }
