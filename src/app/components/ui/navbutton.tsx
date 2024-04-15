@@ -38,7 +38,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className:
-      ' group w-full max-w-36 sm:max-w-full hover:bg-accent/10 active:bg-accent/20 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+      ' group w-full hover:bg-accent/10 active:bg-accent/20 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
   };
 
   const ButtonContent = (
