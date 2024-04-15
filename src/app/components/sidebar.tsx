@@ -109,6 +109,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </div>
           <NavSection className="" label="Browse" buttons={browse} />
           <NavSection className="" label="Connect" buttons={connect} />
+          {/* <NavSection className="" label="Theme" buttons={theme} /> */}
           <ModeToggle />
         </div>
       </div>

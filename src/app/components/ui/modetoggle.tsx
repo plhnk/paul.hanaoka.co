@@ -13,7 +13,8 @@ const iconStyle = {
   size: 16,
   color: 'currentColor',
   strokeWidth: 2,
-  className: 'text-element/50 self-center mr-1 group-hover:text-accent',
+  className:
+    'group:hover:text-accent/60 text-element/50 self-center mr-2 sm:mr-1  group-hover:text-accent',
 };
 const ModeToggle: React.FC<ModeToggleProps> = ({ className }) => {
   const modes = [
@@ -34,15 +35,16 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ className }) => {
   };
 
   return (
-    <div className="flex justify-between bg-text/10 rounded-md border-text/10 border-2">
+    <div className="col-span-2 sm:col-span-1 flex justify-between bg-background rounded-md">
       {modes.map((modes, index) => (
         <button
           onClick={() => {
             setTheme(`${modes.mode}`);
           }}
           className={
-            `${resolvedTheme === modes.mode ? 'bg-text/10 ' : ''}` +
-            'flex px-2 py-1 rounded-sm'
+            `${resolvedTheme === modes.mode ? 'bg-background ' : 'bg-card/65 '}` +
+            `${resolvedTheme === 'light' ? 'first:rounded-r-0 last:rounded-r-0 ' : ''}` +
+            'group flex justify-center pr-5 sm:pr-2 px-2 py-1 w-full first:rounded-l-md last:rounded-r-md hover:bg-accent/10 hover:text-text'
           }
           key={index}
         >
