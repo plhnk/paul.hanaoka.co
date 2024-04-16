@@ -27,7 +27,7 @@ const iconStyle = {
   size: 16,
   color: 'currentColor',
   strokeWidth: 2,
-  className: 'text-element/50 self-center mr-2 group-hover:text-accent',
+  className: 'text-element/50 self-center mr-2 group-hover:text-accent group-focus-visible:text-accent/60',
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {

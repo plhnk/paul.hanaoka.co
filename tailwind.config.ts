@@ -11,6 +11,10 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
+    boxShadow:{
+      // x y blur spread color
+      'focus':'0 0 1rem .1rem rgb(var(--accent)/.1);',
+    },
     container: {
       center: true,
       padding: '2rem',

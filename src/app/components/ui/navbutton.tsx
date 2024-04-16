@@ -40,8 +40,8 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className:
-      ' group w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
-      // TODO add styles for when hotkey is pressed
+      ' group focus-visible:outline-none focus-visible:shadow-focus w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+    // TODO add styles for when hotkey is pressed
   };
 
   const ButtonContent = (
@@ -57,15 +57,25 @@ const NavButton: React.FC<NavButtonProps> = ({
       {label}
       <kbd
         key={hotkey}
-        className="hidden sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
+        className="hidden group-focus-visible:text-accent/80 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
         // TODO add popover for hotkey
       >
         {hotkey}
       </kbd>
     </button>
   );
-// TODO skip focus on button if there's a link (redundant tabbing)
-  return <>{url ? <Link className='flex sm:block' href={url}>{ButtonContent}</Link> : ButtonContent}</>;
+  // TODO skip focus on button if there's a link (redundant tabbing)
+  return (
+    <>
+      {url ? (
+        <Link className="flex sm:block" href={url}>
+          {ButtonContent}
+        </Link>
+      ) : (
+        ButtonContent
+      )}
+    </>
+  );
 };
 
 export default NavButton;
