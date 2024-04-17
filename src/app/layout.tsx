@@ -3,6 +3,7 @@ import { Fira_Code, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from './components/theme-provider';
 import Sidebar from './components/sidebar';
 import './globals.css';
+import { Toaster } from '@/components/ui/sonner';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function RootLayout({
         >
           <Sidebar />
           <main className="max-w-2xl mx-auto my-32 bg-surface">{children}</main>
+          <Toaster position="top-center" />
         </ThemeProvider>
       </body>
     </html>

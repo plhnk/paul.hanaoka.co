@@ -4,6 +4,7 @@ import { install } from '@github/hotkey';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { NavButtonProps } from '../../utilities/types';
+import { toast } from 'sonner';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -23,25 +24,30 @@ const NavButton: React.FC<NavButtonProps> = ({
   const handleCopy = () => {
     if (textToCopy) {
       navigator.clipboard.writeText(textToCopy);
-      setShowMessage(true);
+      copyToast();
     }
-    // TODO Sonner when text is copied
   };
 
-  const [showMessage, setShowMessage] = useState(false);
+  const copyToast = () => {
+    toast.success('Email copied to clipboard!', {
+      // description: "Send me an email.",
+      action: {
+        label: 'Open Mail Client',
+        onClick: () => window.location.href = 'mailto:' + textToCopy,
+      },
+    });
+  };
 
   useEffect(() => {
     const elements = document.querySelectorAll('[data-hotkey]');
     for (const el of elements) {
       install(el as HTMLElement, el.getAttribute('data-hotkey')!);
     }
-    // TODO set class when hotkey is pressed
   }, []);
 
   const ButtonStyles = {
     className:
       ' group focus-visible:outline-none focus-visible:shadow-focus w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
-    // TODO add styles for when hotkey is pressed
   };
 
   const ButtonContent = (
