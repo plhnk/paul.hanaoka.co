@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { NavButtonProps } from '../../utilities/types';
 import { toast } from 'sonner';
+import { ClipboardCopy, ExternalLink } from 'lucide-react';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -33,7 +34,7 @@ const NavButton: React.FC<NavButtonProps> = ({
       // description: "Send me an email.",
       action: {
         label: 'Open Mail Client',
-        onClick: () => window.location.href = 'mailto:' + textToCopy,
+        onClick: () => (window.location.href = 'mailto:' + textToCopy),
       },
     });
   };
@@ -50,35 +51,54 @@ const NavButton: React.FC<NavButtonProps> = ({
       ' group focus-visible:outline-none focus-visible:shadow-focus w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
   };
 
+  const IconStyles = {
+    size: 16,
+    color: 'currentColor',
+    strokeWidth: 2,
+    className:
+      'text-element/50 self-center ml-2 group-hover:text-text/80 group-focus-visible:text-text/60',
+  };
+
   const ButtonContent = (
-    <button
-      {...ButtonStyles}
-      onClick={() => {
-        handleCopy();
-        handleTheme();
-      }}
-      data-hotkey={hotkey}
-    >
+    <>
       {icon}
       {label}
+      {textToCopy ? <ClipboardCopy {...IconStyles} /> : null}
+      {url && !url.startsWith('/') ? <ExternalLink {...IconStyles} /> : null}
       <kbd
         key={hotkey}
-        className="hidden group-focus-visible:text-accent/80 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs"
+        className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
         // TODO add popover for hotkey
       >
         {hotkey}
       </kbd>
-    </button>
+    </>
   );
-  // TODO skip focus on button if there's a link (redundant tabbing)
   return (
     <>
       {url ? (
-        <Link className="flex sm:block" href={url}>
+        <Link
+          {...ButtonStyles}
+          onClick={() => {
+            handleCopy();
+            handleTheme();
+          }}
+          data-hotkey={hotkey}
+          href={url}
+        >
           {ButtonContent}
         </Link>
       ) : (
-        ButtonContent
+        <button
+          {...ButtonStyles}
+          onClick={() => {
+            handleCopy();
+            handleTheme();
+          }}
+          data-hotkey={hotkey}
+        >
+          {ButtonContent}
+        </button>
       )}
     </>
   );
