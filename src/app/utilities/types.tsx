@@ -13,10 +13,10 @@ export interface NavButtonProps {
 export interface DashboardCardProps {
   className?: string;
   content?: ReactNode;
-  extraInfo?: string;
+  extraInfo?: ReactNode;
   graphic?: ReactNode;
   graphicInfo?: string;
-  importantNumber?: string | number;
+  importantNumber?: ReactNode;
   title?: string;
   fullScreen?: boolean;
 }
