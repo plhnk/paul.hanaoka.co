@@ -20,7 +20,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   graphicInfo,
   importantNumber,
   title,
-  fullScreen
+  fullScreen,
 }) => {
   return (
     <Card className={className}>
@@ -36,7 +36,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
       </CardContent>
       <CardFooter className={graphic ? '' : 'hidden'}>
         {graphic}
-        {graphicInfo}
+        <span>{graphicInfo}</span>
       </CardFooter>
     </Card>
   );

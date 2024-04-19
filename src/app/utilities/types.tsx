@@ -14,9 +14,9 @@ export interface DashboardCardProps {
   className?: string;
   content?: ReactNode;
   extraInfo?: string;
-  graphic?: string;
+  graphic?: ReactNode;
   graphicInfo?: string;
-  importantNumber?: string;
+  importantNumber?: string | number;
   title?: string;
   fullScreen?: boolean;
 }

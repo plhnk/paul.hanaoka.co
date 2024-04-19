@@ -1,28 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import DashboardCard from './components/ui/dashboardcard';
-
-const date = new Date();
-const today = date.getTime();
+import Calendar from './widgets/calendar';
+import Weather from './widgets/weather';
 
 export default function Home() {
   return (
     <div className="grid gap-4 grid-cols-4 grid-rows-3 mt-[30%]">
-      <DashboardCard
-        className="row-span-2"
-        title={'April'}
-        importantNumber={'16'}
-        extraInfo={'259 days left in 2024'}
-        graphic={'[dots]'}
-        graphicInfo={'Tuesday'}
-      />
-      <DashboardCard
-        className="row-span-2"
-        title={'Bellingham, WA'}
-        importantNumber={'41º'}
-        extraInfo={'H:58º L:39º'}
-        graphic={'[clear icon]'}
-        graphicInfo={'Clear'}
-      />
+      <Calendar />
+      <Weather />
       <DashboardCard
         fullScreen
         className="row-span-3 col-span-2"
@@ -43,6 +28,3 @@ export default function Home() {
     </div>
   );
 }
-
-// {/* <Billboard>
-// </Billboard> */}
