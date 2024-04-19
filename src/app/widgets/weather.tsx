@@ -1,52 +1,42 @@
 'use-client';
+import { useState, useEffect } from 'react';
 import DashboardCard from '../components/ui/dashboardcard';
-import {
-  CircleUserRound,
-  Layers,
-  PenLine,
-  Mail,
-  Github,
-  Twitter,
-  ClipboardCopy,
-  ExternalLink,
-  Moon,
-  Sun,
-  FileText,
-  Terminal,
-  Pizza,
-} from 'lucide-react';
-import { useEffect, useState } from 'react';
 
-const Weather = () => {
-  const [currentTemperature, setCurrentTemperature] = useState<number | null>(null);
-  const [dailyHigh, setDailyHigh] = useState<number | null>(null);
-  const [dailyLow, setDailyLow] = useState<number | null>(null);
+const Weather: React.FC = () => {
+  // const [data, setData] = useState(null);
+  // const [isLoading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      try {
-        const response = await fetch('https://api.weather.gov/SEW/131,123/forecast');
-        const data = await response.json();
-        const { temperature, temperatureHigh, temperatureLow } = data;
+  // const fetcher = async (url: string | URL | Request) => {
+  //   const response = await fetch(
+  //     'https://api.weather.gov/SEW/131,123/forecast'
+  //   );
+  //   if (!response.ok) {
+  //     throw new Error('Network response was not ok');
+  //   }
+  //   return response.json();
+  // };
 
-        setCurrentTemperature(temperature);
-        setDailyHigh(temperatureHigh);
-        setDailyLow(temperatureLow);
-      } catch (error) {
-        console.error('Error fetching weather data:', error);
-      }
-    };
+  // const data = GET('https://api.weather.gov/SEW/131,123/forecast');
+  // console.log(data);
 
-    fetchWeatherData();
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://api.weather.gov/SEW/131,123/forecast')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  // console.log(data);
 
   return (
     <>
       <DashboardCard
         className="row-span-2"
-        title='Bellingham, WA'
-        importantNumber={currentTemperature ?? undefined}
-        extraInfo={'H:' + dailyHigh + ' L:' + dailyLow}
+        title="Bellingham, WA"
+        importantNumber={'69'}
+        extraInfo={'H:' + 69 + ' L:' + 40}
         graphic={'icon'}
         graphicInfo={'weather'}
       />
