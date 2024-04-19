@@ -5,12 +5,12 @@ import Weather from './widgets/weather';
 
 export default function Home() {
   return (
-    <div className="grid gap-4 grid-cols-4 grid-rows-3 mt-[30%]">
+    <div className="grid gap-4 grid-cols-1 grid-rows-auto sm:grid-cols-4 sm:grid-rows-3 mt-[30%]">
       <Calendar />
       <Weather />
       <DashboardCard
         fullScreen
-        className="row-span-3 col-span-2"
+        className="row-span-3 col-span-1 sm:col-span-2"
         content={
           <img
             className="w-full h-[380px] object-cover "
@@ -20,7 +20,7 @@ export default function Home() {
         }
       />
       <DashboardCard
-        className="col-span-2"
+        className="col-span-1 sm:col-span-2"
         title="Proverb of the day"
         content="There is a way that seems right to a man, but it’s end is the way to
       death."

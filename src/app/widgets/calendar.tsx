@@ -35,7 +35,7 @@ export default function Calendar() {
   return (
     <>
       <DashboardCard
-        className="row-span-2"
+        className="row-span-1 col-span-1 sm:row-span-2"
         title={month}
         importantNumber={today}
         extraInfo={daysLeft + ' day' + pluralize(daysLeft) + ' left in ' + year}

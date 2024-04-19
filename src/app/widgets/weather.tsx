@@ -116,7 +116,7 @@ export default function Weather() {
   return (
     <>
       <DashboardCard
-        className="row-span-2"
+        className="row-span-1 col-span-1 sm:row-span-2"
         title="Bellingham, WA"
         importantNumber={convertedTemp + '°'}
         extraInfo={toggle}
