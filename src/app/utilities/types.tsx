@@ -9,3 +9,14 @@ export interface NavButtonProps {
   textToCopy?: string;
   theme?: string;
 }
+
+export interface DashboardCardProps {
+  className?: string;
+  content?: ReactNode;
+  extraInfo?: string;
+  graphic?: string;
+  graphicInfo?: string;
+  importantNumber?: string;
+  title?: string;
+  fullScreen?: boolean;
+}

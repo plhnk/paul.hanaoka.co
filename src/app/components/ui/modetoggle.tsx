@@ -46,7 +46,7 @@ useEffect(() => {
             }
         });
     }
-    // TODO set class when hotkey is pressed
+    // TODO have style for current mode
 }, []);
 
   return (
