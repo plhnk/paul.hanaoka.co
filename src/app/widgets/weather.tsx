@@ -81,10 +81,12 @@ export default function Weather() {
     return celsius.toFixed(0);
   }
 
-  const browserLanguage = navigator.language;
-  const isEnUs = browserLanguage === 'en-US';
-  const initialState = isEnUs ? false : true;
-  const [isCelsius, setIsCelsius] = useState(initialState);
+  useEffect(() => {
+    const browserLanguage = navigator.language;
+    const isEnUs = browserLanguage === 'en-US';
+    setIsCelsius(isEnUs ? false : true);
+  }, []);
+  const [isCelsius, setIsCelsius] = useState(false);
 
   function toggleTemperatureUnit() {
     setIsCelsius((prevIsCelsius) => !prevIsCelsius);
