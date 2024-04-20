@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import DashboardCard from '../components/ui/dashboardcard';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Sun, CloudSun, CloudRain, CloudSunRain, CloudOff } from 'lucide-react';
+import { Sun, CloudSun, CloudRain, CloudSunRain, MoonStar, CloudOff } from 'lucide-react';
 
 export default function Weather() {
   const [data, setData] = useState<{
@@ -30,14 +30,6 @@ export default function Weather() {
       });
   }, []);
 
-  // if (data) {
-  //   console.log(data.forecastData.properties);
-  //   console.log(data.hourlyData.properties.periods[0].temperature);
-  //   console.log(data.forecastData.properties.periods[0].detailedForecast);
-  //   console.log(data.forecastData.properties.periods[0].shortForecast);
-  //   console.log(data.forecastData.properties.periods[0].minTemperature);
-  // }
-
   const currentTemp = data ? (
     data.hourlyData.properties.periods[0].temperature
   ) : (
@@ -52,12 +44,7 @@ export default function Weather() {
   const dewPoint = data
     ? data.forecastData.properties.periods[0].dewpoint.value
     : 'loading...';
-  // console.log([
-  //   { dewPoint: dewPoint },
-  //   { shortForecast: shortForecast },
-  //   { currentTemp: currentTemp },
-  //   { detailedForecast: detailedForecast },
-  // ]);
+  
   function getIcon(shortForecast: string): React.ReactNode {
     let icon: React.ReactNode;
     const forecast = shortForecast.toLowerCase();
@@ -69,8 +56,11 @@ export default function Weather() {
       icon = <CloudRain />;
     } else if (forecast.includes('scattered')) {
       icon = <CloudSunRain />;
+    } else if (forecast.includes('clear')) {
+      icon = <MoonStar />; // TODO add nighttime icons / logic
     } else {
-      icon = <CloudOff />;
+      icon = <CloudOff />; 
+      // TODO move icons/logic to a diff component? util?
     }
     return icon;
   }

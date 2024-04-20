@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { install } from '@github/hotkey';
@@ -15,6 +15,7 @@ const iconStyle = {
   className:
     'group:hover:text-accent/60 text-element/50 self-center mr-2 sm:mr-1  group-hover:text-accent',
 };
+
 const ModeToggle: React.FC<ModeToggleProps> = () => {
   const modes = [
     { mode: 'dark', label: 'Dark', hotkey: 'd', icon: <Moon {...iconStyle} /> },
@@ -31,7 +32,12 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme: initialTheme } = useTheme();
+  const [theme, setClientTheme] = useState<string | undefined>();
+
+  useEffect(() => {
+    setClientTheme(initialTheme);
+  }, []);
 
   useEffect(() => {
     const elements = document.querySelectorAll('[data-hotkey]');
