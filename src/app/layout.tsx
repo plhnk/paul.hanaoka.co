@@ -51,7 +51,7 @@ export default function RootLayout({
           enableSystem
         >
           <Sidebar />
-          <main className="max-w-2xl lg:max-w-5xl mx-auto my-32 bg-surface">{children}</main>
+          <main className="max-w-2xl mx-auto my-32 bg-surface">{children}</main>
           <Toaster position="top-center" />
         </ThemeProvider>
       </body>

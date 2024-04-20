@@ -37,7 +37,7 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
 
   useEffect(() => {
     setClientTheme(initialTheme);
-  }, []);
+  }, [initialTheme]);
 
   useEffect(() => {
     const elements = document.querySelectorAll('[data-hotkey]');
