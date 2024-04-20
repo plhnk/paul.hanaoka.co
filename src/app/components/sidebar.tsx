@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import {
   CircleUserRound,
   Layers,
@@ -7,10 +6,6 @@ import {
   Mail,
   Github,
   Twitter,
-  ClipboardCopy,
-  ExternalLink,
-  Moon,
-  Sun,
   FileText,
   Terminal,
   Pizza,
@@ -109,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             />
           </div>
           <NavSection className="" label="Browse" buttons={browse} />
-          <NavSection className="" label="Connect" buttons={connect} />
+          <NavSection className="mt-2.5" label="Connect" buttons={connect} />
           {/* <NavSection className="" label="Theme" buttons={theme} /> */}
           <ModeToggle />
         </div>

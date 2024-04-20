@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { install } from '@github/hotkey';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { NavButtonProps } from '../../utilities/types';
 import { toast } from 'sonner';
-import { ClipboardCopy, ExternalLink } from 'lucide-react';
+import { Copy, ArrowUpRight } from 'lucide-react';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -56,15 +56,15 @@ const NavButton: React.FC<NavButtonProps> = ({
     color: 'currentColor',
     strokeWidth: 2,
     className:
-      'text-element/50 self-center ml-2 group-hover:text-text/80 group-focus-visible:text-text/60',
+      'text-element/30 self-center ml-2 group-hover:text-text/80 group-focus-visible:text-text/60',
   };
 
   const ButtonContent = (
     <>
       {icon}
       {label}
-      {textToCopy ? <ClipboardCopy {...IconStyles} /> : null}
-      {url && !url.startsWith('/') ? <ExternalLink {...IconStyles} /> : null}
+      {textToCopy ? <Copy {...IconStyles} /> : null}
+      {url && !url.startsWith('/') ? <ArrowUpRight {...IconStyles} /> : null}
       <kbd
         key={hotkey}
         className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
