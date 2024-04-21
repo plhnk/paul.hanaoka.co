@@ -1,0 +1,11 @@
+# how to use this file: https://www.netlify.com/docs/redirects/
+
+# these are basically redirects for shortlinks
+
+https://paul.hanaoka.co/house https://docs.google.com/document/d/1JkaOMj2_Wwqb__aQmXAav0uRWpQdHxeXGk81JTgay78/preview 302
+
+https://paul.hanaoka.co/farewell-liferay https://www.figma.com/proto/G4MDm4lCH4Gn3WKDJK0wvz/Farewell-Liferay?page-id=0%3A1&type=design&node-id=1-52&viewport=378%2C289%2C0.25&t=rskavpuS9CFmB9Ha-1&scaling=min-zoom&mode=design 302
+
+https://paul.hanaoka.co/hubspot https://www.figma.com/proto/CV57UP01zoP7xe6AeSbVou/plhnk-%40-hubspot?page-id=309%3A163&type=design&node-id=3004-60643&viewport=17722%2C7193%2C1&t=lJpb7FNXHq9Ds8Oi-8&scaling=scale-down&starting-point-node-id=3004%3A60643&hide-ui=1 302
+
+https://paul.hanaoka.co/servicenow https://www.figma.com/proto/YYyi2yt4mSIzMXAkp59hjL/plhnk-%40-servicenow?page-id=309%3A163&type=design&node-id=3004-60643&viewport=7330%2C2699%2C0.39&t=hrxnQkmiO4Tqrc1I-1&scaling=scale-down&starting-point-node-id=3004%3A60643&mode=design 302

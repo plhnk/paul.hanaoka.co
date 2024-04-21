@@ -2,9 +2,19 @@
 import { useEffect, useState } from 'react';
 import DashboardCard from '../components/ui/dashboardcard';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Sun, CloudSun, CloudRain, CloudSunRain, MoonStar, CloudOff } from 'lucide-react';
+import {
+  Sun,
+  CloudSun,
+  CloudRain,
+  CloudSunRain,
+  MoonStar,
+  CloudOff,
+} from 'lucide-react';
 
-export default function Weather() {
+interface WeatherProps {
+  className?: string;
+}
+export default function Weather(props: WeatherProps) {
   const [data, setData] = useState<{
     hourlyData: any;
     forecastData: any;
@@ -44,7 +54,7 @@ export default function Weather() {
   const dewPoint = data
     ? data.forecastData.properties.periods[0].dewpoint.value
     : 'loading...';
-  
+
   function getIcon(shortForecast: string): React.ReactNode {
     let icon: React.ReactNode;
     const forecast = shortForecast.toLowerCase();
@@ -59,7 +69,7 @@ export default function Weather() {
     } else if (forecast.includes('clear')) {
       icon = <MoonStar />; // TODO add nighttime icons / logic
     } else {
-      icon = <CloudOff />; 
+      icon = <CloudOff />;
       // TODO move icons/logic to a diff component? util?
     }
     return icon;
@@ -102,11 +112,11 @@ export default function Weather() {
       </button>
     </>
   );
-
+  const { className } = props;
   return (
     <>
       <DashboardCard
-        className="row-span-1 col-span-1 sm:row-span-2"
+        className={className}
         title="Bellingham, WA"
         importantNumber={convertedTemp + '°'}
         extraInfo={toggle}

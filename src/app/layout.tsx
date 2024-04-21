@@ -22,6 +22,22 @@ const fira_sans = Fira_Sans({
 export const metadata: Metadata = {
   title: 'paul.hanaoka.co',
   description: 'my digital workshop and garden',
+  icons: {
+    icon: [
+      {
+        rel: 'icon', // optional, 'icon' is the default value
+        type: 'image/png',
+        media: '(prefers-color-scheme: light)',
+        url: '/favicon/favicon.png',
+      },
+      {
+        rel: 'icon', // optional, 'icon' is the default value
+        type: 'image/png',
+        media: '(prefers-color-scheme: dark)',
+        url: '/icon-dark.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

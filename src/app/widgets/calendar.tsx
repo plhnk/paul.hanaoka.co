@@ -1,5 +1,6 @@
 'use-client';
 import DashboardCard from '../components/ui/dashboardcard';
+import { cn } from '@/lib/utils';
 
 const date = new Date();
 const year = date.toLocaleDateString('en-US', { year: 'numeric' });
@@ -19,7 +20,7 @@ const pluralize = (input: number): string => {
 };
 
 const visualizeDay = (
-  <ul className='flex w-full justify-between mb-2'>
+  <ul className="flex w-full justify-between mb-2">
     {Array.from({ length: 7 }, (_, index) => (
       <li
         key={index}
@@ -31,11 +32,17 @@ const visualizeDay = (
   </ul>
 );
 
-export default function Calendar() {
+interface CalendarProps {
+  className?: string;
+}
+
+export default function Calendar(props: CalendarProps) {
+  const { className } = props;
+
   return (
     <>
       <DashboardCard
-        className="row-span-1 col-span-1 sm:row-span-2"
+        className={className}
         title={month}
         importantNumber={today}
         extraInfo={daysLeft + ' day' + pluralize(daysLeft) + ' left in ' + year}

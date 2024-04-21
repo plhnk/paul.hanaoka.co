@@ -9,9 +9,6 @@ import {
 } from '@/components/ui/card';
 import { DashboardCardProps } from '../../utilities/types';
 
-const date = new Date();
-const today = date.getTime();
-
 const DashboardCard: React.FC<DashboardCardProps> = ({
   className,
   content,
@@ -27,7 +24,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
       <CardHeader className={title ? 'pb-0' : 'hidden'}>
         <CardTitle>
           <div>{title}</div>
-          <div className="text-[4rem]">{importantNumber}</div>
+          <div className="text-[4rem] font-thin font-mono -ml-1 text-text">{importantNumber}</div>
         </CardTitle>
       </CardHeader>
       <CardContent className={fullScreen ? 'p-0' : ''}>

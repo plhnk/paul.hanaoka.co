@@ -5,20 +5,26 @@ import Weather from './widgets/weather';
 
 export default function Home() {
   return (
-    <div className="grid gap-4 grid-cols-1 grid-rows-auto sm:grid-cols-4 sm:grid-rows-3 mt-[30%]">
-      <Calendar />
-      <Weather />
-      <DashboardCard
-        fullScreen
-        className="row-span-3 col-span-1 sm:col-span-2"
-        content={
-          <img
-            className="w-full h-[380px] object-cover "
-            src="https://images.unsplash.com/photo-1580106815415-1d1a768d27cc?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt={''}
-          />
-        }
-      />
+    <div className="grid gap-4 grid-cols-1 grid-rows-auto sm:grid-cols-6 sm:grid-rows-2">
+      <div className="col-span-6 leading-normal *:mb-4">
+        <h1>Thank you for visiting my small corner of the world wide web!</h1>
+        <p>
+          My name is Paul Hanaoka — I am different things to many people, but
+          the purpose of this site is to communicate that I am a designer with a
+          passion for building.
+        </p>
+        <p>
+          Please — scroll, click, tap, hover, key — however you like to interact
+          with pages on the internet.
+        </p>
+        <div className="grid gap-4 grid-cols-3">
+          <a href="/about">Learn more about me</a>
+          <a href="/portfolio">Things I’ve worked on</a>
+          <a href="/colophon">About this site</a>
+        </div>
+      </div>
+      <Calendar className="col-span-1 sm:col-span-2" />
+      <Weather className="col-span-1 sm:col-span-2" />
       <DashboardCard
         className="col-span-1 sm:col-span-2"
         title="Proverb of the day"
