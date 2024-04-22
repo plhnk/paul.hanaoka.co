@@ -56,7 +56,7 @@ export default function RootLayout({
     >
       <body
         className={
-          'm-4 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-background text-text'
+          'm-4 mb-40 mt-10 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-background text-text'
         }
         // TODO design themes, abstract them somehow
       >

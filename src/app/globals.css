@@ -9,6 +9,8 @@
 /* wasnt super obvious to me that you need to specify the rgb values in this format — i.e. each value separated without a comma */
 
 .dark {
+  --dark: 8 7 7;
+  --light: 250 250 250;
   --background: 11 10 10;
   --text: 245 245 245;
   --card: 35 31 31;
@@ -16,11 +18,13 @@
   --accent: 193 11 11;
 }
 .light {
-  --background: 245 244 244; 
-  --text: 16 15 15; 
-  --card: 235 230 230; 
-  --element: 107 97 97; 
-  --accent: 193 11 11; 
+  --dark: 8 7 7;
+  --light: 250 250 250;
+  --background: 245 244 244;
+  --text: 16 15 15;
+  --card: 235 230 230;
+  --element: 107 97 97;
+  --accent: 193 11 11;
 }
 .elite {
   --background: 12 19 12;
@@ -33,7 +37,7 @@
   --background: 8 7 7;
   --text: 249 248 233;
   --card: 28 26 0;
-  --element: 178 175 145; 
+  --element: 178 175 145;
   --accent: 236 225 0;
 }
 

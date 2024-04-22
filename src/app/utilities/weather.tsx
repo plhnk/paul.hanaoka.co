@@ -1,3 +1,63 @@
+import React, { useState, useEffect }  from 'react';
+import {
+    Sun,
+    CloudSun,
+    CloudRain,
+    CloudSunRain,
+    MoonStar,
+    CloudOff,
+  } from 'lucide-react';
+  
+
+export function getIcon(shortForecast: string): React.ReactNode {
+  let icon: React.ReactNode;
+  const forecast = shortForecast.toLowerCase();
+  if (forecast.includes('sunny')) {
+    icon = <Sun />;
+  } else if (forecast.includes('cloudy')) {
+    icon = <CloudSun />;
+  } else if (forecast.includes('rain')) {
+    icon = <CloudRain />;
+  } else if (forecast.includes('scattered')) {
+    icon = <CloudSunRain />;
+  } else if (forecast.includes('clear')) {
+    icon = <MoonStar />; // TODO add nighttime icons / logic
+  } else {
+    icon = <CloudOff />;
+    // TODO move icons/logic to a diff component? util?
+  }
+  return icon;
+}
+
+export function useWeatherData() {
+    const [data, setData] = useState<{
+      hourlyData: any;
+      forecastData: any;
+    } | null>(null);
+    const [isLoading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      Promise.all([
+        fetch(
+          'https://api.weather.gov/gridpoints/SEW/132,123/forecast/hourly'
+        ).then((res) => res.json()),
+        fetch('https://api.weather.gov/gridpoints/SEW/132,123/forecast').then(
+          (res) => res.json()
+        ),
+      ])
+        .then(([hourlyData, forecastData]) => {
+          setData({ hourlyData, forecastData });
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error fetching weather data:', error);
+          setLoading(false);
+        });
+    }, []);
+  
+    return { data, isLoading };
+  }
+
 // const myLocation = {
 //     'long': '48.7637° N', 
 //     'lat': '122.458° W',

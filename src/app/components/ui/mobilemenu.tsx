@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import NavButton from './navbutton';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../sidebar';
+import { cn } from '@/lib/utils';
 
 const MobileMenu: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(true);
@@ -22,8 +23,8 @@ const MobileMenu: React.FC = () => {
     <>
       <Sidebar className={isMobileMenuOpen ? 'block' : 'hidden'} />
       <div className="sm:hidden fixed bottom-1 left-0 w-full z-50">
-        <div className="flex justify-between m-4 backdrop-blur-lg bg-card/65 rounded-xl px-1">
-          <NavButton label="Home" url="/" icon={undefined} hotkey={'h'} />
+        <div className={cn("flex justify-between m-4 mt-0 py-1 px-1", isMobileMenuOpen ? 'bg-accent/05' : 'backdrop-blur-lg bg-card/65 rounded-xl shadow-menu')}>
+          <NavButton label="Hanaoka.co" url="/" icon={undefined} hotkey={'h'} /> 
           <button onClick={handleMenuButtonClick} className="px-3">
             {isMobileMenuOpen ? 'Close' : 'Menu'}
           </button>
@@ -35,6 +36,7 @@ const MobileMenu: React.FC = () => {
 
 export default MobileMenu;
 
-// TODO why does window go wonky on /about
-// // TODO add mobile styles for nav
+// TODO why does window go wonky on /about --> can possibly ignore b/c it looks fine on a phone
+// TODO add mobile styles for nav
 // e.g. box shadow when nav is open, merge border radii
+// connect the homepage icon with the weather

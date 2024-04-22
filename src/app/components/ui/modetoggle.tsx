@@ -55,7 +55,7 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
   }, []);
 
   return (
-    <div className="col-span-2 sm:col-span-1 flex justify-between rounded-md ">
+    <div className="px-2 sm:px-0 col-span-2 sm:col-span-1 flex justify-between rounded-md ">
       {modes.map((modes, index) => (
         <button
           onClick={() => {
@@ -80,4 +80,4 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
 };
 
 export default ModeToggle;
-// TODO create Button component and merge modetoggle and navbutton into it
+// create Button component and merge modetoggle and navbutton into it
