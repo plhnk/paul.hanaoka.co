@@ -14,6 +14,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   hotkey,
   textToCopy,
   theme,
+  ...props
 }) => {
   const { setTheme } = useTheme();
 
@@ -96,6 +97,7 @@ const NavButton: React.FC<NavButtonProps> = ({
             handleTheme();
           }}
           data-hotkey={hotkey}
+          {...props}
         >
           {ButtonContent}
         </button>

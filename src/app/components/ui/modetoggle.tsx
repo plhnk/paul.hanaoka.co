@@ -52,8 +52,6 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
         }
       });
     }
-    // TODO have style for current mode
-    // TODO fix console error that comes from styling the toggle AFTER the button has been clicked (instead of based on w/e the current mode is)
   }, []);
 
   return (
@@ -82,4 +80,4 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
 };
 
 export default ModeToggle;
-// create Button component and merge modetoggle and navbutton into it
+// TODO create Button component and merge modetoggle and navbutton into it

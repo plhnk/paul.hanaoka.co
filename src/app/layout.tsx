@@ -67,7 +67,7 @@ export default function RootLayout({
           enableSystem
         >
           <Sidebar />
-          <main className="max-w-2xl min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">{children}</main>
+          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">{children}</main>
           <Toaster position="top-center" />
         </ThemeProvider>
       </body>
