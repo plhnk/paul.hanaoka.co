@@ -23,8 +23,8 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
     <Card className={className}>
       <CardHeader className={title ? 'pb-0' : 'hidden'}>
         <CardTitle>
-          <div>{title}</div>
-          <div className="text-[4rem] font-thin font-mono -ml-1 text-text">{importantNumber}</div>
+          <div className=''>{title}</div>
+          <div className="text-[4rem] font-thin tracking-tighter font-mono -ml-1 text-text">{importantNumber}</div>
         </CardTitle>
       </CardHeader>
       <CardContent className={fullScreen ? 'p-0' : ''}>

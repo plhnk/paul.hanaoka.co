@@ -13,6 +13,11 @@ import {
 import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -23,7 +28,8 @@ const iconStyle = {
   size: 16,
   color: 'currentColor',
   strokeWidth: 2,
-  className: 'text-element/50 self-center mr-2 group-hover:text-accent group-focus-visible:text-accent/60',
+  className:
+    'text-element/50 self-center mr-2 group-hover:text-accent group-focus-visible:text-accent/60',
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
@@ -98,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <div className="hidden sm:col-auto sm:block">
             <NavButton
               icon={null}
-              label={'Paul Hanaoka'}
+              label={'Hanaoka.co'}
               hotkey={'h'}
               url={'/'}
             />
