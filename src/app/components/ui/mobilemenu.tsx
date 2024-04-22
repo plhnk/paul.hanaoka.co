@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer';
+'use client';
+import React, { useState, useEffect } from 'react';
+import NavButton from './navbutton';
+import { usePathname } from 'next/navigation';
+import Sidebar from '../sidebar';
 
 const MobileMenu: React.FC = () => {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(true);
 
-  // const toggleDrawer = () => {
-  //     setIsOpen(!isOpen);
-  // };
+  const handleMenuButtonClick = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // reset the mobile menu state when the pathname changes
+  const resetState = usePathname();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [resetState]);
 
   return (
-    <Drawer>
-      <DrawerTrigger asChild>
-        <button className='block sm:hidden'>Menu</button>
-      </DrawerTrigger>
-      <DrawerContent className='m-4 p-4'>
-        {/* <div className="mx-auto w-full max-w-sm"> */}
-          menu?
-          <DrawerFooter>
-            <DrawerClose asChild>
-              <button>Close</button>
-            </DrawerClose>
-          </DrawerFooter>
-        {/* </div> */}
-      </DrawerContent>
-    </Drawer>
+    <>
+      <Sidebar className={isMobileMenuOpen ? 'block' : 'hidden'} />
+      <div className="sm:hidden fixed bottom-1 left-0 w-full z-50">
+        <div className="flex justify-between m-4 backdrop-blur-lg bg-card/65 rounded-xl px-1">
+          <NavButton label="Home" url="/" icon={undefined} hotkey={'h'} />
+          <button onClick={handleMenuButtonClick} className="px-3">
+            {isMobileMenuOpen ? 'Close' : 'Menu'}
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default MobileMenu;
+
+// TODO why does window go wonky on /about
+// // TODO add mobile styles for nav
+// e.g. box shadow when nav is open, merge border radii

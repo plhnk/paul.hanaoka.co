@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Fira_Code, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from './components/theme-provider';
-import Sidebar from './components/sidebar';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
+import Navigation from './components/navigation';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -45,6 +45,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html
       className={
@@ -66,8 +67,10 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <Sidebar />
-          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">{children}</main>
+          <Navigation />
+          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">
+            {children}
+          </main>
           <Toaster position="top-center" />
         </ThemeProvider>
       </body>
