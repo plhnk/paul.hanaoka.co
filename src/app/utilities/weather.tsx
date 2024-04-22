@@ -9,22 +9,21 @@ import {
   } from 'lucide-react';
   
 
-export function getIcon(shortForecast: string): React.ReactNode {
+export function getIcon(shortForecast: string, iconStyle: object): React.ReactNode {
   let icon: React.ReactNode;
   const forecast = shortForecast.toLowerCase();
   if (forecast.includes('sunny')) {
-    icon = <Sun />;
+    icon = <Sun {...iconStyle}/>;
   } else if (forecast.includes('cloudy')) {
-    icon = <CloudSun />;
+    icon = <CloudSun {...iconStyle}/>;
   } else if (forecast.includes('rain')) {
-    icon = <CloudRain />;
+    icon = <CloudRain {...iconStyle}/>;
   } else if (forecast.includes('scattered')) {
-    icon = <CloudSunRain />;
+    icon = <CloudSunRain {...iconStyle}/>;
   } else if (forecast.includes('clear')) {
-    icon = <MoonStar />; // TODO add nighttime icons / logic
+    icon = <MoonStar {...iconStyle}/>; // TODO add nighttime icons / logic
   } else {
-    icon = <CloudOff />;
-    // TODO move icons/logic to a diff component? util?
+    icon = <CloudOff {...iconStyle}/>;
   }
   return icon;
 }

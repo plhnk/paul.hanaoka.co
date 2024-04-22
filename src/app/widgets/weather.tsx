@@ -16,7 +16,7 @@ export default function Weather(props: WeatherProps) {
     ? data.forecastData.properties.periods[0].shortForecast
     : 'loading...';
 
-  const icon = getIcon(shortForecast);
+  const icon = getIcon(shortForecast, {});
 
   function convertToCelsius(currentTemp: string): string {
     const fahrenheit = parseFloat(currentTemp);

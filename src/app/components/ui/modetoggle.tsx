@@ -81,3 +81,4 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
 
 export default ModeToggle;
 // create Button component and merge modetoggle and navbutton into it
+// actually make this completely diff on mobile --> sidenav w/icon and initial only? or sideways letters? TODO
