@@ -39,9 +39,9 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     },
     {
       icon: <Layers {...iconStyle} />,
-      label: 'Portfolio',
+      label: 'Projects',
       hotkey: 'p',
-      url: '/portfolio',
+      url: '/projects',
     },
     {
       icon: <PenLine {...iconStyle} />,

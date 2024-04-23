@@ -67,7 +67,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 2xl:mx-auto bg-surface">
+          <main className="pt-[1.75rem] max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 2xl:mx-auto bg-surface">
             {children}
           </main>
           <Toaster

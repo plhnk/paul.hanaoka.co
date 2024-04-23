@@ -6,7 +6,7 @@ import Weather from '../components/widgets/weather';
 export default function Home() {
   return (
     <>
-      <div className="pt-[1.75rem] col-span-2 sm:col-span-6 leading-normal *:mb-8">
+      <div className="col-span-2 sm:col-span-6 leading-normal *:mb-8">
         <h1>Thank you for visiting my small corner of the world wide web!</h1>
         <p>
           My name is Paul Hanaoka — I am different things to many people, but

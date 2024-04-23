@@ -53,3 +53,18 @@
   --accent: $accent-color;
   /* darken + lighten */
 }
+
+@layer base {
+  h1 {
+    @apply mb-24;
+  }
+  h2 {
+    @apply mb-16;
+  }
+  h3 {
+    @apply mb-12;
+  }
+  h4 {
+    @apply mb-8;
+  }
+}
