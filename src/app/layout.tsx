@@ -45,7 +45,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html
       className={
@@ -56,7 +55,7 @@ export default function RootLayout({
     >
       <body
         className={
-          'm-4 mb-40 mt-10 sm:ml-80 sm:m-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-background text-text'
+          'm-4 mb-40 mt-10 sm:ml-80 sm:m-8 2xl:ml-8 sm:h-[calc(100vh-4rem transition-colors duration-200 bg-background text-text'
         }
         // TODO design themes, abstract them somehow
       >
@@ -68,10 +67,22 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">
+          <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 2xl:mx-auto bg-surface">
             {children}
           </main>
-          <Toaster position="bottom-center" />
+          <Toaster
+            position="bottom-center"
+            toastOptions={{
+              // unstyled: true,
+              classNames: {
+                title: 'text-text',
+                success: 'text-element bg-card/30',
+                // toast: 'text-accent bg-card',
+                // description: 'text-text/80',
+                // actionButton: 'bg-accent text-text',
+              },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>

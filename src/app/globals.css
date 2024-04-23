@@ -13,18 +13,18 @@
   --light: 250 250 250;
   --background: 11 10 10;
   --text: 245 245 245;
-  --card: 35 31 31;
+  --card: 33 31 31;
   --element: 168 159 159;
   --accent: 193 11 11;
 }
 .light {
-  --dark: 8 7 7;
+  --dark: 7 8 7;
   --light: 250 250 250;
-  --background: 245 244 244;
-  --text: 16 15 15;
-  --card: 235 230 230;
-  --element: 107 97 97;
-  --accent: 193 11 11;
+  --background: 244 245 244;
+  --text: 15 16 15;
+  --card: 230 233 230;
+  --element: 97 107 99;
+  --accent: 11 193 84;
 }
 .elite {
   --background: 12 19 12;
