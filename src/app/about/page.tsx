@@ -10,9 +10,12 @@ const About: React.FC = () => {
   return (
     <MDXProvider>
       <Content />
-      <Colophon />
+      {/* <Colophon /> */}
     </MDXProvider>
   );
 };
 
 export default About;
+
+
+// TODO style mdx

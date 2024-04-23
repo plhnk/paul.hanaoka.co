@@ -7,11 +7,11 @@ type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
-
+// why doesn't typopgraphy work here? TODO
   return (
     <Sonner
       theme={theme as ToasterProps["theme"]}
-      className="toaster group"
+      className="toaster group font-sans"
       toastOptions={{
         classNames: {
           toast:
