@@ -67,4 +67,7 @@
   h4 {
     @apply mb-8;
   }
+  p {
+    @apply my-5;
+  }
 }
