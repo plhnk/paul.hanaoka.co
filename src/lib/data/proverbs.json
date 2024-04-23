@@ -1,0 +1,1846 @@
+{
+  "0": {
+    "query": "Proverbs 1:19",
+    "canonical": "Proverbs 1:19",
+    "parsed": [
+      [
+        20001019,
+        20001019
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 1:19",
+        "chapter_start": [
+          20001001,
+          20001033
+        ],
+        "chapter_end": [
+          20001001,
+          20001033
+        ],
+        "prev_verse": 20001018,
+        "next_verse": 20001020,
+        "prev_chapter": [
+          19150001,
+          19150006
+        ],
+        "next_chapter": [
+          20002001,
+          20002022
+        ]
+      }
+    ],
+    "passages": [
+      "    Such are the ways of everyone who is greedy for unjust gain;\n        it takes away the life of its possessors.\n    \n\n"
+    ]
+  },
+  "1": {
+    "query": "Proverbs 2:6",
+    "canonical": "Proverbs 2:6",
+    "parsed": [
+      [
+        20002006,
+        20002006
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 2:6",
+        "chapter_start": [
+          20002001,
+          20002022
+        ],
+        "chapter_end": [
+          20002001,
+          20002022
+        ],
+        "prev_verse": 20002005,
+        "next_verse": 20002007,
+        "prev_chapter": [
+          20001001,
+          20001033
+        ],
+        "next_chapter": [
+          20003001,
+          20003035
+        ]
+      }
+    ],
+    "passages": [
+      "    For the LORD gives wisdom;\n        from his mouth come knowledge and understanding;\n    \n\n"
+    ]
+  },
+  "2": {
+    "query": "Proverbs 3:27; Proverbs 3:30",
+    "canonical": "Proverbs 3:27; Proverbs 3:30",
+    "parsed": [
+      [
+        20003027,
+        20003027
+      ],
+      [
+        20003030,
+        20003030
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 3:27",
+        "chapter_start": [
+          20003001,
+          20003035
+        ],
+        "chapter_end": [
+          20003001,
+          20003035
+        ],
+        "prev_verse": 20003026,
+        "next_verse": 20003028,
+        "prev_chapter": [
+          20002001,
+          20002022
+        ],
+        "next_chapter": [
+          20004001,
+          20004027
+        ]
+      },
+      {
+        "canonical": "Proverbs 3:30",
+        "chapter_start": [
+          20003001,
+          20003035
+        ],
+        "chapter_end": [
+          20003001,
+          20003035
+        ],
+        "prev_verse": 20003029,
+        "next_verse": 20003031,
+        "prev_chapter": [
+          20002001,
+          20002022
+        ],
+        "next_chapter": [
+          20004001,
+          20004027
+        ]
+      }
+    ],
+    "passages": [
+      "    Do not withhold good from those to whom it is due,\n        when it is in your power to do it.\n    \n\n",
+      "    Do not contend with a man for no reason,\n        when he has done you no harm.\n    \n\n"
+    ]
+  },
+  "3": {
+    "query": "Proverbs 4:19",
+    "canonical": "Proverbs 4:19",
+    "parsed": [
+      [
+        20004019,
+        20004019
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 4:19",
+        "chapter_start": [
+          20004001,
+          20004027
+        ],
+        "chapter_end": [
+          20004001,
+          20004027
+        ],
+        "prev_verse": 20004018,
+        "next_verse": 20004020,
+        "prev_chapter": [
+          20003001,
+          20003035
+        ],
+        "next_chapter": [
+          20005001,
+          20005023
+        ]
+      }
+    ],
+    "passages": [
+      "    The way of the wicked is like deep darkness;\n        they do not know over what they stumble.\n    \n\n"
+    ]
+  },
+  "4": {
+    "query": "Proverbs 5:23",
+    "canonical": "Proverbs 5:23",
+    "parsed": [
+      [
+        20005023,
+        20005023
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 5:23",
+        "chapter_start": [
+          20005001,
+          20005023
+        ],
+        "chapter_end": [
+          20005001,
+          20005023
+        ],
+        "prev_verse": 20005022,
+        "next_verse": 20006001,
+        "prev_chapter": [
+          20004001,
+          20004027
+        ],
+        "next_chapter": [
+          20006001,
+          20006035
+        ]
+      }
+    ],
+    "passages": [
+      "    He dies for lack of discipline,\n        and because of his great folly he is led astray.\n    \n\n"
+    ]
+  },
+  "5": {
+    "query": "Proverbs 6:10–11; Proverbs 6:27",
+    "canonical": "Proverbs 6:10–11; Proverbs 6:27",
+    "parsed": [
+      [
+        20006010,
+        20006011
+      ],
+      [
+        20006027,
+        20006027
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 6:10–11",
+        "chapter_start": [
+          20006001,
+          20006035
+        ],
+        "chapter_end": [
+          20006001,
+          20006035
+        ],
+        "prev_verse": 20006009,
+        "next_verse": 20006012,
+        "prev_chapter": [
+          20005001,
+          20005023
+        ],
+        "next_chapter": [
+          20007001,
+          20007027
+        ]
+      },
+      {
+        "canonical": "Proverbs 6:27",
+        "chapter_start": [
+          20006001,
+          20006035
+        ],
+        "chapter_end": [
+          20006001,
+          20006035
+        ],
+        "prev_verse": 20006026,
+        "next_verse": 20006028,
+        "prev_chapter": [
+          20005001,
+          20005023
+        ],
+        "next_chapter": [
+          20007001,
+          20007027
+        ]
+      }
+    ],
+    "passages": [
+      "    A little sleep, a little slumber,\n        a little folding of the hands to rest,\n    and poverty will come upon you like a robber,\n        and want like an armed man.\n    \n\n",
+      "    Can a man carry fire next to his chest\n        and his clothes not be burned?\n    \n\n"
+    ]
+  },
+  "6": {
+    "query": "Proverbs 7:2",
+    "canonical": "Proverbs 7:2",
+    "parsed": [
+      [
+        20007002,
+        20007002
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 7:2",
+        "chapter_start": [
+          20007001,
+          20007027
+        ],
+        "chapter_end": [
+          20007001,
+          20007027
+        ],
+        "prev_verse": 20007001,
+        "next_verse": 20007003,
+        "prev_chapter": [
+          20006001,
+          20006035
+        ],
+        "next_chapter": [
+          20008001,
+          20008036
+        ]
+      }
+    ],
+    "passages": [
+      "    keep my commandments and live;\n        keep my teaching as the apple of your eye;\n    \n\n"
+    ]
+  },
+  "7": {
+    "query": "Proverbs 8:1",
+    "canonical": "Proverbs 8:1",
+    "parsed": [
+      [
+        20008001,
+        20008001
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 8:1",
+        "chapter_start": [
+          20008001,
+          20008036
+        ],
+        "chapter_end": [
+          20008001,
+          20008036
+        ],
+        "prev_verse": 20007027,
+        "next_verse": 20008002,
+        "prev_chapter": [
+          20007001,
+          20007027
+        ],
+        "next_chapter": [
+          20009001,
+          20009018
+        ]
+      }
+    ],
+    "passages": [
+      "The Blessings of Wisdom\n\n    Does not wisdom call?\n        Does not understanding raise her voice?\n    \n\n"
+    ]
+  },
+  "8": {
+    "query": "Proverbs 9:8; Proverbs 9:9",
+    "canonical": "Proverbs 9:8; Proverbs 9:9",
+    "parsed": [
+      [
+        20009008,
+        20009008
+      ],
+      [
+        20009009,
+        20009009
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 9:8",
+        "chapter_start": [
+          20009001,
+          20009018
+        ],
+        "chapter_end": [
+          20009001,
+          20009018
+        ],
+        "prev_verse": 20009007,
+        "next_verse": 20009009,
+        "prev_chapter": [
+          20008001,
+          20008036
+        ],
+        "next_chapter": [
+          20010001,
+          20010032
+        ]
+      },
+      {
+        "canonical": "Proverbs 9:9",
+        "chapter_start": [
+          20009001,
+          20009018
+        ],
+        "chapter_end": [
+          20009001,
+          20009018
+        ],
+        "prev_verse": 20009008,
+        "next_verse": 20009010,
+        "prev_chapter": [
+          20008001,
+          20008036
+        ],
+        "next_chapter": [
+          20010001,
+          20010032
+        ]
+      }
+    ],
+    "passages": [
+      "    Do not reprove a scoffer, or he will hate you;\n        reprove a wise man, and he will love you.\n    \n\n",
+      "    Give instruction to a wise man, and he will be still wiser;\n        teach a righteous man, and he will increase in learning.\n    \n\n"
+    ]
+  },
+  "9": {
+    "query": "Proverbs 10:19",
+    "canonical": "Proverbs 10:19",
+    "parsed": [
+      [
+        20010019,
+        20010019
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 10:19",
+        "chapter_start": [
+          20010001,
+          20010032
+        ],
+        "chapter_end": [
+          20010001,
+          20010032
+        ],
+        "prev_verse": 20010018,
+        "next_verse": 20010020,
+        "prev_chapter": [
+          20009001,
+          20009018
+        ],
+        "next_chapter": [
+          20011001,
+          20011031
+        ]
+      }
+    ],
+    "passages": [
+      "    When words are many, transgression is not lacking,\n        but whoever restrains his lips is prudent.\n    \n\n"
+    ]
+  },
+  "10": {
+    "query": "Proverbs 11:12; Proverbs 11:14; Proverbs 11:24–25",
+    "canonical": "Proverbs 11:12; Proverbs 11:14; Proverbs 11:24–25",
+    "parsed": [
+      [
+        20011012,
+        20011012
+      ],
+      [
+        20011014,
+        20011014
+      ],
+      [
+        20011024,
+        20011025
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 11:12",
+        "chapter_start": [
+          20011001,
+          20011031
+        ],
+        "chapter_end": [
+          20011001,
+          20011031
+        ],
+        "prev_verse": 20011011,
+        "next_verse": 20011013,
+        "prev_chapter": [
+          20010001,
+          20010032
+        ],
+        "next_chapter": [
+          20012001,
+          20012028
+        ]
+      },
+      {
+        "canonical": "Proverbs 11:14",
+        "chapter_start": [
+          20011001,
+          20011031
+        ],
+        "chapter_end": [
+          20011001,
+          20011031
+        ],
+        "prev_verse": 20011013,
+        "next_verse": 20011015,
+        "prev_chapter": [
+          20010001,
+          20010032
+        ],
+        "next_chapter": [
+          20012001,
+          20012028
+        ]
+      },
+      {
+        "canonical": "Proverbs 11:24–25",
+        "chapter_start": [
+          20011001,
+          20011031
+        ],
+        "chapter_end": [
+          20011001,
+          20011031
+        ],
+        "prev_verse": 20011023,
+        "next_verse": 20011026,
+        "prev_chapter": [
+          20010001,
+          20010032
+        ],
+        "next_chapter": [
+          20012001,
+          20012028
+        ]
+      }
+    ],
+    "passages": [
+      "    Whoever belittles his neighbor lacks sense,\n        but a man of understanding remains silent.\n    \n\n",
+      "    Where there is no guidance, a people falls,\n        but in an abundance of counselors there is safety.\n    \n\n",
+      "    One gives freely, yet grows all the richer;\n        another withholds what he should give, and only suffers want.\n    Whoever brings blessing will be enriched,\n        and one who waters will himself be watered.\n    \n\n"
+    ]
+  },
+  "11": {
+    "query": "Proverbs 12:10; Proverbs 12:11; Proverbs 12:16; Proverbs 12:23; Proverbs 12:24; Proverbs 12:25",
+    "canonical": "Proverbs 12:10; Proverbs 12:11; Proverbs 12:16; Proverbs 12:23; Proverbs 12:24; Proverbs 12:25",
+    "parsed": [
+      [
+        20012010,
+        20012010
+      ],
+      [
+        20012011,
+        20012011
+      ],
+      [
+        20012016,
+        20012016
+      ],
+      [
+        20012023,
+        20012023
+      ],
+      [
+        20012024,
+        20012024
+      ],
+      [
+        20012025,
+        20012025
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 12:10",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012009,
+        "next_verse": 20012011,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      },
+      {
+        "canonical": "Proverbs 12:11",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012010,
+        "next_verse": 20012012,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      },
+      {
+        "canonical": "Proverbs 12:16",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012015,
+        "next_verse": 20012017,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      },
+      {
+        "canonical": "Proverbs 12:23",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012022,
+        "next_verse": 20012024,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      },
+      {
+        "canonical": "Proverbs 12:24",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012023,
+        "next_verse": 20012025,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      },
+      {
+        "canonical": "Proverbs 12:25",
+        "chapter_start": [
+          20012001,
+          20012028
+        ],
+        "chapter_end": [
+          20012001,
+          20012028
+        ],
+        "prev_verse": 20012024,
+        "next_verse": 20012026,
+        "prev_chapter": [
+          20011001,
+          20011031
+        ],
+        "next_chapter": [
+          20013001,
+          20013025
+        ]
+      }
+    ],
+    "passages": [
+      "    Whoever is righteous has regard for the life of his beast,\n        but the mercy of the wicked is cruel.\n    \n\n",
+      "    Whoever works his land will have plenty of bread,\n        but he who follows worthless pursuits lacks sense.\n    \n\n",
+      "    The vexation of a fool is known at once,\n        but the prudent ignores an insult.\n    \n\n",
+      "    A prudent man conceals knowledge,\n        but the heart of fools proclaims folly.\n    \n\n",
+      "    The hand of the diligent will rule,\n        while the slothful will be put to forced labor.\n    \n\n",
+      "    Anxiety in a man’s heart weighs him down,\n        but a good word makes him glad.\n    \n\n"
+    ]
+  },
+  "12": {
+    "query": "Proverbs 13:11; Proverbs 13:20",
+    "canonical": "Proverbs 13:11; Proverbs 13:20",
+    "parsed": [
+      [
+        20013011,
+        20013011
+      ],
+      [
+        20013020,
+        20013020
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 13:11",
+        "chapter_start": [
+          20013001,
+          20013025
+        ],
+        "chapter_end": [
+          20013001,
+          20013025
+        ],
+        "prev_verse": 20013010,
+        "next_verse": 20013012,
+        "prev_chapter": [
+          20012001,
+          20012028
+        ],
+        "next_chapter": [
+          20014001,
+          20014035
+        ]
+      },
+      {
+        "canonical": "Proverbs 13:20",
+        "chapter_start": [
+          20013001,
+          20013025
+        ],
+        "chapter_end": [
+          20013001,
+          20013025
+        ],
+        "prev_verse": 20013019,
+        "next_verse": 20013021,
+        "prev_chapter": [
+          20012001,
+          20012028
+        ],
+        "next_chapter": [
+          20014001,
+          20014035
+        ]
+      }
+    ],
+    "passages": [
+      "    Wealth gained hastily will dwindle,\n        but whoever gathers little by little will increase it.\n    \n\n",
+      "    Whoever walks with the wise becomes wise,\n        but the companion of fools will suffer harm.\n    \n\n"
+    ]
+  },
+  "13": {
+    "query": "Proverbs 14:12; Proverbs 14:23; Proverbs 14:29; Proverbs 14:30",
+    "canonical": "Proverbs 14:12; Proverbs 14:23; Proverbs 14:29; Proverbs 14:30",
+    "parsed": [
+      [
+        20014012,
+        20014012
+      ],
+      [
+        20014023,
+        20014023
+      ],
+      [
+        20014029,
+        20014029
+      ],
+      [
+        20014030,
+        20014030
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 14:12",
+        "chapter_start": [
+          20014001,
+          20014035
+        ],
+        "chapter_end": [
+          20014001,
+          20014035
+        ],
+        "prev_verse": 20014011,
+        "next_verse": 20014013,
+        "prev_chapter": [
+          20013001,
+          20013025
+        ],
+        "next_chapter": [
+          20015001,
+          20015033
+        ]
+      },
+      {
+        "canonical": "Proverbs 14:23",
+        "chapter_start": [
+          20014001,
+          20014035
+        ],
+        "chapter_end": [
+          20014001,
+          20014035
+        ],
+        "prev_verse": 20014022,
+        "next_verse": 20014024,
+        "prev_chapter": [
+          20013001,
+          20013025
+        ],
+        "next_chapter": [
+          20015001,
+          20015033
+        ]
+      },
+      {
+        "canonical": "Proverbs 14:29",
+        "chapter_start": [
+          20014001,
+          20014035
+        ],
+        "chapter_end": [
+          20014001,
+          20014035
+        ],
+        "prev_verse": 20014028,
+        "next_verse": 20014030,
+        "prev_chapter": [
+          20013001,
+          20013025
+        ],
+        "next_chapter": [
+          20015001,
+          20015033
+        ]
+      },
+      {
+        "canonical": "Proverbs 14:30",
+        "chapter_start": [
+          20014001,
+          20014035
+        ],
+        "chapter_end": [
+          20014001,
+          20014035
+        ],
+        "prev_verse": 20014029,
+        "next_verse": 20014031,
+        "prev_chapter": [
+          20013001,
+          20013025
+        ],
+        "next_chapter": [
+          20015001,
+          20015033
+        ]
+      }
+    ],
+    "passages": [
+      "    There is a way that seems right to a man,\n        but its end is the way to death.\n    \n\n",
+      "    In all toil there is profit,\n        but mere talk tends only to poverty.\n    \n\n",
+      "    Whoever is slow to anger has great understanding,\n        but he who has a hasty temper exalts folly.\n    \n\n",
+      "    A tranquil heart gives life to the flesh,\n        but envy makes the bones rot.\n    \n\n"
+    ]
+  },
+  "14": {
+    "query": "Proverbs 15:1; Proverbs 15:17",
+    "canonical": "Proverbs 15:1; Proverbs 15:17",
+    "parsed": [
+      [
+        20015001,
+        20015001
+      ],
+      [
+        20015017,
+        20015017
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 15:1",
+        "chapter_start": [
+          20015001,
+          20015033
+        ],
+        "chapter_end": [
+          20015001,
+          20015033
+        ],
+        "prev_verse": 20014035,
+        "next_verse": 20015002,
+        "prev_chapter": [
+          20014001,
+          20014035
+        ],
+        "next_chapter": [
+          20016001,
+          20016033
+        ]
+      },
+      {
+        "canonical": "Proverbs 15:17",
+        "chapter_start": [
+          20015001,
+          20015033
+        ],
+        "chapter_end": [
+          20015001,
+          20015033
+        ],
+        "prev_verse": 20015016,
+        "next_verse": 20015018,
+        "prev_chapter": [
+          20014001,
+          20014035
+        ],
+        "next_chapter": [
+          20016001,
+          20016033
+        ]
+      }
+    ],
+    "passages": [
+      "    A soft answer turns away wrath,\n        but a harsh word stirs up anger.\n    \n\n",
+      "    Better is a dinner of herbs where love is\n        than a fattened ox and hatred with it.\n    \n\n"
+    ]
+  },
+  "15": {
+    "query": "Proverbs 16:4; Proverbs 16:8; Proverbs 16:25; Proverbs 16:32; Proverbs 16:33",
+    "canonical": "Proverbs 16:4; Proverbs 16:8; Proverbs 16:25; Proverbs 16:32; Proverbs 16:33",
+    "parsed": [
+      [
+        20016004,
+        20016004
+      ],
+      [
+        20016008,
+        20016008
+      ],
+      [
+        20016025,
+        20016025
+      ],
+      [
+        20016032,
+        20016032
+      ],
+      [
+        20016033,
+        20016033
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 16:4",
+        "chapter_start": [
+          20016001,
+          20016033
+        ],
+        "chapter_end": [
+          20016001,
+          20016033
+        ],
+        "prev_verse": 20016003,
+        "next_verse": 20016005,
+        "prev_chapter": [
+          20015001,
+          20015033
+        ],
+        "next_chapter": [
+          20017001,
+          20017028
+        ]
+      },
+      {
+        "canonical": "Proverbs 16:8",
+        "chapter_start": [
+          20016001,
+          20016033
+        ],
+        "chapter_end": [
+          20016001,
+          20016033
+        ],
+        "prev_verse": 20016007,
+        "next_verse": 20016009,
+        "prev_chapter": [
+          20015001,
+          20015033
+        ],
+        "next_chapter": [
+          20017001,
+          20017028
+        ]
+      },
+      {
+        "canonical": "Proverbs 16:25",
+        "chapter_start": [
+          20016001,
+          20016033
+        ],
+        "chapter_end": [
+          20016001,
+          20016033
+        ],
+        "prev_verse": 20016024,
+        "next_verse": 20016026,
+        "prev_chapter": [
+          20015001,
+          20015033
+        ],
+        "next_chapter": [
+          20017001,
+          20017028
+        ]
+      },
+      {
+        "canonical": "Proverbs 16:32",
+        "chapter_start": [
+          20016001,
+          20016033
+        ],
+        "chapter_end": [
+          20016001,
+          20016033
+        ],
+        "prev_verse": 20016031,
+        "next_verse": 20016033,
+        "prev_chapter": [
+          20015001,
+          20015033
+        ],
+        "next_chapter": [
+          20017001,
+          20017028
+        ]
+      },
+      {
+        "canonical": "Proverbs 16:33",
+        "chapter_start": [
+          20016001,
+          20016033
+        ],
+        "chapter_end": [
+          20016001,
+          20016033
+        ],
+        "prev_verse": 20016032,
+        "next_verse": 20017001,
+        "prev_chapter": [
+          20015001,
+          20015033
+        ],
+        "next_chapter": [
+          20017001,
+          20017028
+        ]
+      }
+    ],
+    "passages": [
+      "    The LORD has made everything for its purpose,\n        even the wicked for the day of trouble.\n    \n\n",
+      "    Better is a little with righteousness\n        than great revenues with injustice.\n    \n\n",
+      "    There is a way that seems right to a man,\n        but its end is the way to death.\n    \n\n",
+      "    Whoever is slow to anger is better than the mighty,\n        and he who rules his spirit than he who takes a city.\n    \n\n",
+      "    The lot is cast into the lap,\n        but its every decision is from the LORD.\n    \n\n"
+    ]
+  },
+  "16": {
+    "query": "Proverbs 17:9",
+    "canonical": "Proverbs 17:9",
+    "parsed": [
+      [
+        20017009,
+        20017009
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 17:9",
+        "chapter_start": [
+          20017001,
+          20017028
+        ],
+        "chapter_end": [
+          20017001,
+          20017028
+        ],
+        "prev_verse": 20017008,
+        "next_verse": 20017010,
+        "prev_chapter": [
+          20016001,
+          20016033
+        ],
+        "next_chapter": [
+          20018001,
+          20018024
+        ]
+      }
+    ],
+    "passages": [
+      "    Whoever covers an offense seeks love,\n        but he who repeats a matter separates close friends.\n    \n\n"
+    ]
+  },
+  "17": {
+    "query": "Proverbs 18:2",
+    "canonical": "Proverbs 18:2",
+    "parsed": [
+      [
+        20018002,
+        20018002
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 18:2",
+        "chapter_start": [
+          20018001,
+          20018024
+        ],
+        "chapter_end": [
+          20018001,
+          20018024
+        ],
+        "prev_verse": 20018001,
+        "next_verse": 20018003,
+        "prev_chapter": [
+          20017001,
+          20017028
+        ],
+        "next_chapter": [
+          20019001,
+          20019029
+        ]
+      }
+    ],
+    "passages": [
+      "    A fool takes no pleasure in understanding,\n        but only in expressing his opinion.\n    \n\n"
+    ]
+  },
+  "18": {
+    "query": "Proverbs 19:2; Proverbs 19:11; Proverbs 19:14; Proverbs 19:18",
+    "canonical": "Proverbs 19:2; Proverbs 19:11; Proverbs 19:14; Proverbs 19:18",
+    "parsed": [
+      [
+        20019002,
+        20019002
+      ],
+      [
+        20019011,
+        20019011
+      ],
+      [
+        20019014,
+        20019014
+      ],
+      [
+        20019018,
+        20019018
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 19:2",
+        "chapter_start": [
+          20019001,
+          20019029
+        ],
+        "chapter_end": [
+          20019001,
+          20019029
+        ],
+        "prev_verse": 20019001,
+        "next_verse": 20019003,
+        "prev_chapter": [
+          20018001,
+          20018024
+        ],
+        "next_chapter": [
+          20020001,
+          20020030
+        ]
+      },
+      {
+        "canonical": "Proverbs 19:11",
+        "chapter_start": [
+          20019001,
+          20019029
+        ],
+        "chapter_end": [
+          20019001,
+          20019029
+        ],
+        "prev_verse": 20019010,
+        "next_verse": 20019012,
+        "prev_chapter": [
+          20018001,
+          20018024
+        ],
+        "next_chapter": [
+          20020001,
+          20020030
+        ]
+      },
+      {
+        "canonical": "Proverbs 19:14",
+        "chapter_start": [
+          20019001,
+          20019029
+        ],
+        "chapter_end": [
+          20019001,
+          20019029
+        ],
+        "prev_verse": 20019013,
+        "next_verse": 20019015,
+        "prev_chapter": [
+          20018001,
+          20018024
+        ],
+        "next_chapter": [
+          20020001,
+          20020030
+        ]
+      },
+      {
+        "canonical": "Proverbs 19:18",
+        "chapter_start": [
+          20019001,
+          20019029
+        ],
+        "chapter_end": [
+          20019001,
+          20019029
+        ],
+        "prev_verse": 20019017,
+        "next_verse": 20019019,
+        "prev_chapter": [
+          20018001,
+          20018024
+        ],
+        "next_chapter": [
+          20020001,
+          20020030
+        ]
+      }
+    ],
+    "passages": [
+      "    Desire without knowledge is not good,\n        and whoever makes haste with his feet misses his way.\n    \n\n",
+      "    Good sense makes one slow to anger,\n        and it is his glory to overlook an offense.\n    \n\n",
+      "    House and wealth are inherited from fathers,\n        but a prudent wife is from the LORD.\n    \n\n",
+      "    Discipline your son, for there is hope;\n        do not set your heart on putting him to death.\n    \n\n"
+    ]
+  },
+  "19": {
+    "query": "Proverbs 20:6; Proverbs 20:13",
+    "canonical": "Proverbs 20:6; Proverbs 20:13",
+    "parsed": [
+      [
+        20020006,
+        20020006
+      ],
+      [
+        20020013,
+        20020013
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 20:6",
+        "chapter_start": [
+          20020001,
+          20020030
+        ],
+        "chapter_end": [
+          20020001,
+          20020030
+        ],
+        "prev_verse": 20020005,
+        "next_verse": 20020007,
+        "prev_chapter": [
+          20019001,
+          20019029
+        ],
+        "next_chapter": [
+          20021001,
+          20021031
+        ]
+      },
+      {
+        "canonical": "Proverbs 20:13",
+        "chapter_start": [
+          20020001,
+          20020030
+        ],
+        "chapter_end": [
+          20020001,
+          20020030
+        ],
+        "prev_verse": 20020012,
+        "next_verse": 20020014,
+        "prev_chapter": [
+          20019001,
+          20019029
+        ],
+        "next_chapter": [
+          20021001,
+          20021031
+        ]
+      }
+    ],
+    "passages": [
+      "    Many a man proclaims his own steadfast love,\n        but a faithful man who can find?\n    \n\n",
+      "    Love not sleep, lest you come to poverty;\n        open your eyes, and you will have plenty of bread.\n    \n\n"
+    ]
+  },
+  "20": {
+    "query": "Proverbs 21:17",
+    "canonical": "Proverbs 21:17",
+    "parsed": [
+      [
+        20021017,
+        20021017
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 21:17",
+        "chapter_start": [
+          20021001,
+          20021031
+        ],
+        "chapter_end": [
+          20021001,
+          20021031
+        ],
+        "prev_verse": 20021016,
+        "next_verse": 20021018,
+        "prev_chapter": [
+          20020001,
+          20020030
+        ],
+        "next_chapter": [
+          20022001,
+          20022029
+        ]
+      }
+    ],
+    "passages": [
+      "    Whoever loves pleasure will be a poor man;\n        he who loves wine and oil will not be rich.\n    \n\n"
+    ]
+  },
+  "21": {
+    "query": "Proverbs 22:29",
+    "canonical": "Proverbs 22:29",
+    "parsed": [
+      [
+        20022029,
+        20022029
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 22:29",
+        "chapter_start": [
+          20022001,
+          20022029
+        ],
+        "chapter_end": [
+          20022001,
+          20022029
+        ],
+        "prev_verse": 20022028,
+        "next_verse": 20023001,
+        "prev_chapter": [
+          20021001,
+          20021031
+        ],
+        "next_chapter": [
+          20023001,
+          20023035
+        ]
+      }
+    ],
+    "passages": [
+      "    Do you see a man skillful in his work?\n        He will stand before kings;\n        he will not stand before obscure men.\n    \n\n"
+    ]
+  },
+  "22": {
+    "query": "Proverbs 23:23",
+    "canonical": "Proverbs 23:23",
+    "parsed": [
+      [
+        20023023,
+        20023023
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 23:23",
+        "chapter_start": [
+          20023001,
+          20023035
+        ],
+        "chapter_end": [
+          20023001,
+          20023035
+        ],
+        "prev_verse": 20023022,
+        "next_verse": 20023024,
+        "prev_chapter": [
+          20022001,
+          20022029
+        ],
+        "next_chapter": [
+          20024001,
+          20024034
+        ]
+      }
+    ],
+    "passages": [
+      "    Buy truth, and do not sell it;\n        buy wisdom, instruction, and understanding.\n    \n\n"
+    ]
+  },
+  "23": {
+    "query": "Proverbs 24:33–34",
+    "canonical": "Proverbs 24:33–34",
+    "parsed": [
+      [
+        20024033,
+        20024034
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 24:33–34",
+        "chapter_start": [
+          20024001,
+          20024034
+        ],
+        "chapter_end": [
+          20024001,
+          20024034
+        ],
+        "prev_verse": 20024032,
+        "next_verse": 20025001,
+        "prev_chapter": [
+          20023001,
+          20023035
+        ],
+        "next_chapter": [
+          20025001,
+          20025028
+        ]
+      }
+    ],
+    "passages": [
+      "    A little sleep, a little slumber,\n        a little folding of the hands to rest,\n    and poverty will come upon you like a robber,\n        and want like an armed man.\n    \n\n"
+    ]
+  },
+  "24": {
+    "query": "Proverbs 25:27; Proverbs 25:28",
+    "canonical": "Proverbs 25:27; Proverbs 25:28",
+    "parsed": [
+      [
+        20025027,
+        20025027
+      ],
+      [
+        20025028,
+        20025028
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 25:27",
+        "chapter_start": [
+          20025001,
+          20025028
+        ],
+        "chapter_end": [
+          20025001,
+          20025028
+        ],
+        "prev_verse": 20025026,
+        "next_verse": 20025028,
+        "prev_chapter": [
+          20024001,
+          20024034
+        ],
+        "next_chapter": [
+          20026001,
+          20026028
+        ]
+      },
+      {
+        "canonical": "Proverbs 25:28",
+        "chapter_start": [
+          20025001,
+          20025028
+        ],
+        "chapter_end": [
+          20025001,
+          20025028
+        ],
+        "prev_verse": 20025027,
+        "next_verse": 20026001,
+        "prev_chapter": [
+          20024001,
+          20024034
+        ],
+        "next_chapter": [
+          20026001,
+          20026028
+        ]
+      }
+    ],
+    "passages": [
+      "    It is not good to eat much honey,\n        nor is it glorious to seek one’s own glory.\n    \n\n",
+      "    A man without self-control\n        is like a city broken into and left without walls.\n    \n\n"
+    ]
+  },
+  "25": {
+    "query": "Proverbs 26:20",
+    "canonical": "Proverbs 26:20",
+    "parsed": [
+      [
+        20026020,
+        20026020
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 26:20",
+        "chapter_start": [
+          20026001,
+          20026028
+        ],
+        "chapter_end": [
+          20026001,
+          20026028
+        ],
+        "prev_verse": 20026019,
+        "next_verse": 20026021,
+        "prev_chapter": [
+          20025001,
+          20025028
+        ],
+        "next_chapter": [
+          20027001,
+          20027027
+        ]
+      }
+    ],
+    "passages": [
+      "    For lack of wood the fire goes out,\n        and where there is no whisperer, quarreling ceases.\n    \n\n"
+    ]
+  },
+  "26": {
+    "query": "Proverbs 27:2; Proverbs 27:19",
+    "canonical": "Proverbs 27:2; Proverbs 27:19",
+    "parsed": [
+      [
+        20027002,
+        20027002
+      ],
+      [
+        20027019,
+        20027019
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 27:2",
+        "chapter_start": [
+          20027001,
+          20027027
+        ],
+        "chapter_end": [
+          20027001,
+          20027027
+        ],
+        "prev_verse": 20027001,
+        "next_verse": 20027003,
+        "prev_chapter": [
+          20026001,
+          20026028
+        ],
+        "next_chapter": [
+          20028001,
+          20028028
+        ]
+      },
+      {
+        "canonical": "Proverbs 27:19",
+        "chapter_start": [
+          20027001,
+          20027027
+        ],
+        "chapter_end": [
+          20027001,
+          20027027
+        ],
+        "prev_verse": 20027018,
+        "next_verse": 20027020,
+        "prev_chapter": [
+          20026001,
+          20026028
+        ],
+        "next_chapter": [
+          20028001,
+          20028028
+        ]
+      }
+    ],
+    "passages": [
+      "    Let another praise you, and not your own mouth;\n        a stranger, and not your own lips.\n    \n\n",
+      "    As in water face reflects face,\n        so the heart of man reflects the man.\n    \n\n"
+    ]
+  },
+  "27": {
+    "query": "Proverbs 28:8; Proverbs 28:13",
+    "canonical": "Proverbs 28:8; Proverbs 28:13",
+    "parsed": [
+      [
+        20028008,
+        20028008
+      ],
+      [
+        20028013,
+        20028013
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 28:8",
+        "chapter_start": [
+          20028001,
+          20028028
+        ],
+        "chapter_end": [
+          20028001,
+          20028028
+        ],
+        "prev_verse": 20028007,
+        "next_verse": 20028009,
+        "prev_chapter": [
+          20027001,
+          20027027
+        ],
+        "next_chapter": [
+          20029001,
+          20029027
+        ]
+      },
+      {
+        "canonical": "Proverbs 28:13",
+        "chapter_start": [
+          20028001,
+          20028028
+        ],
+        "chapter_end": [
+          20028001,
+          20028028
+        ],
+        "prev_verse": 20028012,
+        "next_verse": 20028014,
+        "prev_chapter": [
+          20027001,
+          20027027
+        ],
+        "next_chapter": [
+          20029001,
+          20029027
+        ]
+      }
+    ],
+    "passages": [
+      "    Whoever multiplies his wealth by interest and profit\n        gathers it for him who is generous to the poor.\n    \n\n",
+      "    Whoever conceals his transgressions will not prosper,\n        but he who confesses and forsakes them will obtain mercy.\n    \n\n"
+    ]
+  },
+  "28": {
+    "query": "Proverbs 29:11; Proverbs 29:20",
+    "canonical": "Proverbs 29:11; Proverbs 29:20",
+    "parsed": [
+      [
+        20029011,
+        20029011
+      ],
+      [
+        20029020,
+        20029020
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 29:11",
+        "chapter_start": [
+          20029001,
+          20029027
+        ],
+        "chapter_end": [
+          20029001,
+          20029027
+        ],
+        "prev_verse": 20029010,
+        "next_verse": 20029012,
+        "prev_chapter": [
+          20028001,
+          20028028
+        ],
+        "next_chapter": [
+          20030001,
+          20030033
+        ]
+      },
+      {
+        "canonical": "Proverbs 29:20",
+        "chapter_start": [
+          20029001,
+          20029027
+        ],
+        "chapter_end": [
+          20029001,
+          20029027
+        ],
+        "prev_verse": 20029019,
+        "next_verse": 20029021,
+        "prev_chapter": [
+          20028001,
+          20028028
+        ],
+        "next_chapter": [
+          20030001,
+          20030033
+        ]
+      }
+    ],
+    "passages": [
+      "    A fool gives full vent to his spirit,\n        but a wise man quietly holds it back.\n    \n\n",
+      "    Do you see a man who is hasty in his words?\n        There is more hope for a fool than for him.\n    \n\n"
+    ]
+  },
+  "29": {
+    "query": "Proverbs 30:33",
+    "canonical": "Proverbs 30:33",
+    "parsed": [
+      [
+        20030033,
+        20030033
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 30:33",
+        "chapter_start": [
+          20030001,
+          20030033
+        ],
+        "chapter_end": [
+          20030001,
+          20030033
+        ],
+        "prev_verse": 20030032,
+        "next_verse": 20031001,
+        "prev_chapter": [
+          20029001,
+          20029027
+        ],
+        "next_chapter": [
+          20031001,
+          20031031
+        ]
+      }
+    ],
+    "passages": [
+      "    For pressing milk produces curds,\n        pressing the nose produces blood,\n        and pressing anger produces strife.\n    \n\n"
+    ]
+  },
+  "30": {
+    "query": "Proverbs 31:6; Proverbs 31:30",
+    "canonical": "Proverbs 31:6; Proverbs 31:30",
+    "parsed": [
+      [
+        20031006,
+        20031006
+      ],
+      [
+        20031030,
+        20031030
+      ]
+    ],
+    "passage_meta": [
+      {
+        "canonical": "Proverbs 31:6",
+        "chapter_start": [
+          20031001,
+          20031031
+        ],
+        "chapter_end": [
+          20031001,
+          20031031
+        ],
+        "prev_verse": 20031005,
+        "next_verse": 20031007,
+        "prev_chapter": [
+          20030001,
+          20030033
+        ],
+        "next_chapter": [
+          21001001,
+          21001018
+        ]
+      },
+      {
+        "canonical": "Proverbs 31:30",
+        "chapter_start": [
+          20031001,
+          20031031
+        ],
+        "chapter_end": [
+          20031001,
+          20031031
+        ],
+        "prev_verse": 20031029,
+        "next_verse": 20031031,
+        "prev_chapter": [
+          20030001,
+          20030033
+        ],
+        "next_chapter": [
+          21001001,
+          21001018
+        ]
+      }
+    ],
+    "passages": [
+      "    Give strong drink to the one who is perishing,\n        and wine to those in bitter distress;\n    \n\n",
+      "    Charm is deceitful, and beauty is vain,\n        but a woman who fears the LORD is to be praised.\n    \n\n"
+    ]
+  }
+}
