@@ -20,4 +20,5 @@ export interface DashboardCardProps {
   importantNumber?: ReactNode;
   title?: string;
   fullScreen?: boolean;
+  onClick?: () => void;
 }

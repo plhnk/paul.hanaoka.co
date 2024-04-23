@@ -18,9 +18,10 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   importantNumber,
   title,
   fullScreen,
+  onClick,
 }) => {
   return (
-    <Card className={className}>
+    <Card className={className} onClick={onClick}>
       <CardHeader className={title ? 'pb-0' : 'hidden'}>
         <CardTitle>
           <div className=''>{title}</div>
