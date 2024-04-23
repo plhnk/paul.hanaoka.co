@@ -1,5 +1,5 @@
 'use-client';
-import DashboardCard from '../components/ui/dashboardcard';
+import DashboardCard from '../ui/dashboardcard';
 import { getDateInfo, pluralize } from '@/lib/utils';
 
 const { year, month, today, dayOfWeek, dayOfWeekNo, daysLeft } = getDateInfo();

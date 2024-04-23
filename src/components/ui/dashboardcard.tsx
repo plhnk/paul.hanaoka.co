@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { DashboardCardProps } from '../../utilities/types';
+import { DashboardCardProps } from '../../lib/utilities/types';
 
 const DashboardCard: React.FC<DashboardCardProps> = ({
   className,

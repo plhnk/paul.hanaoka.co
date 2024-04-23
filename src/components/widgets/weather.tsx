@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import DashboardCard from '../components/ui/dashboardcard';
-import { getIcon, useWeatherData } from '../utilities/weather';
+import DashboardCard from '../ui/dashboardcard';
+import { getIcon, useWeatherData } from '../../lib/utilities/weather';
 interface WeatherProps {
   className?: string;
 }

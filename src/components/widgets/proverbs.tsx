@@ -1,5 +1,5 @@
 'use-client';
-import DashboardCard from '../components/ui/dashboardcard';
+import DashboardCard from '../ui/dashboardcard';
 import { getDateInfo } from '@/lib/utils';
 import { useState } from 'react';
 

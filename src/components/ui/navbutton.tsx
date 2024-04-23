@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { install } from '@github/hotkey';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { NavButtonProps } from '../../utilities/types';
+import { NavButtonProps } from '../../lib/utilities/types';
 import { toast } from 'sonner';
 import { Copy, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';

@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import DashboardCard from './components/ui/dashboardcard';
-import Calendar from './widgets/calendar';
-import Proverbs from './widgets/proverbs';
-import Weather from './widgets/weather';
+import Calendar from '../components/widgets/calendar';
+import Proverbs from '../components/widgets/proverbs';
+import Weather from '../components/widgets/weather';
 
 export default function Home() {
   return (

@@ -4,7 +4,7 @@ import NavButton from './navbutton';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../sidebar';
 import { cn } from '@/lib/utils';
-import { getIcon, useWeatherData } from '../../utilities/weather';
+import { getIcon, useWeatherData } from '../../lib/utilities/weather';
 import { X, Menu } from 'lucide-react';
 
 const MobileMenu: React.FC = () => {

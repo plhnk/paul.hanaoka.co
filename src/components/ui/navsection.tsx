@@ -1,7 +1,7 @@
 import React from 'react';
 import { Label } from '@/components/ui/label';
 import NavButton from './navbutton';
-import { NavButtonProps } from '../../utilities/types';
+import { NavButtonProps } from '../../lib/utilities/types';
 
 interface NavSectionProps {
   label: string;

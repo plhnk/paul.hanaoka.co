@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Fira_Code, Fira_Sans } from 'next/font/google';
-import { ThemeProvider } from './components/theme-provider';
+import { ThemeProvider } from '../components/theme-provider';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
-import Navigation from './components/navigation';
+import Navigation from '../components/navigation';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
