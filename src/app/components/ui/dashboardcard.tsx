@@ -22,10 +22,18 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
 }) => {
   return (
     <Card className={className} onClick={onClick}>
-      <CardHeader className={title ? 'pb-0' : 'hidden'}>
+      <CardHeader className={title ? '' : 'hidden'}>
         <CardTitle>
-          <div className=''>{title}</div>
-          <div className="text-[4rem] font-thin tracking-tighter font-mono -ml-1 text-text">{importantNumber}</div>
+          <div className="">{title}</div>
+          <div
+            className={
+              importantNumber
+                ? 'text-[4rem] font-thin tracking-tighter font-mono -ml-1 text-text'
+                : 'mb-auto'
+            }
+          >
+            {importantNumber}
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent className={fullScreen ? 'p-0' : ''}>

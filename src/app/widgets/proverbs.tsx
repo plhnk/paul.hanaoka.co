@@ -1,6 +1,7 @@
 'use-client';
 import DashboardCard from '../components/ui/dashboardcard';
 import { getDateInfo } from '@/lib/utils';
+import { useState } from 'react';
 
 const { today } = getDateInfo();
 
@@ -37,7 +38,7 @@ export default function Proverbs(props: ProverbsProps) {
       <DashboardCard
         className={className}
         title="Daily Proverb"
-        extraInfo={proverb}
+        content={proverb}
       />
     </>
   );
