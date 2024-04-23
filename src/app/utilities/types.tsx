@@ -8,7 +8,7 @@ export interface NavButtonProps {
   url?: string;
   textToCopy?: string;
   theme?: string;
-  onClick?: () => void;
+  className?: string;
 }
 
 export interface DashboardCardProps {

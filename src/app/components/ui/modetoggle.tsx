@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { install } from '@github/hotkey';
+import { Label } from '@/components/ui/label';
 
 interface ModeToggleProps {
   className?: string;
@@ -13,7 +14,7 @@ const iconStyle = {
   color: 'currentColor',
   strokeWidth: 2,
   className:
-    'group:hover:text-accent/60 text-element/50 self-center mr-2 sm:mr-1  group-hover:text-accent',
+    'group:hover:text-accent/60 text-element/50 self-center mr-0 sm:mr-1  group-hover:text-accent',
 };
 
 const ModeToggle: React.FC<ModeToggleProps> = () => {
@@ -55,7 +56,13 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
   }, []);
 
   return (
-    <div className="px-2 sm:px-0 col-span-2 sm:col-span-1 flex justify-between rounded-md ">
+    <div className="px-0 col-span-1 flex mr-1 sm:mr-0 justify-start sm:justify-between items-center sm:items-start rounded-md flex-col sm:flex-row h-full">
+      <Label
+        className="sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold mt-1.5 mb-2"
+        htmlFor="span"
+      >
+        Mode
+      </Label>
       {modes.map((modes, index) => (
         <button
           onClick={() => {
@@ -65,14 +72,16 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
           className={
             `${theme === modes.mode ? 'bg-background ' : ' '}` +
             `${
-              theme === 'light' ? 'first:rounded-r-0 last:rounded-r-0 ' : ''
+              theme === 'light'
+                ? 'sm:first:rounded-r-0 sm:last:rounded-r-0 '
+                : ''
             }` +
-            'group flex justify-center pr-5 sm:pr-2 px-2 py-1 w-full first:rounded-l-md last:rounded-r-md hover:bg-accent/10 hover:text-text'
+            'group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-md sm:last:rounded-r-md hover:bg-accent/10 hover:text-text sm:rounded-[unset]'
           }
           key={index}
         >
           {modes.icon}
-          {modes.label}
+          <span className="hidden sm:block">{modes.label}</span>
         </button>
       ))}
     </div>

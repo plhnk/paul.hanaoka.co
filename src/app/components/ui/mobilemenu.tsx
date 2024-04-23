@@ -46,7 +46,7 @@ const MobileMenu: React.FC = () => {
               : 'backdrop-blur-lg bg-card/65 rounded-xl shadow-menu'
           )}
         >
-          <NavButton label="Hanaoka.co" url="/" icon={icon} hotkey={'h'} />
+          <NavButton className='w-auto rounded-[.85rem]' label="Hanaoka.co" url="/" icon={icon} hotkey={'h'} />
           <button
             onClick={handleMenuButtonClick}
             className="my-0.5 py-2 px-3 flex"

@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { NavButtonProps } from '../../utilities/types';
 import { toast } from 'sonner';
 import { Copy, ArrowUpRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -14,6 +15,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   hotkey,
   textToCopy,
   theme,
+  className,
   ...props
 }) => {
   const { setTheme } = useTheme();
@@ -48,8 +50,10 @@ const NavButton: React.FC<NavButtonProps> = ({
   }, []);
 
   const ButtonStyles = {
-    className:
+    className: cn(
       ' group focus-visible:outline-none focus-visible:shadow-focus w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline my-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+      className
+    ),
   };
 
   const IconStyles = {
