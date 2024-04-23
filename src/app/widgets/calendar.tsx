@@ -1,23 +1,8 @@
 'use-client';
 import DashboardCard from '../components/ui/dashboardcard';
-import { cn } from '@/lib/utils';
+import { getDateInfo, pluralize } from '@/lib/utils';
 
-const date = new Date();
-const year = date.toLocaleDateString('en-US', { year: 'numeric' });
-const month = date.toLocaleDateString('en-US', { month: 'long' });
-const today = date.toLocaleDateString('en-US', { day: 'numeric' });
-const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
-const dayOfWeekNo = date.getDay();
-const remainingDays =
-  new Date(date.getFullYear(), 11, 31).getTime() - date.getTime();
-const daysLeft = Math.ceil(remainingDays / (1000 * 60 * 60 * 24));
-const pluralize = (input: number): string => {
-  if (input === 1) {
-    return '';
-  } else {
-    return 's';
-  }
-};
+const { year, month, today, dayOfWeek, dayOfWeekNo, daysLeft } = getDateInfo();
 
 const visualizeDay = (
   <ul className="flex w-full justify-between mb-2">
