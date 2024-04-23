@@ -76,6 +76,7 @@ const config = {
       addVariant('exec', `:is(.exec &)`);
     },
     require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
   ],
   purge: {
     enabled: true,

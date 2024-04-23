@@ -98,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     <>
       <nav className={cn('z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1', className)}>
         <div className="backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:m-8 sm:p-4 h-full bg-card/65 shadow-menu sm:shadow-transparent">
-          <div className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-2 sm:gap-2 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
+          <div className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-3 sm:gap-2 grid-cols-[4fr_5fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
             <div className="hidden sm:col-auto sm:block">
               <NavButton
                 icon={null}

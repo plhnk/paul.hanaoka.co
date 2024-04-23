@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import DashboardCard from './components/ui/dashboardcard';
 import Calendar from './widgets/calendar';
+import Proverbs from './widgets/proverbs';
 import Weather from './widgets/weather';
 
 export default function Home() {
@@ -25,11 +26,7 @@ export default function Home() {
       </div>
       <Calendar className="col-span-1 sm:col-span-2" />
       <Weather className="col-span-1 sm:col-span-2" />
-      <DashboardCard
-        className="col-span-2"
-        title="Daily Proverb"
-        content="There is a way that seems right to a man, but it’s end is the way to death."
-      />
+      <Proverbs className="col-span-2" />
     </div>
   );
 }

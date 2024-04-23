@@ -71,7 +71,7 @@ export default function RootLayout({
           <main className="max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 bg-surface">
             {children}
           </main>
-          <Toaster position="top-center" />
+          <Toaster position="bottom-center" />
         </ThemeProvider>
       </body>
     </html>

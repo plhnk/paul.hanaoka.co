@@ -71,6 +71,5 @@ const MobileMenu: React.FC = () => {
 export default MobileMenu;
 
 // TODO why does window go wonky on /about --> can possibly ignore b/c it looks fine on a phone
-// TODO add mobile styles for nav
-// e.g. box shadow when nav is open, merge border radii
-// connect the homepage icon with the weather
+// TODO progressive blur outside open menu?
+// TODO tap anywhere outside menu to close
