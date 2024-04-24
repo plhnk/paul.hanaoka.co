@@ -1,7 +1,6 @@
-'use-client';
+'use client';
 import DashboardCard from '../ui/dashboardcard';
 import { getDateInfo } from '@/lib/utils';
-import { useState } from 'react';
 
 const { today } = getDateInfo();
 
