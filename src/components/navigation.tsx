@@ -18,3 +18,5 @@ const Navigation: React.FC = () => {
 };
 
 export default Navigation;
+
+// TODO use reference instead of hardcoding value https://tailwindcss.com/docs/configuration#referencing-in-java-script

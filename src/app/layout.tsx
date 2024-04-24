@@ -76,7 +76,7 @@ export default function RootLayout({
               // unstyled: true,
               classNames: {
                 title: 'text-text',
-                success: 'text-element bg-card/30',
+                success: 'text-element bg-card border-none', // this styles the wrapper of the success toast --> determined in navbutton
                 // toast: 'text-accent bg-card',
                 // description: 'text-text/80',
                 // actionButton: 'bg-accent text-text',
