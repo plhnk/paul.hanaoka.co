@@ -15,6 +15,7 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
+import ProgressiveBlur from './ui/progressiveblur';
 interface SidebarProps {
   children?: ReactNode;
   iconStyle?: object;
@@ -96,7 +97,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
 
   return (
     <>
-      <nav className={cn('z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1', className)}>
+      <nav
+        className={cn(
+          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1',
+          className
+        )}
+      >
         <div className="backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:m-8 sm:p-4 h-full bg-card/65 shadow-menu sm:shadow-transparent">
           <div className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-3 sm:gap-2 grid-cols-[4fr_4fr_1fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
             <div className="hidden sm:col-auto sm:block">
@@ -115,7 +121,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
             />
             {/* <NavSection className="" label="Theme" buttons={theme} /> */}
             <ModeToggle />
-            <hr className='block sm:hidden col-span-3 border-text/5 mx-2 mt-2'/>
+            <hr className="block sm:hidden col-span-3 border-text/5 mx-2 mt-2" />
           </div>
         </div>
       </nav>

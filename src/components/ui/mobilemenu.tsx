@@ -6,6 +6,7 @@ import Sidebar from '../sidebar';
 import { cn } from '@/lib/utils';
 import { getIcon, useWeatherData } from '../../lib/utilities/weather';
 import { X, Menu } from 'lucide-react';
+import ProgressiveBlur from './progressiveblur';
 
 const MobileMenu: React.FC = () => {
   const { data, isLoading } = useWeatherData();
@@ -36,6 +37,12 @@ const MobileMenu: React.FC = () => {
 
   return (
     <>
+      <ProgressiveBlur
+        className={
+          'fixed bottom-0 left-0 w-full ' +
+          `${isMobileMenuOpen ? 'h-4/5' : 'h-1/5'}`
+        }
+      />
       <Sidebar className={isMobileMenuOpen ? 'block' : 'hidden'} />
       <div className="sm:hidden fixed bottom-1 left-0 w-full z-50">
         <div
@@ -46,19 +53,35 @@ const MobileMenu: React.FC = () => {
               : 'backdrop-blur-lg bg-card/65 rounded-xl shadow-menu'
           )}
         >
-          <NavButton className='w-auto rounded-[.85rem]' label="Hanaoka.co" url="/" icon={icon} hotkey={'h'} />
+          <NavButton
+            className="w-auto rounded-[.85rem]"
+            label="Hanaoka.co"
+            url="/"
+            icon={icon}
+            hotkey={'h'}
+          />
           <button
             onClick={handleMenuButtonClick}
             className="my-0.5 py-2 px-3 flex"
           >
             {isMobileMenuOpen ? (
               <>
-                Close <X size={18} color="currentColor" className="ml-2 self-center text-text/80" />
+                Close{' '}
+                <X
+                  size={18}
+                  color="currentColor"
+                  className="ml-2 self-center text-text/80"
+                />
               </>
             ) : (
               <>
                 {' '}
-                Menu <Menu size={18} color="currentColor" className="ml-2 self-center text-text/80" />
+                Menu{' '}
+                <Menu
+                  size={18}
+                  color="currentColor"
+                  className="ml-2 self-center text-text/80"
+                />
               </>
             )}
           </button>

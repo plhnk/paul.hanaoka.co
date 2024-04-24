@@ -28,3 +28,5 @@ const Toaster = ({ ...props }: ToasterProps) => {
 }
 
 export { Toaster }
+
+// TODO fix z-index issue on mobile (and maybe desktop too?)
