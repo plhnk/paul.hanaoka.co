@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import DashboardCard from '@/components/ui/dashboardcard';
 import Calendar from '../components/widgets/calendar';
 import Proverbs from '../components/widgets/proverbs';
 import Weather from '../components/widgets/weather';
@@ -26,6 +27,11 @@ export default function Home() {
         <Calendar className="col-span-1 sm:col-span-2" />
         <Weather className="col-span-1 sm:col-span-2" />
         <Proverbs className="col-span-2" />
+        {/* <DashboardCard
+          className="col-span-2"
+          title="idea"
+          content="What if this was a Spotify music player?" */}
+        {/* /> */}
       </div>
     </>
   );

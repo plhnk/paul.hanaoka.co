@@ -11,10 +11,10 @@ export default function Weather(props: WeatherProps) {
 
   const currentTemp = data
     ? data.hourlyData.properties.periods[0].temperature
-    : '...';
+    : 'ono';
   const shortForecast = data
     ? data.forecastData.properties.periods[0].shortForecast
-    : 'loading...';
+    : 'Weather API error';
 
   const icon = getIcon(shortForecast, {});
 
