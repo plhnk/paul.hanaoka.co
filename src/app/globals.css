@@ -71,3 +71,11 @@
     @apply my-5;
   }
 }
+
+@layer components {
+  .iso {
+    transform: rotateX(45deg) rotateZ(-25deg);
+    transform-style: preserve-3d;
+    transition: 0.3s;
+  }
+}
