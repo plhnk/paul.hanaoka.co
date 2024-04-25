@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { DashboardCardProps } from '../../lib/utilities/types';
+import { cn } from '../../lib/utils';
 
 const DashboardCard: React.FC<DashboardCardProps> = ({
   className,
@@ -36,7 +37,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className={fullScreen ? 'p-0' : ''}>
+      <CardContent className={cn(fullScreen ? 'p-0' : '', 'pt-0')}>
         {extraInfo}
         {content}
       </CardContent>

@@ -27,6 +27,7 @@ const ProgressiveBlur: React.FC<{ className?: string }> = ({ className }) => {
             position: 'absolute',
             inset: 0,
             zIndex: index + 1,
+            WebkitBackdropFilter: `blur(${Math.pow(2, index) / 2}px)`,
             backdropFilter: `blur(${Math.pow(2, index) / 2}px)`,
             mask: mask,
           }}
