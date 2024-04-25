@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import DashboardCard from '@/components/ui/dashboardcard';
 import Calendar from '../components/widgets/calendar';
 import Proverbs from '../components/widgets/proverbs';
 import Photos from '../components/widgets/photos';
@@ -23,18 +22,12 @@ export default function Home() {
             <a href="/colophon">About this site</a>
           </div>
         </div>
-        <Proverbs/>
+        {/* <Proverbs/> */}
       </div>
       <div className="grid items-stretch sm:flex sm:flex-col grid-cols-2 row-span-2 sm:grid-cols-1 gap-4 sm:gap-8 items-end mb-8">
         <Calendar className="col-span-1 sm:col-span-2" />
         <Weather className="col-span-1 sm:col-span-2" />
-        <Weather className="col-span-1 sm:col-span-2" />
-        {/* <Photos className="col-span-2" /> */}
-        {/* <DashboardCard
-          className="col-span-2"
-          title="idea"
-          content="What if this was a Spotify music player?" */}
-        {/* /> */}
+        <Photos className="col-span-1 sm:col-span-2" />
       </div>
     </>
   );

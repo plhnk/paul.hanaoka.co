@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   HoverCard,
   HoverCardContent,
@@ -14,7 +14,6 @@ import proverbsData from '../../lib/data/proverbs.json';
 const { today } = getDateInfo();
 
 export default function Proverbs() {
-  const proverbRef = useRef(null);
   const proverbs: Proverbs = proverbsData;
   interface Proverbs {
     [key: number]: {
@@ -25,7 +24,6 @@ export default function Proverbs() {
       }[];
     };
   }
-
   // const proverbIndex = 11;
   const proverbIndex = Number(today) - 1; // 0-indexed
 
@@ -37,37 +35,69 @@ export default function Proverbs() {
   const proverb = proverbs[proverbIndex].passages[randomPassageIndex];
   const passage =
     proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
-  useEffect(() => {
-    const element = proverbRef.current;
-    let start: number | null = null;
+  // import { useEffect, useRef, useState } from 'react';
 
-    const animate = (timestamp: number | null) => {
-      if (!start) start = timestamp!;
-      const progress = timestamp! - start!;
-      const speed = proverb.length; // adjust this value to change the speed of the animation
-      if (element) {
-        (element as HTMLElement).style.transform = `translateX(-${
-          progress / speed
-        }px)`;
-      }
-      if (progress < (element as unknown as HTMLElement)?.offsetWidth) {
-        window.requestAnimationFrame(animate);
-      } else {
-        start = null;
-        if (element) {
-          (element as HTMLElement).style.transform = 'translateX(0)';
-        }
-        window.requestAnimationFrame(animate);
-      }
+  // ...
+
+  const proverbRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const proverbElement = proverbRef.current;
+    if (!proverbElement) return;
+
+    const proverbWidth = proverbElement.offsetWidth;
+    const animationDuration = proverbWidth / 100; // Adjust the divisor to control the speed
+
+    let animationId: number;
+
+    const animateProverb = () => {
+      proverbElement.style.transform = 'translateX(100%)';
+      proverbElement.style.transition = `transform ${animationDuration}s linear`;
+
+      animationId = requestAnimationFrame(() => {
+        proverbElement.style.transform = 'translateX(-100%)';
+      });
     };
 
-    const animationFrameId = window.requestAnimationFrame(animate);
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+      cancelAnimationFrame(animationId);
+      proverbElement.style.transition = 'none';
+      proverbElement.style.transform = 'translateX(0)';
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+      animateProverb();
+    };
+
+    proverbElement.addEventListener('mouseenter', handleMouseEnter);
+    proverbElement.addEventListener('mouseleave', handleMouseLeave);
+
+    animateProverb();
 
     return () => {
-      window.cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animationId);
+      proverbElement.removeEventListener('mouseenter', handleMouseEnter);
+      proverbElement.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [proverb, proverb.length]);
+  }, []);
 
+  // ...
+
+  // return (
+  //   <HoverCard>
+  //     <HoverCardTrigger asChild>
+  //       <div className="overflow-hidden">
+  //         <div className="text-text/80" ref={proverbRef}>
+  //           {proverb}
+  //         </div>
+  //       </div>
+  //     </HoverCardTrigger>
+  //     {/* ... */}
+  //   </HoverCard>
+  // );
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
