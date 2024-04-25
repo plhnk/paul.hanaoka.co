@@ -47,6 +47,7 @@ export default function Proverbs() {
         </div>
       </HoverCardTrigger>
       <HoverCardContent
+        side='top'
         className="group w-80 border-card hover:border-element/50 hover:-translate-y-2 transition transform"
         asChild
       >

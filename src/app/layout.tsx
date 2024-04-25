@@ -67,7 +67,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          <main className="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_16rem] sm:grid-rows-[calc(100vh-8rem)_1fr] bg-surface">
+          <main className="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_16rem] sm:grid-rows-[calc(100vh-6rem)_1fr] bg-surface">
             {children}
           </main>
           <Toaster

@@ -44,12 +44,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       hotkey: 'p',
       url: '/projects',
     },
-    {
-      icon: <PenLine {...iconStyle} />,
-      label: 'Blog',
-      hotkey: 'b',
-      url: '/blog',
-    },
+    // {
+    //   icon: <PenLine {...iconStyle} />,
+    //   label: 'Blog',
+    //   hotkey: 'b',
+    //   url: '/blog',
+    // },
   ];
 
   const connect = [
