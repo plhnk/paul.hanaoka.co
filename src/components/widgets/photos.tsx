@@ -4,7 +4,7 @@ import DashboardCard from '../ui/dashboardcard';
 interface PhotoProps {
   className?: string;
 }
-export default function Photo(props: PhotoProps) {
+export default function Photos(props: PhotoProps) {
   const { className } = props;
   const { data, isLoading } = usePhotoData();
 

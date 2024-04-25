@@ -11,10 +11,10 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    boxShadow:{
+    boxShadow: {
       // x y blur spread color
-      'focus':'0 0 1rem .1rem rgb(var(--accent)/.08);',
-      'menu':'0 0 5rem 5rem rgb(var(--dark)/.08);',
+      focus: '0 0 1rem .1rem rgb(var(--accent)/.08);',
+      menu: '0 0 5rem 5rem rgb(var(--dark)/.08);',
     },
     container: {
       center: true,
