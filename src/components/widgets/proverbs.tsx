@@ -43,5 +43,6 @@ export default function Proverbs(props: ProverbsProps) {
   );
 }
 
-// TODO --> onClick reload the card for a new proverb (if available)
+// TODO --> onClick reload for a new proverb (if available)
 // TODO --> on hover (or something) add a tooltip w/the canonical reference
+// TODO implement scrolling footer-like component (instead of card)

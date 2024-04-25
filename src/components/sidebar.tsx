@@ -103,8 +103,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           className
         )}
       >
-        <div className="backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:m-8 sm:p-4 h-full bg-card/65 shadow-menu sm:shadow-transparent">
-          <div className="grid p-0 py-0.5 sm:h-full sm:w-56 gap-3 sm:gap-2 grid-cols-[4fr_4fr_1fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
+        <div className="sm:w-64 backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:m-8 sm:p-4 h-full bg-card/65 shadow-menu sm:shadow-transparent">
+          <div className="grid p-0 py-0.5 sm:h-full gap-3 sm:gap-2 grid-cols-[4fr_4fr_1fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_auto_1fr_auto] content-start">
             <div className="hidden sm:col-auto sm:block">
               <NavButton
                 icon={null}
@@ -130,3 +130,6 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
 };
 
 export default Sidebar;
+
+// TODO add headshot in lower left corner
+// TODO rotate headshot based on cursor position

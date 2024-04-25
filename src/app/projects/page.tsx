@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <MDXProvider>
         <MdxLayout>
           <Content />
@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

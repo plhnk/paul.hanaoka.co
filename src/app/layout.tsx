@@ -67,7 +67,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          <main className="pt-[1.75rem] max-w-2xl sm:min-w-[60ch] sm:ml-auto sm:mr-80 2xl:mx-auto bg-surface">
+          <main className="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_16rem] bg-surface">
             {children}
           </main>
           <Toaster
@@ -88,3 +88,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// TODO create layout grid

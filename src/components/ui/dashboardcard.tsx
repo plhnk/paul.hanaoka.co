@@ -22,7 +22,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   onClick,
 }) => {
   return (
-    <Card className={className} onClick={onClick}>
+    <Card className={cn("w-full",className)} onClick={onClick}>
       <CardHeader className={title ? '' : 'hidden'}>
         <CardTitle>
           <div className="">{title}</div>
