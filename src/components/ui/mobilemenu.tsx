@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import NavButton from './navbutton';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../sidebar';
@@ -9,6 +9,8 @@ import { X, Menu } from 'lucide-react';
 import ProgressiveBlur from './progressiveblur';
 
 const MobileMenu: React.FC = () => {
+  const menuRef = useRef(null);
+
   const { data, isLoading } = useWeatherData();
 
   const shortForecast = data
@@ -35,8 +37,34 @@ const MobileMenu: React.FC = () => {
     setIsMobileMenuOpen(false);
   }, [resetState]);
 
+  // close the mobile menu when clicking/touching outside it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        menuRef.current &&
+        (menuRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        handleMenuButtonClick();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
+      <div
+        ref={menuRef}
+        className={
+          isMobileMenuOpen
+            ? 'absolute top-0 left-0 w-dvw h-dvh'
+            : 'hidden'
+        }
+      />
       <ProgressiveBlur
         className={
           'fixed bottom-0 left-0 w-full ' +
