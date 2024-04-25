@@ -35,75 +35,14 @@ export default function Proverbs() {
   const proverb = proverbs[proverbIndex].passages[randomPassageIndex];
   const passage =
     proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
-  // import { useEffect, useRef, useState } from 'react';
 
-  // ...
-
-  const proverbRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const proverbElement = proverbRef.current;
-    if (!proverbElement) return;
-
-    const proverbWidth = proverbElement.offsetWidth;
-    const animationDuration = proverbWidth / 100; // Adjust the divisor to control the speed
-
-    let animationId: number;
-
-    const animateProverb = () => {
-      proverbElement.style.transform = 'translateX(100%)';
-      proverbElement.style.transition = `transform ${animationDuration}s linear`;
-
-      animationId = requestAnimationFrame(() => {
-        proverbElement.style.transform = 'translateX(-100%)';
-      });
-    };
-
-    const handleMouseEnter = () => {
-      setIsHovered(true);
-      cancelAnimationFrame(animationId);
-      proverbElement.style.transition = 'none';
-      proverbElement.style.transform = 'translateX(0)';
-    };
-
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-      animateProverb();
-    };
-
-    proverbElement.addEventListener('mouseenter', handleMouseEnter);
-    proverbElement.addEventListener('mouseleave', handleMouseLeave);
-
-    animateProverb();
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      proverbElement.removeEventListener('mouseenter', handleMouseEnter);
-      proverbElement.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
-  // ...
-
-  // return (
-  //   <HoverCard>
-  //     <HoverCardTrigger asChild>
-  //       <div className="overflow-hidden">
-  //         <div className="text-text/80" ref={proverbRef}>
-  //           {proverb}
-  //         </div>
-  //       </div>
-  //     </HoverCardTrigger>
-  //     {/* ... */}
-  //   </HoverCard>
-  // );
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
         <div className="overflow-hidden">
-          <div ref={proverbRef} className="text-text/80">
-            {proverb}
+          <div className="text-text/60 font-light italic relative inline-flex whitespace-nowrap *:mr-4">
+            {/* <div>{proverb}</div> */}
+            <div>{proverb}</div>
           </div>
         </div>
       </HoverCardTrigger>
