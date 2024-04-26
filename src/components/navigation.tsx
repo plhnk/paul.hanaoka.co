@@ -11,9 +11,9 @@ const Navigation: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {isMobile ? <MobileMenu /> : <Sidebar />}
-    </div>
+    </>
   );
 };
 
