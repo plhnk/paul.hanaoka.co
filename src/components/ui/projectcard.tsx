@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <CardContent className="px-0">
         <div className="iso relative -z-10 group-hover:rotate-0">
           <img
-            className=" rounded-sm"
+            className="rounded-sm"
             src={'/images/' + imageUrl}
             alt={title + ' ' + subtitle}
           />

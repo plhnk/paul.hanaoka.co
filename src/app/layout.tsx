@@ -72,7 +72,7 @@ export default function RootLayout({
           <div className="relative max:col-start-2 max:row-start-2 rounded-3xl">
             {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
-            <div className="max:max-w-[1600px] max:ml-auto">
+            <div className="max:max-w-[1600px] max:ml-auto overflow-x-hidden sm-overflow-x-[unset]">
               <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 max:ml-8">
                 {children}
               </main>
@@ -91,8 +91,14 @@ export default function RootLayout({
                 },
               }}
             />
-            <span aria-hidden="true" className="hidden fixed -z-50 h-dvh w-dvw top-0 left-0 max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]">
-              <span aria-hidden="true" className="hidden max:block absolute h-full w-full bg-background max:col-start-2 max:row-start-2 max:col-end-3 max:row-end-3 rounded-3xl" />
+            <span
+              aria-hidden="true"
+              className="hidden fixed -z-50 h-dvh w-dvw top-0 left-0 max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]"
+            >
+              <span
+                aria-hidden="true"
+                className="hidden max:block absolute h-full w-full bg-background max:col-start-2 max:row-start-2 max:col-end-3 max:row-end-3 rounded-3xl"
+              />
             </span>
           </div>
         </ThemeProvider>
