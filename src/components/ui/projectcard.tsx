@@ -14,11 +14,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <Card className="bg-card/10 overflow-visible relative -z-20 group-hover:bg-card text-left">
+    <Card className="bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="">
         <div className="iso relative -z-10 group-hover:rotate-0">
           <img
-            className=" rounded-md"
+            className=" rounded-xl"
             src={imageUrl}
             alt={title + ' ' + subtitle}
           />

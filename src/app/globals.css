@@ -74,8 +74,18 @@
 
 @layer components {
   .iso {
-    transform: rotateX(45deg) rotateZ(-25deg);
+    transform: rotateX(48deg) rotateZ(-24deg);
     transform-style: preserve-3d;
     transition: 0.3s;
+  }
+  .main-grid {
+    /* note - use grid-cols-subgrid for any subgrids */
+    @apply grid gap-4 sm:gap-8 grid-cols-3 md:grid-cols-5 lg:grid-cols-9;
+  }
+  .main-content {
+    @apply col-span-3 md:col-span-5 lg:col-span-7 grid grid-cols-subgrid;
+  }
+  .sidebar {
+    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 max-h-[calc(100vh_-_4rem)] grid-rows-[max-content];
   }
 }

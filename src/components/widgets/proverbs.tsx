@@ -10,6 +10,7 @@ import LogoEsvIcon from '@/app/assets/images/icons/logo-esv';
 
 import { getDateInfo } from '@/lib/utils';
 import proverbsData from '../../lib/data/proverbs.json';
+import { ArrowUpRight } from 'lucide-react';
 
 const { today } = getDateInfo();
 
@@ -37,10 +38,10 @@ export default function Proverbs() {
     proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
 
   return (
-    <HoverCard>
+    <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>
-        <div className="overflow-hidden">
-          <div className="text-text/60 font-light italic relative inline-flex whitespace-nowrap *:mr-4">
+        <div className="overflow-hidden py-8">
+          <div className="text-text/60 font-light italic w-full *:mr-4">
             {/* <div>{proverb}</div> */}
             <div>{proverb}</div>
           </div>
@@ -48,14 +49,16 @@ export default function Proverbs() {
       </HoverCardTrigger>
       <HoverCardContent
         side='top'
-        className="group w-80 border-card hover:border-element/50 hover:-translate-y-2 transition transform"
+        align='start'
+        sideOffset={-8}
+        alignOffset={0}
+        className="group z-50 w-80 bg-card/95 border-card hover:border-element/50 hover:-translate-y-2 transition transform"
         asChild
       >
         <a
           href={'https://www.esv.org/' + passage}
           className="flex justify-between align-middle space-x-4"
         >
-          {/* <div > */}
           <Avatar>
             <AvatarFallback>
               <LogoEsvIcon />
@@ -64,6 +67,7 @@ export default function Proverbs() {
           <div className="space-y-1 text-sm font-light text-text/70 group-hover:text-text italic">
             {passage} from the ESV translation of the Bible.
           </div>
+          <ArrowUpRight className='mr-1 -mt-1' />
           {/* </div> */}
         </a>
       </HoverCardContent>

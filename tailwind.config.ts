@@ -78,9 +78,6 @@ const config = {
     require('tailwindcss-animate'),
     require('@tailwindcss/typography'),
   ],
-  purge: {
-    enabled: true,
-  },
 } satisfies Config;
 
 export default config;

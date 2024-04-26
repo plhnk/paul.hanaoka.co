@@ -4,6 +4,7 @@ import { ThemeProvider } from '../components/theme-provider';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import Navigation from '../components/navigation';
+import Footer from '@/components/footer';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -48,7 +49,8 @@ export default function RootLayout({
   return (
     <html
       className={
-        `${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'
+        `${fira_code.variable} ${fira_sans.variable}`
+        // `${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'
       }
       lang="en"
       suppressHydrationWarning
@@ -66,10 +68,12 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
+          {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
           <Navigation />
-          <main className="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_16rem] sm:grid-rows-[calc(100vh-6rem)_1fr] bg-surface">
+          <main className="main-grid">
             {children}
           </main>
+          <Footer />
           <Toaster
             position="bottom-center"
             toastOptions={{
@@ -89,4 +93,4 @@ export default function RootLayout({
   );
 }
 
-// TODO create layout grid
+// TODO create layout grid overlay
