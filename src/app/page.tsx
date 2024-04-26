@@ -1,7 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
 import Calendar from '../components/widgets/calendar';
-import Proverbs from '../components/widgets/proverbs';
-import Photos from '../components/widgets/photos';
 import Weather from '../components/widgets/weather';
 import Projects from '@/components/projects';
 
