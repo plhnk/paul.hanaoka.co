@@ -57,7 +57,7 @@ export default function RootLayout({
     >
       <body
         className={
-          'sm:h-[calc(100vh-4rem)] max:h-dvh transition-colors duration-200 text-text max:bg-transparent max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]'
+          'sm:h-[calc(100vh-4rem)] max:h-dvh transition-colors duration-200 text-text bg-background max:bg-transparent max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]'
         }
         // TODO design themes, abstract them somehow
         // TODO add query for xxxxl screens --> make meta window ?
@@ -72,7 +72,7 @@ export default function RootLayout({
           <div className="relative max:col-start-2 max:row-start-2 rounded-3xl">
             {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
-            <div className="max:max-w-[1600px] max:ml-auto overflow-x-hidden sm-overflow-x-[unset]">
+            <div className="max:max-w-[1600px] max:ml-auto overflow-x-hidden sm:overflow-x-visible">
               <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 max:ml-8">
                 {children}
               </main>
@@ -106,26 +106,6 @@ export default function RootLayout({
     </html>
   );
 }
-
-// TODO create layout grid overlay
-// body
-// d display: grid;
-// d grid-template-columns: 1fr 1920px 1fr;
-// d grid-template-rows: 1fr 1200px 1fr;
-// d set bg transparent
-// add headshot
-
-// > div
-// grid-column-start: 2;
-// grid-row-start: 2;
-// ~set bg color, radius~
-
-// wrap footer and main in a div? --> main?
-// max-width: 1600px;
-// margin-left: auto;
-// move margin from body to main ?
-
-// nav
-// remove empty div (in navigation.tsx)
-// remove positioning and sizing
-// left: auto;
+// fix footer
+// make sidebar sticky max:
+// funny guy max:
