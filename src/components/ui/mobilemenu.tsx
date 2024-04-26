@@ -60,9 +60,7 @@ const MobileMenu: React.FC = () => {
       <div
         ref={menuRef}
         className={
-          isMobileMenuOpen
-            ? 'absolute top-0 left-0 w-dvw h-dvh'
-            : 'hidden'
+          isMobileMenuOpen ? 'absolute top-0 left-0 w-dvw h-dvh' : 'hidden'
         }
       />
       <ProgressiveBlur
@@ -83,7 +81,12 @@ const MobileMenu: React.FC = () => {
         >
           <NavButton
             className="w-auto rounded-[.85rem]"
-            label="Hanaoka.co"
+            label={
+              <>
+                <span className="text-text/90">paul.</span>
+                <span className="text-text/50">hanaoka.co</span>
+              </>
+            }
             url="/"
             icon={icon}
             hotkey={'h'}

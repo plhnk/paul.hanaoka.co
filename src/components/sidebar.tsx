@@ -108,7 +108,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
             <div className="hidden sm:col-auto sm:block">
               <NavButton
                 icon={null}
-                label={'Hanaoka.co'}
+                label={
+                  <>
+                    <span className="text-text/90">paul.</span>
+                    <span className="text-text/50">hanaoka.co</span>
+                  </>
+                }
                 hotkey={'h'}
                 url={'/'}
               />

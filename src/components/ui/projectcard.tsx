@@ -14,22 +14,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <Card className="bg-transparent overflow-visible relative -z-20 text-left">
-      <CardContent className="">
+    <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
+      <CardContent className="px-0">
         <div className="iso relative -z-10 group-hover:rotate-0">
           <img
-            className=" rounded-xl"
-            src={imageUrl}
+            className=" rounded-sm"
+            src={'/images/' + imageUrl}
             alt={title + ' ' + subtitle}
           />
         </div>
         <div className="shadow" />
       </CardContent>
-      <CardHeader>
-        <CardTitle className="normal-case mb-2 *:block *:font-normal">
-          <span>{label}</span>
-          <span>{title}</span>
-          <span>{subtitle}</span>
+      <CardHeader className='px-0'>
+        <CardTitle className="normal-case mb-2 tracking-normal *:block *:font-normal">
+          <span className='text-text/40 uppercase  leading-loose'>{label}</span>
+          <span className='text-text text-base'>{title}</span>
+          <span className='text-text/60 text-base'>{subtitle}</span>
         </CardTitle>
       </CardHeader>
     </Card>

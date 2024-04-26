@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface NavButtonProps {
   icon: ReactNode;
-  label: string;
+  label: string | ReactNode;
   hotkey: string;
   // options
   url?: string;

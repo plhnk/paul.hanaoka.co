@@ -3,7 +3,7 @@ import Proverbs from './widgets/proverbs';
 
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className='my-16'>
       <Proverbs />
     </footer>
   );
