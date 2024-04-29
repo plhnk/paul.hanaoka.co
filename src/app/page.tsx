@@ -1,3 +1,4 @@
+import Photos from '@/components/widgets/photos';
 import Calendar from '../components/widgets/calendar';
 import Weather from '../components/widgets/weather';
 import Projects from '@/components/projects';
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="sidebar">
         <Calendar className="col-span-2" />
         <Weather className="col-span-2" />
+        <Photos />
         {/* <Proverbs/> */}
       </div>
     </>

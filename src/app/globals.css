@@ -70,6 +70,9 @@
   p {
     @apply my-5 font-light;
   }
+  li {
+    @apply mb-12;
+  }
   h1,
   h2,
   h3,

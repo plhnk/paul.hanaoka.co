@@ -77,6 +77,5 @@ export default function Proverbs(props: { className?: string }) {
   );
 }
 
-// TODO --> onClick reload for a new proverb (if available)
-// TODO --> on hover (or something) add a tooltip w/the canonical reference
-// https://www.esv.org/Proverbs+1/
+// TODO --> onClick reload for a new proverb (if available?)
+// TODO --> fix console errors (CSR/SSR mismatch)

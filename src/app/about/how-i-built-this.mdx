@@ -1,0 +1,91 @@
+# How I Built This
+
+This site
+
+- built using NextJS
+  - 5 years ago I built a site using GatsbyJS, and I wanted to try something new — NextJS has become an industry leader in the React space, and I wanted to see what all the fuss was about
+- hosted on Vercel
+  - seemed to make sense using the same company that built the framework
+- using components from Radix UI and Shadcn
+  - coming from ThemeUI, Radix and Shadcn both seemed like good options
+- styled using TailwindCSS
+  - I've been wanting to use Tailwind for awhile, this seemed like a great opportunity
+- themed using TailwindCSS and Shadcn
+  - I started using Radix Themes but it wasn't as immediately obvious to me how to go beyond Dark/Light themes – and Shadcn documentation had Tailwind specs that made sense to me
+
+## Themeing
+
+Themeing is a challenge.
+
+Color (or colour if you prefer) is the most obvious aspect of themeing — so that's where we'll begin.
+
+My approach is iterative — choosing colors is not a strength I have, it's also not something that should be done in isolation. As in — using the principle of designing in the next larger context — I want to see the colors in action, and adjust them in situ before making a "final" decision.
+
+After reading the [shadcn Theming page](https://ui.shadcn.com/docs/theming) approximately 10x, coming across [Kasia's article on token naming](https://hybridheroes.de/blog/2023-11-24-colour-tokens-uidesign/), my approach finally began to crystalize after clicking [the link to the Smashing Magazine article on HSL](https://www.smashingmagazine.com/2021/07/hsl-colors-css/).
+
+Ahmad's approach, splitting each property into a variable, was really intriguing to menubar. What if I could figure out approximate values for Saturation and Lightness (which generally correspond to an element's state) and then adjust the Hue (which generally corresponds to the overall theme) to get the desired effect?
+
+So my `global.css` file would have:
+
+```css
+:root {
+  --hue: 0;
+  --saturation: 0;
+  --lightness: 0;
+  --weakest: 30%, 90%;
+  --weaker: 50%, 80%;
+  --weak: 70%, 70%;
+  --base: 90%, 50%;
+  --strong: 60%, 30%;
+  --stronger: 80%, 20%;
+  --strongest: 100%, 10%;
+}
+
+.theme-red {
+  --hue: 010;
+}
+.theme-blue {
+  --hue: 250;
+}
+.theme-green {
+  --hue: 130;
+}
+```
+
+And my `tailwind.config.js` file would have:
+
+```js
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          200: `hsl(var(--hue), var(--weakest)`,
+          300: `hsl(var(--hue), var(--weaker)`,
+          400: `hsl(var(--hue), var(--weak)`,
+          500: `hsl(var(--hue), var(--base))`,
+          600: `hsl(var(--hue), var(--strong)`,
+          700: `hsl(var(--hue), var(--stronger)`,
+          800: `hsl(var(--hue), var(--strongest)`,
+        },
+      },
+    },
+  },
+```
+
+...but that didn't work. I think for a few reasons — first of all (obvious to those of you who are familiar with extending Tailwind colors) you can't use hsl in that context.
+
+Also I realized in the middle of working out the variable steps, that tying "weak" and "strong" to saturation and lightness didn't exactly map to how they would be used. 
+
+Reading [MDN docs on the `color-scheme` property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) I realized that, perhaps, my mental model of this is not entirely correct.
+
+Because browsers only give us two modes (light and dark), anything beyond that isn't really a mode. It's a theme. And a theme is a collection of colors that are used in a particular context. But my impression is that the words "theme" and "mode" are interchangeable (at least in the context of Tailwind, Shadcn, Radix, etc). But for my purposes, they aren't. My goal is to be able to change the look and feel (to some extent) of the site AND also have light and dark modes for each theme.
+
+Learnings:
+
+- colors should be specified using rgb values, this allows you to use the `a` value to adjust the alpha channel
+- this makes it easier to choose a limited palette of colors and adjust on-the-fly using `/alpha` values w/Tailwind
+- drawbacks are that alpha only goes lighter? so you can't really go w/a 1-size-fits-all
+- would be nice to have a way to choose colors using hsl and then have the rgb values calculated for you
+
+
+{/* TODO add esv copyright info */}

@@ -35,3 +35,5 @@ Promise.all(fetches).then(() => {
   fs.mkdirSync('./data', { recursive: true });
   fs.writeFileSync(`./data/proverbs.json`, JSON.stringify(allData, null, 2));
 });
+
+// npm run fetchProverbs.js

@@ -17,8 +17,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => (
       <h1 className="text-base font-normal mb-24">{children}</h1>
     ),
-    h2: ({ children }) => <h2 className="text-base mb-16">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-base mb-12">{children}</h3>,
+    h2: ({ children }) => <h2 className="text-base font-normal mt-16 mb-0">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-base mt-12">{children}</h3>,
     h4: ({ children }) => <h4 className="text-base mb-8">{children}</h4>,
     p: ({ children }) => <p className="font-light">{children}</p>,
     img: (props) => (
