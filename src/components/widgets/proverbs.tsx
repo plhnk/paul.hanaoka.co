@@ -12,6 +12,7 @@ import { getDateInfo } from '@/lib/utils';
 import proverbsData from '../../lib/data/proverbs.json';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Skeleton } from '../ui/skeleton';
 
 const { today } = getDateInfo();
 
@@ -26,19 +27,48 @@ export default function Proverbs(props: { className?: string }) {
       }[];
     };
   }
-  // const proverbIndex = 11;
-  const proverbIndex = Number(today) - 1; // 0-indexed
+  // // const proverbIndex = 11; // testing random proverb
 
-  // determine how many passages are available for the selected proverb
-  const passageCount = proverbs[proverbIndex].passages.length;
-  // get a random passage from the selected proverb, if available
-  const randomPassageIndex = Math.floor(Math.random() * passageCount);
-  // get the selected proverb
-  const proverb = proverbs[proverbIndex].passages[randomPassageIndex];
-  const passage =
-    proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
+  // // determine how many passages are available for the selected proverb
+  // const passageCount = proverbs[proverbIndex].passages.length;
+  // // get a random passage from the selected proverb, if available
+  // const randomPassageIndex = Math.floor(Math.random() * passageCount);
+  // // get the selected proverb
+  // const proverb = proverbs[proverbIndex].passages[randomPassageIndex];
+  // const passage =
+  //   proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
 
   const { className } = props;
+
+  // const [proverb, setProverb] = useState(null);
+  // const [passage, setPassage] = useState(null);
+
+  const [proverb, setProverb] = useState<string | null>(null);
+  const [passage, setPassage] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Select a random proverb after hydration
+    const proverbIndex = Number(today) - 1; // 0-indexed
+    const passageCount = proverbs[proverbIndex].passages.length;
+    const randomPassageIndex = Math.floor(Math.random() * passageCount);
+    const selectedProverb = proverbs[proverbIndex].passages[randomPassageIndex];
+    const selectedPassage =
+      proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
+
+    setProverb(selectedProverb);
+    setPassage(selectedPassage);
+  }, [proverbs]);
+
+  if (!proverb || !passage) {
+    // Render skeleton while proverb is loading
+    return (
+      <div className="flex space-y-4">
+        <Skeleton className="h-4 w-80" />
+        <Skeleton className="h-4 w-64" />
+      </div>
+    );
+  }
+
   return (
     <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>
@@ -78,4 +108,3 @@ export default function Proverbs(props: { className?: string }) {
 }
 
 // TODO --> onClick reload for a new proverb (if available?)
-// TODO --> fix console errors (CSR/SSR mismatch)
