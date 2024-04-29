@@ -56,7 +56,7 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
   }, []);
 
   return (
-    <div className="px-0 col-span-1 flex mr-1 sm:mr-0 justify-start sm:justify-between items-center sm:items-start rounded-md flex-col sm:flex-row h-full">
+    <div className="mt-0 sm:mt-2 px-0 col-span-1 flex mr-1 sm:mr-0 justify-start sm:justify-between items-center sm:items-start rounded-md flex-col sm:flex-row h-full">
       <Label
         className="sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold mt-1.5 mb-2"
         htmlFor="span"
