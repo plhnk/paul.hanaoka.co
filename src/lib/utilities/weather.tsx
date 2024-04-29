@@ -57,10 +57,9 @@ export function useWeatherData() {
         console.error('Error fetching weather data:', error);
         setLoading(false);
       });
-  }, []);
-
-  return { data, isLoading };
-}
+    }, []);
+    return { data, isLoading };
+  }
 
 // const myLocation = {
 //     'long': '48.7637° N',

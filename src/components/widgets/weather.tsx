@@ -81,6 +81,8 @@ export default function Weather(props: WeatherProps) {
     </>
   );
 
+  console.log(data)
+
   return (
     <>
       <DashboardCard

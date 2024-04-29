@@ -13,7 +13,7 @@ const About: React.FC = () => {
       <MdxLayout>
         <Content />
         <Colophon />
-        <CV />
+        {/* <CV /> */}
       </MdxLayout>
       {/* <Colophon /> */}
     </MDXProvider>
