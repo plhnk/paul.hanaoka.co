@@ -65,7 +65,7 @@ const MobileMenu: React.FC = () => {
       />
       <ProgressiveBlur
         className={
-          'fixed bottom-0 left-0 w-full ' +
+          'fixed block sm:hidden bottom-0 left-0 w-full ' +
           `${isMobileMenuOpen ? 'h-4/5' : 'h-1/5'}`
         }
       />

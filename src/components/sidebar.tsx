@@ -15,7 +15,6 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
-import ProgressiveBlur from './ui/progressiveblur';
 interface SidebarProps {
   children?: ReactNode;
   iconStyle?: object;
