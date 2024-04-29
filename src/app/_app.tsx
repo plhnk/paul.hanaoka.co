@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import Layout from "./layout";
+import { useRouter } from 'next/router';
+import Layout from './layout';
 import * as Fathom from 'fathom-client';
 
 interface AppProps {
@@ -8,12 +9,24 @@ interface AppProps {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       Fathom.load('ERQBAFPH', {
-        includedDomains: ['paul.hanaoka.co']
+        includedDomains: ['paul.hanaoka.co'],
       });
-      Fathom.trackPageview();
+
+      function onRouteChangeComplete() {
+        Fathom.trackPageview();
+      }
+      // Record a pageview when route changes
+      router.events.on('routeChangeComplete', onRouteChangeComplete);
+
+      // Unassign event listener
+      return () => {
+        router.events.off('routeChangeComplete', onRouteChangeComplete);
+      };
     }
   }, []);
 
