@@ -40,7 +40,7 @@ export default function Proverbs() {
   return (
     <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>
-        <div className="overflow-hidden py-8">
+        <div className="overflow-hidden py-8 mb-24 sm:mb-16">
           <div className="text-text/60 font-light italic w-full *:mr-4">
             {/* <div>{proverb}</div> */}
             <div>{proverb}</div>
