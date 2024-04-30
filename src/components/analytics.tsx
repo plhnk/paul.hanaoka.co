@@ -4,7 +4,6 @@ import Router from 'next/router';
 import * as Fathom from 'fathom-client';
 
 export default function Analytics() {
-  console.log('Analytics');
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       Fathom.load('ERQBAFPH', {
