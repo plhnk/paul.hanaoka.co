@@ -37,28 +37,6 @@ const Photos = () => {
   return (
     <div>
         pics
-      {photos.length > 0 && (
-        <div>
-          <div>
-            {/* <img
-              src={photos[currentIndex].url}
-              alt={`Photo ${currentIndex + 1}`}
-            /> */}
-          </div>
-          <div>
-            {/* {photos.map((photo, index) => (
-              <div key={index} onClick={() => setCurrentIndex(index)}>
-                {index === currentIndex ? <span>•</span> : <span>◦</span>}
-              </div>
-            ))} */}
-          </div>
-          {/* {currentIndex === photos.length - 1 && (
-            <div>
-              <div>5 more photos</div>
-            </div>
-          )} */}
-        </div>
-      )}
     </div>
   );
 };

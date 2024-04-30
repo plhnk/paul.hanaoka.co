@@ -16,7 +16,6 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
-import CalPopup from './widgets/calpopup';
 interface SidebarProps {
   children?: ReactNode;
   iconStyle?: object;
@@ -126,7 +125,6 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
               />
             </div>
             <NavSection className="" label="Browse" buttons={browse} />
-            <CalPopup />
             <NavSection
               className="sm:mt-2.5"
               label="Connect"
