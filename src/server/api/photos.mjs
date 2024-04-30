@@ -10,5 +10,3 @@ const UnsplashApiClient = () => {
 };
 
 export default UnsplashApiClient;
-
-// console.log(process.env.UNSPLASH_ACCESS_KEY);
