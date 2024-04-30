@@ -24,3 +24,5 @@ export default function Analytics() {
   }, []);
   return null;
 }
+
+// TODO: write a post about implementing Fathom analytics w/app router in nextjs
