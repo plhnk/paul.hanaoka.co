@@ -5,6 +5,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import Navigation from '../components/navigation';
 import Footer from '@/components/footer';
+import Analytics from '@/components/analytics';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -55,6 +56,9 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        <Analytics />
+      </head>
       <body
         className={
           'sm:h-[calc(100vh-4rem)] max:h-dvh transition-colors duration-200 text-text bg-background max:bg-transparent max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]'
