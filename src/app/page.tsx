@@ -14,7 +14,7 @@ export default function Home() {
       <div className="sidebar">
         <Calendar className="col-span-2" />
         <Weather className="col-span-2" />
-        <Photos />
+        <Photos className='col-span-4 sm:col-span-2 h-[80dvh] mt-2 sm:mt-0 sm:h-full' />
         {/* <Proverbs/> */}
       </div>
     </>

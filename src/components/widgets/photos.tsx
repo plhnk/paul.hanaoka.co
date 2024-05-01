@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import UnsplashApiClient from '../../server/api/photos.mjs';
 import { UnsplashPhoto } from '@/lib/utilities/types';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { RotateCw, Camera } from 'lucide-react';
 
 const UnsplashApi = UnsplashApiClient();
 
@@ -25,30 +28,29 @@ function getRandomPhotos(photos: any, count: number) {
 
 type PhotoOrMoreButton = UnsplashPhoto & { isMoreButton?: boolean };
 
-const Photos = () => {
+const Photos: React.FC<{ className?: string }> = ({ className }) => {
   const [photos, setPhotos] = useState<PhotoOrMoreButton[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreButton, setShowMoreButton] = useState(false);
 
   const fetchPhotos = async () => {
-      try {
-        const response = await fetch('/api/photos');
-        const data = await response.json();
+    try {
+      const response = await fetch('/api/photos');
+      const data = await response.json();
 
-        const allPhotos = data.photos;
+      const allPhotos = data.photos;
 
-        const randomPhotos = getRandomPhotos(allPhotos, 3);
+      const randomPhotos = getRandomPhotos(allPhotos, 5);
 
-        setPhotos([...randomPhotos, {id:'more'}]);
+      setPhotos([...randomPhotos, { id: 'more' }]);
 
-        setShowMoreButton(false);
+      setShowMoreButton(false);
 
-        console.log(data);
-      } catch (error) {
-        console.error('Error fetching photos:', error);
-      }
-      
-    };
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching photos:', error);
+    }
+  };
 
   useEffect(() => {
     fetchPhotos();
@@ -60,24 +62,64 @@ const Photos = () => {
     if (newIndex === photos.length - 1) {
       setShowMoreButton(true);
     }
+    // console.log(index, 'index')
+    // ==> will be 1 more than currentIndex
+    console.log(newIndex, 'new index');
+    // ==> will be 1 more than currentIndex
+    console.log(currentIndex, 'current index');
+    // ==> starts at 0, will be 1 less than newIndex
+    console.log(photos.length, 'photos.length');
+    // ==> will be highest Z-index (total # of photos + 1 for more button)
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-    {photos.map((photo, index) => (
-      photo.id === 'more' ? (
-        showMoreButton && <button onClick={fetchPhotos} style={{ position: 'absolute', zIndex: photos.length + index }}>more photos</button>
-      ) : (
-        <img
-          key={photo.id}
-          src={photo.urls.small}
-          alt={photo.altDescription}
-          onClick={handleClick}
-          style={{ position: 'absolute', zIndex: photos.length + index }}
-        />
-      )
-    ))}
-  </div>
+    <div
+      className={cn('cursor-pointer relative w-full h-full', className)}
+      onClick={handleClick}
+    >
+      {photos.map((photo, index) =>
+        photo.id === 'more' ? (
+          showMoreButton && (
+            <div
+              key={index + 1}
+              className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center"
+              style={{ position: 'absolute', zIndex: photos.length + 1 }}
+            >
+              <button onClick={fetchPhotos} className='hover:bg-text/5'>
+                <RotateCw size={24} className='text-text/40' />
+                Load more photos
+              </button>
+              <Link href="https://unsplash.com/plhnk" className='hover:bg-text/5'>
+                <Camera size={24} className='text-text/40' />
+                View collection on Unsplash
+              </Link>
+            </div>
+          )
+        ) : (
+          <div
+            key={index}
+            style={{
+              // zIndex: index === currentIndex ? photos.length : photos.length - index - 1,
+              zIndex: photos.length - Math.abs(index - currentIndex),
+              transform: `translateY(${(index - currentIndex) * -8}%) scale(${
+                1 - Math.abs(index - currentIndex) * 0.12
+              })`,
+            }}
+            className="absolute rounded-xl overflow-hidden w-full h-full transition ease-in-out shadow-background drop-shadow-md"
+          >
+            <img
+              key={photo.id}
+              src={photo.urls.regular}
+              alt={photo.altDescription}
+              className="object-cover w-full h-full m-0 bg-background"
+              style={{
+                opacity: 1 - Math.abs(index - currentIndex) * 0.4,
+              }}
+            />
+          </div>
+        )
+      )}
+    </div>
   );
 };
 
