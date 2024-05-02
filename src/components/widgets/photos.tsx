@@ -85,11 +85,11 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
               className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center"
               style={{ position: 'absolute', zIndex: photos.length + 1 }}
             >
-              <button onClick={fetchPhotos} className='hover:bg-text/5'>
+              <button onClick={fetchPhotos} className='hover:bg-text/5 p-4'>
                 <RotateCw size={24} className='text-element mb-2' />
                 Load more photos
               </button>
-              <Link href="https://unsplash.com/plhnk" className='hover:bg-text/5'>
+              <Link href="https://unsplash.com/plhnk" className='hover:bg-text/5 p-4'>
                 <Camera size={24} className='text-element mb-2' />
                 View collection on Unsplash
               </Link>

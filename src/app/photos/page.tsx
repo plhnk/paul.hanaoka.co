@@ -3,6 +3,7 @@ import React from 'react';
 
 import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
+import UnsplashFeed from '../../components/unsplash-feed';
 import Content from './content.mdx';
 
 const Photos: React.FC = () => {
@@ -11,6 +12,7 @@ const Photos: React.FC = () => {
       <MDXProvider>
         <MdxLayout>
           <Content />
+          <UnsplashFeed />
         </MdxLayout>
       </MDXProvider>
     </>

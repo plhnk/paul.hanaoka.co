@@ -36,4 +36,4 @@ Promise.all(fetches).then(() => {
   fs.writeFileSync(`./data/proverbs.json`, JSON.stringify(allData, null, 2));
 });
 
-// npm run fetchProverbs.js
+// node fetchProverbs.mjs --> must be in directory to run this, otherwise `npm run fetchProverbs` is avail anywhere in the project
