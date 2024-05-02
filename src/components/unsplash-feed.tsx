@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Blurhash } from 'react-blurhash';
 import data from '../lib/data/unsplash.json';
 import { UnsplashPhoto } from '@/lib/utilities/types';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { Button } from './ui/button';
+import { RotateCw } from 'lucide-react';
 
-const PhotoFeed: React.FC = () => {
+const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
   type UnsplashPage = {
     [key: string]: UnsplashPhoto[];
   };
@@ -35,88 +38,38 @@ const PhotoFeed: React.FC = () => {
   };
 
   return (
-    <div>
+    <div
+      className={cn(
+        'flex flex-col items-center sm:items-start gap-8 center',
+        className
+      )}
+    >
       {photos.slice(0, currentPage * photosPerPage).map((photo, index) => (
-        <div key={photo.id}>
-          <Blurhash
-            hash={photo.blur_hash}
-            width={500}
-            height={300}
-            resolutionX={32}
-            resolutionY={32}
-            punch={1}
-          />
-          <img
-            src={photo.urls.small}
+        <figure
+          // wrapper div
+          className="-z-10 sm:max-w-min"
+          key={photo.id}
+        >
+          <Image
+            placeholder="blur"
+            blurDataURL="photo.blur_hash"
+            width={photo.width}
+            height={photo.height}
+            src={photo.urls.regular}
             alt={photo.alt_description}
             onLoad={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-            style={{ opacity: '0', transition: 'opacity 0.5s' }}
+            className="object-cover sm:w-auto h-auto sm:max-w-[60vw] max-w-[90vw] max-h-[80vh] bg-background drop-shadow-xl p-4 pb-8 sm:p-8 sm:pb-16 rounded-sm"
           />
-          <p>{photo.description}</p>
-          <a
-            href={photo.links.download}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download
-          </a>
-          <p>Likes: {photo.likes}</p>
-        </div>
+          <figcaption className="p-4 sm:p-8 text-pretty italic text-text/80 font-light">
+            {photo.description}
+          </figcaption>
+        </figure>
       ))}
-      <button onClick={loadMore}>Load more</button>
+      <Button variant="ghost" className='hover:bg-card/80 ml-8 hover:-translate-y-2 transition-transform transform' onClick={loadMore}>
+        <RotateCw size={16} className="text-element mr-2" />Load more photos
+      </Button>
     </div>
   );
 };
 
 export default PhotoFeed;
-
-//   const [photos, setPhotos] = useState<UnsplashPage>();
-
-//   useEffect(() => {
-//     const sortedPhotos = Object.entries(data as unknown as UnsplashPage).reduce(
-//       (acc, [pageNumber, page]) => {
-//         return {
-//           ...acc,
-//           [pageNumber]: page.sort(
-//             (a: UnsplashPhoto, b: UnsplashPhoto) =>
-//               new Date(b.created_at).getTime() -
-//               new Date(a.created_at).getTime()
-//           ),
-//         };
-//       },
-//       {} as UnsplashPage
-//     );
-//     setPhotos(sortedPhotos);
-//   }, []);
-
-//   return (
-//     <div>
-//       {photos.map((photo: UnsplashPhoto, index: number) => (
-// <div key={photo.id}>
-//   <Blurhash
-//     hash={photo.blur_hash}
-//     width={500}
-//     height={300}
-//     resolutionX={32}
-//     resolutionY={32}
-//     punch={1}
-//   />
-//   <img
-//     src={photo.urls.small}
-//     alt={photo.alt_description}
-//     onLoad={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-//     style={{ opacity: '0', transition: 'opacity 0.5s' }}
-//   />
-//   <p>{photo.description}</p>
-//   <a
-//     href={photo.links.download}
-//     target="_blank"
-//     rel="noopener noreferrer"
-//   >
-//     Download
-//   </a>
-//   <p>Likes: {photo.likes}</p>
-// </div>
-//       ))}
-//     </div>
-//   );

@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import {
   Calendar,
+  Camera,
   CircleUserRound,
   Layers,
   PenLine,
@@ -43,6 +44,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       label: 'Projects',
       hotkey: 'p',
       url: '/projects',
+    },
+    {
+      icon: <Camera {...iconStyle} />,
+      label: 'Photos',
+      hotkey: 'u',
+      url: '/photos',
     },
     // {
     //   icon: <PenLine {...iconStyle} />,

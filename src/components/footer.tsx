@@ -4,7 +4,7 @@ import WeirdGuy from './widgets/weird-guy';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="main-grid m-4 mt-10 sm:m-8 md:mb-24 sm:ml-80 max:ml-8">
+    <footer className="main-grid m-4 sm:mt-60 sm:m-8 md:mb-24 sm:ml-80 max:ml-8">
       <div className="col-span-4 col-start-1 sm:col-start-2">
         <Proverbs />
       </div>

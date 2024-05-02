@@ -8,6 +8,12 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
   images: {
     domains: ['https://api.weather.gov'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
 }
  
