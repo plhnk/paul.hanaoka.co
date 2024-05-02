@@ -86,11 +86,11 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
               style={{ position: 'absolute', zIndex: photos.length + 1 }}
             >
               <button onClick={fetchPhotos} className='hover:bg-text/5'>
-                <RotateCw size={24} className='text-text/40' />
+                <RotateCw size={24} className='text-element mb-2' />
                 Load more photos
               </button>
               <Link href="https://unsplash.com/plhnk" className='hover:bg-text/5'>
-                <Camera size={24} className='text-text/40' />
+                <Camera size={24} className='text-element mb-2' />
                 View collection on Unsplash
               </Link>
             </div>
@@ -99,13 +99,12 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
           <div
             key={index}
             style={{
-              // zIndex: index === currentIndex ? photos.length : photos.length - index - 1,
               zIndex: photos.length - Math.abs(index - currentIndex),
               transform: `translateY(${(index - currentIndex) * -8}%) scale(${
                 1 - Math.abs(index - currentIndex) * 0.12
               })`,
             }}
-            className="absolute rounded-xl overflow-hidden w-full h-full transition ease-in-out shadow-background drop-shadow-md"
+            className="absolute rounded-xl overflow-hidden w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
           >
             <img
               key={photo.id}

@@ -25,4 +25,4 @@ export default function Home() {
 
 // grid sticky top-0 items-stretch sm:flex sm:flex-col grid-cols-2 row-span-2 sm:grid-cols-1 gap-4 sm:gap-8 mb-8
 
-// TODO --> photos height is wonky on desktop
+// TODO --> photos height is wonky on desktop --> weather height ? something w/grid need to troubleshoot
