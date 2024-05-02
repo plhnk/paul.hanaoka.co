@@ -109,7 +109,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
             <img
               key={photo.id}
               src={photo.urls.regular}
-              alt={photo.altDescription}
+              alt={photo.alt_description}
               className="object-cover w-full h-full m-0 bg-background"
               style={{
                 opacity: 1 - Math.abs(index - currentIndex) * 0.4,

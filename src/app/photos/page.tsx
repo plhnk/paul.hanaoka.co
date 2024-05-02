@@ -12,9 +12,9 @@ const Photos: React.FC = () => {
       <MDXProvider>
         <MdxLayout>
           <Content />
-          <UnsplashFeed />
         </MdxLayout>
       </MDXProvider>
+      <UnsplashFeed className='col-span-8 sm:col-start-2 sm:-ml-8'/>
     </>
   );
 };
