@@ -5,33 +5,33 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { RotateCw } from 'lucide-react';
+import Link from 'next/link';
 
 const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
   type UnsplashPage = {
     [key: string]: UnsplashPhoto[];
   };
   const [photos, setPhotos] = useState<UnsplashPhoto[]>([]);
+  const [loadedPhotos, setLoadedPhotos] = useState<UnsplashPhoto[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const photosPerPage = 7;
 
   useEffect(() => {
     const sortedPhotos = Object.entries(data as unknown as UnsplashPage)
-      .sort(([pageA], [pageB]) => Number(pageA) - Number(pageB))
       .reduce((acc: UnsplashPhoto[], [pageNumber, page]) => {
-        if (Number(pageNumber) <= currentPage) {
-          return acc.concat(
-            page.sort(
-              (a: UnsplashPhoto, b: UnsplashPhoto) =>
-                new Date(b.created_at).getTime() -
-                new Date(a.created_at).getTime()
-            )
-          );
-        }
-        return acc;
-      }, []);
+        return acc.concat(page);
+      }, [])
+      .sort(
+        (a: UnsplashPhoto, b: UnsplashPhoto) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
 
     setPhotos(sortedPhotos);
-  }, [currentPage]);
+  }, []);
+
+  useEffect(() => {
+    setLoadedPhotos(photos.slice(0, currentPage * photosPerPage));
+  }, [photos, currentPage]);
 
   const loadMore = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -44,7 +44,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
         className
       )}
     >
-      {photos.slice(0, currentPage * photosPerPage).map((photo, index) => (
+      {loadedPhotos.map((photo, index) => (
         <figure
           // wrapper div
           className="-z-10 sm:max-w-min"
@@ -65,9 +65,27 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
           </figcaption>
         </figure>
       ))}
-      <Button variant="ghost" className='hover:bg-card/80 ml-8 hover:-translate-y-2 transition-transform transform' onClick={loadMore}>
-        <RotateCw size={16} className="text-element mr-2" />Load more photos
-      </Button>
+      <div className='sm:ml-8 '>
+      {currentPage * photosPerPage >= photos.length ? (
+        <Link
+          href="https://unsplash.com/plhnk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className='italic'
+        >
+          View more at unsplash.com/plhnk
+        </Link>
+      ) : (
+        <Button
+          variant="ghost"
+          className="hover:bg-card/80 hover:-translate-y-2 transition-transform transform"
+          onClick={loadMore}
+        >
+          <RotateCw size={16} className="text-element mr-2" />
+          Load more photos
+        </Button>
+      )}
+      </div>
     </div>
   );
 };
