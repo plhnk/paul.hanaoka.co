@@ -25,6 +25,8 @@ const config = {
     },
     extend: {
       colors: {
+        light: 'rgb(var(--light))',
+        dark: 'rgb(var(--dark))',
         background: 'rgb(var(--background))',
         text: 'rgb(var(--text))',
         card: 'rgb(var(--card))',
