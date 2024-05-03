@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
 import Content from './content.mdx';
 
-const Photos: React.FC = () => {
+const Prefers: React.FC = () => {
   return (
     <>
       <MDXProvider>
@@ -17,6 +17,6 @@ const Photos: React.FC = () => {
   );
 };
 
-export default Photos;
+export default Prefers;
 
-// TODO --> unsplash photos
+// TODO --> unsplash Prefers
