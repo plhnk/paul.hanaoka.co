@@ -58,7 +58,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
             src={photo.urls.regular}
             alt={photo.alt_description}
             onLoad={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-            className="object-cover sm:w-auto h-auto sm:max-w-[60vw] max-w-[90vw] max-h-[80vh] bg-background drop-shadow-xl p-4 pb-8 sm:p-8 sm:pb-16 rounded-sm"
+            className="object-cover sm:w-auto h-auto sm:max-w-[60vw] max-w-[90vw] max-h-[80vh] bg-light/80 drop-shadow-xl p-4 pb-8 sm:p-8 sm:pb-16 rounded-sm"
           />
           <figcaption className="p-4 sm:p-8 text-pretty italic text-text/80 font-light">
             {photo.description}
@@ -91,3 +91,5 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
 };
 
 export default PhotoFeed;
+
+// TODO style dark mode image frames
