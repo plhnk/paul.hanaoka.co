@@ -15,7 +15,6 @@ export default function Home() {
         <Calendar className="col-span-2" />
         <Weather className="col-span-2" />
         <Photos className='col-span-4 sm:col-span-2 h-[80vh] mt-4 sm:mt-0 sm:h-full' />
-        {/* <Proverbs/> */}
       </div>
     </>
   );

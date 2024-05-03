@@ -51,7 +51,6 @@ export default function RootLayout({
     <html
       className={
         `${fira_code.variable} ${fira_sans.variable}`
-        // `${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'
       }
       lang="en"
       suppressHydrationWarning
@@ -64,7 +63,6 @@ export default function RootLayout({
           'sm:h-[calc(100vh-4rem)] max:h-dvh transition-colors duration-200 text-text bg-background max:bg-transparent max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]'
         }
         // TODO design themes, abstract them somehow
-        // TODO add query for xxxxl screens --> make meta window ?
       >
         <ThemeProvider
           themes={['light', 'dark', 'elite', 'exec']}
@@ -74,7 +72,6 @@ export default function RootLayout({
           enableSystem
         >
           <div className="relative max:col-start-2 max:row-start-2 rounded-3xl">
-            {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
             <div className="max:max-w-[1600px] max:ml-auto overflow-x-hidden sm:overflow-x-visible">
               <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 max:ml-8">
@@ -110,6 +107,9 @@ export default function RootLayout({
     </html>
   );
 }
+
 // fix footer
 // make sidebar sticky max:
 // funny guy max:
+// favicons / OG image 
+// cool something in inspector
