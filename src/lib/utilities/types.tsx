@@ -1,5 +1,16 @@
 import { ReactNode } from 'react';
 
+export interface RecommendsProps {
+  label: string;
+  url?: string;
+  category?: string;
+  tags?: string[];
+  description?: string;
+  icon?: string | ReactNode;
+  image?: string;
+  referralUrl?: string | string[];
+  referralDescription?: string | string[];
+}
 export interface NavButtonProps {
   icon: ReactNode;
   label: string | ReactNode;
