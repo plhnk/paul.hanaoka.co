@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 
 export interface RecommendsProps {
   label: string;
+  category: string;
   url?: string;
-  category?: string;
   tags?: string[];
   description?: string;
   icon?: string | ReactNode;
