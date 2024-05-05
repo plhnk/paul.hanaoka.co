@@ -1,0 +1,66 @@
+[
+  {
+    "label": "Wealthfront",
+    "url": "https://www.wealthfront.com",
+    "category": "Finance",
+    "tags": ["Investing", "Robo-Advisor", "ETFs", "Mutual Funds", "Stocks"],
+    "description": "Robo-advisor I use mainly for 5%+ high-yield cash account — one of my current projects has been to use their same-day-transfer feature to keep a minimum balance in our other checking account, maximizing interest.",
+    "referralUrl": [
+      "https://www.wealthfront.com/c/affiliates/invited/AFFB-7ZHS-7S3J-UZM5",
+      "https://www.wealthfront.com/c/affiliates/invited/AFFB-3I8M-QTI0-CIKN"
+    ],
+    "referralDescription": [
+      "Get (and give me) a .5% APY boost for 3 months when you sign up with my referral link.",
+      "Get (and give me) $5,000 managed in an Automated Index Investment Account for free."
+    ]
+  },
+  {
+    "label": "Fathom Analytics",
+    "url": "https://usefathom.com",
+    "category": "Software",
+    "tags": ["Analytics", "Privacy", "Web", "SaaS"],
+    "description": "Simple, privacy-focused web analytics tool that helps you understand your website traffic without compromising the privacy of your visitors &mdash; it doesn't tracking personal data or use cookies.",
+    "referralUrl": "https://usefathom.com/ref/JKKQQB",
+    "referralDescription": "Get $10 off your first invoice when you sign up with my referral link, I will get a 25% lifetime commission."
+  }, 
+  {
+    "label": "Raycast",
+    "url": "https://raycast.com",
+    "category": "Software",
+    "tags": ["Productivity", "Mac", "Apps", "Workflow"],
+    "description": "Raycast is a productivity tool for macOS that helps you perform common tasks faster and more efficiently. The platform offers a range of features like quick access to apps, files, and commands, as well as integrations with popular tools like Jira, GitHub, and Slack. Raycast also provides customizable workflows and keyboard shortcuts to help you streamline your daily routine and boost your productivity."
+  },
+  {
+    "label": "Bitwarden",
+    "url": "https://bitwarden.com",
+    "category": "Software",
+    "tags": ["Password Manager", "Security", "Privacy", "Open Source"],
+    "description": "Bitwarden is an open-source password manager that helps you store and secure your sensitive information. The platform offers features like password generation, secure sharing, and two-factor authentication to help you protect your online accounts. Bitwarden is available on multiple devices and platforms, making it easy to access your passwords and other data wherever you are."
+  },
+  {
+    "label": "Apple Notes",
+    "category": "Software",
+    "tags": ["Notes", "Productivity", "Apple", "iOS", "Mac"],
+    "description": "Apple Notes is a built-in app on iOS and macOS that allows you to create and organize notes, checklists, and sketches. The platform offers features like text formatting, image insertion, and collaboration tools to help you capture and share ideas. Apple Notes syncs across all your Apple devices, making it easy to access your notes wherever you are."
+  }, 
+  {
+    "label": "Costco",
+    "category": "Retail",
+    "tags": ["Wholesale", "Groceries", "Electronics", "Home Goods"],
+    "description": "Costco is a membership-based wholesale retailer that offers a wide range of products at discounted prices. The platform sells everything from groceries and electronics to home goods and clothing, making it a one-stop shop for all your needs. Costco also offers additional services like travel bookings, pharmacy services, and auto programs to help you save time and money."
+  },
+  {
+    "label": "Costco Anywhere Visa",
+    "category": "Credit Card",
+    "tags": ["Cash Back", "Rewards", "Travel", "Costco"],
+    "description": "The Costco Anywhere Visa Card is a credit card that offers cash back rewards on purchases made at Costco and other eligible merchants. The card provides benefits like 4% cash back on gas, 3% cash back on restaurants and travel, 2% cash back on Costco purchases, and 1% cash back on all other purchases. The Costco Anywhere Visa Card has no annual fee with your paid Costco membership and can help you earn rewards on everyday spending."
+  },
+  {
+    "label": "Chase Sapphire",
+    "category": "Credit Card",
+    "tags": ["Travel", "Rewards", "Points", "Chase"],
+    "description": "The Chase Sapphire Preferred (or Reserve) Card is a travel rewards credit card that offers points on purchases made with the card. The card provides benefits like 2X points on travel and dining, 1X points on all other purchases, and a sign-up bonus of 60,000 points after spending $4,000 in the first 3 months. The Chase Sapphire Card also offers additional perks like trip cancellation insurance, rental car insurance, and no foreign transaction fees to help you save money while traveling.",
+    "referralUrl": "https://www.referyourchasecard.com/19m/EZ9JVNN2FT",
+    "referralDescription": "Earn 60,000 bonus points with the Chase Sapphire Preferred or Reserve Card when you sign up with my referral link, I think I get 10,000 points." 
+  }
+]
