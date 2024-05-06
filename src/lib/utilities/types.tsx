@@ -8,8 +8,13 @@ export interface RecommendsProps {
   description?: string;
   icon?: string | ReactNode;
   image?: string;
-  referralUrl?: string | string[];
-  referralDescription?: string | string[];
+  referralLink?: [
+    {
+      url: string;
+      cta: string;
+      description: string;
+    }
+  ];
 }
 export interface NavButtonProps {
   icon: ReactNode;

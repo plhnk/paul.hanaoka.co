@@ -4,6 +4,13 @@ import { RecommendsProps } from '@/lib/utilities/types';
 import Link from 'next/link';
 import recommendsData from '@/lib/data/recommends.json';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { UrlObject } from 'url';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './ui/tooltip';
 
 const Recommends: React.FC = () => {
   const [recommends, setRecommends] = useState<RecommendsProps[]>([]);
@@ -43,7 +50,7 @@ const Recommends: React.FC = () => {
           <ul className="gap-y-32">
             {recommends.map((recommend, index) => (
               <li className="text-text" key={index}>
-                <Card className="flex-row bg-background">
+                <Card className="flex-col sm:flex-row bg-background">
                   <div className="order-2 z-10">
                     <CardHeader>
                       <CardTitle>
@@ -52,8 +59,26 @@ const Recommends: React.FC = () => {
                     </CardHeader>
                     <CardContent className="max-w-[60ch]">
                       <p>{recommend.description}</p>
-                      {/* <a href={recommend.url}>{recommend.referralDescription}</a> */}
-                      {/* <div>{recommend.category}</div> */}
+                      {(Array.isArray(recommend.referralLink)
+                        ? recommend.referralLink
+                        : []
+                      ).map((referral, index) => (
+                        <TooltipProvider key={index}>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Link
+                                href={referral.url}
+                                className="hover:text-accent mr-4"
+                              >
+                                {referral.cta}
+                              </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              {referral.description}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      ))}
                       {recommend.tags && (
                         <div className="flex gap-x-2 mt-2">
                           {recommend.tags.map((tag, index) => (
