@@ -1,6 +1,7 @@
 'use client';
 import React, { ReactNode } from 'react';
 import {
+  BadgeCheck,
   Calendar,
   Camera,
   CircleUserRound,
@@ -50,6 +51,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       label: 'Photos',
       hotkey: 'u',
       url: '/photos',
+    },
+    {
+      icon: <BadgeCheck {...iconStyle} />,
+      label: 'Picks',
+      hotkey: 'i',
+      url: '/recommends',
     },
     // {
     //   icon: <PenLine {...iconStyle} />,
