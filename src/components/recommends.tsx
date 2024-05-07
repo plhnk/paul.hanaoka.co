@@ -236,8 +236,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
 export default Recommends;
 
 // TODO --> add external Link, to Link? or something
-// TODO --> add nice gradient to side scroll
-// before:h-20 before:ml-4 before:w-full before:sticky before:right-0 before:z-50 before:top-0 sm:before:hidden before:content-['url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E")'] before:text-accent
+
 // TODO --> componentize:
 // sidescroll
 // card?
@@ -247,9 +246,5 @@ export default Recommends;
 // TODO --> review z-indexes on mobile
 // TODO --> review z-indexes on desktop
 // TODO --> style current onPage items for mobile
-
-// before:bg-gradient-to-l before:from-background before:from-5% before:via-background before:via-15%
-
-// <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-// before:h-4 before:ml-4 before:w-4 before:absolute before:right-0 before:z-50 before:top-0 sm:before:hidden before:text-accent ' +
-// `before:content-["url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E')"]`
+// TODO --> styles for the diff tags
+// TODO --> link tags? lots more work there
