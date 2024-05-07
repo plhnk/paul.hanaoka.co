@@ -88,7 +88,9 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
 
   return (
     <div className={`relative flex flex-col mt-40 main-content ${className}`}>
-      <div className="-ml-3 sm:-ml-6 sm:px-9 py-2 rounded-xl sticky top-10 z-30 w-full sm:col-span-4 flex  overflow-x-scroll overflow-y-clip">
+      <div className="-ml-3 pl-4 sm:-ml-6 sm:px-9 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-full sm:col-span-4 flex overflow-x-scroll">
+        {/* overflow-visible  */}
+        {/*  overflow-x-scroll overflow-y-clip */}
         {/*  before:h-32 before:w-40 before:absolute before:right-0 before:top-0 before:bg-accent before:opacity-50  */}
         {Object.keys(groupedRecommends).map((category) => (
           <button
@@ -105,7 +107,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
           </button>
         ))}
       </div>
-      <ProgressiveBlur className="block sticky -ml-80 -mt-10 z-20 top-0 h-64 w-dvw rotate-180" />
+      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw rotate-180" />
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
         <div
           className="my-16 sm:my-32"
@@ -194,3 +196,13 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
 export default Recommends;
 
 // TODO --> add external Link, to Link? or something
+// TODO --> add nice gradient to side scroll
+// TODO --> componentize:
+          // sidescroll
+          // card?
+          // tags
+          // onpage nav
+// TODO --> sticky nav not working on mobile
+// TODO --> review z-indexes on mobile
+// TODO --> review z-indexes on desktop
+// TODO --> style current onPage items for mobile

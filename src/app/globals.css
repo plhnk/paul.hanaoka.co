@@ -104,3 +104,5 @@
 .prevent-orphans {
   text-wrap: pretty;
 }
+
+/* TODO clean up main content, have breakpoint for slightly larger screens (~1500?) */
