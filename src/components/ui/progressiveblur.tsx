@@ -16,7 +16,7 @@ const ProgressiveBlur: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={cn(
-        'pointer-events-none inset-[auto 0 0 0]',
+        'pointer-events-none',
         className
       )}
     >
