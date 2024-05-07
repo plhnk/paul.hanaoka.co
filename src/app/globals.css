@@ -93,11 +93,12 @@
     @apply grid gap-4 sm:gap-8 grid-cols-3 md:grid-cols-5 lg:grid-cols-9;
   }
   .main-content {
-    @apply col-span-3 md:col-span-5 lg:col-span-7 grid grid-cols-subgrid;
+    @apply col-span-3 md:col-span-7 xl:col-span-5 md:col-start-1 xl:col-start-2 2xl:col-start-3 grid grid-cols-subgrid;
      /*xl:*:col-start-2 max:*:col-start-1 TODO figure this out - currently homepage has it's own starts...need to set @container level for ease/consistentcy  */
+     /* col-span-3 md:col-span-7 lg:col-span-5 md:col-start-1 lg:col-start-2  */
   }
   .sidebar {
-    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 max:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)] grid-rows-[max-content] auto-rows-fr;
+    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 max:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)] grid-rows-[max-content] auto-rows-fr xl:col-start-8;
   }
 }
 

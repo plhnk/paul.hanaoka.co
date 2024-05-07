@@ -111,10 +111,10 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <div className={`relative flex flex-col mt-40 main-content ${className} `}>
+    <div className={`relative flex flex-col mt-40 2xl:mt-0 main-content ${className} `}>
       <div
         className={
-          '-ml-3 pl-4 sm:-ml-6 sm:px-9 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
+          '-ml-3 pl-4 sm:-ml-6 sm:px-9 2xl:px-4 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
         }
         id="onPageNav"
       >
@@ -142,10 +142,10 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
           />
         </div>
       </div>
-      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw rotate-180" />
+      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw max-w-4xl 2xl:-ml-32 rotate-180" />
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
         <div
-          className="my-16 sm:my-32"
+          className="my-16 sm:my-32 2xl:my-20"
           key={category}
           id={category}
           ref={categoryRefs[category]}
