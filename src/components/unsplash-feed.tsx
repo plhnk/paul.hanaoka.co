@@ -40,7 +40,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={cn(
-        'flex flex-col items-center sm:items-start gap-8 center',
+        'flex flex-col items-center sm:items-start gap-8 center sm:mx-4 sm:-ml-4 lg:-ml-8',
         className
       )}
     >
@@ -58,9 +58,9 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
             src={photo.urls.regular}
             alt={photo.alt_description}
             onLoad={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-            className="object-cover sm:w-auto h-auto sm:max-w-[60vw] max-w-[90vw] max-h-[80vh] bg-background drop-shadow-xl p-4 pb-8 sm:p-8 sm:pb-16 rounded-sm"
+            className="object-cover sm:w-auto h-auto sm:max-w-[60vw] max-w-[90vw] max-h-[80vh] bg-background drop-shadow-xl p-4 pb-8 lg:p-8 sm:pb-16 rounded-sm"
           />
-          <figcaption className="p-4 sm:p-8 text-pretty italic text-text/80 font-light">
+          <figcaption className="p-4 md:p-8 text-pretty italic text-text/80 font-light">
             {photo.description}
           </figcaption>
         </figure>
