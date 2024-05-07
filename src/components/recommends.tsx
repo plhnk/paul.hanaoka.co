@@ -4,7 +4,7 @@ import { RecommendsProps } from '@/lib/utilities/types';
 import Link from 'next/link';
 import recommendsData from '@/lib/data/recommends.json';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { UrlObject } from 'url';
+
 import {
   Tooltip,
   TooltipContent,
@@ -12,7 +12,7 @@ import {
   TooltipTrigger,
 } from './ui/tooltip';
 
-const Recommends: React.FC = () => {
+const Recommends: React.FC<{ className?: string }> = ({ className }) => {
   const [recommends, setRecommends] = useState<RecommendsProps[]>([]);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Recommends: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-32 my-48 main-content">
+    <div className={`flex flex-col gap-y-32 my-48 main-content ${className}`}>
       <div className="bg-background/20 backdrop-blur-lg py-4 sticky top-11 z-30 w-full flex justify-between">
         {Object.keys(groupedRecommends).map((category) => (
           <button onClick={() => scrollTo(category)} key={category}>
@@ -49,15 +49,19 @@ const Recommends: React.FC = () => {
         <div key={category} id={category}>
           <ul className="gap-y-32">
             {recommends.map((recommend, index) => (
-              <li className="text-text" key={index}>
-                <Card className="flex-col sm:flex-row bg-background">
-                  <div className="order-2 z-10">
-                    <CardHeader>
-                      <CardTitle>
-                        <a href={recommend.url}>{recommend.label}</a>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="max-w-[60ch]">
+              <li className="flex" key={index}>
+                <Card className="bg-background relative">
+                  <CardHeader className="flex-row items-center z-10">
+                    <CardTitle className="mr-4">
+                      <a href={recommend.url}>{recommend.label}</a>
+                    </CardTitle>
+                    <img
+                      src={recommend.url + '/favicon.ico'}
+                      className="w-7 h-7 rounded-md z-50"
+                    />
+                  </CardHeader>
+                  <CardContent className="max-w-[60ch]">
+                    <div className="relative z-10">
                       <p>{recommend.description}</p>
                       {(Array.isArray(recommend.referralLink)
                         ? recommend.referralLink
@@ -73,39 +77,37 @@ const Recommends: React.FC = () => {
                                 {referral.cta}
                               </Link>
                             </TooltipTrigger>
-                            <TooltipContent>
+                            <TooltipContent
+                              className="bg-transparent backdrop-blur-md drop-shadow-md"
+                              align="start"
+                              alignOffset={-16}
+                            >
                               {referral.description}
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
                       ))}
-                      {recommend.tags && (
-                        <div className="flex gap-x-2 mt-2">
-                          {recommend.tags.map((tag, index) => (
-                            <div
-                              className="rounded-full px-3 py-1 bg-background/50 text-element text-sm"
-                              key={index}
-                            >
-                              {tag}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </CardContent>
-                  </div>
-                  <div className="rounded-md flex w-1/6 min-w-40 items-center justify-center relative order-1">
-                    <img
-                      src={recommend.url + '/favicon.ico'}
-                      className="w-7 h-7 rounded-md z-10"
-                    />
+                    </div>
                     <div
-                      className="absolute inset-0 blur-3xl"
+                      className="absolute w-[200%] h-[200%] bg-blend-hard-light bg-cover bg-left-bottom bg-no-repeat bg-background pointer-events-none inset-0 blur-3xl z-0 from-background/80 to-background/30" 
                       style={{
-                        background: `url(${recommend.url}/favicon.ico) no-repeat center/cover`,
+                        backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops)), url(${recommend.url}/favicon.ico)`,
                       }}
                     />
-                  </div>
+                  </CardContent>
                 </Card>
+                {recommend.tags && (
+                  <div className="ml-4 flex flex-col items-start">
+                    {recommend.tags.map((tag, index) => (
+                      <div
+                        className="rounded-full mb-2 px-3 py-1 bg-card text-element text-sm"
+                        key={index}
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -116,3 +118,5 @@ const Recommends: React.FC = () => {
 };
 
 export default Recommends;
+
+// TODO --> add external Link, to Link? or something
