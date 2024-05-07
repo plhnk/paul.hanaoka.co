@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       {/* first div is the main content */}
-      <div className="main-content h-fit">
-        <Projects />
-      </div>
+      {/* <div className="main-content h-fit">
+      </div> */}
+        <Projects className='2xl:col-start-2' />
       {/* the 2nd div is the sidebar */}
       <div className="sidebar">
         <Calendar className="col-span-2" />
