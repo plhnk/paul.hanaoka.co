@@ -25,7 +25,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
     <Card className={cn("w-full max-h-72",className)} onClick={onClick}>
       <CardHeader className={title ? '' : 'hidden'}>
         <CardTitle>
-          <div className="">{title}</div>
+          <div className="text-sm mb-0 text-text/40 font-semibold uppercase leading-tight tracking-[.12em]">{title}</div>
           <div
             className={
               importantNumber
