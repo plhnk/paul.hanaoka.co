@@ -22,7 +22,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
   }, []);
 
   return (
-    <ul className={`main-content ${className}`}>
+    <ul className={`main-content overflow-x-clip [overflow-clip-margin:20px] sm:overflow-x-visible ${className}`}>
       {projects.map((project) => (
         <li className="group col-span-3 md:col-span-7 2xl:col-span-5 my-24" key={project.id}>
           <ProjectDialog content={project.prototypeUrl}>
