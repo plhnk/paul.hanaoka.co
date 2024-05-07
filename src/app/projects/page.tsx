@@ -8,14 +8,14 @@ import ProjectsComponent from '@/components/projects';
 // const Projects: React.FC = () => {
 export default function Projects() {
   return (
-    <div className="main-content">
+    <>
       <MDXProvider>
         <MdxLayout>
           <Content />
         </MdxLayout>
       </MDXProvider>
       <ProjectsComponent />
-    </div>
+    </>
   );
 }
 // };
