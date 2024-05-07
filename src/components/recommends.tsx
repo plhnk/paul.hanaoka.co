@@ -12,7 +12,7 @@ import {
   TooltipTrigger,
 } from './ui/tooltip';
 import Image from 'next/image';
-import { ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowRight } from 'lucide-react';
 import ProgressiveBlur from './ui/progressiveblur';
 
 const Recommends: React.FC<{ className?: string }> = ({ className }) => {
@@ -32,6 +32,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
     {}
   );
 
+  // Smooth scrolling to sections
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
@@ -77,9 +78,32 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
       setArrowDirections(newArrowDirections);
     };
 
+    // Nice Horizontal Arrow --> disappears when you get to end
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [categoryRefs]);
+  const [arrowOpacity, setArrowOpacity] = useState(1);
+  const [arrowRotate, setArrowRotate] = useState(0); 
+
+  useEffect(() => {
+    const parentDiv = document.getElementById('onPageNav');
+    if (!parentDiv) return;
+
+    const handleScroll = () => {
+      // Calculate the maximum scroll position
+      const maxScrollLeft = parentDiv.scrollWidth - parentDiv.clientWidth;
+      // Calculate the opacity based on the current scroll position and the maximum scroll position
+      const opacity = parentDiv.scrollLeft < maxScrollLeft ? 1 - parentDiv.scrollLeft / maxScrollLeft : 1;
+      const rotate = parentDiv.scrollLeft < maxScrollLeft ? 0 : 180;
+      // Set the opacity state variable to the calculated opacity
+      setArrowOpacity(opacity);
+      setArrowRotate(rotate);
+      console.log(opacity, 'arrow opacity');
+    };
+
+    parentDiv.addEventListener('scroll', handleScroll);
+    return () => parentDiv.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const iconStyles = {
     className: 'invisible group-hover:visible opacity-80 absolute -right-4',
@@ -87,11 +111,15 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <div className={`relative flex flex-col mt-40 main-content ${className}`}>
-      <div className="-ml-3 pl-4 sm:-ml-6 sm:px-9 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-full sm:col-span-4 flex overflow-x-scroll">
+    <div className={`relative flex flex-col mt-40 main-content ${className} `}>
+      <div
+        className={
+          '-ml-3 pl-4 sm:-ml-6 sm:px-9 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
+        }
+        id="onPageNav"
+      >
         {/* overflow-visible  */}
         {/*  overflow-x-scroll overflow-y-clip */}
-        {/*  before:h-32 before:w-40 before:absolute before:right-0 before:top-0 before:bg-accent before:opacity-50  */}
         {Object.keys(groupedRecommends).map((category) => (
           <button
             className="group text-nowrap p-3 mr-8 flex relative"
@@ -106,6 +134,13 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
             ) : null}
           </button>
         ))}
+        <div className="sm:hidden sticky rounded-md right-0 z-10 backdrop-blur-md my-auto p-3 flex">
+          <ArrowRight
+            size={24}
+            className="center-self-center opacity-80 transition-transform ease-in-out"
+            style={{ opacity: arrowOpacity, transform: `rotate(${arrowRotate}deg)` }}
+          />
+        </div>
       </div>
       <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw rotate-180" />
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
@@ -117,7 +152,10 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
         >
           <ul className="my-16">
             {recommends.map((recommend, index) => (
-              <li className="flex flex-col sm:flex-row relative my-12" key={index}>
+              <li
+                className="flex flex-col sm:flex-row relative my-12"
+                key={index}
+              >
                 <Image
                   alt={recommend.label + '’s logo'}
                   src={'/images/' + recommend.icon}
@@ -129,7 +167,9 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
                   <CardHeader className="flex-row items-center z-10">
                     <CardTitle className="mr-4">
                       {recommend.url ? (
-                        <Link className='p-4 pl-0 pr-6' href={recommend.url}>{recommend.label}</Link>
+                        <Link className="p-4 pl-0 pr-6" href={recommend.url}>
+                          {recommend.label}
+                        </Link>
                       ) : (
                         recommend.label
                       )}
@@ -197,12 +237,19 @@ export default Recommends;
 
 // TODO --> add external Link, to Link? or something
 // TODO --> add nice gradient to side scroll
+// before:h-20 before:ml-4 before:w-full before:sticky before:right-0 before:z-50 before:top-0 sm:before:hidden before:content-['url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E")'] before:text-accent
 // TODO --> componentize:
-          // sidescroll
-          // card?
-          // tags
-          // onpage nav
+// sidescroll
+// card?
+// tags
+// onpage nav
 // TODO --> sticky nav not working on mobile
 // TODO --> review z-indexes on mobile
 // TODO --> review z-indexes on desktop
 // TODO --> style current onPage items for mobile
+
+// before:bg-gradient-to-l before:from-background before:from-5% before:via-background before:via-15%
+
+// <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+// before:h-4 before:ml-4 before:w-4 before:absolute before:right-0 before:z-50 before:top-0 sm:before:hidden before:text-accent ' +
+// `before:content-["url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E')"]`
