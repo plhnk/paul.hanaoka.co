@@ -1,31 +1,26 @@
-'use client';
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
 import Content from './content.mdx';
 import ProjectsComponent from '@/components/projects';
+import useProjectsData from '@/lib/hooks/useProjectsData';
 
-// const Projects: React.FC = () => {
-export default function Projects() {
+export default async function Projects() {
+  const projectsData = await useProjectsData();
+
   return (
     <>
-      <MDXProvider>
+      <ProjectsComponent projects={projectsData} />
+      {/* <MDXProvider >
         <MdxLayout>
           <Content />
         </MdxLayout>
-      </MDXProvider>
-      <ProjectsComponent />
+      </MDXProvider> */}
     </>
   );
 }
-// };
 
-// export default Projects;
-
-// TODOs
-// project card
-// project modal (figma embed)
-
+// hide mdx content for now..... 
 // Parsing Figma embed URLs
 // = %3D
 // & %26
