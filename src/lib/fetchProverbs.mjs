@@ -15,6 +15,7 @@ const fetches = passages.map((passage, index) => {
     'include-verse-numbers': 'false',
     'include-short-copyright': 'false',
     'include-footnotes': 'false',
+    'include-headings': 'false',
   });
   const API_URL = `https://api.esv.org/v3/passage/text/?q=${passage}&${params.toString()}`;
   

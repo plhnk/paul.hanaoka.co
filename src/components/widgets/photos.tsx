@@ -64,11 +64,11 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
     }
     // console.log(index, 'index')
     // ==> will be 1 more than currentIndex
-    console.log(newIndex, 'new index');
+    // console.log(newIndex, 'new index');
     // ==> will be 1 more than currentIndex
-    console.log(currentIndex, 'current index');
+    // console.log(currentIndex, 'current index');
     // ==> starts at 0, will be 1 less than newIndex
-    console.log(photos.length, 'photos.length');
+    // console.log(photos.length, 'photos.length');
     // ==> will be highest Z-index (total # of photos + 1 for more button)
   };
 
