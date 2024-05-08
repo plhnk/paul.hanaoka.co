@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run fetchUnsplash && npm run fetchProverbs && next build",
     "start": "next start",
     "lint": "next lint",
-    "fetchUnsplash": "node fetchUnsplash.mjs",
-    "fetchProverbs": "node fetchProverbs.mjs"
+    "fetchUnsplash": "node ./src/lib/fetchUnsplash.mjs",
+    "fetchProverbs": "node ./src/lib/fetchProverbs.mjs"
   },
   "dependencies": {
     "@github/hotkey": "^3.1.0",
