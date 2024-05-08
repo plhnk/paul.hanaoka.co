@@ -38,3 +38,5 @@ Promise.all(fetches).then(() => {
 });
 
 // node fetchProverbs.mjs --> must be in directory to run this, otherwise `npm run fetchProverbs` is avail anywhere in the project
+// TODO --> figure out why fetching this from anywhere makes the API key not work
+// steps --> running npm run fetchProverbs from anywhere results in problems (but this isnt a big enough deal to solve rn)
