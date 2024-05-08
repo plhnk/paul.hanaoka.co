@@ -46,7 +46,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
 
       setShowMoreButton(false);
 
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error('Error fetching photos:', error);
     }
