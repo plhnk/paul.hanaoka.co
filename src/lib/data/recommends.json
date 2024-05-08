@@ -5,7 +5,7 @@
     "icon": "wealthfront-favicon.ico",
     "category": "Finance",
     "tags": ["Investing", "Robo-Advisor", "ETFs", "Mutual Funds", "Stocks"],
-    "description": "Robo-advisor I use mainly for 5%+ high-yield cash account — one of my current projects has been to use their same-day-transfer feature to keep a minimum balance in our other checking account, maximizing interest.",
+    "description": "Robo-advisor I use mainly for 5%+ high-yield cash account — their same-day-transfer feature helps me keep a minimum balance in our checking account to maximize interest.",
     "referralLink": [
       {
         "url": "https://www.wealthfront.com/c/affiliates/invited/AFFB-7ZHS-7S3J-UZM5",
@@ -40,7 +40,7 @@
     "icon": "raycast-favicon.svg",
     "category": "Software",
     "tags": ["Productivity", "Mac", "Apps", "Workflow"],
-    "description": "A productivity tool for macOS that (in theory) enables me to do 95% of my work without touching the trackpad, in addition to a vibrant extension ecosystem that has helped me create a very ergonomic workspace."
+    "description": "A productivity tool for macOS that (in theory) enables me to do 95% of my work without touching the trackpad. The vibrant extension ecosystem has helped me create a very ergonomic workspace."
   },
   {
     "label": "Bitwarden",
@@ -55,28 +55,28 @@
     "category": "Software",
     "icon": "apple-notes.png",
     "tags": ["Notes", "Productivity", "Apple", "iOS", "Mac"],
-    "description": "I bet you were expecting to see Notion on this list, weren't you. Well it's not! I prefer to use Apple’s built-in apps whenever possible (unless the alternative is at least 10x better). I love how it just works, though the sharing features could be improved."
+    "description": "You were expecting Notion here, weren't you. Surprise! I prefer to use Apple’s built-in apps whenever possible (unless the alternative is at least 10x better). I love starting notes on my phone and picking up on my laptop and vice versa. It’s the simple things."
   },
   {
     "label": "Costco",
     "icon": "costco-app-icon.webp",
     "category": "Retail",
     "tags": ["Wholesale", "Groceries", "Electronics", "Home Goods"],
-    "description": "Where else can you get prime grade brisket, a year’s supply of floss, a set of new tires, and a $1.50 hotdog while you wait to have them installed? Arguably the industries best return policy, and to top it off they treat their employees exceptionally well — Costco is almost too good to be true."
+    "description": "Where else can you get prime grade brisket, a year’s supply of floss, a set of new tires, and a $1.50 hotdog while you wait to have them installed? Arguably the industry’s best return policy, and to top it off they treat their employees exceptionally well — Costco is almost too good to be true."
   },
   {
     "label": "Costco Anywhere Visa",
     "icon": "costco-citi.png",
     "category": "Credit Cards",
     "tags": ["Cash Back", "Rewards", "Travel", "Costco"],
-    "description": "If you pair this card with the Executive Membership, you get a minimum 3% cash back on most purchases at Costco (1% min cash back w/ card + 2% annual member reward cash back. You have to spend an insanely low amount of money to break even — it’s a no-brainer."
+    "description": "If you pair this card with the Executive Membership, you get a minimum 3% cash back on most purchases at Costco (1% min cash back w/ card + 2% annual member reward cash back). You have to spend an insanely low amount of money to break even — it’s a no-brainer."
   },
   {
     "label": "Chase Sapphire",
     "icon": "csr.png",
     "category": "Credit Cards",
     "tags": ["Travel", "Rewards", "Points", "Chase"],
-    "description": "This used to be the premier travel card, but has slowly descended into mediocrity. The Priority Pass is basically useless at this point, between lounges dropping the program or turning you away because they’re over capacity. I would have dropped this card a long time ago had it not been for the excellent travel insurance perk.",
+    "description": "This used to be a great deal, . The Priority Pass is basically useless at this point, between lounges dropping the program or turning you away because they’re over capacity. I would have dropped this card a long time ago had it not been for the excellent travel insurance perk.",
     "referralLink": [
       {
         "url": "https://www.referyourchasecard.com/19m/EZ9JVNN2FT",
@@ -109,7 +109,7 @@
     "referralLink": [
       {
         "url": "https://arc.net/gift/52adc68a",
-        "cta": "Access Arc",
+        "cta": "Receive the gift of Arc",
         "description": "Arc was (is?) possibly invite only for now...so here's an invite!"
       }
     ]
