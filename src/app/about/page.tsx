@@ -15,11 +15,8 @@ const About: React.FC = () => {
         <Colophon />
         {/* <CV /> */}
       </MdxLayout>
-      {/* <Colophon /> */}
     </MDXProvider>
   );
 };
 
 export default About;
-
-// TODO style mdx
