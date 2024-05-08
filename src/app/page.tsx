@@ -6,14 +6,11 @@ import Projects from '@/components/projects';
 export default async function Home() {
   let projectsData;
   try {
-    console.log('fetching projects data from API')
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
       cache: 'no-store',
     });
     projectsData = await response.json();
-    console.log('projects data fetched', projectsData)
   } catch (error) {
-    console.error('Error fetching projects data:', error);
     projectsData = [];
   }
 

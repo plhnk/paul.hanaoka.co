@@ -98,7 +98,6 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
       // Set the opacity state variable to the calculated opacity
       setArrowOpacity(opacity);
       setArrowRotate(rotate);
-      console.log(opacity, 'arrow opacity');
     };
 
     parentDiv.addEventListener('scroll', handleScroll);
