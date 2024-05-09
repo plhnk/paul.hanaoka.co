@@ -5,8 +5,8 @@ import ProgressiveBlur from './progressiveblur';
 
 const OnPageNav: React.FC<{
   categories: string[];
-  scrollTo: (id: string) => void;
-}> = ({ categories, scrollTo }) => {
+  scrollOffset: number;
+}> = ({ categories, scrollOffset }) => {
   const [arrowDirections, setArrowDirections] = useState<
     Record<string, 'up' | 'down' | 'none'>
   >({});
@@ -59,6 +59,13 @@ const OnPageNav: React.FC<{
     parentDiv.addEventListener('scroll', handleScroll);
     return () => parentDiv.removeEventListener('scroll', handleScroll);
   }, []);
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const top =
+      element.getBoundingClientRect().top + window.scrollY - scrollOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   const iconStyles = {
     className: 'invisible group-hover:visible opacity-80 absolute -right-4',
