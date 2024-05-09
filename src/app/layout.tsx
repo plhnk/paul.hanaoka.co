@@ -22,21 +22,37 @@ const fira_sans = Fira_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'paul.hanaoka.co',
-  description: 'my digital workshop and garden',
+  title: 'Paul Hanaoka | Designer',
+  description: 'My digital workshop and garden', 
+  openGraph: {
+    title: 'Paul Hanaoka | Designer',
+    description: 'My digital workshop and garden',
+    url: 'https://paulhanaoka.com',
+    images: [
+      {
+        url: 'https://paulhanaoka.com/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Paul Hanaoka | Designer',
+      },
+    ],
+    siteName: 'Paul Hanaoka | Designer',
+    type: 'website',
+    locale: 'en_US',
+  },
   icons: {
     icon: [
       {
-        rel: 'icon', // optional, 'icon' is the default value
+        rel: 'icon', 
         type: 'image/png',
         media: '(prefers-color-scheme: light)',
-        url: '/favicon/favicon.png',
+        url: '/favicon/favicon-light.png',
       },
       {
-        rel: 'icon', // optional, 'icon' is the default value
+        rel: 'icon', 
         type: 'image/png',
         media: '(prefers-color-scheme: dark)',
-        url: '/icon-dark.png',
+        url: '/favicon/favicon-dark.png',
       },
     ],
   },

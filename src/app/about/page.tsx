@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
 import Content from './content.mdx';
