@@ -1,12 +1,11 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import UnsplashApiClient from '../../server/api/photos.mjs';
 import { UnsplashPhoto } from '@/lib/utilities/types';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { RotateCw, Camera } from 'lucide-react';
-
-const UnsplashApi = UnsplashApiClient();
+import Image from 'next/image';
+import { Skeleton } from '../ui/skeleton';
 
 function getRandomPhotos(photos: any, count: number) {
   // Create a copy of the array
@@ -32,6 +31,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
   const [photos, setPhotos] = useState<PhotoOrMoreButton[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreButton, setShowMoreButton] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchPhotos = async () => {
     try {
@@ -45,9 +45,11 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
       setPhotos([...randomPhotos, { id: 'more' }]);
 
       setShowMoreButton(false);
+      setLoading(false);
 
       // console.log(data);
     } catch (error) {
+      setLoading(false);
       console.error('Error fetching photos:', error);
     }
   };
@@ -62,14 +64,6 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
     if (newIndex === photos.length - 1) {
       setShowMoreButton(true);
     }
-    // console.log(index, 'index')
-    // ==> will be 1 more than currentIndex
-    // console.log(newIndex, 'new index');
-    // ==> will be 1 more than currentIndex
-    // console.log(currentIndex, 'current index');
-    // ==> starts at 0, will be 1 less than newIndex
-    // console.log(photos.length, 'photos.length');
-    // ==> will be highest Z-index (total # of photos + 1 for more button)
   };
 
   return (
@@ -85,12 +79,15 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
               className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center"
               style={{ position: 'absolute', zIndex: photos.length + 1 }}
             >
-              <button onClick={fetchPhotos} className='hover:bg-text/5 p-4'>
-                <RotateCw size={24} className='text-element mb-2' />
+              <button onClick={fetchPhotos} className="hover:bg-text/5 p-4">
+                <RotateCw size={24} className="text-element mb-2" />
                 Load more photos
               </button>
-              <Link href="https://unsplash.com/plhnk" className='hover:bg-text/5 p-4'>
-                <Camera size={24} className='text-element mb-2' />
+              <Link
+                href="https://unsplash.com/plhnk"
+                className="hover:bg-text/5 p-4"
+              >
+                <Camera size={24} className="text-element mb-2" />
                 View collection on Unsplash
               </Link>
             </div>
@@ -106,15 +103,20 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
             }}
             className="absolute rounded-xl overflow-hidden w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
           >
-            <img
-              key={photo.id}
-              src={photo.urls.regular}
-              alt={photo.alt_description}
-              className="object-cover w-full h-full m-0 bg-background"
-              style={{
-                opacity: 1 - Math.abs(index - currentIndex) * 0.4,
-              }}
-            />
+            {loading ? (
+              <Skeleton className="w-full h-full" />
+            ) : (
+              <Image
+                key={photo.id}
+                src={photo.urls.regular}
+                alt={photo.alt_description}
+                className="object-cover w-full h-full m-0 bg-background"
+                style={{
+                  opacity: 1 - Math.abs(index - currentIndex) * 0.4,
+                }}
+                fill={true}
+              />
+            )}
           </div>
         )
       )}
