@@ -6,7 +6,8 @@ import ProgressiveBlur from './progressiveblur';
 const OnPageNav: React.FC<{
   categories: string[];
   scrollOffset: number;
-}> = ({ categories, scrollOffset }) => {
+  className?: string;
+}> = ({ categories, scrollOffset, className }) => {
   const [arrowDirections, setArrowDirections] = useState<
     Record<string, 'up' | 'down' | 'none'>
   >({});
@@ -59,6 +60,7 @@ const OnPageNav: React.FC<{
     parentDiv.addEventListener('scroll', handleScroll);
     return () => parentDiv.removeEventListener('scroll', handleScroll);
   }, []);
+
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
@@ -75,14 +77,14 @@ const OnPageNav: React.FC<{
   return (
     <>
       <div
-        className={
-          '-ml-3 pl-4 sm:-ml-6 sm:px-9 2xl:px-4 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
+        className={className + 
+          ' -ml-3 pl-4 sm:-ml-6 sm:px-9 2xl:px-4 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
         }
         id="onPageNav"
       >
         {categories.map((category) => (
           <button
-            className="group text-nowrap p-3 mr-8 flex relative"
+            className="group text-nowrap p-3 mr-8 flex relative capitalize"
             onClick={() => scrollTo(category)}
             key={category}
           >
@@ -105,7 +107,7 @@ const OnPageNav: React.FC<{
           />
         </div>
       </div>
-      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw max-w-4xl 2xl:-ml-32 rotate-180" />
+      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-40 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw max-w-4xl 2xl:-ml-32 rotate-180" />
     </>
   );
 };

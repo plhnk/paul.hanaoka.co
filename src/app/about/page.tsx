@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
 import Content from './content.mdx';
@@ -9,29 +9,27 @@ import Bio from './bio.mdx';
 import OnPageNav from '../../components/ui/on-page-nav';
 
 const About: React.FC = () => {
-  // const contentRef = useRef<HTMLDivElement>(null);
-  const colophonRef = useRef<HTMLDivElement>(null);
-  const cvRef = useRef<HTMLDivElement>(null);
-  const bioRef = useRef<HTMLDivElement>(null);
+  const sections = [
+    { id: 'Bio', component: Bio},
+    { id: 'Colophon', component: Colophon},
+    { id: 'Experience', component: CV},
+  ];
 
-  const categories = ['Bio','Colophon', 'Experience'];
+  const categoryRefs = sections.reduce((refs, section) => {
+    refs[section.id] = React.createRef();
+    return refs;
+  }, {} as Record<string, React.RefObject<HTMLDivElement>>);
 
   return (
     <MDXProvider>
       <MdxLayout>
-        {/* <div id="content" ref={contentRef}> */}
-          <Content />
-        <OnPageNav categories={categories} scrollOffset={200}/>
-        {/* </div> */}
-        <div id="bio" ref={bioRef}>
-          <Bio />
-        </div>
-        <div id="colophon" ref={colophonRef}>
-          <Colophon />
-        </div>
-        <div id="cv" ref={cvRef}>
-          <CV />
-        </div>
+        <Content />
+        <OnPageNav className='pl-1 -ml-4 sm:px-3 2xl:px-2' categories={Object.keys(categoryRefs)} scrollOffset={200} />
+        {sections.map(({ id, component: Component }) => (
+          <div className="mb-80" id={id} key={id} ref={categoryRefs[id]}>
+            <Component />
+          </div>
+        ))}
       </MdxLayout>
     </MDXProvider>
   );
