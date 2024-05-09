@@ -13,8 +13,6 @@ import {
   TooltipTrigger,
 } from './ui/tooltip';
 import Image from 'next/image';
-// import { ArrowDown, ArrowUp, ArrowRight } from 'lucide-react';
-// import ProgressiveBlur from './ui/progressiveblur';
 
 const Recommends: React.FC<{ className?: string }> = ({ className }) => {
   const [recommends, setRecommends] = useState<RecommendsProps[]>([]);
@@ -33,19 +31,6 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
     {}
   );
 
-  // Smooth scrolling to sections
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const top = element.getBoundingClientRect().top + window.pageYOffset - 140;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
-
-  // // Create a state to store the direction of each arrow
-  // const [arrowDirections, setArrowDirections] = useState<
-  //   Record<string, 'up' | 'down' | 'none'>
-  // >({});
-
   // Create categoryRefs
   const categoryRefs = Object.keys(groupedRecommends).reduce(
     (refs, category) => {
@@ -55,65 +40,12 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
     {} as Record<string, React.RefObject<HTMLDivElement>>
   );
 
-  // Update arrowDirections when the scroll position changes
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const newArrowDirections = Object.entries(categoryRefs).reduce(
-  //       (directions, [category, ref]) => {
-  //         if (ref.current) {
-  //           const rect = ref.current.getBoundingClientRect();
-  //           const middleOfElement = rect.top + rect.height / 2;
-  //           const middleOfViewport = window.innerHeight / 2;
-  //           if (middleOfElement >= 0 && middleOfElement <= window.innerHeight) {
-  //             directions[category] = 'none';
-  //           } else if (middleOfElement > middleOfViewport) {
-  //             directions[category] = 'down';
-  //           } else {
-  //             directions[category] = 'up';
-  //           }
-  //         }
-  //         return directions;
-  //       },
-  //       {} as Record<string, 'up' | 'down' | 'none'>
-  //     );
-  //     setArrowDirections(newArrowDirections);
-  //   };
-
-  //   // Nice Horizontal Arrow --> disappears when you get to end
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, [categoryRefs]);
-  // const [arrowOpacity, setArrowOpacity] = useState(1);
-  // const [arrowRotate, setArrowRotate] = useState(0); 
-
-  // useEffect(() => {
-  //   const parentDiv = document.getElementById('onPageNav');
-  //   if (!parentDiv) return;
-
-  //   const handleScroll = () => {
-  //     // Calculate the maximum scroll position
-  //     const maxScrollLeft = parentDiv.scrollWidth - parentDiv.clientWidth;
-  //     // Calculate the opacity based on the current scroll position and the maximum scroll position
-  //     const opacity = parentDiv.scrollLeft < maxScrollLeft ? 1 - parentDiv.scrollLeft / maxScrollLeft : 1;
-  //     const rotate = parentDiv.scrollLeft < maxScrollLeft ? 0 : 180;
-  //     // Set the opacity state variable to the calculated opacity
-  //     setArrowOpacity(opacity);
-  //     setArrowRotate(rotate);
-  //   };
-
-  //   parentDiv.addEventListener('scroll', handleScroll);
-  //   return () => parentDiv.removeEventListener('scroll', handleScroll);
-  // }, []);
-
-  // const iconStyles = {
-  //   className: 'invisible group-hover:visible opacity-80 absolute -right-4',
-  //   stroke: 'currentColor',
-  // };
-
   return (
-    <div className={`relative flex flex-col mt-40 2xl:mt-0 main-content ${className} `}>
-      <OnPageNav categories={Object.keys(groupedRecommends)} scrollTo={scrollTo}/>
-      
+    <div
+      className={`relative flex flex-col mt-40 2xl:mt-0 main-content ${className} `}
+    >
+      <OnPageNav categories={Object.keys(groupedRecommends)} scrollOffset={140}/>
+
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
         <div
           className="my-16 sm:my-32 2xl:my-20"

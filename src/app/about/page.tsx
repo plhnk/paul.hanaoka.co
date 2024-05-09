@@ -14,21 +14,14 @@ const About: React.FC = () => {
   const cvRef = useRef<HTMLDivElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['bio','colophon', 'cv'];
-
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const top = element.getBoundingClientRect().top + window.pageYOffset - 200;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
+  const categories = ['Bio','Colophon', 'Experience'];
 
   return (
     <MDXProvider>
       <MdxLayout>
         {/* <div id="content" ref={contentRef}> */}
           <Content />
-        <OnPageNav categories={categories} scrollTo={scrollTo} />
+        <OnPageNav categories={categories} scrollOffset={200}/>
         {/* </div> */}
         <div id="bio" ref={bioRef}>
           <Bio />
