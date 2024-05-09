@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   label: string;
@@ -17,10 +18,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="px-0">
         <div className="iso relative -z-10 group-hover:rotate-0">
-          <img
+          <Image
             className="rounded-sm"
             src={'/images/' + imageUrl}
             alt={title + ' ' + subtitle}
+            width={900}
+            height={600}
           />
         </div>
         <div className="shadow" />
