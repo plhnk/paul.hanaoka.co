@@ -14,6 +14,7 @@ export default function Projects() {
           <Content />
         </MdxLayout>
       </MDXProvider>
+      {/* <ProjectsComponent /> */}
     </div>
   );
 }
