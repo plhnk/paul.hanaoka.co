@@ -14,7 +14,7 @@ export default function Recommends() {
           <Content />
         </MdxLayout>
       </MDXProvider>
-      <RecommendsComponent className='' />
+      <RecommendsComponent className='mt-20' />
     </>
   );
 }

@@ -46,7 +46,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
 
   return (
     <div
-      className={`relative flex flex-col mt-40 2xl:mt-0 main-content ${className} `}
+      className={`relative flex flex-col main-content ${className} `}
     >
       <OnPageNav categories={Object.keys(groupedRecommends)} scrollOffset={140}/>
 

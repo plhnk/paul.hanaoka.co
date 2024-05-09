@@ -69,6 +69,15 @@ const OnPageNav: React.FC<{
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
+  const activeCategory = Object.entries(arrowDirections).reduce(
+    (active, [category, direction]) => {
+      if (direction === 'none') return category;
+      if (active === null && direction === 'down') return category;
+      return active;
+    },
+    null as string | null
+  );
+
   const iconStyles = {
     className: 'invisible group-hover:visible opacity-80 absolute -right-4',
     stroke: 'currentColor',
@@ -77,14 +86,18 @@ const OnPageNav: React.FC<{
   return (
     <>
       <div
-        className={className + 
-          ' -ml-3 pl-4 sm:-ml-6 sm:px-9 2xl:px-4 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
+        className={
+          className +
+          ' -ml-4 pl-1 sm:-ml-7 sm:px-8 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
         }
         id="onPageNav"
       >
         {categories.map((category) => (
           <button
-            className="group text-nowrap p-3 mr-8 flex relative capitalize"
+            className={
+              'group text-nowrap px-4 py-2 mr-8 flex relative capitalize hover:bg-card/20 rounded-md ' +
+              (category === activeCategory ? 'bg-card' : 'bg-background/20') 
+            }
             onClick={() => scrollTo(category)}
             key={category}
           >

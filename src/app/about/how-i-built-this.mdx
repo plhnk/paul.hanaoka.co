@@ -1,27 +1,36 @@
-# How I Built This
+Arguably one of the best shows ever on television &mdash; learning how things are made is always fascinating. Maybe you will find this fascinating.
 
-This site
-
-- built using NextJS
-  - 5 years ago I built [the first version of this site](https://v1.paul.hanaoka.co) using GatsbyJS, and I wanted to try something new — NextJS has become an industry leader in the React space, and I wanted to see what all the fuss was about
-- hosted on Vercel
+- Built with NextJS
+  - 5 years ago I built [the first version of this site](https://v1.paul.hanaoka.co) using GatsbyJS, and I wanted to try something new &mdash; NextJS has become an industry leader in the React space, and I wanted to see what all the fuss was about
+- Hosted on Vercel
   - seemed to make sense using the same company that built the framework
-- using components from Radix UI and Shadcn
+- Components from Radix UI and Shadcn
   - coming from ThemeUI, Radix and Shadcn both seemed like good options
-- styled using TailwindCSS
+  - I'm still getting used to it &mdash; I think I still prefer the mental model of ThemeUI? 
+- Styled with TailwindCSS
   - I've been wanting to use Tailwind for awhile, this seemed like a great opportunity
-- themed using TailwindCSS and Shadcn
-  - I started using Radix Themes but it wasn't as immediately obvious to me how to go beyond Dark/Light themes – and Shadcn documentation had Tailwind specs that made sense to me
-- informed via Fathom Analytics
+  - Again &mdash; I think I may possibily prefer ThemeUI for styling / re-use, but I've actually really enjoyed how quickly I can work in Tailwind, getting 80% of the way in less than a minute
+- Themed using TailwindCSS and Shadcn
+  - I started using Radix Themes but it wasn't as immediately obvious to me how to go beyond Dark/Light themes &mdash; and Shadcn documentation had Tailwind specs that made sense to me
+- Informed via Fathom Analytics
   - I take privacy very seriously, but it's also useful to know what is working and what isn't, so I use Fathom &mdash; if you're similarly keen, use [my referral link](https://usefathom.com/ref/JKKQQB) and we'll both benefit!
 
-## Themeing
+## Archive
+
+I was inspired by (TODO find link) to archive the different iterations of my site over the years. 
+
+To do this, I create branches for each version. The `master` branch is where the current version of the site lives. The `working` branch is where I'll experiment and work on major changes. The `v1` branch is where the first version of the site lives. The `v2` branch is where the second version of the site lives, et cetera, et cetera, et cetera.
+
+_To see the first version of the site built cira 2017, visit [v1.paul.hanaoka.co](https://v1.paul.hanaoka.co)._
+
+
+{/* ## Themeing
 
 Themeing is a challenge.
 
-Color (or colour if you prefer) is the most obvious aspect of themeing — so that's where we'll begin.
+Color (or colour if you prefer) is the most obvious aspect of themeing &mdash; so that's where we'll begin.
 
-My approach is iterative — choosing colors is not a strength I have, it's also not something that should be done in isolation. As in — using the principle of designing in the next larger context — I want to see the colors in action, and adjust them in situ before making a "final" decision.
+My approach is iterative &mdash; choosing colors is not a strength I have, it's also not something that should be done in isolation. As in &mdash; using the principle of designing in the next larger context &mdash; I want to see the colors in action, and adjust them in situ before making a "final" decision.
 
 After reading the [shadcn Theming page](https://ui.shadcn.com/docs/theming) approximately 10x, coming across [Kasia's article on token naming](https://hybridheroes.de/blog/2023-11-24-colour-tokens-uidesign/), my approach finally began to crystalize after clicking [the link to the Smashing Magazine article on HSL](https://www.smashingmagazine.com/2021/07/hsl-colors-css/).
 
@@ -74,7 +83,7 @@ And my `tailwind.config.js` file would have:
   },
 ```
 
-...but that didn't work. I think for a few reasons — first of all (obvious to those of you who are familiar with extending Tailwind colors) you can't use hsl in that context.
+...but that didn't work. I think for a few reasons &mdash; first of all (obvious to those of you who are familiar with extending Tailwind colors) you can't use hsl in that context.
 
 Also I realized in the middle of working out the variable steps, that tying "weak" and "strong" to saturation and lightness didn't exactly map to how they would be used.
 
@@ -90,7 +99,3 @@ Learnings:
 - would be nice to have a way to choose colors using hsl and then have the rgb values calculated for you
 
 {/* TODO add esv copyright info */}
-
-## Archive
-
-I was inspired by [can't find link](#todo-find-link) to archive the different iterations of my site over the years. To do this, I create branches for each version. The `master` branch is where the current version of the site lives. The `working` branch is where I'll experiment and work on major changes. The `v1` branch is where the first version of the site lives. The `v2` branch is where the second version of the site lives, et cetera, et cetera, et cetera.
