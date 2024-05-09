@@ -88,14 +88,14 @@ const OnPageNav: React.FC<{
       <div
         className={
           className +
-          ' -ml-4 pl-1 sm:-ml-7 sm:px-8 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
+          ' -ml-4 pl-4 sm:-ml-7 sm:px-8 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
         }
         id="onPageNav"
       >
         {categories.map((category) => (
           <button
             className={
-              'group text-nowrap px-4 py-2 mr-8 flex relative capitalize hover:bg-card/20 rounded-md ' +
+              'group text-nowrap px-3 py-1 sm:px-4 sm:py-2 mr-8 flex items-center relative capitalize hover:bg-card/20 rounded-md ' +
               (category === activeCategory ? 'bg-card' : 'bg-background/20') 
             }
             onClick={() => scrollTo(category)}
