@@ -40,6 +40,10 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
     {} as Record<string, React.RefObject<HTMLDivElement>>
   );
 
+  console.log(Object.keys(groupedRecommends), 'onPageNav props');
+  // console.log(Object.entries(groupedRecommends), 'entries');
+  console.log(Object.entries(categoryRefs), 'categoryRefs');
+
   return (
     <div
       className={`relative flex flex-col mt-40 2xl:mt-0 main-content ${className} `}
@@ -151,35 +155,3 @@ export default Recommends;
 // TODO --> style current onPage items for mobile
 // TODO --> styles for the diff tags
 // TODO --> link tags? lots more work there
-
-// <div
-//         className={
-//           '-ml-3 pl-4 sm:-ml-6 sm:px-9 2xl:px-4 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
-//         }
-//         id="onPageNav"
-//       >
-//         {/* overflow-visible  */}
-//         {/*  overflow-x-scroll overflow-y-clip */}
-//         {Object.keys(groupedRecommends).map((category) => (
-//           <button
-//             className="group text-nowrap p-3 mr-8 flex relative"
-//             onClick={() => scrollTo(category)}
-//             key={category}
-//           >
-//             {category}
-//             {arrowDirections[category] === 'up' ? (
-//               <ArrowUp {...iconStyles} />
-//             ) : arrowDirections[category] === 'down' ? (
-//               <ArrowDown {...iconStyles} />
-//             ) : null}
-//           </button>
-//         ))}
-//         <div className="sm:hidden sticky rounded-md right-0 z-10 backdrop-blur-md my-auto p-3 flex">
-//           <ArrowRight
-//             size={24}
-//             className="center-self-center opacity-80 transition-transform ease-in-out"
-//             style={{ opacity: arrowOpacity, transform: `rotate(${arrowRotate}deg)` }}
-//           />
-//         </div>
-//       </div>
-//       <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw max-w-4xl 2xl:-ml-32 rotate-180" />
