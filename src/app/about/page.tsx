@@ -27,7 +27,7 @@ const About: React.FC = () => {
       <MdxLayout>
         <Content />
         <div className='mb-20'/>
-        <OnPageNav className='pl-1 -ml-4 sm:px-3 2xl:px-2' categories={Object.keys(categoryRefs)} scrollOffset={240} />
+        <OnPageNav className='pl-3 -ml-4 sm:px-3 2xl:px-2' categories={Object.keys(categoryRefs)} scrollOffset={240} />
         {sections.map(({ id, component: Component }) => (
           <div className="mb-80" id={id} key={id} ref={categoryRefs[id]}>
             <Component />
