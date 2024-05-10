@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Paul Hanaoka | Designer',
     description: 'My digital workshop and garden',
-    url: 'https://paulhanaoka.com',
+    url: 'https://paul.hanaoka.co',
     images: [
       {
-        url: 'https://paulhanaoka.com/images/og-image.png',
+        url: 'https://paul.hanaoka.co/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Paul Hanaoka | Designer',
