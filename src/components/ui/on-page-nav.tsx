@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, ArrowRight } from 'lucide-react';
 import ProgressiveBlur from './progressiveblur';
+import { cn } from '@/lib/utils';
 
 const OnPageNav: React.FC<{
   categories: string[];
@@ -86,17 +87,15 @@ const OnPageNav: React.FC<{
   return (
     <>
       <div
-        className={
-          className +
-          ' -ml-4 pl-4 sm:-ml-7 sm:px-8 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll'
-        }
+        className={cn('-ml-4 pl-4 sm:-ml-7 sm:px-7 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll', className)}
         id="onPageNav"
       >
         {categories.map((category) => (
           <button
             className={
               'group text-nowrap px-3 py-1 sm:px-4 sm:py-2 mr-8 flex items-center relative capitalize hover:bg-card/20 rounded-md ' +
-              (category === activeCategory ? 'bg-card' : 'bg-background/20') 
+              (category === activeCategory ? 'bg-background/60' : 'bg-background/20') 
+              // TODO distinguish a little better
             }
             onClick={() => scrollTo(category)}
             key={category}
@@ -126,3 +125,5 @@ const OnPageNav: React.FC<{
 };
 
 export default OnPageNav;
+
+// TODO --> design a button for crying out loud
