@@ -12,8 +12,8 @@ import OnPageNav from '../../components/ui/on-page-nav';
 const About: React.FC = () => {
   const sections = [
     { id: 'Bio', component: Bio},
-    { id: 'How It\'s Made', component: HowItsMade},
     { id: 'Experience', component: CV},
+    { id: 'How It\'s Made', component: HowItsMade},
     { id: 'Colophon', component: Colophon},
   ];
 
