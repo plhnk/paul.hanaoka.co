@@ -48,7 +48,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
     <div
       className={`relative flex flex-col main-content ${className} `}
     >
-      <OnPageNav categories={Object.keys(groupedRecommends)} scrollOffset={140}/>
+      <OnPageNav className='sm:*:px-6 sm:-ml-3' categories={Object.keys(groupedRecommends)} scrollOffset={140}/>
 
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
         <div
