@@ -14,8 +14,6 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
       label: string;
       title: string;
       subtitle: string;
-      image: string;
-      link?: string;
     }[]
   >([]);
 
@@ -55,7 +53,6 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
                 label={project.label}
                 title={project.title}
                 subtitle={project.subtitle}
-                imageUrl={project.image}
               />
             </Link>
           </li>
