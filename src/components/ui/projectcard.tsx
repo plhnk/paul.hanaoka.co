@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="px-0">
-        <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0">
+        <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color">
           <Image
             className="rounded-sm"
             src={imageSrc}
