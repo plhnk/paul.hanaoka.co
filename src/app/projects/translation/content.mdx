@@ -1,40 +1,15 @@
 import Image from '@/components/ui/image';
+import Summary from '@/components/layout/summary';
 import { useTheme } from 'next-themes';
 
 # An interface for translation
 
-<table>
-  <tr className="text-left">
-    <th>Context</th>
-    <th>Contributions</th>
-    <th>Impact</th>
-  </tr>
-  <tr>
-    <td>
-      <p>
-        One of Lifery’s core features is content management. Many of our
-        customers operate globally and need to provide content in multiple
-        languages to serve their audiences effectively.
-      </p>
-    </td>
-    <td>
-      <ul>
-        <li>Product Strategy</li>
-        <li>User Research / Analysis</li>
-        <li>User Experience</li>
-        <li>Interaction Design</li>
-        <li>Usability Testing</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>60% decrease in time spent on translation tasks</li>
-        <li>20% increase in the System Usability Score (SUS)</li>
-        <li>30% reduction in user error rates</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<Summary 
+  context={'One of Lifery’s core features is content management. Many of our customers operate globally and need to provide content in multiple languages to serve their audiences effectively.'}
+  contributions={['User Research','Product Strategy', 'User Experience', 'Interaction Design']} 
+  impact={['60% decrease in time spent on translation tasks', '20% increase in the System Usability Score (SUS)', '30% reduction in user error rates']} 
+/>
+
 
 <div className="bgBlender">
   <Image
@@ -125,16 +100,14 @@ While these enhancements addressed many of the core pain points, we identified s
 
 By continuously improving our localization capabilities, we aim to provide a seamless, efficient, and delightful experience for our global customers, empowering them to reach and engage with their audiences across languages and cultures effectively.
 
----
+{/* I'd lead with a different image or custom illustration that illustrates the issue more directly. Starting with a UI that I have never seen and don't yet understand is uninspiring to me. */}
 
-I'd lead with a different image or custom illustration that illustrates the issue more directly. Starting with a UI that I have never seen and don't yet understand is uninspiring to me.
+{/* For the conclusions, insights, questions section - it seems a bit odd you lead with conclusions first and then get to the insights and questions. What she different between an insight and a conclusion? Couldn't those be bundled together in some way. This section could benefit in better contrast on type form headers and body font as to me as a reader all the text here started to swirl together into one big text flood instead of being clearly delineated with good contrast or dividers. I'd made distance between rows consistent, negative space between top row is less than bottom row. Assuming because the text boxes themselves are qual inside but since the the text within is not it makes it unsightly. */}
 
-For the conclusions, insights, questions section - it seems a bit odd you lead with conclusions first and then get to the insights and questions. What she different between an insight and a conclusion? Couldn't those be bundled together in some way. This section could benefit in better contrast on type form headers and body font as to me as a reader all the text here started to swirl together into one big text flood instead of being clearly delineated with good contrast or dividers. I'd made distance between rows consistent, negative space between top row is less than bottom row. Assuming because the text boxes themselves are qual inside but since the the text within is not it makes it unsightly.
+{/* For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo. */}
 
-For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo.
+{/* I think as a whole you may want to include more user flow diagrams or other visuals to help the reader build a mental map of how the features fit together and the flow the user journeys through. Then they can map the actual screens to this map. But since I see screen after screen, as I quickly scan the project it all smashes together. */}
 
-I think as a whole you may want to include more user flow diagrams or other visuals to help the reader build a mental map of how the features fit together and the flow the user journeys through. Then they can map the actual screens to this map. But since I see screen after screen, as I quickly scan the project it all smashes together.
+{/* Similar to the above point, I think it reads a bit wordy right now, I'd want to distill some of the paragraph is into mini diagrams or illustrations to help me see more things and read less. */}
 
-Similar to the above point, I think it reads a bit wordy right now, I'd want to distill some of the paragraph is into mini diagrams or illustrations to help me see more things and read less.
-
-While it's impressive you've integrated some cool transitions and features within your figma prototype, I think it breaks away from the patterns I may expect in a figma prototype. So the the horizontal scroll gallery may be missed by some readers, for example. May be worth limiting those things so as to ensure the whole thing gets read.
+{/* While it's impressive you've integrated some cool transitions and features within your figma prototype, I think it breaks away from the patterns I may expect in a figma prototype. So the the horizontal scroll gallery may be missed by some readers, for example. May be worth limiting those things so as to ensure the whole thing gets read. */}

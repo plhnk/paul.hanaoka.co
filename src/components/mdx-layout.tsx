@@ -1,12 +1,20 @@
 import { MDXProvider } from '@mdx-js/react';
 
-export default function MdxLayout({ children }: { children: React.ReactNode }) {
+interface MdxLayoutProps {
+  children: React.ReactNode;
+  caseStudy?: boolean; // Optional boolean prop
+}
+
+export default function MdxLayout({
+  children,
+  caseStudy = false,
+}: MdxLayoutProps) {
   return (
     <MDXProvider>
-      <div className="pt-7 main-content ml-[unset] block prose dark:prose-invert prose-neutral prevent-orphans">
+      <div className={caseStudy ? 'caseStudyContainer' : 'defaultContainer'}>
         {children}
       </div>
-      <div className='bgBlender'/>
+      <div className="bgBlender" />
     </MDXProvider>
   );
 }
