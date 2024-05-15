@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import ProjectDialog from '@/components/ui/projectdialog';
 import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';

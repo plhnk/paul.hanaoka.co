@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import ProgressiveBlur from './progressiveblur';
@@ -16,13 +17,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   subtitle,
 }) => {
+  const { theme } = useTheme();
+
+  const [imageSrc, setImageSrc] = useState<string>('');
+
+  useEffect(() => {
+    setImageSrc(`/projects/${id}/cover-${theme}.jpg`);
+  }, [id, theme]);
+
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="px-0">
         <div className="iso relative -z-10 group-hover:rotate-0">
           <Image
             className="rounded-sm"
-            src={'/projects/' + id + '/cover-' + `${useTheme().theme}` + '.jpg'}
+            src={imageSrc}
             alt={title + ' ' + subtitle}
             width={900}
             height={600}
