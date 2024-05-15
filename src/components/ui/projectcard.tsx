@@ -18,19 +18,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   subtitle,
 }) => {
   const { theme } = useTheme();
-
   const [imageSrc, setImageSrc] = useState<string>(
     `/projects/${id}/cover-${theme}.jpg`
   );
 
   useEffect(() => {
     setImageSrc(`/projects/${id}/cover-${theme}.jpg`);
-  }, [id, theme]);
+  }, [theme, id]);
 
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="px-0">
-        <div className="iso relative -z-10 group-hover:rotate-0">
+        <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0">
           <Image
             className="rounded-sm"
             src={imageSrc}

@@ -15,6 +15,7 @@ const config = {
       // x y blur spread color
       focus: '0 0 1rem .1rem rgb(var(--accent)/.08);',
       menu: '0 0 5rem 5rem rgb(var(--dark)/.08);',
+      bgBlend: 'inset 0 0 4rem 2rem rgb(var(--background));', 
     },
     container: {
       center: true,
