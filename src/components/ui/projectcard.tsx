@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </CardContent>
       <CardHeader className="px-0">
         <CardTitle className="normal-case mb-2 tracking-normal *:block *:font-normal">
-          <span className="text-text/40 uppercase  leading-loose">{label}</span>
+          <span className="text-text/40 uppercase leading-loose">{label}</span>
           <span className="text-text text-base">{title}</span>
           <span className="text-text/60 text-base">{subtitle}</span>
         </CardTitle>

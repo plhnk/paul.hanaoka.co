@@ -107,24 +107,16 @@
     @apply pt-7 main-content ml-[unset] block prose dark:prose-invert prose-neutral prevent-orphans;
   }
   .caseStudyContainer {
-    @apply grid-cols-subgrid grid col-span-3 md:col-span-5 lg:col-span-9 ;
+    @apply grid-cols-subgrid grid col-span-3 md:col-span-5 lg:col-span-9;
   }
-  .caseStudyContainer > p,
-  h1,
-  h2,
-  h3,
-  h4,
-  ul,
-  ol {
+  .caseStudyContainer > :is(p, h1, h2, h3, h4, ul, ol) {
     @apply defaultContainer;
   }
-  .caseStudyContainer > blockquote,
-  img,
-  div {
+  .caseStudyContainer > :is(blockquote, img, div) {
     @apply col-span-full 2xl:col-start-2;
   }
-  .caseStudyContainer > table {
-    @apply col-span-full col-start-2
+  .caseStudyContainer > :is(table) {
+    @apply col-span-full col-start-2;
   }
 }
 .prevent-orphans {
