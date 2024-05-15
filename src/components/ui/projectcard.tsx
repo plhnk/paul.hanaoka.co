@@ -19,7 +19,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { theme } = useTheme();
 
-  const [imageSrc, setImageSrc] = useState<string>('');
+  const [imageSrc, setImageSrc] = useState<string>(
+    `/projects/${id}/cover-${theme}.jpg`
+  );
 
   useEffect(() => {
     setImageSrc(`/projects/${id}/cover-${theme}.jpg`);
