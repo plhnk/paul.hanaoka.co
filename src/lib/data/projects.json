@@ -1,25 +1,25 @@
 [
   {
     "id": "translation",
-    "label": "Feature",
+    "labels": ["Enterprise", "Feature" ],
     "title": "Rethinking the way we translate",
     "subtitle": "Discover how a redesign slashed translation time by 60%."
   },
   {
     "id": "insurance",
-    "label": "B2B2C Insurance",
+    "labels": ["Mobile", "B2C"],
     "title": "Features that convert",
     "subtitle": "The impact of innovation"
   },
   {
     "id": "navigation",
-    "label": "Enterprise Transformation",
+    "labels": ["Enterprise", "Platform"],
     "title": "Drive change at scale",
     "subtitle": "Create a foundation for the future"
   },
   {
     "id": "quality",
-    "label": "Elevating a team",
+    "labels": ["Enterprise", "Platform"],
     "title": "Improve quality, grow revenue",
     "subtitle": "How good design can impact a business"
   }
