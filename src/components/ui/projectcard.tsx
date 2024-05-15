@@ -8,7 +8,6 @@ interface ProjectCardProps {
   label: string;
   title: string;
   subtitle: string;
-  imageUrl: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -16,7 +15,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   label,
   title,
   subtitle,
-  imageUrl,
 }) => {
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
