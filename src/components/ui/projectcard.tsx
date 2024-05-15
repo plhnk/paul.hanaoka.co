@@ -17,14 +17,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   subtitle,
 }) => {
-  const { theme } = useTheme();
-  const [imageSrc, setImageSrc] = useState<string>(
-    `/projects/${id}/cover-${theme}.jpg`
-  );
+  const { theme, systemTheme } = useTheme();
+  const [imageSrc, setImageSrc] = useState('');
+  // <string>(`/projects/${id}/cover-${theme}.jpg`);
+  
 
   useEffect(() => {
-    setImageSrc(`/projects/${id}/cover-${theme}.jpg`);
-  }, [theme, id]);
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    setImageSrc(`/projects/${id}/cover-${currentTheme}.jpg`);
+  }, [theme, systemTheme, id]);
 
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
