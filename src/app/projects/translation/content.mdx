@@ -37,7 +37,11 @@ To better understand pain points and clarify requirements, we conducted intervie
 
 After synthesizing findings, we aligned on this problem statement:
 
+<div className="w-full h-32"/>
+
 > Our global customers struggle to translate content efficiently. The current translation process uses the same interface designed for creating content, not translation workflows. This outdated approach wastes time, causes errors, and delays getting localized content to international audiences.
+
+<div className="w-full h-32"/>
 
 Based on the insights, we prioritized the following directions for mockups and prototyping:
 
@@ -60,6 +64,10 @@ For the import experience, we focused on providing a seamless workflow with feat
 - Handling translation conflicts and overrides
 - Batch import and selective import options
 
+
+![A screenshot of the original Liferay UI for translation](/projects/translation/import-06.png 'Auto translate interface in action')
+
+
 ### Dedicated Translation Interface
 
 While exploring the export/import experience, we realized that the existing content editing interface was not optimized for translation tasks. Translators often work with specific requirements, such as character limits, formatting constraints, and the need to provide context for ambiguous terms.
@@ -71,6 +79,9 @@ We designed a dedicated translation interface that addressed these needs, featur
 - Terminology management and glossary integration
 - Translation memory and machine translation suggestions
 - Workflow and collaboration tools (e.g., comments, task assignments)
+- Translator-specific roles and permissions
+
+![A screenshot of the original Liferay UI for translation](/projects/translation/translate-01.png 'Auto translate interface in action')
 
 ### Automatic Translation Integration
 
@@ -82,6 +93,8 @@ We explored integrating with various translation APIs and services, allowing cus
 - Bulk translation of multiple pages or content types
 - Post-editing tools for refining machine-translated content
 - Cost estimation and billing integration for translation services
+
+![A screenshot of the original Liferay UI for translation](/projects/translation/settings-01.png 'Translation service API settings')
 
 ### Outcomes
 
@@ -98,11 +111,6 @@ While these enhancements addressed many of the core pain points, we identified s
 - **Multilingual Content Creation**: Explore features that enable content creators to author and manage multilingual content natively within our platform, reducing the need for separate translation workflows.
 - **Personalization and Transcreation**: Enhance support for culturally-adapted content beyond direct translations, such as transcreation (recreating content for a specific culture) and personalization based on user preferences or location.
 
-By continuously improving our localization capabilities, we aim to provide a seamless, efficient, and delightful experience for our global customers, empowering them to reach and engage with their audiences across languages and cultures effectively.
-
-{/* I'd lead with a different image or custom illustration that illustrates the issue more directly. Starting with a UI that I have never seen and don't yet understand is uninspiring to me. */}
-
-{/* For the conclusions, insights, questions section - it seems a bit odd you lead with conclusions first and then get to the insights and questions. What she different between an insight and a conclusion? Couldn't those be bundled together in some way. This section could benefit in better contrast on type form headers and body font as to me as a reader all the text here started to swirl together into one big text flood instead of being clearly delineated with good contrast or dividers. I'd made distance between rows consistent, negative space between top row is less than bottom row. Assuming because the text boxes themselves are qual inside but since the the text within is not it makes it unsightly. */}
 
 {/* For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo. */}
 
