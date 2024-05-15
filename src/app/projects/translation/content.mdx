@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 # An interface for translation
 
 <table>
-  <tr className='text-left'>
+  <tr className="text-left">
     <th>Context</th>
     <th>Contributions</th>
     <th>Impact</th>
@@ -35,11 +36,15 @@ import Image from 'next/image';
   </tr>
 </table>
 
-<Image src="/projects/translation/cover-dark.jpg" width={1080} height={800} />
+<Image
+  src={'/projects/translation/cover-' + `${useTheme().theme}` + '.jpg'}
+  width={1080}
+  height={800}
+/>
 
 Localization features were initially bolted on to the existing interface, which created many opportunities for improvement with a more user-centered design process.
 
-![A screenshot of the original Liferay UI for translation](/projects/translation/before.png "The original UI for viewing a translation")
+![A screenshot of the original Liferay UI for translation](/projects/translation/before.png 'The original UI for viewing a translation')
 {/* TODO create component for anontating images */}
 
 ## Discovery
