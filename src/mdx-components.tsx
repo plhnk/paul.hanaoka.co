@@ -23,8 +23,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => <p className="font-light">{children}</p>,
     img: (props) => (
       <Image
-        sizes="100vw"
-        style={{ width: '100%', height: 'auto' }}
+        width={1200}
+        height={800}
         {...(props as ImageProps)}
       />
     ),

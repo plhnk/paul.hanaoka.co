@@ -1,1 +1,130 @@
-# translation
+import Image from 'next/image';
+
+# An interface for translation
+
+<table>
+  <tr className='text-left'>
+    <th>Context</th>
+    <th>Contributions</th>
+    <th>Impact</th>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        One of Lifery’s core features is content management. Many of our
+        customers operate globally and need to provide content in multiple
+        languages to serve their audiences effectively.
+      </p>
+    </td>
+    <td>
+      <ul>
+        <li>Product Strategy</li>
+        <li>User Research / Analysis</li>
+        <li>User Experience</li>
+        <li>Interaction Design</li>
+        <li>Usability Testing</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>60% decrease in time spent on translation tasks</li>
+        <li>20% increase in the System Usability Score (SUS)</li>
+        <li>30% reduction in user error rates</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<Image src="/projects/translation/cover-dark.jpg" width={1080} height={800} />
+
+Localization features were initially bolted on to the existing interface, which created many opportunities for improvement with a more user-centered design process.
+
+![A screenshot of the original Liferay UI for translation](/projects/translation/before.png "The original UI for viewing a translation")
+{/* TODO create component for anontating images */}
+
+## Discovery
+
+To better understand pain points and clarify requirements, we conducted interviews with three key groups:
+
+1. Customer Support: Gathered indirect user feedback and learned about the most common issues reported by customers.
+1. Consulting Services: Customer requirements from common customizations made to the product.
+1. End-users: Direct feedback from customers and internal teams focused on goals, processes, and pain points.
+
+After synthesizing findings, we aligned on this problem statement:
+
+> Our global customers struggle to translate content efficiently. The current translation process uses the same interface designed for creating content, not translation workflows. This outdated approach wastes time, causes errors, and delays getting localized content to international audiences.
+
+Based on the insights, we prioritized the following directions for mockups and prototyping:
+
+1. Design an export/import experience tailored for localization workflows.
+1. Rethink the editing interface, optimizing it for translation tasks and exploring auto-translate capabilities.
+1. Design admin and user experiences for automatic translation integration.
+
+## Exploration and Iterations
+
+### Export/Import for Localization
+
+One of the most consistent requests from users was the ability to export and import content for translation purposes. This would allow them to use external translation services or manage translations using spreadsheets, a common practice among our customers.
+
+We explored various export formats, including CSV, XLIFF (XML Localization Interchange File Format), and our own proprietary format. Ultimately, we chose XLIFF as it is an industry-standard format supported by most translation tools and services.
+
+For the import experience, we focused on providing a seamless workflow with features like:
+
+- Side-by-side comparison of original and translated content
+- Previewing translated content in the context of the page layout
+- Handling translation conflicts and overrides
+- Batch import and selective import options
+
+### Dedicated Translation Interface
+
+While exploring the export/import experience, we realized that the existing content editing interface was not optimized for translation tasks. Translators often work with specific requirements, such as character limits, formatting constraints, and the need to provide context for ambiguous terms.
+
+We designed a dedicated translation interface that addressed these needs, featuring:
+
+- Side-by-side view of source and target languages
+- In-context previews and WYSIWYG editing
+- Terminology management and glossary integration
+- Translation memory and machine translation suggestions
+- Workflow and collaboration tools (e.g., comments, task assignments)
+
+### Automatic Translation Integration
+
+During our research, we discovered that some customers were interested in using automatic translation as a starting point, either to test content in new markets or to reduce translation costs by leveraging post-editing workflows.
+
+We explored integrating with various translation APIs and services, allowing customers to automatically translate content within our platform. This feature included:
+
+- Configurable translation settings (e.g., language pairs, translation quality)
+- Bulk translation of multiple pages or content types
+- Post-editing tools for refining machine-translated content
+- Cost estimation and billing integration for translation services
+
+### Outcomes
+
+The localization improvements we implemented had a significant positive impact on our customers' experience and productivity:
+
+- Time on translation tasks decreased by over 60%
+- System Usability Score (SUS) increased by 20%
+- User error rate decreased by approximately 30%
+
+While these enhancements addressed many of the core pain points, we identified several areas for future exploration and improvement:
+
+- **Localization Analytics**: Provide insights and reporting on translation progress, costs, and performance to help customers optimize their localization efforts.
+- **Adaptive Translation Workflows**: Dynamically adjust translation workflows based on content type, target audience, and other contextual factors.
+- **Multilingual Content Creation**: Explore features that enable content creators to author and manage multilingual content natively within our platform, reducing the need for separate translation workflows.
+- **Personalization and Transcreation**: Enhance support for culturally-adapted content beyond direct translations, such as transcreation (recreating content for a specific culture) and personalization based on user preferences or location.
+
+By continuously improving our localization capabilities, we aim to provide a seamless, efficient, and delightful experience for our global customers, empowering them to reach and engage with their audiences across languages and cultures effectively.
+
+---
+
+I'd lead with a different image or custom illustration that illustrates the issue more directly. Starting with a UI that I have never seen and don't yet understand is uninspiring to me.
+
+For the conclusions, insights, questions section - it seems a bit odd you lead with conclusions first and then get to the insights and questions. What she different between an insight and a conclusion? Couldn't those be bundled together in some way. This section could benefit in better contrast on type form headers and body font as to me as a reader all the text here started to swirl together into one big text flood instead of being clearly delineated with good contrast or dividers. I'd made distance between rows consistent, negative space between top row is less than bottom row. Assuming because the text boxes themselves are qual inside but since the the text within is not it makes it unsightly.
+
+For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo.
+
+I think as a whole you may want to include more user flow diagrams or other visuals to help the reader build a mental map of how the features fit together and the flow the user journeys through. Then they can map the actual screens to this map. But since I see screen after screen, as I quickly scan the project it all smashes together.
+
+Similar to the above point, I think it reads a bit wordy right now, I'd want to distill some of the paragraph is into mini diagrams or illustrations to help me see more things and read less.
+
+While it's impressive you've integrated some cool transitions and features within your figma prototype, I think it breaks away from the patterns I may expect in a figma prototype. So the the horizontal scroll gallery may be missed by some readers, for example. May be worth limiting those things so as to ensure the whole thing gets read.

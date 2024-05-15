@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import ProgressiveBlur from './progressiveblur';
+import { useTheme } from 'next-themes';
 
 interface ProjectCardProps {
+  id: string;
   label: string;
   title: string;
   subtitle: string;
@@ -10,6 +12,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
+  id,
   label,
   title,
   subtitle,
@@ -21,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="iso relative -z-10 group-hover:rotate-0">
           <Image
             className="rounded-sm"
-            src={'/images/' + imageUrl}
+            src={'/projects/' + id + '/cover-' + `${useTheme().theme}` + '.jpg'}
             alt={title + ' ' + subtitle}
             width={900}
             height={600}

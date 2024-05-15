@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { MDXProvider } from '@mdx-js/react';
 import MdxLayout from '../../components/mdx-layout';
 import Content from './content.mdx';
 import ProjectsComponent from '@/components/projects';
@@ -8,11 +7,9 @@ import ProjectsComponent from '@/components/projects';
 export default function Projects() {
   return (
     <>
-      <MDXProvider>
-        <MdxLayout>
-          <Content />
-        </MdxLayout>
-      </MDXProvider>
+      <MdxLayout>
+        <Content />
+      </MdxLayout>
       <ProjectsComponent />
     </>
   );
