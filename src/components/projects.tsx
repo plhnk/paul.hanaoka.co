@@ -10,7 +10,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
   const [projects, setProjects] = useState<
     {
       id: string;
-      label: string;
+      labels: string[];
       title: string;
       subtitle: string;
     }[]
@@ -49,7 +49,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
             <Link href={'/projects/' + project.id}>
               <ProjectCard
                 id={project.id}
-                label={project.label}
+                labels={project.labels}
                 title={project.title}
                 subtitle={project.subtitle}
               />
