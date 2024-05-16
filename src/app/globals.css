@@ -98,7 +98,10 @@
     /* col-span-3 md:col-span-7 lg:col-span-5 md:col-start-1 lg:col-start-2  */
   }
   .sidebar {
-    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 max:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)] grid-rows-[max-content] auto-rows-fr xl:col-start-8;
+    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 auto-rows-min xl:col-start-8 max:bottom-auto max:max-h-[calc(1200px_-_1rem)] sm:pb-16;
+    /* set top to 0? */
+    /* grid-rows-[max-content] */
+    /* max:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)]  */
   }
   .bgBlender {
     @apply relative w-fit after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color;

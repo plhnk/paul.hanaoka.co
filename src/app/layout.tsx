@@ -89,7 +89,8 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <div className="relative max:col-start-2 max:row-start-2 rounded-3xl">
+          <div className="relative max:col-start-2 max:row-start-2 rounded-3xl max:overflow-y-scroll max:shadow-menu">
+            {/* TODO style this scrollbar on max screens */}
             {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
             <div className="max:max-w-[1600px] max:ml-auto sm:overflow-x-visible">

@@ -10,3 +10,6 @@ export default function Projects() {
     </MdxLayout>
   );
 }
+
+// TODO --> design systems
+// TODO --> liferay.design
