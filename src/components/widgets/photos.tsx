@@ -32,6 +32,8 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreButton, setShowMoreButton] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   const fetchPhotos = async () => {
     try {
@@ -66,10 +68,42 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
     }
   };
 
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
+  }, []);
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (!isMobile || photos.length <= 1) return;
+
+    const touchEndX = event.touches[0].clientX;
+    const touchDifference = touchStartX - touchEndX;
+
+    if (touchDifference > 50) {
+      // Swipe right, show next photo
+      const newIndex = (currentIndex + 1) % photos.length;
+      setCurrentIndex(newIndex);
+      if (newIndex === photos.length - 1) {
+        setShowMoreButton(true);
+      }
+    } else if (touchDifference < -50) {
+      // Swipe left, show previous photo
+      const newIndex =
+        currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
+      setCurrentIndex(newIndex);
+      setShowMoreButton(false);
+    }
+  };
+
   return (
     <div
       className={cn('cursor-pointer relative w-full h-full', className)}
       onClick={handleClick}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
     >
       {photos.map((photo, index) =>
         photo.id === 'more' ? (
@@ -97,11 +131,11 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
             key={index}
             style={{
               zIndex: photos.length - Math.abs(index - currentIndex),
-              transform: `translateY(${(index - currentIndex) * 8}%) scale(${
-                1 - Math.abs(index - currentIndex) * 0.12
-              })`,
+              transform: `${isMobile ? 'translateX' : 'translateY'}(${
+                (index - currentIndex) * 8
+              }%) scale(${1 - Math.abs(index - currentIndex) * 0.12})`,
             }}
-            className="absolute rounded-xl overflow-hidden w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
+            className="absolute w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
           >
             {loading ? (
               <Skeleton className="w-full h-full" />
@@ -110,7 +144,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
                 key={photo.id}
                 src={photo.urls.regular}
                 alt={photo.alt_description}
-                className="object-cover w-full h-full m-0 bg-background"
+                className="rounded-xl object-cover w-full h-full m-0 bg-background"
                 style={{
                   opacity: 1 - Math.abs(index - currentIndex) * 0.4,
                 }}

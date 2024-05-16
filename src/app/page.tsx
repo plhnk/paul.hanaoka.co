@@ -12,7 +12,7 @@ export default function Home() {
       <div className="sidebar">
         <Calendar className="col-span-2" />
         <Weather className="col-span-2" />
-        <Photos className='col-span-4 sm:col-span-2 h-[80vh] sm:max-h-96 mt-4 sm:mt-0' />
+        <Photos className='col-span-4 sm:col-span-2 h-[70vh] sm:max-h-96 mt-4 sm:mt-0' />
       </div>
     </>
   );
