@@ -125,3 +125,6 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
 };
 
 export default Photos;
+
+// TODO --> have photos start on bottom
+// TODO --> swipe l/r on mobile?
