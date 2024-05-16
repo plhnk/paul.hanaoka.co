@@ -132,7 +132,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
             style={{
               zIndex: photos.length - Math.abs(index - currentIndex),
               transform: `${isMobile ? 'translateX' : 'translateY'}(${
-                (index - currentIndex) * 8
+                (index - currentIndex) * (isMobile ? -8 : 8)
               }%) scale(${1 - Math.abs(index - currentIndex) * 0.12})`,
             }}
             className="absolute w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
@@ -159,6 +159,3 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
 };
 
 export default Photos;
-
-// TODO --> have photos start on bottom
-// TODO --> swipe l/r on mobile?
