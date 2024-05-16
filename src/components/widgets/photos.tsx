@@ -97,7 +97,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
             key={index}
             style={{
               zIndex: photos.length - Math.abs(index - currentIndex),
-              transform: `translateY(${(index - currentIndex) * -8}%) scale(${
+              transform: `translateY(${(index - currentIndex) * 8}%) scale(${
                 1 - Math.abs(index - currentIndex) * 0.12
               })`,
             }}
