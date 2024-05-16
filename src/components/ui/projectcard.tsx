@@ -26,6 +26,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     setImageSrc(`/projects/${id}/cover-${currentTheme}.jpg`);
   }, [theme, systemTheme, id]);
 
+  // NB --> projects need to be in public/$id with cover-$themes.jpg  
+
   return (
     <Card className="m-0 p-0 bg-transparent overflow-visible relative -z-20 text-left">
       <CardContent className="px-0">
