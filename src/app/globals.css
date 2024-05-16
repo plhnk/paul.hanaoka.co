@@ -84,7 +84,7 @@
 
 @layer components {
   .iso {
-    transform: rotateX(-16deg) rotateZ(8deg);
+    transform: rotateX(16deg) rotateZ(-8deg);
     transform-style: preserve-3d;
     transition: 0.3s;
   }
