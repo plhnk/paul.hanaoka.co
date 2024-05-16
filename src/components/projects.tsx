@@ -69,7 +69,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
             key={project.id}
           >
             {project.publish === false && (
-              <div className="hidden items-center gap-4 flex-col justify-center group-hover:flex bg-background/80 rounded-2xl absolute w-full h-full top-0 left-0">
+              <div className="hidden items-center gap-4 flex-col backdrop-blur-sm justify-center group-hover:flex bg-background/80 rounded-2xl absolute w-full h-full top-0 left-0">
                 <h3 className="font-semibold">Coming Soon!</h3>
                 <p className="italic">
                   Interested in a walkthrough of this project?
