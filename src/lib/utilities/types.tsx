@@ -15,9 +15,9 @@ export interface RecommendsProps {
   }[];
 }
 export interface NavButtonProps {
-  icon: ReactNode;
-  label: string | ReactNode;
-  hotkey: string;
+  icon?: ReactNode;
+  label?: string | ReactNode;
+  hotkey?: string;
   // options
   url?: string;
   textToCopy?: string;

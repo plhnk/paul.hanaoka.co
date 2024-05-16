@@ -3,24 +3,28 @@
     "id": "translation",
     "labels": ["Enterprise", "Feature" ],
     "title": "Rethinking the way we translate",
-    "subtitle": "Discover how a redesign slashed translation time by 60%."
+    "subtitle": "Discover how a redesign slashed translation time by 60%.",
+    "publish": false
   },
   {
     "id": "insurance",
     "labels": ["Mobile", "B2C"],
     "title": "Features that convert",
-    "subtitle": "The impact of innovation"
+    "subtitle": "The impact of innovation",
+    "publish": false
   },
   {
     "id": "navigation",
     "labels": ["Enterprise", "Platform"],
     "title": "Drive change at scale",
-    "subtitle": "Create a foundation for the future"
+    "subtitle": "Create a foundation for the future",
+    "publish": false
   },
   {
     "id": "quality",
     "labels": ["Enterprise", "Platform"],
     "title": "Improve quality, grow revenue",
-    "subtitle": "How good design can impact a business"
+    "subtitle": "How good design can impact a business",
+    "publish": false
   }
 ]

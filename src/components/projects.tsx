@@ -4,6 +4,8 @@ import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';
 import Link from '@/components/ui/link';
+import { Button } from './ui/button';
+import { toast } from 'sonner';
 
 const Projects: React.FC<{ className?: string }> = ({ className }) => {
   const [loading, setLoading] = useState(true);
@@ -13,6 +15,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
       labels: string[];
       title: string;
       subtitle: string;
+      publish: boolean;
     }[]
   >([]);
 
@@ -23,6 +26,25 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
       setLoading(false);
     }, 150);
   }, []);
+
+  const handleCopy = () => {
+    if (textToCopy) {
+      navigator.clipboard.writeText(textToCopy);
+      copyToast();
+    }
+  };
+
+  const copyToast = () => {
+    toast.success('Email copied to clipboard!', {
+      // description: "Send me an email.",
+      action: {
+        label: 'Open Mail Client',
+        onClick: () => (window.location.href = 'mailto:' + textToCopy),
+      },
+    });
+  };
+
+  const textToCopy = 'paul@hanaoka.co';
 
   return (
     <ul
@@ -43,9 +65,24 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
         // Render actual project cards when data is loaded
         projects.map((project) => (
           <li
-            className="group col-span-3 md:col-span-7 2xl:col-span-5 my-24"
+            className="group col-span-3 md:col-span-7 2xl:col-span-5 my-24 relative"
             key={project.id}
           >
+            {project.publish === false && (
+              <div className="hidden items-center gap-4 flex-col justify-center group-hover:flex bg-background/80 rounded-2xl absolute w-full h-full top-0 left-0">
+                <h3 className="font-semibold">Coming Soon!</h3>
+                <p className="italic">
+                  Interested in a walkthrough of this project?
+                </p>
+                <Button
+                  className="w-48 mb-24"
+                  variant="ghost"
+                  onClick={() => handleCopy()}
+                >
+                  Email me
+                </Button>
+              </div>
+            )}
             <Link href={'/projects/' + project.id}>
               <ProjectCard
                 id={project.id}
