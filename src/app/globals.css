@@ -107,10 +107,10 @@
     @apply col-span-3 md:col-span-7 xl:col-span-6 md:col-start-1 xl:col-start-2 2xl:col-start-3 grid grid-cols-subgrid;
   }
   .sidebar {
-    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 auto-rows-min xl:col-start-8 max:bottom-auto sm:max-h-[calc(1200px_-_1rem)] sm:pb-16;
+    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 auto-rows-min xl:col-start-8 2xl:bottom-auto sm:max-h-[calc(1200px_-_1rem)] sm:pb-16;
     /* set top to 0? */
     /* grid-rows-[max-content] */
-    /* max:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)]  */
+    /* 2xl:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)]  */
   }
   .bgBlender {
     @apply relative w-fit after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color;
@@ -135,6 +135,6 @@
   text-wrap: pretty;
 }
 
-/* TODO clean up main content, have breakpoint for slightly larger screens (~1500?) */
-/* moleskin dot grid as background? */
+/* moleskin dot grid as background? --> tried this and it does not perf well at all... at least my approach using a repeating radial gradient, maybe try with svg? */ 
 /* TODO maybe add a custom scrollbar outside of frame ? https://css-tricks.com/custom-scrollbars-in-webkit/ */
+/* TODO --> consolidate sidebar class w/sidebar component... :facepalm: */
