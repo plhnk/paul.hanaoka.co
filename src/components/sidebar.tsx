@@ -119,7 +119,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     <>
       <nav
         className={cn(
-          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1 max:left-auto max:bottom-auto max:top-auto max:max-h-[calc(1200px_-_1rem)]',
+          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1 2xl:left-auto 2xl:bottom-auto 2xl:top-auto 2xl:max-h-[calc(1200px_-_1rem)]',
           className
         )}
       >

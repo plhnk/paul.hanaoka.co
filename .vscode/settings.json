@@ -1,0 +1,7 @@
+{
+    "search.exclude": {
+      ".next": true,
+      "**/public/projects/liferay-dot-design/lighthouse-scores": true,
+      "node_modules": true
+    }
+  }

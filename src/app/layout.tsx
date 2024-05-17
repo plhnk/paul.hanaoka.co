@@ -23,7 +23,7 @@ const fira_sans = Fira_Sans({
 
 export const metadata: Metadata = {
   title: 'Paul Hanaoka | Designer',
-  description: 'My digital workshop and garden', 
+  description: 'My digital workshop and garden',
   openGraph: {
     title: 'Paul Hanaoka | Designer',
     description: 'My digital workshop and garden',
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        rel: 'icon', 
+        rel: 'icon',
         type: 'image/png',
         media: '(prefers-color-scheme: light)',
         url: '/favicon/favicon-light.png',
       },
       {
-        rel: 'icon', 
+        rel: 'icon',
         type: 'image/png',
         media: '(prefers-color-scheme: dark)',
         url: '/favicon/favicon-dark.png',
@@ -77,7 +77,7 @@ export default function RootLayout({
       </head>
       <body
         className={
-          'sm:h-[calc(100vh-4rem)] max:h-dvh transition-colors duration-200 text-text bg-background max:bg-transparent max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]'
+          'sm:h-[calc(100vh-4rem)] 2xl:h-dvh transition-colors duration-200 text-text bg-background 2xl:bg-transparent 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr]'
         }
         // TODO design themes, abstract them somehow
         // TODO add query for xxxxl screens --> make meta window ?
@@ -89,13 +89,13 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <div className="relative max:col-start-2 max:row-start-2 rounded-3xl max:overflow-y-scroll max:shadow-menu">
+          <div className="relative 2xl:col-start-2 2xl:row-start-2 rounded-3xl 2xl:overflow-y-scroll 2xl:shadow-menu">
             {/* TODO style this scrollbar on max screens */}
             {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
-            <div className="max:max-w-[1600px] max:ml-auto sm:overflow-x-visible">
+            <div className="2xl:max-w-[1600px] 2xl:ml-auto sm:overflow-x-visible">
               {/* removed overflow-x-hidden to for sticky onPage nav in recommends component */}
-              <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 max:ml-8">
+              <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 2xl:ml-8">
                 {children}
               </main>
               <Footer />
@@ -115,11 +115,12 @@ export default function RootLayout({
             />
             <span
               aria-hidden="true"
-              className="hidden fixed -z-50 h-dvh w-dvw top-0 left-0 max:grid max:grid-cols-[1fr_1920px_1fr] max:grid-rows-[1fr_1200px_1fr]"
+              className="hidden fixed -z-50 h-dvh w-dvw top-0 left-0 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr]"
             >
+              {/* these are the invisible things for the xxl screens */}
               <span
                 aria-hidden="true"
-                className="hidden max:block absolute h-full w-full bg-background max:col-start-2 max:row-start-2 max:col-end-3 max:row-end-3 rounded-3xl"
+                className="hidden 2xl:block absolute h-full w-full dot-grid 2xl:col-start-2 2xl:row-start-2 2xl:col-end-3 2xl:row-end-3 rounded-3xl"
               />
             </span>
           </div>
@@ -129,5 +130,5 @@ export default function RootLayout({
   );
 }
 // fix footer
-// make sidebar sticky max:
-// funny guy max:
+// make sidebar sticky 2xl:
+// funny guy 2xl:
