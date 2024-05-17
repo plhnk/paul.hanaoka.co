@@ -82,7 +82,7 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
                       )}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="max-w-[50ch]">
+                  <CardContent className="max-w-[60ch]">
                     <div className="relative z-10">
                       <p className="mb-4 italic font-light">
                         {recommend.description}

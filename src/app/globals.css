@@ -56,13 +56,14 @@
 
 .dot-grid {
   background: repeating-radial-gradient(
-      circle at 1rem 1rem,
-      rgb(var(--element) / 0.08) 0%,
-      rgb(var(--element) / 0.08) 4%,
-      transparent 4%,
-      transparent 100%
-    )
-    fixed 1rem 1rem/ 2rem 2rem, rgb(var(--background));
+        circle at 1rem 1rem,
+        rgb(var(--element) / 0.08) 0%,
+        rgb(var(--element) / 0.08) 4%,
+        transparent 4%,
+        transparent 100%
+      )
+      fixed 1rem 1rem/ 2rem 2rem,
+    rgb(var(--background));
 }
 
 @layer base {
@@ -99,15 +100,27 @@
     transform-style: preserve-3d;
     transition: 0.3s;
   }
+  .body {
+    @apply sm:h-[calc(100vh-4rem)] 2xl:h-dvh transition-colors duration-200 text-text bg-background 2xl:bg-transparent 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr];
+  }
+  .page-wrapper {
+    @apply relative 2xl:col-start-2 2xl:row-start-2 rounded-3xl 2xl:overflow-y-scroll 2xl:shadow-menu;
+  }
+  .main-wrapper {
+    @apply 2xl:max-w-[1600px] 2xl:ml-auto sm:overflow-x-visible;
+  }
   .main-grid {
     /* note - use grid-cols-subgrid for any subgrids */
     @apply grid gap-4 sm:gap-8 grid-cols-3 md:grid-cols-5 lg:grid-cols-9;
   }
+  .main {
+    @apply main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 2xl:ml-8;
+  }
   .main-content {
-    @apply col-span-3 md:col-span-7 xl:col-span-6 md:col-start-1 xl:col-start-2 2xl:col-start-3 grid grid-cols-subgrid;
+    @apply grid grid-cols-subgrid col-span-3 md:col-span-7 lg:col-span-5 md:col-start-1 lg:col-start-2 xl:col-start-2 2xl:col-start-3;
   }
   .sidebar {
-    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 auto-rows-min xl:col-start-8 2xl:bottom-auto sm:max-h-[calc(1200px_-_1rem)] sm:pb-16;
+    @apply grid gap-4 sm:gap-8 col-span-3 md:col-span-5 lg:col-start-8 lg:col-span-2 grid-cols-4 lg:grid-cols-2 sm:sticky top-8 auto-rows-min xl:col-start-8 2xl:bottom-auto sm:max-h-[calc(1200px_-_1rem)] sm:pb-16;
     /* set top to 0? */
     /* grid-rows-[max-content] */
     /* 2xl:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)]  */
@@ -135,6 +148,6 @@
   text-wrap: pretty;
 }
 
-/* moleskin dot grid as background? --> tried this and it does not perf well at all... at least my approach using a repeating radial gradient, maybe try with svg? */ 
+/* moleskin dot grid as background? --> tried this and it does not perf well at all... at least my approach using a repeating radial gradient, maybe try with svg? */
 /* TODO maybe add a custom scrollbar outside of frame ? https://css-tricks.com/custom-scrollbars-in-webkit/ */
 /* TODO --> consolidate sidebar class w/sidebar component... :facepalm: */
