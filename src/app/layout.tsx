@@ -76,11 +76,8 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={
-          'sm:h-[calc(100vh-4rem)] 2xl:h-dvh transition-colors duration-200 text-text bg-background 2xl:bg-transparent 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr]'
-        }
+        className="body"
         // TODO design themes, abstract them somehow
-        // TODO add query for xxxxl screens --> make meta window ?
       >
         <ThemeProvider
           themes={['light', 'dark', 'elite', 'exec']}
@@ -89,35 +86,28 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <div className="relative 2xl:col-start-2 2xl:row-start-2 rounded-3xl 2xl:overflow-y-scroll 2xl:shadow-menu">
+          <div className="page-wrapper">
             {/* TODO style this scrollbar on max screens */}
-            {/* <div className="touch-events-none fixed top-0 left-0 bottom-0 right-0" /> */}
             <Navigation />
-            <div className="2xl:max-w-[1600px] 2xl:ml-auto sm:overflow-x-visible">
+            <div className="main-wrapper">
               {/* removed overflow-x-hidden to for sticky onPage nav in recommends component */}
-              <main className="main-grid m-4 sm:m-8 mb-40 mt-10 sm:ml-80 2xl:ml-8">
-                {children}
-              </main>
+              <main className="main">{children}</main>
               <Footer />
             </div>
             <Toaster
               position="bottom-center"
               toastOptions={{
-                // unstyled: true,
                 classNames: {
                   title: 'text-text',
                   success: 'text-element bg-card border-none', // this styles the wrapper of the success toast --> determined in navbutton
-                  // toast: 'text-accent bg-card',
-                  // description: 'text-text/80',
-                  // actionButton: 'bg-accent text-text',
                 },
               }}
             />
+            {/* this is the faux bg/frame for 2xl screens */}
             <span
               aria-hidden="true"
               className="hidden fixed -z-50 h-dvh w-dvw top-0 left-0 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr]"
             >
-              {/* these are the invisible things for the xxl screens */}
               <span
                 aria-hidden="true"
                 className="hidden 2xl:block absolute h-full w-full dot-grid 2xl:col-start-2 2xl:row-start-2 2xl:col-end-3 2xl:row-end-3 rounded-3xl"
