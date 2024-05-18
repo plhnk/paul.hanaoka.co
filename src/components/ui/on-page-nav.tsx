@@ -87,14 +87,19 @@ const OnPageNav: React.FC<{
   return (
     <>
       <div
-        className={cn('-ml-4 pl-4 sm:-ml-7 sm:px-7 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll', className)}
+        className={cn(
+          '-ml-4 pl-4 sm:-ml-7 sm:px-7 2xl:px-3 py-2 rounded-xl sticky top-0 sm:top-10 z-30 w-[calc(100% + .75rem)] sm:col-span-4 flex overflow-x-scroll',
+          className
+        )}
         id="onPageNav"
       >
         {categories.map((category) => (
           <button
             className={
               'group text-nowrap px-3 py-1 sm:px-4 sm:py-2 mr-8 flex items-center relative capitalize hover:bg-card/20 rounded-md ' +
-              (category === activeCategory ? 'bg-background/60' : 'bg-background/20') 
+              (category === activeCategory
+                ? 'bg-background/60'
+                : 'bg-background/20')
               // TODO distinguish a little better
             }
             onClick={() => scrollTo(category)}
@@ -119,7 +124,7 @@ const OnPageNav: React.FC<{
           />
         </div>
       </div>
-      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-40 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw max-w-4xl 2xl:-ml-32 rotate-180" />
+      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw lg:-ml-[25%] lg:max-w-[150%] rotate-180" />
     </>
   );
 };
