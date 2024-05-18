@@ -138,7 +138,7 @@
     @apply defaultContainer;
   }
   .caseStudyContainer > :is(blockquote, img, div, .themed-image) {
-    @apply col-span-full 2xl:col-start-2 max-w-[60dvw];
+    @apply col-span-full 2xl:col-start-2 sm:max-w-[60dvw];
   }
   .caseStudyContainer > :is(table) {
     @apply col-span-full col-start-2;

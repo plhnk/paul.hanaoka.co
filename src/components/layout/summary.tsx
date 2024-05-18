@@ -23,7 +23,7 @@ const Summary: React.FC<SummaryProps> = ({
           <ul className="py-0">
             {impact.map((item, index) => (
               <li
-                className='leading-6 px-0 before:content-["•"] before:absolute before:text-element/50 before:-ml-2.5'
+                className='leading-6 px-0 mb-2 before:content-["•"] before:absolute before:text-element/50 before:-ml-2.5'
                 key={index}
               >
                 {item}
@@ -36,7 +36,7 @@ const Summary: React.FC<SummaryProps> = ({
           <ul className="py-0">
             {contributions.map((item, index) => (
               <li
-                className='leading-6 px-0 before:content-["•"] before:absolute before:text-element/50 before:-ml-2.5'
+                className='leading-6 px-0 mb-2 before:content-["•"] before:absolute before:text-element/50 before:-ml-2.5'
                 key={index}
               >
                 {item}
