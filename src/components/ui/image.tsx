@@ -49,7 +49,7 @@ const ThemedImage: React.FC<ThemedImageProps> = ({
   };
 
   return (
-    <div style={{ width, height }} className={cn('relative', className)}>
+    <div style={{ width, height }} className={cn('themed-image relative', className)}>
       {isLoading && (
         <Skeleton className={'w-[' + { width } + '] h-[' + { height } + ']'} />
       )}

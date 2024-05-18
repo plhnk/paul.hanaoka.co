@@ -129,7 +129,7 @@
     @apply relative w-fit after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color;
   }
   .defaultContainer {
-    @apply pt-7 main-content ml-[unset] block prose dark:prose-invert prose-neutral prevent-orphans;
+    @apply pt-7 main-content block prose dark:prose-invert prose-neutral prevent-orphans;
   }
   .caseStudyContainer {
     @apply grid-cols-subgrid grid col-span-3 md:col-span-5 lg:col-span-9;
@@ -137,8 +137,8 @@
   .caseStudyContainer > :is(p, h1, h2, h3, h4, ul, ol) {
     @apply defaultContainer;
   }
-  .caseStudyContainer > :is(blockquote, img, div) {
-    @apply col-span-full 2xl:col-start-2;
+  .caseStudyContainer > :is(blockquote, img, div, .themed-image) {
+    @apply col-span-full 2xl:col-start-2 max-w-[60dvw];
   }
   .caseStudyContainer > :is(table) {
     @apply col-span-full col-start-2;

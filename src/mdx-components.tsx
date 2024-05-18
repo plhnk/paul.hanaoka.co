@@ -17,15 +17,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => (
       <h1 className="text-base font-normal mb-24">{children}</h1>
     ),
-    h2: ({ children }) => <h2 className="text-base font-normal mt-16 mb-0">{children}</h2>,
+    h2: ({ children }) => (
+      <h2 className="text-base font-normal mt-16 mb-0">{children}</h2>
+    ),
     h3: ({ children }) => <h3 className="text-base mt-12">{children}</h3>,
     h4: ({ children }) => <h4 className="text-base mb-8">{children}</h4>,
-    p: ({ children }) => <p className="font-light">{children}</p>,
+    p: ({ children }) => <p className="">{children}</p>,
+    ol: ({ children }) => <ol className="list-decimal *:!ps-0">{children}</ol>, 
+    ul: ({ children }) => <ul className="list-disc *:!ps-0">{children}</ul>, 
     img: (props) => (
       <Image
         width={1200}
         height={800}
-        className='rounded-lg shadow-menu'
+        className="rounded-lg shadow-menu"
         {...(props as ImageProps)}
       />
     ),

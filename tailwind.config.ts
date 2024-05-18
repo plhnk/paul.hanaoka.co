@@ -15,7 +15,8 @@ const config = {
       // x y blur spread color
       focus: '0 0 1rem .1rem rgb(var(--accent)/.08);',
       menu: '0 0 5rem 5rem rgb(var(--dark)/.08);',
-      bgBlend: 'inset 0 0 4rem 2rem rgb(var(--background));', 
+      elevate: '0 .5rem 5rem -1rem rgb(var(--dark)/.08), 0 .25rem 1.5rem -1rem rgb(var(--dark)/.2);',
+      bgBlend: 'inset 0 0 4rem 2rem rgb(var(--background));',
     },
     container: {
       center: true,
@@ -58,9 +59,9 @@ const config = {
         },
       },
       screens: {
-        'md': '1000px',
-        'lg': '1400px',
-        'xl': '1700px',
+        md: '1000px',
+        lg: '1400px',
+        xl: '1700px',
         '2xl': '2000px',
       },
       animation: {
@@ -88,3 +89,4 @@ const config = {
 } satisfies Config;
 
 export default config;
+// TODO --> remove typography plugin
