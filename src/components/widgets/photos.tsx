@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { UnsplashPhoto } from '@/lib/utilities/types';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -76,10 +76,10 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
     setTouchStartX(event.touches[0].clientX);
   };
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile || photos.length <= 1) return;
 
-    const touchEndX = event.touches[0].clientX;
+    const touchEndX = event.changedTouches[0].clientX;
     const touchDifference = touchStartX - touchEndX;
 
     if (touchDifference > 50) {
@@ -91,8 +91,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
       }
     } else if (touchDifference < -50) {
       // Swipe left, show previous photo
-      const newIndex =
-        currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
+      const newIndex = currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
       setCurrentIndex(newIndex);
       setShowMoreButton(false);
     }
@@ -103,7 +102,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
       className={cn('cursor-pointer relative w-full h-full', className)}
       onClick={handleClick}
       onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {photos.map((photo, index) =>
         photo.id === 'more' ? (
@@ -135,7 +134,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
                 (index - currentIndex) * (isMobile ? -8 : 8)
               }%) scale(${1 - Math.abs(index - currentIndex) * 0.12})`,
             }}
-            className="absolute w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
+            className={`absolute w-full h-full transition-transform duration-300 ease-in-out shadow-background drop-shadow-md ${index === currentIndex ? 'block' : 'hidden'}`}
           >
             {loading ? (
               <Skeleton className="w-full h-full" />
