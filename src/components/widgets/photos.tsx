@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { UnsplashPhoto } from '@/lib/utilities/types';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -33,7 +33,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
   const [showMoreButton, setShowMoreButton] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(0);
+  // const [touchStartX, setTouchStartX] = useState(0);
 
   const fetchPhotos = async () => {
     try {
@@ -72,37 +72,38 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
     setIsMobile(window.innerWidth < 640);
   }, []);
 
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    setTouchStartX(event.touches[0].clientX);
-  };
+  // const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+  //   setTouchStartX(event.touches[0].clientX);
+  // };
 
-  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (!isMobile || photos.length <= 1) return;
+  // const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+  //   if (!isMobile || photos.length <= 1) return;
 
-    const touchEndX = event.changedTouches[0].clientX;
-    const touchDifference = touchStartX - touchEndX;
+  //   const touchEndX = event.touches[0].clientX;
+  //   const touchDifference = touchStartX - touchEndX;
 
-    if (touchDifference > 50) {
-      // Swipe right, show next photo
-      const newIndex = (currentIndex + 1) % photos.length;
-      setCurrentIndex(newIndex);
-      if (newIndex === photos.length - 1) {
-        setShowMoreButton(true);
-      }
-    } else if (touchDifference < -50) {
-      // Swipe left, show previous photo
-      const newIndex = currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
-      setCurrentIndex(newIndex);
-      setShowMoreButton(false);
-    }
-  };
+  //   if (touchDifference > 50) {
+  //     // Swipe right, show next photo
+  //     const newIndex = (currentIndex + 1) % photos.length;
+  //     setCurrentIndex(newIndex);
+  //     if (newIndex === photos.length - 1) {
+  //       setShowMoreButton(true);
+  //     }
+  //   } else if (touchDifference < -50) {
+  //     // Swipe left, show previous photo
+  //     const newIndex =
+  //       currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
+  //     setCurrentIndex(newIndex);
+  //     setShowMoreButton(false);
+  //   }
+  // };
 
   return (
     <div
       className={cn('cursor-pointer relative w-full h-full', className)}
       onClick={handleClick}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      // onTouchStart={handleTouchStart}
+      // onTouchMove={handleTouchMove}
     >
       {photos.map((photo, index) =>
         photo.id === 'more' ? (
@@ -134,7 +135,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
                 (index - currentIndex) * (isMobile ? -8 : 8)
               }%) scale(${1 - Math.abs(index - currentIndex) * 0.12})`,
             }}
-            className={`absolute w-full h-full transition-transform duration-300 ease-in-out shadow-background drop-shadow-md`}
+            className="absolute w-full h-full transition duration-300 ease-in-out shadow-background drop-shadow-md"
           >
             {loading ? (
               <Skeleton className="w-full h-full" />
