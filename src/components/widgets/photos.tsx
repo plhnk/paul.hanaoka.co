@@ -134,7 +134,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
                 (index - currentIndex) * (isMobile ? -8 : 8)
               }%) scale(${1 - Math.abs(index - currentIndex) * 0.12})`,
             }}
-            className={`absolute w-full h-full transition-transform duration-300 ease-in-out shadow-background drop-shadow-md ${index === currentIndex ? 'block' : 'hidden'}`}
+            className={`absolute w-full h-full transition-transform duration-300 ease-in-out shadow-background drop-shadow-md`}
           >
             {loading ? (
               <Skeleton className="w-full h-full" />
