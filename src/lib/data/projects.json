@@ -11,7 +11,7 @@
     "labels": ["Mobile", "B2C"],
     "title": "Features that convert",
     "subtitle": "The impact of innovation",
-    "publish": false
+    "publish": true
   },
   {
     "id": "navigation",
