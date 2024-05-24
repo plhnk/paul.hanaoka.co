@@ -29,25 +29,6 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
     }, 150);
   }, []);
 
-  const handleCopy = () => {
-    if (textToCopy) {
-      navigator.clipboard.writeText(textToCopy);
-      copyToast();
-    }
-  };
-
-  const copyToast = () => {
-    toast.success('Email copied to clipboard!', {
-      // description: "Send me an email.",
-      action: {
-        label: 'Open Mail Client',
-        onClick: () => (window.location.href = 'mailto:' + textToCopy),
-      },
-    });
-  };
-
-  const textToCopy = 'paul@hanaoka.co';
-
   return (
     <ul
       className={`main-content overflow-x-clip [overflow-clip-margin:20px] sm:overflow-x-visible ${className}`}
