@@ -78,16 +78,16 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
                   larger screen
                 </p>
                 <ProjectDialog content={project.prototypeUrl}>
-                  <Button className="w-48">
-                    View slides
-                  </Button>
+                  <Button className="w-48">View slides</Button>
                 </ProjectDialog>
                 <Button
+                  asChild
                   className="w-48 mb-16"
                   variant="ghost"
-                  onClick={() => handleCopy()}
                 >
-                  Email reminder
+                  <a href="mailto:?subject=REMINDER%3A%20Look%20at%20this%20later!&body=Click%20through%20the%20case%20studies%20on%20https%3A%2F%2Fpaul.hanaoka.co%2Fprojects%20when%20I'm%20on%20a%20bigger%20screen">
+                    Email yourself a reminder
+                  </a>
                 </Button>
               </div>
             )}
