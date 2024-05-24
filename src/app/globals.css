@@ -126,7 +126,7 @@
     /* 2xl:top-[calc((100dvh_-_1200px)/1.4)] sm:max-h-[calc(100vh_-_4rem)]  */
   }
   .bgBlender {
-    @apply relative w-fit after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color;
+    @apply relative after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color;
   }
   .defaultContainer {
     @apply pt-7 main-content block prose dark:prose-invert prose-neutral prevent-orphans;

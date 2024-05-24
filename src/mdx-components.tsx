@@ -29,7 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Image
         width={1200}
         height={800}
-        className="rounded-lg shadow-menu"
+        className=""
         {...(props as ImageProps)}
       />
     ),

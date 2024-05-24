@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -25,42 +25,58 @@ const ThemedImage: React.FC<ThemedImageProps> = ({
 }) => {
   const { theme } = useTheme();
   const [srcPath, setSrcPath] = useState('');
-  const [isLoading, setIsLoading] = useState(true); // State to track loading status
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Use a memoized version of src to prevent unnecessary updates
+  const stableSrc = useMemo(() => src, [src]);
 
   useEffect(() => {
-    if (theme === 'dark') {
-      setSrcPath(src.dark);
-    } else if (theme === 'light') {
-      setSrcPath(src.light);
-    } else if (theme === 'system') {
-      // If system theme is set, use light or dark based on system preference
-      setSrcPath(
-        window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? src.dark
-          : src.light
-      );
-    }
-  }, [theme, src]);
+    console.log('Theme changed:', theme);
+    console.log('Source paths:', stableSrc);
 
-  // When the image finishes loading, set isLoading to false
+    let newSrcPath = '';
+    if (theme === 'dark') {
+      newSrcPath = stableSrc.dark;
+    } else if (theme === 'light') {
+      newSrcPath = stableSrc.light;
+    } else if (theme === 'system') {
+      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      newSrcPath = systemPrefersDark ? stableSrc.dark : stableSrc.light;
+      console.log('System prefers dark:', systemPrefersDark);
+    }
+
+    if (newSrcPath !== srcPath) {
+      setSrcPath(newSrcPath);
+      setIsLoading(true); // Reset loading state when srcPath changes
+    }
+  }, [theme, stableSrc, srcPath]);
+
   const handleImageLoad = () => {
+    console.log('Image loaded:', srcPath);
     setIsLoading(false);
   };
 
+  const handleImageError = () => {
+    console.log('Image failed to load:', srcPath);
+    // Handle error, possibly set a fallback image or retry mechanism
+  };
+
   return (
-    <div style={{ width, height }} className={cn('themed-image relative', className)}>
+    <div className={cn('themed-image relative w-[80vw] mx-auto h-[60vw]', className)}>
       {isLoading && (
-        <Skeleton className={'w-[' + { width } + '] h-[' + { height } + ']'} />
+        <Skeleton className={`w-[${width}px] h-[${height}px]`} />
       )}
-      <Image
-        src={srcPath}
-        alt={alt}
-        width={width}
-        height={height}
-        className={cn('absolute top-0 left-0', { hidden: isLoading })}
-        onLoad={handleImageLoad} 
-      />
+      {srcPath && (
+        <Image
+          src={srcPath}
+          alt={alt}
+          width={width}
+          height={height}
+          className={cn('absolute top-0 left-0 bgBlender', { hidden: isLoading })}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+        />
+      )}
     </div>
   );
 };
