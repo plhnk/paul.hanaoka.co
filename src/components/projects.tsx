@@ -6,6 +6,7 @@ import { Skeleton } from './ui/skeleton';
 import Link from '@/components/ui/link';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
+import ProjectDialog from './ui/projectdialog';
 
 const Projects: React.FC<{ className?: string }> = ({ className }) => {
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
       title: string;
       subtitle: string;
       publish: boolean;
+      prototypeUrl: string;
     }[]
   >([]);
 
@@ -70,16 +72,22 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
           >
             {project.publish === false && (
               <div className="hidden items-center gap-4 flex-col backdrop-blur-sm justify-center group-hover:flex bg-background/80 rounded-2xl absolute w-full h-full top-0 left-0">
-                <h3 className="font-semibold">Coming Soon!</h3>
+                <h3 className="font-semibold">Full write-up in progress!</h3>
                 <p className="italic">
-                  Interested in a walkthrough of this project?
+                  In the meantime, click through a presentation optimized for a
+                  larger screen
                 </p>
+                <ProjectDialog content={project.prototypeUrl}>
+                  <Button className="w-48">
+                    View slides
+                  </Button>
+                </ProjectDialog>
                 <Button
-                  className="w-48 mb-24"
+                  className="w-48 mb-16"
                   variant="ghost"
                   onClick={() => handleCopy()}
                 >
-                  Email me
+                  Email reminder
                 </Button>
               </div>
             )}
