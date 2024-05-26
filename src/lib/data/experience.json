@@ -4,11 +4,11 @@
     "company": "Liferay",
     "location": "Remote",
     "duration": "2022 — 2024",
-    "description": "Leading a business unit of 40+ designers, working with the executive team to set strategic goals, and supporting leaders in Communication Design, Product Design, and Design Operations.",
+    "description": "I stepped into an interim-turned-permanent role after the departure of the VP of Design — it was a great opportunity to learn a very different level of design and leadership.",
     "responsibilities": [
-      "Leading a business unit of 40+ designers",
-      "Working with the executive team to set strategic goals",
-      "Supporting leaders in Communication Design, Product Design, and Design Operations"
+      "Translated company strategies into prioritized initiatives, led division of <strong>40+ designers</strong>, managed <strong>$3.8M budget</strong>, <strong>$2M/year in revenue</strong>",
+      "Built <strong>Research team</strong> and capabilities (tooling, repositories) to bring our customer’s voice to every team",
+      "Collaborated with Design leads to develop <strong>KPIs for Design Systems and Brand</strong> for a more data informed approach"
     ]
   },
   {
@@ -16,11 +16,12 @@
     "company": "Liferay",
     "location": "Remote",
     "duration": "2021 — 2022",
-    "description": "As Principal Designer, I continued to manage Product Design teams, while establishing and leading our Design Ops function.\n\nOne of my key contributions was setting the vision for a new version our Design System, rethinking how a design system can add value beyond a product organization and becoming a key value prop for enterprise customers.",
+    "description": "As Principal Designer, I continued to manage Product Design teams, while establishing and leading our Design Ops function. One of my key contributions was setting the vision for a new version our Design System, rethinking how a design system can add value beyond a product organization and becoming a key value prop for enterprise customers.",
     "responsibilities": [
-      "Managing Product Design teams",
-      "Establishing and leading Design Ops function",
-      "Setting vision for a new version of Design System"
+      "Managed Product Design teams, developed and hired managers",
+      "Established Design Ops function to foster interdisciplinary collaboration, alignment in design systems and brand, and scale processes",
+      "Led the productization of our design system, started evolution of Design Systems team from <strong>cost center</strong> to <strong>profit center</strong>",
+      "Led designers in platform quality initiative that directly contributed to company <strong>exceeding revenue targets by almost 20%</strong>"
     ],
     "key_contributions": [
       "Rethinking how a design system can add value beyond a product organization",
@@ -32,10 +33,11 @@
     "company": "Liferay",
     "location": "Diamond Bar, CA / Remote",
     "duration": "2019 — 2021",
-    "description": "After working with Liferay’s first Director of Design to establish design as a standalone business unit, I began managing internationally and helped grow and lead other managers.",
+    "description": "While still working on select product and consulting projects, I began managing internationally and helped grow and lead other managers.",
     "responsibilities": [
-      "Managing internationally",
-      "Growing and leading other managers"
+      "Worked with Liferay’s first VP of Design <a href='https://liferay.design/2020/'>to establish Design as a division</a> with Brand and Product departments",
+      "Developed <strong>remote operating policies</strong> and <strong>hired internationally</strong> in Brazil, Spain, and Japan",
+      "Built consulting practice in APAC, generated <strong>$250k revenue</strong> in 1st year"
     ]
   },
   {
@@ -45,8 +47,10 @@
     "duration": "2017 — 2019",
     "description": "After spending 3 years gaining a deep understanding of our product and customers in my role as Web Designer, I moved to a product team tasked with developing an MVP for an entirely new product line. I also grew the UX team based in our LA office from 4 to 8.",
     "responsibilities": [
-      "Developing MVP for an entirely new product line",
-      "Growing the UX team from 4 to 8"
+      "Collaborated closely with Product and Engineering leads, led design for successful launch of Liferay’s <a href='https://liferay.design/articles/2019/is-now-the-right-time-for-redesign/'>first SaaS product MVP</a>",
+      "Designed and developed a <a href='https://path.liferay.design'>growth framework</a> for the UX department",
+      "Built consulting practice in NA, generated <strong>$200k revenue</strong> in 1st year",
+      "Designed and developed <a href='https://liferay.design'>liferay.design</a>"
     ]
   },
   {
@@ -54,11 +58,7 @@
     "company": "Liferay",
     "location": "Diamond Bar, CA",
     "duration": "2014 — 2017",
-    "description": "Liferay’s first web designer, I was hired to design and build pages to support our marketing efforts. I quickly took responsibility for all of our web properties and built a small team with 2 other designers.",
-    "responsibilities": [
-      "Designing and building pages to support marketing efforts",
-      "Taking responsibility for all web properties",
-      "Building a small team with 2 other designers"
-    ]
+    "description": "Liferay’s first web designer, initially hired to support our marketing efforts, I quickly grew my responsibilities to include all web properties, built Liferay’s first web style guide and hired my first two designers.",
+    "responsibilities": []
   }
 ]
