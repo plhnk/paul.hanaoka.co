@@ -34,17 +34,6 @@ const WorkExperienceComponent: React.FC<Props> = ({ workExperience }) => {
               <li key={index} dangerouslySetInnerHTML={{ __html: responsibility }}></li>
             ))}
           </ul>
-          {/* <h4 className="text-base text-text/70 font-normal mt-8 mb-2">Responsibilities</h4>
-          {experience.key_contributions && (
-            <div>
-              <h4 className="text-base text-text/70 font-normal mt-8 mb-2">Key Contributions:</h4>
-              <ul>
-                {experience.key_contributions.map((contribution, index) => (
-                  <li key={index}>{contribution}</li>
-                ))}
-              </ul>
-            </div>
-          )} */}
         </div>
       ))}
     </>
