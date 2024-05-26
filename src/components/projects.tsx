@@ -48,7 +48,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
         // Render actual project cards when data is loaded
         projects.map((project) => (
           <li
-            className="group col-span-3 md:col-span-7 2xl:col-span-5 my-24 relative"
+            className="group col-span-3 md:col-span-7 lg:col-span-5 my-24 relative"
             key={project.id}
           >
             {project.publish === false && (
