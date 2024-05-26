@@ -2,33 +2,33 @@
   {
     "id": "translation",
     "labels": ["Enterprise", "Feature"],
-    "title": "Rethinking the way we translate",
-    "subtitle": "Discover how a redesign slashed translation time by 60%.",
+    "title": "Slash translation time by 60%",
+    "subtitle": "Focusing on the end-user experience key to product value",
     "publish": true,
     "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fpaul.hanaoka.co-case-studies%3Fpage-id%3D309%253A163%26type%3Ddesign%26node-id%3D377-55597%26viewport%3D1099%252C609%252C0.04%26t%3Dm5dRqfpR8mYoa1TS-1%26scaling%3Dscale-down-width%26starting-point-node-id%3D3004%253A60643%26hide-ui%3D1"
   },
   {
-    "id": "insurance",
-    "labels": ["Mobile", "B2C"],
-    "title": "Features that convert",
-    "subtitle": "The impact of innovation",
+    "id": "quality",
+    "labels": ["Enterprise", "Platform"],
+    "title": "Surpass revenue targets by 20%",
+    "subtitle": "How focusing on design quality can impact a business",
     "publish": false,
-    "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fplhnk-%40-GitHub?page-id%3D3112%3A59509%26type%3Ddesign%26node-id%3D3112-59509%26viewport%3D-1774%2C-1001%2C0.07%26t%3DkXBUImlj6qMtp853-8%26scaling%3Dcontain%26starting-point-node-id%3D3182%3A5895%26hide-ui%3D1"
+    "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fplhnk-%2540-GitHub%3Fpage-id%3D3031%253A61111%26type%3Ddesign%26node-id%3D3031-61119%26viewport%3D2562%252C2277%252C0.32%26t%3D4DTwMGgSxC883Xf9-1%26scaling%3Dcontain%26starting-point-node-id%3D3031%253A61119%26hide-ui%3D1"
   },
   {
     "id": "navigation",
     "labels": ["Enterprise", "Platform"],
-    "title": "Drive change at scale",
-    "subtitle": "Create a foundation for the future",
+    "title": "Improve SUS scores 75% with a nav redesign",
+    "subtitle": "Create a solid foundation for the future",
     "publish": false,
     "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fplhnk-%2540-GitHub%3Fpage-id%3D1128%253A59192%26type%3Ddesign%26node-id%3D1128-59192%26viewport%3D2562%252C2277%252C0.32%26t%3DCI8rEnr5XZEXTbvS-1%26scaling%3Dcontain%26starting-point-node-id%3D1113%253A58219%26hide-ui%3D1"
   },
   {
-    "id": "quality",
-    "labels": ["Enterprise", "Platform"],
-    "title": "Improve quality, grow revenue",
-    "subtitle": "How good design can impact a business",
+    "id": "insurance",
+    "labels": ["Mobile", "B2C"],
+    "title": "Acheiving 90% task completion in a new industry",
+    "subtitle": "Innovating in an untapped market key to signing early customers",
     "publish": false,
-    "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fplhnk-%2540-GitHub%3Fpage-id%3D3031%253A61111%26type%3Ddesign%26node-id%3D3031-61119%26viewport%3D2562%252C2277%252C0.32%26t%3D4DTwMGgSxC883Xf9-1%26scaling%3Dcontain%26starting-point-node-id%3D3031%253A61119%26hide-ui%3D1"
+    "prototypeUrl": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fk38YS7dv9OGIJz5pOTZJqp%2Fplhnk-%40-GitHub?page-id%3D3112%3A59509%26type%3Ddesign%26node-id%3D3112-59509%26viewport%3D-1774%2C-1001%2C0.07%26t%3DkXBUImlj6qMtp853-8%26scaling%3Dcontain%26starting-point-node-id%3D3182%3A5895%26hide-ui%3D1"
   }
 ]

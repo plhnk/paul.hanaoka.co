@@ -54,7 +54,7 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
             {project.publish === false && (
               <div className="hidden items-center gap-4 flex-col backdrop-blur-sm justify-center group-hover:flex bg-background/80 rounded-2xl absolute w-full h-full top-0 left-0">
                 <h3 className="font-semibold">Full write-up in progress!</h3>
-                <p className="italic">
+                <p className="italic text-center">
                   In the meantime, click through a presentation optimized for a
                   larger screen
                 </p>
