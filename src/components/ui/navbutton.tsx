@@ -7,6 +7,7 @@ import { NavButtonProps } from '../../lib/utilities/types';
 import { toast } from 'sonner';
 import { Copy, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -70,13 +71,21 @@ const NavButton: React.FC<NavButtonProps> = ({
       {label}
       {textToCopy ? <Copy {...IconStyles} /> : null}
       {url && !url.startsWith('/') ? <ArrowUpRight {...IconStyles} /> : null}
-      <kbd
-        key={hotkey}
-        className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/60 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
-        // TODO add popover for hotkey
-      >
-        {hotkey}
-      </kbd>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <kbd
+              key={hotkey}
+              className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/90 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
+            >
+              {hotkey}
+            </kbd>
+          </TooltipTrigger>
+          <TooltipContent side='right' align='end' alignOffset={27} className="text-text/80 bg-element/10 rounded-md w-auto">
+            Press ‘{hotkey.toUpperCase()}’ for {label}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </>
   );
   return (
