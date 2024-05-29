@@ -23,6 +23,7 @@ export interface NavButtonProps {
   textToCopy?: string;
   theme?: string;
   className?: string;
+  collapsed?: boolean;
 }
 
 export interface DashboardCardProps {
