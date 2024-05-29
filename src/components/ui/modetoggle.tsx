@@ -7,17 +7,18 @@ import { Label } from '@/components/ui/label';
 
 interface ModeToggleProps {
   className?: string;
+  collapsed?: boolean;
 }
 
-const iconStyle = {
-  size: 16,
-  color: 'currentColor',
-  strokeWidth: 2,
-  className:
-    'group:hover:text-accent/60 text-element/50 self-center mr-0 sm:mr-1  group-hover:text-accent',
-};
-
-const ModeToggle: React.FC<ModeToggleProps> = () => {
+const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
+  const iconStyle = {
+    size: 16,
+    color: 'currentColor',
+    strokeWidth: 2,
+    className: `group:hover:text-accent/60 text-element/50 self-center mr-0 sm:mr-1  group-hover:text-accent ${
+      collapsed && 'sm:mr-0'
+    }`,
+  };
   const modes = [
     { mode: 'dark', label: 'Dark', hotkey: 'd', icon: <Moon {...iconStyle} /> },
     {
@@ -56,7 +57,15 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
   }, []);
 
   return (
-    <div className="mt-0 sm:mt-2 px-0 col-span-1 flex mr-1 sm:mr-0 justify-start sm:justify-between items-center sm:items-start rounded-md flex-col sm:flex-row h-full">
+    <div
+      className={
+        `mt-0 sm:bg-card px-0 col-span-1 sm:p-2 flex flex-col sm:flex-row mr-1 sm:mr-0 justify-start items-center rounded-md sm:rounded-lg h-full ${
+          collapsed && 'sm:flex-col'
+        }` +
+        ' ' +
+        className
+      }
+    >
       <Label
         className="sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold mt-1.5 mb-2"
         htmlFor="span"
@@ -76,12 +85,14 @@ const ModeToggle: React.FC<ModeToggleProps> = () => {
                 ? 'sm:first:rounded-r-0 sm:last:rounded-r-0 '
                 : ''
             }` +
-            'group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-md sm:last:rounded-r-md hover:bg-accent/10 hover:text-text sm:rounded-[unset]'
+            `group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-lg sm:last:rounded-r-lg hover:bg-accent/10 hover:text-text sm:rounded-[unset] ${
+              collapsed && 'sm:rounded-lg mb-1 sm:py-3 sm:px-3'
+            }`
           }
           key={index}
         >
           {modes.icon}
-          <span className="hidden sm:block">{modes.label}</span>
+          {!collapsed && <span className="hidden sm:block">{modes.label}</span>}
         </button>
       ))}
     </div>

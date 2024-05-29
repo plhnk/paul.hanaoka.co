@@ -7,7 +7,12 @@ import { NavButtonProps } from '../../lib/utilities/types';
 import { toast } from 'sonner';
 import { Copy, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './tooltip';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -17,6 +22,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   textToCopy,
   theme,
   className,
+  collapsed,
   ...props
 }) => {
   const { setTheme } = useTheme();
@@ -35,7 +41,6 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const copyToast = () => {
     toast.success('Email copied to clipboard!', {
-      // description: "Send me an email.",
       action: {
         label: 'Open Mail Client',
         onClick: () => (window.location.href = 'mailto:' + textToCopy),
@@ -52,7 +57,9 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className: cn(
-      ' group focus-visible:outline-none focus-visible:shadow-focus w-full hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline mb-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text',
+      ` group w-full focus-visible:outline-none focus-visible:shadow-focus hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline mb-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text ${
+        collapsed && 'p-3 mb-1'
+      }`,
       className
     ),
   };
@@ -68,24 +75,35 @@ const NavButton: React.FC<NavButtonProps> = ({
   const ButtonContent = (
     <>
       {icon}
-      {label}
-      {textToCopy ? <Copy {...IconStyles} /> : null}
-      {url && !url.startsWith('/') ? <ArrowUpRight {...IconStyles} /> : null}
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <kbd
-              key={hotkey}
-              className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/90 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
-            >
-              {hotkey}
-            </kbd>
-          </TooltipTrigger>
-          <TooltipContent side='right' align='end' alignOffset={27} className="text-text/80 bg-element/10 rounded-md w-auto">
-            Press ‘{hotkey.toUpperCase()}’ for {label}
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      {!collapsed && (
+        <>
+          {label}
+          {textToCopy ? <Copy {...IconStyles} /> : null}
+          {url && !url.startsWith('/') ? (
+            <ArrowUpRight {...IconStyles} />
+          ) : null}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <kbd
+                  key={hotkey}
+                  className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/90 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
+                >
+                  {hotkey}
+                </kbd>
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="end"
+                alignOffset={20}
+                className="text-text/80 bg-element/10 rounded-md w-auto"
+              >
+                Press ‘{hotkey && hotkey.toUpperCase()}’ for {label}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>{' '}
+        </>
+      )}
     </>
   );
   return (
