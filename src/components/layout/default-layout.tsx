@@ -1,19 +1,16 @@
 'use client';
-import { useState } from 'react';
+import React from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
+import { useSidebarContext } from '@/components/sidebar-provider';
 
 export default function DefaultLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapse = () => {
-    setCollapsed((prev) => !prev);
-  };
+  const { collapsed, toggleCollapse } = useSidebarContext();
 
   return (
     <div className="page-wrapper">
@@ -21,7 +18,9 @@ export default function DefaultLayout({
       <Navigation collapsed={collapsed} toggleCollapse={toggleCollapse} />
       <div className="main-wrapper">
         {/* removed overflow-x-hidden to for sticky onPage nav in recommends component */}
-        <main className={`main ${collapsed ? 'sm:ml-32' : 'sm:ml-80'}`}>{children}</main>
+        <main className={`main ${collapsed ? 'sm:ml-32' : 'sm:ml-80'}`}>
+          {children}
+        </main>
         <Footer />
       </div>
       <Toaster
