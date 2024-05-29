@@ -24,20 +24,16 @@ interface SidebarProps {
   children?: ReactNode;
   iconStyle?: object;
   className?: string;
+  collapsed?: boolean;
+  toggleCollapse?: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ className }) => {
+const Sidebar: React.FC<SidebarProps> = ({ className, collapsed, toggleCollapse }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 640);
   }, []);
-
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapse = () => {
-    setCollapsed((prev) => !prev);
-  };
 
   const iconStyle = {
     size: 16,
@@ -151,7 +147,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         )}
       >
         <div
-          className={`sm:w-64 backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-card/20 xl:bg-transparent shadow-menu sm:shadow-transparent ${
+          className={`sm:w-64 backdrop-blur-lg rounded-lg lg:rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-card/20 xl:bg-transparent shadow-menu sm:shadow-transparent ${
             collapsed && 'sm:w-auto sm:p-2'
           }`}
         >

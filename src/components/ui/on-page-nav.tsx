@@ -8,7 +8,8 @@ const OnPageNav: React.FC<{
   categories: string[];
   scrollOffset: number;
   className?: string;
-}> = ({ categories, scrollOffset, className }) => {
+  collapsed?: boolean;
+}> = ({ categories, scrollOffset, className, collapsed }) => {
   const [arrowDirections, setArrowDirections] = useState<
     Record<string, 'up' | 'down' | 'none'>
   >({});
@@ -84,6 +85,8 @@ const OnPageNav: React.FC<{
     stroke: 'currentColor',
   };
 
+  console.log(collapsed, 'collapsed fire');
+
   return (
     <>
       <div
@@ -124,7 +127,11 @@ const OnPageNav: React.FC<{
           />
         </div>
       </div>
-      <ProgressiveBlur className="block sticky -ml-4 sm:-ml-80 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw lg:-ml-[25%] lg:max-w-[150%] rotate-180" />
+      <ProgressiveBlur
+        className={`block sticky -ml-4 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw lg:-ml-[25%] lg:max-w-[150%] rotate-180 ${
+          collapsed ? 'sm:-ml-32' : 'sm:-ml-80'
+        }`}
+      />
     </>
   );
 };

@@ -8,7 +8,11 @@ import Bio from './bio.mdx';
 import HowItsMade from './how-i-built-this.mdx';
 import OnPageNav from '../../components/ui/on-page-nav';
 
-const About: React.FC = () => {
+interface AboutProps {
+  collapsed?: boolean;
+}
+
+const About: React.FC<AboutProps> = ({ collapsed }) => {
   const sections = [
     { id: 'Bio', component: Bio },
     { id: 'Experience', component: CV },
@@ -26,6 +30,7 @@ const About: React.FC = () => {
       <Content />
       <div className="mb-20" />
       <OnPageNav
+        collapsed={collapsed}
         className="pl-4 -ml-4"
         categories={Object.keys(categoryRefs)}
         scrollOffset={240}
