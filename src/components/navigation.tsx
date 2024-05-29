@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './sidebar';
 import MobileMenu from './ui/mobilemenu';
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  collapsed?: boolean;
+  toggleCollapse?: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ collapsed, toggleCollapse }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -12,7 +17,7 @@ const Navigation: React.FC = () => {
 
   return (
     <>
-      {isMobile ? <MobileMenu /> : <Sidebar />}
+      {isMobile ? <MobileMenu /> : <Sidebar collapsed={collapsed} toggleCollapse={toggleCollapse} />}
     </>
   );
 };

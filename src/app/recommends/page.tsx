@@ -5,13 +5,18 @@ import Content from './content.mdx';
 import RecommendsComponent from '../../components/recommends';
 
 // const Recommends: React.FC = () => {
-export default function Recommends() {
+
+interface RecommendsProps {
+  collapsed?: boolean;
+}
+
+export default function Recommends({ collapsed }: RecommendsProps) {
   return (
     <>
       <MdxLayout>
         <Content />
       </MdxLayout>
-      <RecommendsComponent className="mt-20" />
+      <RecommendsComponent collapsed={collapsed} className="mt-20" />
     </>
   );
 }

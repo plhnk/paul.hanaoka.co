@@ -14,7 +14,10 @@ import {
 } from './ui/tooltip';
 import Image from 'next/image';
 
-const Recommends: React.FC<{ className?: string }> = ({ className }) => {
+const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
+  className,
+  collapsed,
+}) => {
   const [recommends, setRecommends] = useState<RecommendsProps[]>([]);
 
   useEffect(() => {
@@ -45,10 +48,13 @@ const Recommends: React.FC<{ className?: string }> = ({ className }) => {
   console.log(Object.entries(categoryRefs), 'categoryRefs');
 
   return (
-    <div
-      className={`relative flex flex-col main-content ${className} `}
-    >
-      <OnPageNav className='sm:px-3 sm:*:px-6 sm:-ml-3' categories={Object.keys(groupedRecommends)} scrollOffset={140}/>
+    <div className={`relative flex flex-col main-content ${className} `}>
+      <OnPageNav
+        collapsed={collapsed}
+        className="sm:px-3 sm:*:px-6 sm:-ml-3"
+        categories={Object.keys(groupedRecommends)}
+        scrollOffset={140}
+      />
 
       {Object.entries(groupedRecommends).map(([category, recommends]) => (
         <div
