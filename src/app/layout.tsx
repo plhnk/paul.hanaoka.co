@@ -7,6 +7,8 @@ import Navigation from '../components/navigation';
 import Footer from '@/components/footer';
 import Analytics from '@/components/analytics';
 import DefaultLayout from '@/components/layout/default-layout';
+import { Sidebar } from 'lucide-react';
+import { SidebarProvider } from '@/components/sidebar-provider';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -87,7 +89,9 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <DefaultLayout>{children}</DefaultLayout>
+          <SidebarProvider>
+            <DefaultLayout>{children}</DefaultLayout>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>

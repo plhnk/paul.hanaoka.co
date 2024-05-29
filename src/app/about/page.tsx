@@ -7,12 +7,9 @@ import CV from './cv.mdx';
 import Bio from './bio.mdx';
 import HowItsMade from './how-i-built-this.mdx';
 import OnPageNav from '../../components/ui/on-page-nav';
+import { useSidebarContext } from '@/components/sidebar-provider';
 
-interface AboutProps {
-  collapsed?: boolean;
-}
-
-const About: React.FC<AboutProps> = ({ collapsed }) => {
+const About: React.FC = () => {
   const sections = [
     { id: 'Bio', component: Bio },
     { id: 'Experience', component: CV },
@@ -24,6 +21,8 @@ const About: React.FC<AboutProps> = ({ collapsed }) => {
     refs[section.id] = React.createRef();
     return refs;
   }, {} as Record<string, React.RefObject<HTMLDivElement>>);
+  
+  const { collapsed } = useSidebarContext();
 
   return (
     <MdxLayout>
