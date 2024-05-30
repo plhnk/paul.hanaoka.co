@@ -58,7 +58,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   const ButtonStyles = {
     className: cn(
       ` group w-full focus-visible:outline-none focus-visible:shadow-focus hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline mb-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text ${
-        collapsed && 'p-3 mb-1'
+        collapsed && 'w-10 p-3 m-1 mx-auto'
       }`,
       className
     ),

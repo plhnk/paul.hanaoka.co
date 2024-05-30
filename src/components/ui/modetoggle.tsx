@@ -85,8 +85,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
                 ? 'sm:first:rounded-r-0 sm:last:rounded-r-0 '
                 : ''
             }` +
-            `group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-lg sm:last:rounded-r-lg hover:bg-accent/10 hover:text-text sm:rounded-[unset] ${
-              collapsed && 'sm:rounded-lg mb-1 sm:py-3 sm:px-3'
+            `group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-md sm:last:rounded-r-md hover:bg-accent/10 hover:text-text sm:rounded-[unset] ${
+              collapsed && 'sm:rounded-md mb-1 sm:py-3 sm:px-3'
             }`
           }
           key={index}

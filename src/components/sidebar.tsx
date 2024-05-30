@@ -147,12 +147,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className, collapsed, toggleCollapse 
         )}
       >
         <div
-          className={`sm:w-64 backdrop-blur-lg rounded-lg lg:rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-card/20 xl:bg-transparent shadow-menu sm:shadow-transparent ${
-            collapsed && 'sm:w-auto sm:p-2'
+          className={`sm:w-64 backdrop-blur-lg rounded-lg lg:rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-card/20 xl:bg-transparent shadow-menu sm:shadow-transparent transition-[width] duration-300 ${
+            collapsed && 'sm:w-auto sm:p-1 lg:p-2 transition-[width] duration-300'
           }`}
         >
-          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-2 grid-cols-[4fr_4fr_1fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto_auto_auto] content-start">
-            <div className="lg:bg-card rounded-lg sm:p-2">
+          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-2 lg:gap-8 grid-cols-[4fr_4fr_1fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto_auto_auto] content-start">
+            <div className="lg:bg-card rounded-lg sm:p-1 lg:p-2">
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
                   collapsed={collapsed}
@@ -175,7 +175,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className, collapsed, toggleCollapse 
               />
             </div>
             <div className='hidden sm:block' />
-            <div className="lg:bg-card rounded-lg sm:p-2">
+            <div className="lg:bg-card rounded-lg sm:p-1 lg:p-2">
               <NavSection
                 collapsed={collapsed}
                 // className="sm:mt-2.5"
