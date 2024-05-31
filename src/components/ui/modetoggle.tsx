@@ -66,12 +66,9 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
         Mode
       </Label>
       <div
-        className={cn(
-          `bg-background p-0.5 flex flex-col sm:flex-row gap-0.5 justify-between items-center rounded-lg sm:h-11 ${
-            collapsed && 'sm:flex-col sm:h-auto sm:gap-0.5'
-          }`,
-          className
-        )}
+        className={`bg-background p-0.5 flex flex-col sm:flex-row gap-0.5 justify-between items-center rounded-lg sm:h-11 ${
+          collapsed && 'sm:flex-col sm:h-auto sm:gap-0.5'
+        }`}
       >
         {modes.map((modes, index) => (
           <Button
@@ -79,9 +76,9 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
               setTheme(`${modes.mode}`);
             }}
             data-hotkey={modes.hotkey}
-            className={`${theme === modes.mode && 'bg-card '} w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${
-              collapsed && 'sm:w-10'
-            }`}
+            className={`${
+              theme === modes.mode && 'bg-card '
+            } w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${collapsed && 'sm:w-10'}`}
             key={index}
           >
             {modes.icon}
