@@ -74,6 +74,15 @@ const NavButton: React.FC<NavButtonProps> = ({
       'text-element/30 self-center group-hover:text-text/80 group-focus-visible:text-text/60',
   };
 
+  const Hotkey = (
+    <kbd
+      key={hotkey}
+      className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/90 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
+    >
+      {hotkey}
+    </kbd>
+  );
+
   const ButtonContent = (
     <>
       {icon}
@@ -86,14 +95,7 @@ const NavButton: React.FC<NavButtonProps> = ({
           ) : null}
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild>
-                <kbd
-                  key={hotkey}
-                  className="hidden group-focus-visible:text-text/60 group-focus-visible:bg-accent/20 focus:bg-accent sm:block text-text/60 bg-element/10 group-hover:bg-accent/20 group-hover:text-accent/90 rounded ml-auto w-[2ch] uppercase font-mono text-xs text-center"
-                >
-                  {hotkey}
-                </kbd>
-              </TooltipTrigger>
+              <TooltipTrigger asChild>{Hotkey}</TooltipTrigger>
               <TooltipContent
                 side="right"
                 sideOffset={0}
@@ -131,17 +133,15 @@ const NavButton: React.FC<NavButtonProps> = ({
   return collapsed ? (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>
-          {ButtonElement}
-        </TooltipTrigger>
+        <TooltipTrigger asChild>{ButtonElement}</TooltipTrigger>
         <TooltipContent
           side="right"
           sideOffset={-16}
           align="start"
           alignOffset={-32}
-          className="text-text/80 bg-element/10 rounded-md w-auto"
+          className="text-text/80 bg-element/10 rounded-md w-auto flex gap-4 items-center"
         >
-          {label}
+          {label} {Hotkey}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
