@@ -148,17 +148,6 @@ const NavButton: React.FC<NavButtonProps> = ({
   ) : (
     ButtonElement
   );
-  // return (
-  //   <Button
-  //     {...buttonProps}
-  //     {...ButtonStyles}
-  //     onClick={handleClick}
-  //     data-hotkey={hotkey}
-  //     {...props}
-  //   >
-  //     {url ? <Link href={url}>{ButtonContent}</Link> : ButtonContent}
-  //   </Button>
-  // );
 };
 
 export default NavButton;
