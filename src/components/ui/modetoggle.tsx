@@ -79,8 +79,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
               setTheme(`${modes.mode}`);
             }}
             data-hotkey={modes.hotkey}
-            className={`${theme === modes.mode && 'bg-card '} w-12 sm:w-auto h-12 px-2.5 ${
-              collapsed && 'w-10'
+            className={`${theme === modes.mode && 'bg-card '} w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${
+              collapsed && 'sm:w-10'
             }`}
             key={index}
           >
