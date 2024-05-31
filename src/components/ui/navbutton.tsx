@@ -55,11 +55,13 @@ const NavButton: React.FC<NavButtonProps> = ({
     for (const el of elements) {
       install(el as HTMLElement, el.getAttribute('data-hotkey')!);
     }
-  }, []);
+  }, [onClick]);
 
   const ButtonStyles = {
     className: cn(
-      `rounded-lg w-full justify-start ${collapsed && 'w-11 p-3 justify-center'}`,
+      `rounded-lg w-full justify-start ${
+        collapsed && 'w-11 p-3 justify-center'
+      }`,
       className
     ),
   };
@@ -94,6 +96,7 @@ const NavButton: React.FC<NavButtonProps> = ({
               </TooltipTrigger>
               <TooltipContent
                 side="right"
+                sideOffset={0}
                 align="end"
                 alignOffset={20}
                 className="text-text/80 bg-element/10 rounded-md w-auto"
@@ -113,7 +116,7 @@ const NavButton: React.FC<NavButtonProps> = ({
     if (onClick) onClick();
   };
 
-  return (
+  const ButtonElement = (
     <Button
       {...buttonProps}
       {...ButtonStyles}
@@ -124,6 +127,38 @@ const NavButton: React.FC<NavButtonProps> = ({
       {url ? <Link href={url}>{ButtonContent}</Link> : ButtonContent}
     </Button>
   );
+
+  return collapsed ? (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          {ButtonElement}
+        </TooltipTrigger>
+        <TooltipContent
+          side="right"
+          sideOffset={-16}
+          align="start"
+          alignOffset={-32}
+          className="text-text/80 bg-element/10 rounded-md w-auto"
+        >
+          {label}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  ) : (
+    ButtonElement
+  );
+  // return (
+  //   <Button
+  //     {...buttonProps}
+  //     {...ButtonStyles}
+  //     onClick={handleClick}
+  //     data-hotkey={hotkey}
+  //     {...props}
+  //   >
+  //     {url ? <Link href={url}>{ButtonContent}</Link> : ButtonContent}
+  //   </Button>
+  // );
 };
 
 export default NavButton;
