@@ -98,7 +98,7 @@ const NavButton: React.FC<NavButtonProps> = ({
               <TooltipTrigger asChild>{Hotkey}</TooltipTrigger>
               <TooltipContent
                 side="right"
-                // sideOffset={0}
+                sideOffset={32}
                 // align="end"
                 align="center"
                 // alignOffset={20}
@@ -137,7 +137,7 @@ const NavButton: React.FC<NavButtonProps> = ({
         <TooltipTrigger asChild>{ButtonElement}</TooltipTrigger>
         <TooltipContent
           side="right"
-          // sideOffset={-16}
+          sideOffset={16}
           // align="start"
           align="center"
           // alignOffset={-32}
