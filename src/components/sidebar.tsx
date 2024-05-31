@@ -156,7 +156,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             collapsed && 'sm:w-auto transition-all duration-300'
           }`}
         >
-          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-2 lg:gap-8 grid-cols-[2fr_3fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto] content-start">
+          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-0 lg:gap-8 grid-cols-[2fr_3fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto] content-start">
             <div className="lg:bg-card rounded-xl sm:p-2"> 
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
