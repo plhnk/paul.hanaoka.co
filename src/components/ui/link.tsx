@@ -21,7 +21,7 @@ const CustomLink: React.FC<LinkProps> = ({ href, children, className }) => {
       {children}
       {isExternal && (
         <ArrowUpRight
-          className="inline align-top opacity-10 group-hover:opacity-100 ml-.5 transition-transform translate-x-0 translate-y-0  group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="inline align-top opacity-10 group-hover:opacity-100 ml-.5 transition-transform translate-x-0 translate-y-0  group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:transition-transform ease-in-out duration-200"
           size={16}
         />
       )}
