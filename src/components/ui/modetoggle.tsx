@@ -4,6 +4,8 @@ import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { install } from '@github/hotkey';
 import { Label } from '@/components/ui/label';
+import { Button } from './button';
+import { cn } from '@/lib/utils';
 
 interface ModeToggleProps {
   className?: string;
@@ -15,9 +17,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
     size: 16,
     color: 'currentColor',
     strokeWidth: 2,
-    className: `group:hover:text-accent/60 text-element/50 self-center mr-0 sm:mr-1  group-hover:text-accent ${
-      collapsed && 'sm:mr-0'
-    }`,
+    className:
+      'group:hover:text-accent/60 text-element/50 self-center group-hover:text-accent',
   };
   const modes = [
     { mode: 'dark', label: 'Dark', hotkey: 'd', icon: <Moon {...iconStyle} /> },
@@ -30,7 +31,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
     {
       mode: 'system',
       label: 'Auto',
-      hotkey: 's',
+      hotkey: 'd',
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
@@ -57,48 +58,43 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
   }, []);
 
   return (
-    <div
-      className={
-        `mt-0 sm:bg-card px-0 col-span-1 sm:p-2 flex flex-col sm:flex-row mr-1 sm:mr-0 justify-start items-center rounded-md sm:rounded-lg h-full ${
-          collapsed && 'sm:flex-col'
-        }` +
-        ' ' +
-        className
-      }
-    >
+    <div className={cn(`col-span-1`, className)}>
       <Label
         className="sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold mt-1.5 mb-2"
         htmlFor="span"
       >
         Mode
       </Label>
-      {modes.map((modes, index) => (
-        <button
-          onClick={() => {
-            setTheme(`${modes.mode}`);
-          }}
-          data-hotkey={modes.hotkey}
-          className={
-            `${theme === modes.mode ? 'bg-background ' : ' '}` +
-            `${
-              theme === 'light'
-                ? 'sm:first:rounded-r-0 sm:last:rounded-r-0 '
-                : ''
-            }` +
-            `group flex flex-col sm:flex-row align-center sm:justify-center p-4 sm:pr-2 sm:px-2 sm:py-1 w-full rounded-md sm:[&:nth-child(2)]:rounded-l-md sm:last:rounded-r-md hover:bg-accent/10 hover:text-text sm:rounded-[unset] ${
-              collapsed && 'sm:rounded-md mb-1 sm:py-3 sm:px-3'
-            }`
-          }
-          key={index}
-        >
-          {modes.icon}
-          {!collapsed && <span className="hidden sm:block">{modes.label}</span>}
-        </button>
-      ))}
+      <div
+        className={cn(
+          `bg-background p-0.5 flex flex-col sm:flex-row gap-0.5 items-center rounded-md sm:rounded-lg sm:h-11 ${
+            collapsed && 'sm:flex-col sm:h-auto sm:gap-0.5'
+          }`,
+          className
+        )}
+      >
+        {modes.map((modes, index) => (
+          <Button
+            onClick={() => {
+              setTheme(`${modes.mode}`);
+            }}
+            data-hotkey={modes.hotkey}
+            className={`${theme === modes.mode && 'bg-card '} h-10 px-2.5 ${
+              collapsed && 'w-10'
+            }`}
+            key={index}
+          >
+            {modes.icon}
+            {!collapsed && (
+              <span className="hidden sm:block mr-0.5">{modes.label}</span>
+            )}
+          </Button>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default ModeToggle;
-// create Button component and merge modetoggle and navbutton into it
-// actually make this completely diff on mobile --> sidenav w/icon and initial only? or sideways letters? TODO
+// create Button component and merge modetoggle and button into it
+// actually make this completely diff on mobile --> side w/icon and initial only? or sideways letters? TODO

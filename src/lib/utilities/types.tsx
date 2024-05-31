@@ -24,6 +24,8 @@ export interface NavButtonProps {
   theme?: string;
   className?: string;
   collapsed?: boolean;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
 export interface DashboardCardProps {
