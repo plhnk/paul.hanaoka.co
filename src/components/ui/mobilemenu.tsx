@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import NavButton from './navbutton';
+import { Button } from './button';
 import { usePathname } from 'next/navigation';
 import Sidebar from '../sidebar';
 import { cn } from '@/lib/utils';
@@ -19,7 +20,7 @@ const MobileMenu: React.FC = () => {
 
   const iconStyle = {
     size: 16,
-    className: 'text-text/80 mr-2 self-center',
+    className: 'text-text/80 self-center',
   };
 
   const icon = getIcon(shortForecast, iconStyle);
@@ -80,7 +81,7 @@ const MobileMenu: React.FC = () => {
           )}
         >
           <NavButton
-            className="w-auto rounded-[.85rem]"
+            className="rounded-[.85rem] mr-4"
             label={
               <span>
                 <span className="text-text/90">paul.</span>
@@ -91,9 +92,9 @@ const MobileMenu: React.FC = () => {
             icon={icon}
             hotkey={'h'}
           />
-          <button
+          <Button
             onClick={handleMenuButtonClick}
-            className="my-0.5 py-2 px-3 flex"
+            className="py-2 pl-4 pr-3 flex rounded-[.85rem]"
           >
             {isMobileMenuOpen ? (
               <>
@@ -101,7 +102,7 @@ const MobileMenu: React.FC = () => {
                 <X
                   size={18}
                   color="currentColor"
-                  className="ml-2 self-center text-text/80"
+                  className="self-center text-text/80"
                 />
               </>
             ) : (
@@ -111,11 +112,11 @@ const MobileMenu: React.FC = () => {
                 <Menu
                   size={18}
                   color="currentColor"
-                  className="ml-2 self-center text-text/80"
+                  className="self-center text-text/80"
                 />
               </>
             )}
-          </button>
+          </Button>
         </div>
       </div>
     </>
