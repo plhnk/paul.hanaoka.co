@@ -2,6 +2,7 @@ import React from 'react';
 import { Label } from '@/components/ui/label';
 import NavButton from './navbutton';
 import { NavButtonProps } from '../../lib/utilities/types';
+import { cn } from '@/lib/utils';
 
 interface NavSectionProps {
   label: string;
@@ -17,10 +18,8 @@ const NavSection: React.FC<NavSectionProps> = ({
   collapsed,
 }) => {
   return (
-    <div className={`${className ? className + ' ' : ''}` + 'block'}>
-      {collapsed ? (
-        ''
-      ) : (
+    <div className={cn(`flex flex-col gap-0.5 ${collapsed && 'gap-1'}`, className)}>
+      {!collapsed && (
         <Label
           className="uppercase text-xs tracking-widest text-text/50 font-semibold ml-3 my-2"
           htmlFor="span"

@@ -82,10 +82,10 @@ const MobileMenu: React.FC = () => {
           <NavButton
             className="w-auto rounded-[.85rem]"
             label={
-              <>
+              <span>
                 <span className="text-text/90">paul.</span>
                 <span className="text-text/50">hanaoka.co</span>
-              </>
+              </span>
             }
             url="/"
             icon={icon}

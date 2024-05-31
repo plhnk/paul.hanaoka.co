@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from './tooltip';
+import { Button } from './button';
 
 const NavButton: React.FC<NavButtonProps> = ({
   icon,
@@ -23,6 +24,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   theme,
   className,
   collapsed,
+  onClick,
   ...props
 }) => {
   const { setTheme } = useTheme();
@@ -57,9 +59,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className: cn(
-      ` group w-full focus-visible:outline-none focus-visible:shadow-focus hover:bg-accent/10 active:bg-accent/20 focus:bg-accent/10 focus:ring-1 ring-inset focus:ring-accent/30 focus:bg-accent/05 flex items-baseline mb-0.5 p-2 px-3 align-baseline rounded-md text-text hover:text-text ${
-        collapsed && 'w-10 p-3 m-1 mx-auto'
-      }`,
+      `rounded-lg w-full justify-start ${collapsed && 'w-11 p-3 justify-center'}`,
       className
     ),
   };
@@ -69,7 +69,7 @@ const NavButton: React.FC<NavButtonProps> = ({
     color: 'currentColor',
     strokeWidth: 2,
     className:
-      'text-element/30 self-center ml-2 group-hover:text-text/80 group-focus-visible:text-text/60',
+      'text-element/30 self-center group-hover:text-text/80 group-focus-visible:text-text/60',
   };
 
   const ButtonContent = (
@@ -101,39 +101,28 @@ const NavButton: React.FC<NavButtonProps> = ({
                 Press ‘{hotkey && hotkey.toUpperCase()}’ for {label}
               </TooltipContent>
             </Tooltip>
-          </TooltipProvider>{' '}
+          </TooltipProvider>
         </>
       )}
     </>
   );
+  const buttonProps = url && { asChild: true };
+  const handleClick = () => {
+    handleCopy();
+    handleTheme();
+    if (onClick) onClick();
+  };
+
   return (
-    <>
-      {url ? (
-        <Link
-          {...ButtonStyles}
-          onClick={() => {
-            handleCopy();
-            handleTheme();
-          }}
-          data-hotkey={hotkey}
-          href={url}
-        >
-          {ButtonContent}
-        </Link>
-      ) : (
-        <button
-          {...ButtonStyles}
-          onClick={() => {
-            handleCopy();
-            handleTheme();
-          }}
-          data-hotkey={hotkey}
-          {...props}
-        >
-          {ButtonContent}
-        </button>
-      )}
-    </>
+    <Button
+      {...buttonProps}
+      {...ButtonStyles}
+      onClick={handleClick}
+      data-hotkey={hotkey}
+      {...props}
+    >
+      {url ? <Link href={url}>{ButtonContent}</Link> : ButtonContent}
+    </Button>
   );
 };
 
