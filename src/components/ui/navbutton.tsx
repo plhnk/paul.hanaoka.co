@@ -98,9 +98,10 @@ const NavButton: React.FC<NavButtonProps> = ({
               <TooltipTrigger asChild>{Hotkey}</TooltipTrigger>
               <TooltipContent
                 side="right"
-                sideOffset={0}
-                align="end"
-                alignOffset={20}
+                // sideOffset={0}
+                // align="end"
+                align="center"
+                // alignOffset={20}
                 className="text-text/80 bg-element/10 rounded-md w-auto"
               >
                 Press ‘{hotkey && hotkey.toUpperCase()}’ for {label}
@@ -136,9 +137,10 @@ const NavButton: React.FC<NavButtonProps> = ({
         <TooltipTrigger asChild>{ButtonElement}</TooltipTrigger>
         <TooltipContent
           side="right"
-          sideOffset={-16}
-          align="start"
-          alignOffset={-32}
+          // sideOffset={-16}
+          // align="start"
+          align="center"
+          // alignOffset={-32}
           className="text-text/80 bg-element/10 rounded-md w-auto flex gap-4 items-center"
         >
           {label} {Hotkey}
