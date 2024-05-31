@@ -153,11 +153,11 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div
         // inner wrapper (invisible on larger screens)
           className={`sm:w-64 backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-transparent shadow-menu sm:shadow-transparent transition-all duration-300 ${
-            collapsed && 'sm:w-auto sm:p-1 lg:p-2 transition-all duration-300'
+            collapsed && 'sm:w-auto transition-all duration-300'
           }`}
         >
           <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-2 lg:gap-8 grid-cols-[2fr_3fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto] content-start">
-            <div className="lg:bg-card rounded-xl sm:p-1 lg:p-2"> 
+            <div className="lg:bg-card rounded-xl sm:p-2"> 
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
                   collapsed={collapsed}
@@ -170,7 +170,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   }
                   hotkey={'h'}
                   url={'/'}
-                  className='mb-2 sm:mb-4'
+                  className='mb-2 lg:mb-4'
                 />
               </div>
               <NavSection
@@ -181,14 +181,14 @@ const Sidebar: React.FC<SidebarProps> = ({
               />
             </div>
             <div className="hidden sm:block" />
-            <div className="lg:bg-card rounded-xl sm:p-1 lg:p-2 flex justify-between sm:flex-col gap-4">
+            <div className="lg:bg-card rounded-xl sm:p-2 flex justify-between sm:flex-col gap-4">
               <NavSection
                 collapsed={collapsed}
                 className="w-full"
                 label="Connect"
                 buttons={connect}
               />
-              <ModeToggle collapsed={collapsed} className="" />
+              <ModeToggle collapsed={collapsed} />
               {isMobile ? null : (
                 <NavButton
                   collapsed={collapsed}

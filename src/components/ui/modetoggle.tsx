@@ -60,14 +60,14 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
   return (
     <div className={cn(`col-span-1`, className)}>
       <Label
-        className="sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold mt-1.5 mb-2"
+        className="block sm:hidden uppercase text-xs tracking-widest text-text/50 font-semibold my-2 text-center"
         htmlFor="span"
       >
         Mode
       </Label>
       <div
         className={cn(
-          `bg-background p-0.5 flex flex-col sm:flex-row gap-0.5 items-center rounded-md sm:rounded-lg sm:h-11 ${
+          `bg-background p-0.5 flex flex-col sm:flex-row gap-0.5 justify-between items-center rounded-lg sm:h-11 ${
             collapsed && 'sm:flex-col sm:h-auto sm:gap-0.5'
           }`,
           className
@@ -79,14 +79,14 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
               setTheme(`${modes.mode}`);
             }}
             data-hotkey={modes.hotkey}
-            className={`${theme === modes.mode && 'bg-card '} h-10 px-2.5 ${
+            className={`${theme === modes.mode && 'bg-card '} w-12 sm:w-auto h-12 px-2.5 ${
               collapsed && 'w-10'
             }`}
             key={index}
           >
             {modes.icon}
             {!collapsed && (
-              <span className="hidden sm:block mr-0.5">{modes.label}</span>
+              <span className="hidden sm:block">{modes.label}</span>
             )}
           </Button>
         ))}
