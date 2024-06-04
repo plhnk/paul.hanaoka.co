@@ -110,7 +110,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
           showMoreButton && (
             <div
               key={index + 1}
-              className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center"
+              className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center outline outline-background/40 -outline-offset-1 outline-1"
               style={{ position: 'absolute', zIndex: photos.length + 1 }}
             >
               <button onClick={fetchPhotos} className="hover:bg-text/5 p-4">
@@ -144,7 +144,7 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
                 key={photo.id}
                 src={photo.urls.regular}
                 alt={photo.alt_description}
-                className="rounded-xl object-cover w-full h-full m-0 bg-background"
+                className="rounded-xl object-cover w-full h-full m-0 bg-background  outline outline-card/20 -outline-offset-1 outline-1"
                 style={{
                   opacity: 1 - Math.abs(index - currentIndex) * 0.4,
                 }}

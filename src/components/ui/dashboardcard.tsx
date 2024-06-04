@@ -23,7 +23,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
 }) => {
   return (
     <Card
-      className={cn('w-full min-h-fit max-h-72', className)}
+      className={cn('w-full min-h-fit max-h-72 outline-background/40', className)}
       onClick={onClick}
     >
       <CardHeader className={title ? '' : 'hidden'}>
