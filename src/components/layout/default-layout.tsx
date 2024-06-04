@@ -16,9 +16,9 @@ export default function DefaultLayout({
     <div className="page-wrapper">
       {/* TODO style this scrollbar on max screens */}
       <Navigation collapsed={collapsed} toggleCollapse={toggleCollapse} />
-      <div className="main-wrapper">
+      <div className={`main-wrapper ${collapsed ? '2xl:ml-32 2xl:mr-0' : '2xl:ml-80 2xl:mr-0'}`}>
         {/* removed overflow-x-hidden to for sticky onPage nav in recommends component */}
-        <main className={`main ${collapsed ? 'sm:ml-32' : 'sm:ml-80'}`}>
+        <main className={`main ${collapsed ? 'sm:ml-32 2xl:ml-0' : 'sm:ml-80 2xl:ml-0'}`}>
           {children}
         </main>
         <Footer />

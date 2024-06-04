@@ -107,7 +107,7 @@
     @apply relative 2xl:col-start-2 2xl:row-start-2 rounded-3xl 2xl:overflow-y-scroll 2xl:shadow-menu;
   }
   .main-wrapper {
-    @apply 2xl:max-w-[1600px] 2xl:ml-auto sm:overflow-x-visible;
+    @apply 2xl:ml-auto sm:overflow-x-visible;
   }
   .main-grid {
     /* note - use grid-cols-subgrid for any subgrids */
