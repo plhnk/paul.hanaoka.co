@@ -15,7 +15,8 @@ const config = {
       // x y blur spread color
       focus: '0 0 1rem .1rem rgb(var(--accent)/.08);',
       menu: '0 0 5rem 5rem rgb(var(--dark)/.08);',
-      elevate: '0 .5rem 5rem -1rem rgb(var(--dark)/.08), 0 .25rem 1.5rem -1rem rgb(var(--dark)/.2);',
+      elevate:
+        '0 .5rem 5rem -1rem rgb(var(--dark)/.08), 0 .25rem 1.5rem -1rem rgb(var(--dark)/.2);',
       bgBlend: 'inset 0 0 4rem 2rem rgb(var(--background));',
     },
     container: {
@@ -35,6 +36,9 @@ const config = {
       },
       borderRadius: {
         xl: '1rem',
+      },
+      backgroundImage: {
+        'transparent-window': 'linear-gradient(to right, rgb(var(--background)) 0%, rgb(var(--background)) 3%, transparent 15%, transparent 85%, rgb(var(--background)) 97%, rgb(var(--background)) 100%)', 
       },
       fontFamily: {
         sans: [
@@ -56,6 +60,10 @@ const config = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
+        },
+        'marquee': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
         },
       },
       screens: {

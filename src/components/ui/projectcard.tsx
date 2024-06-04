@@ -29,8 +29,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   // NB --> projects need to be in public/$id with cover-$themes.jpg  
 
   return (
-    <Card className="m-0 p-0 bg-transparent group-hover:shadow-elevate group-hover:-translate-y-1 transition-transform duration-75 ease-in-out overflow-visible relative -z-20 text-left">
-      <CardContent className="px-0">
+    <Card className="max-sm:outline-none m-0 px-0 py-4 bg-transparent group-hover:shadow-elevate group-hover:-translate-y-1 transition-transform duration-75 ease-in-out overflow-visible relative -z-20 text-left">
+      <CardContent className="sm:py-0 px-0">
         <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color">
           <Image
             className="rounded-sm"
