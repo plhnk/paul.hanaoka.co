@@ -22,22 +22,21 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   onClick,
 }) => {
   return (
-    <Card className={cn("w-full min-h-fit max-h-72",className)} onClick={onClick}>
+    <Card
+      className={cn('w-full min-h-fit max-h-72', className)}
+      onClick={onClick}
+    >
       <CardHeader className={title ? '' : 'hidden'}>
         <CardTitle>
-          <div className="text-sm mb-0 text-text/40 font-semibold uppercase leading-tight tracking-[.12em]">{title}</div>
-          <div
-            className={
-              importantNumber
-                ? 'text-[4rem] font-thin tracking-tighter font-mono -ml-1 text-text'
-                : 'mb-auto'
-            }
-          >
+          <div className="text-sm mb-0 text-text/40 font-semibold uppercase leading-tight tracking-[.12em]">
+            {title}
+          </div>
+          <div className="text-[4rem] -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
             {importantNumber}
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className={cn(fullScreen ? 'p-0' : '', 'sm:py-0')}>
+      <CardContent className="sm:py-0">
         {extraInfo}
         {content}
       </CardContent>
