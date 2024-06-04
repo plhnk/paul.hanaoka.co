@@ -35,12 +35,24 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
-  const { setTheme, theme: initialTheme } = useTheme();
-  const [theme, setClientTheme] = useState<string | undefined>();
+  
+  // try resolving theme instead to solve theme not propogating / flashing? 
+
+  const { setTheme, resolvedTheme } = useTheme();
+  const [clientTheme, setClientTheme] = useState<string | undefined>(
+    resolvedTheme
+  );
 
   useEffect(() => {
-    setClientTheme(initialTheme);
-  }, [initialTheme]);
+    setClientTheme(resolvedTheme);
+  }, [resolvedTheme]);
+
+  // const { setTheme, theme: initialTheme } = useTheme();
+  // const [theme, setClientTheme] = useState<string | undefined>();
+
+  // useEffect(() => {
+  //   setClientTheme(initialTheme);
+  // }, [initialTheme]);
 
   useEffect(() => {
     const elements = document.querySelectorAll('[data-hotkey]');
@@ -77,7 +89,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
             }}
             data-hotkey={modes.hotkey}
             className={`${
-              theme === modes.mode && 'bg-card '
+              clientTheme === modes.mode && 'bg-card '
             } w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${collapsed && 'sm:w-10'}`}
             key={index}
           >
@@ -93,5 +105,3 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
 };
 
 export default ModeToggle;
-// create Button component and merge modetoggle and button into it
-// actually make this completely diff on mobile --> side w/icon and initial only? or sideways letters? TODO
