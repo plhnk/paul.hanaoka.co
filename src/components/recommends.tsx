@@ -76,7 +76,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                   height={48}
                   className="absolute right-4 sm:right-[unset] top-4 sm:top-6 sm:-ml-3 w-6 h-6 rounded-md z-10"
                 />
-                <Card className="bg-background relative">
+                <Card className="bg-background relative outline outline-card/40 -outline-offset-1 outline-1">
                   <CardHeader className="flex-row items-center z-10">
                     <CardTitle className="mr-4">
                       {recommend.url ? (
@@ -129,7 +129,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                   <div className="ml-3 mt-5 flex flex-row sm:flex-col items-start overflow-x-scroll">
                     {recommend.tags.map((tag, index) => (
                       <div
-                        className="rounded-full text-nowrap mr-2 sm:mr-0 sm:mb-2 px-3 py-1 bg-card text-element text-sm"
+                        className="rounded-full text-nowrap mr-2 sm:mr-0 sm:mb-2 px-3 py-1 bg-card text-element text-sm outline outline-background/80 -outline-offset-1 outline-1"
                         key={index}
                       >
                         {tag}
@@ -148,8 +148,6 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
 
 export default Recommends;
 
-// TODO --> add external Link, to Link? or something
-
 // TODO --> componentize:
 // sidescroll
 // card?
@@ -161,4 +159,3 @@ export default Recommends;
 // TODO --> style current onPage items for mobile
 // TODO --> styles for the diff tags
 // TODO --> link tags? lots more work there
-// add stickermule
