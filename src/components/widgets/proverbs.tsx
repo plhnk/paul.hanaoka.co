@@ -59,6 +59,28 @@ export default function Proverbs(props: { className?: string }) {
     setPassage(selectedPassage);
   }, [proverbs]);
 
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const checkIfInView = () => {
+    const marquee = marqueeRef.current;
+    if (marquee) {
+      const rect = marquee.getBoundingClientRect();
+      const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      marquee.style.animationPlayState = inView ? 'running' : 'paused';
+    }
+  };
+
+  useEffect(() => {
+    checkIfInView(); // Initial check
+
+    window.addEventListener('scroll', checkIfInView);
+    window.addEventListener('resize', checkIfInView);
+
+    return () => {
+      window.removeEventListener('scroll', checkIfInView);
+      window.removeEventListener('resize', checkIfInView);
+    };
+  }, []);
+
   if (!proverb || !passage) {
     // Render skeleton while proverb is loading
     return (
@@ -73,9 +95,17 @@ export default function Proverbs(props: { className?: string }) {
     <HoverCard openDelay={100}>
       <HoverCardTrigger asChild>
         <div className={cn('overflow-hidden py-8 mb-24 sm:mb-16', className)}>
-          <div className="text-text/60 font-light italic w-full *:mr-4">
-            {/* <div>{proverb}</div> */}
-            <div>{proverb}</div>
+          <div className="relative w-full overflow-hidden whitespace-nowrap">
+            <div
+              ref={marqueeRef}
+              style={{ animationPlayState: 'paused' }}
+              className="inline-block whitespace-nowrap animate-[marquee_20s_linear_infinite] text-text"
+            >
+              <div className="flex *:pr-64">
+                <span>{proverb}</span>
+                <span>{proverb}</span>
+              </div>
+            </div>
           </div>
         </div>
       </HoverCardTrigger>
@@ -100,7 +130,6 @@ export default function Proverbs(props: { className?: string }) {
             {passage} from the ESV translation of the Bible.
           </div>
           <ArrowUpRight className="mr-1 -mt-1" />
-          {/* </div> */}
         </a>
       </HoverCardContent>
     </HoverCard>

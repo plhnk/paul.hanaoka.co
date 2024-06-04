@@ -31,8 +31,9 @@ const Projects: React.FC<{ className?: string }> = ({ className }) => {
 
   return (
     <ul
-      className={`main-content overflow-x-clip [overflow-clip-margin:20px] sm:overflow-x-visible ${className}`}
+      className={`main-content overflow-x-clip [overflow-clip-margin:20px] sm:overflow-x-visible  ${className}`}
     >
+      {/* TODO fix card overflow on mobile...try setting a size for the card (max?) and overflow visible? */}
       {loading ? ( // Render placeholder content if loading
         <div className="flex flex-col col-span-7 my-24">
           <div className="flex flex-col w-full space-y-8">
