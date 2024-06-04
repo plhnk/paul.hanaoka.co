@@ -18,4 +18,3 @@ export default function Recommends() {
 }
 
 // TODO --> newsletters: James Clear, ?
-// TODO --> StickerMule

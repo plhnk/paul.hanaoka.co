@@ -58,13 +58,6 @@
     "description": "You were expecting Notion here, weren't you. Surprise! I prefer to use Apple’s built-in apps whenever possible (unless the alternative is at least 10x better). I love starting notes on my phone and picking up on my laptop and vice versa. It’s the simple things."
   },
   {
-    "label": "Costco",
-    "icon": "costco-app-icon.webp",
-    "category": "Retail",
-    "tags": ["Wholesale", "Groceries", "Electronics", "Home Goods"],
-    "description": "Where else can you get prime grade brisket, a year’s supply of floss, a set of new tires, and a $1.50 hotdog while you wait to have them installed? Arguably the industry’s best return policy, and to top it off they treat their employees exceptionally well — Costco is almost too good to be true."
-  },
-  {
     "label": "Costco Anywhere Visa",
     "icon": "costco-citi.png",
     "category": "Credit Cards",
@@ -126,6 +119,28 @@
         "url": "https://join.robinhood.com/paulh197",
         "cta": "Start trading and get a free stock!",
         "description": "We both get free stock when you sign up and fund an account — 99% of rewards are worth $5. 1-in-100 customers can get at least $10; 1-in-1,000 can get $200."
+      }
+    ]
+  },
+  {
+    "label": "Costco",
+    "icon": "costco-app-icon.webp",
+    "category": "Misc",
+    "tags": ["Wholesale", "Groceries", "Electronics", "Home Goods"],
+    "description": "Where else can you get prime grade brisket, a year’s supply of floss, a set of new tires, and a $1.50 hotdog while you wait to have them installed? Arguably the industry’s best return policy, and to top it off they treat their employees exceptionally well — Costco is almost too good to be true."
+  },
+  {
+    "label": "Sticker Mule",
+    "icon": "stickermule-icon.ico",
+    "url": "https://stickermule.com",
+    "category": "Misc",
+    "tags": ["SWAG", "Printing", "Stickers", "Gifts"],
+    "description": "Sticker Mule is the gold standard for online printing — great quality, prices, and customer service.",
+    "referralLink": [
+      {
+        "url": "https://www.stickermule.com/unlock?ref_id=6172170701&utm_medium=link&utm_source=invite",
+        "cta": "Get a $10 credit with this link!",
+        "description": "You get a $10 credit, I get a small commission on your purchases for 1 year."
       }
     ]
   }
