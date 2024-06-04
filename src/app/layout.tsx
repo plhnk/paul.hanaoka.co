@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import { Fira_Code, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from '../components/theme-provider';
-import './globals.css';
-import { Toaster } from '@/components/ui/sonner';
-import Navigation from '../components/navigation';
-import Footer from '@/components/footer';
 import Analytics from '@/components/analytics';
 import DefaultLayout from '@/components/layout/default-layout';
-import { Sidebar } from 'lucide-react';
 import { SidebarProvider } from '@/components/sidebar-provider';
+import './globals.css';
 
 const fira_code = Fira_Code({
   subsets: ['latin'],
@@ -68,10 +64,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={
-        `${fira_code.variable} ${fira_sans.variable}`
-        // `${fira_code.variable} ${fira_sans.variable}` + ' radix-themes'
-      }
+      className={`${fira_code.variable} ${fira_sans.variable}`}
       lang="en"
       suppressHydrationWarning
     >
