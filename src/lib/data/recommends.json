@@ -123,6 +123,38 @@
     ]
   },
   {
+    "label": "The 3-2-1 Newsletter by James Clear",
+    "icon": "james-clear.png",
+    "url": "https://www.jamesclear.com/3-2-1-newsletter",
+    "category": "Newsletters",
+    "tags": ["Self-Help", "Productivity", "Habits", "Lifestyle", "Wellness"],
+    "description": "You’ve no doubt heard of James Clear, or at least his book ’Atomic Habits’ — I read it a few years ago, and while I’m still working on fully implementing all his principles, it’s definitely contributed to growth in my life."
+  },
+  {
+    "label": "Dense Discovery",
+    "icon": "kai-brach.jpeg",
+    "url": "https://www.densediscovery.com",
+    "category": "Newsletters",
+    "tags": ["Design", "Technology", "Sustainability", "Internet"],
+    "description": "Brought to you by the Kai Brach (creator of Offscreen), Dense Discovery brings you a weekly roundup of interesting things Kai has found on the web with a focus on sustainability and responsible tech."
+  },
+  {
+    "label": "Snacks",
+    "icon": "snacks-icon.png",
+    "url": "https://sherwood.news/snacks/newsletters/",
+    "category": "Newsletters",
+    "tags": ["Technology", "Investing", "Stocks", "Financial"],
+    "description": "Robinhood’s weekly newsletter is a light hearted way to get the latest on the stock market — I generally skim the weekly newsletter and occasionally read one of the deep dives."
+  },
+  {
+    "label": "Money Stuff",
+    "icon": "matt-levine.png",
+    "url": "https://www.bloomberg.com/account/newsletters/money-stuff",
+    "category": "Newsletters",
+    "tags": ["Finance", "Investing", "Wall Street", "Humor", "Insider Trading"],
+    "description": "Matt Levine is one of the most prolific financial writers — seriously it’s hard to believe he’s not just writing 24/7. I actually don’t read every newsletter, they’re so, so long — when I have an extra 20 minutes or an post seems extra interesting I’ll make time for it. It’s some of the best writing you’ll read."
+  },
+  {
     "label": "Costco",
     "icon": "costco-app-icon.webp",
     "category": "Misc",

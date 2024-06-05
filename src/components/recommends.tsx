@@ -63,7 +63,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
           id={category}
           ref={categoryRefs[category]}
         >
-          <ul className="my-16">
+          <ul className="my-16 max-w-[66ch]">
             {recommends.map((recommend, index) => (
               <li
                 className="flex flex-col sm:flex-row relative my-12"
@@ -76,7 +76,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                   height={48}
                   className="absolute right-4 sm:right-[unset] top-4 sm:top-6 sm:-ml-3 w-6 h-6 rounded-md z-10"
                 />
-                <Card className="bg-background relative outline outline-card/40 -outline-offset-1 outline-1">
+                <Card className="bg-background relative outline outline-card/40 -outline-offset-1 outline-1 w-full">
                   <CardHeader className="flex-row items-center z-10">
                     <CardTitle className="mr-4">
                       {recommend.url ? (
@@ -88,7 +88,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                       )}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="max-w-[60ch]">
+                  <CardContent className="">
                     <div className="relative z-10">
                       <p className="mb-4 italic font-light">
                         {recommend.description}
@@ -126,7 +126,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                   </CardContent>
                 </Card>
                 {recommend.tags && (
-                  <div className="ml-3 mt-5 flex flex-row sm:flex-col items-start overflow-x-scroll">
+                  <div className="ml-3 mt-5 flex flex-row sm:flex-col items-start overflow-x-scroll sm:overflow-x-visible md:absolute left-full">
                     {recommend.tags.map((tag, index) => (
                       <div
                         className="rounded-full text-nowrap mr-2 sm:mr-0 sm:mb-2 px-3 py-1 bg-card text-element text-sm outline outline-background/80 -outline-offset-1 outline-1"
