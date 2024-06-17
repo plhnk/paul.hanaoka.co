@@ -4,25 +4,35 @@ import { useTheme } from 'next-themes';
 
 # An interface for translation
 
-<Summary 
-  context={'One of Lifery’s core features is content management. Many of our customers operate globally and need to provide content in multiple languages to serve their audiences effectively.'}
-  contributions={['User Research','Product Strategy', 'User Experience', 'Interaction Design']} 
-  impact={['60% decrease in time on task', '20% increase in System Usability Score (SUS)', '30% reduction in user error rates']} 
+<Summary
+  context={
+    'One of Lifery’s core features is content management. Many of our customers operate globally and need to provide content in multiple languages to serve their audiences effectively.'
+  }
+  contributions={[
+    'User Research',
+    'Product Strategy',
+    'User Experience',
+    'Interaction Design',
+  ]}
+  impact={[
+    '60% decrease in time on task',
+    '20% increase in System Usability Score (SUS)',
+    '30% reduction in user error rates',
+  ]}
 />
 
-{/* 
-<div className="bgBlender">
-  <Image
-    src={{
-      light: '/projects/translation/cover-light.jpg',
-      dark: '/projects/translation/cover-dark.jpg',
-    }}
-    width={1000}
-    height={700}
-  />
-</div> */}
-
 Localization features were initially bolted on to the existing interface, which created many opportunities for improvement with a more user-centered design process.
+
+<div className="overflow-x-scroll">
+  <img
+    style={{ height: 352, width: 3410, maxWidth: 'unset' }}
+    src="/projects/translation/old-flow.png"
+    alt="Old translation flow"
+  />
+</div>
+_The old translation flow_
+{/* TODO figure out side-scroll-blender fixed */}
+{/* TODO add arrow to scroll */}
 
 ![A screenshot of the original Liferay UI for translation](/projects/translation/before.png 'The original UI for viewing a translation')
 {/* TODO create component for anontating images */}
@@ -37,11 +47,11 @@ To better understand pain points and clarify requirements, we conducted intervie
 
 After synthesizing findings, we aligned on this problem statement:
 
-<div className="w-full h-32"/>
+<div className="w-full h-32" />
 
 > Our global customers struggle to translate content efficiently. The current translation process uses the same interface designed for creating content, not translation workflows. This outdated approach wastes time, causes errors, and delays getting localized content to international audiences.
 
-<div className="w-full h-32"/>
+<div className="w-full h-32" />
 
 Based on the insights, we prioritized the following directions for mockups and prototyping:
 
@@ -64,9 +74,7 @@ For the import experience, we focused on providing a seamless workflow with feat
 - Handling translation conflicts and overrides
 - Batch import and selective import options
 
-
 ![A screenshot of the original Liferay UI for translation](/projects/translation/import-06.png 'Auto translate interface in action')
-
 
 ### Dedicated Translation Interface
 
@@ -110,7 +118,6 @@ While these enhancements addressed many of the core pain points, we identified s
 - **Adaptive Translation Workflows**: Dynamically adjust translation workflows based on content type, target audience, and other contextual factors.
 - **Multilingual Content Creation**: Explore features that enable content creators to author and manage multilingual content natively within our platform, reducing the need for separate translation workflows.
 - **Personalization and Transcreation**: Enhance support for culturally-adapted content beyond direct translations, such as transcreation (recreating content for a specific culture) and personalization based on user preferences or location.
-
 
 {/* For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo. */}
 
