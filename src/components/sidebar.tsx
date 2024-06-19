@@ -2,6 +2,7 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import {
   BadgeCheck,
+  BookOpen,
   Calendar,
   Camera,
   CircleUserRound,
@@ -90,13 +91,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       collapsed: collapsed,
       url: '/recommends',
     },
-    // {
-    //   icon: <PenLine {...iconStyle} />,
-    //   label: 'Blog',
-    //   hotkey: 'b',
-    //   collapsed: collapsed,
-    //   url: '/blog',
-    // },
+    {
+      icon: <BookOpen {...iconStyle} />,
+      label: 'Readme',
+      hotkey: 'h',
+      collapsed: collapsed,
+      url: '/readme',
+    },
   ];
 
   const connect = [

@@ -1,5 +1,6 @@
 [
   {
+    "publish": true,
     "id": "Abel Hancock",
     "currentTitle": "Staff Product Designer",
     "currentCompany": "Liferay",
@@ -12,6 +13,7 @@
     ]
   },
   {
+    "publish": true,
     "id": "Chris Jeong",
     "currentTitle": "Senior Product Designer",
     "currentCompany": "Meta",
@@ -24,18 +26,20 @@
     ]
   },
   {
+    "publish": true,
     "id": "Ryan Connolly",
     "currentTitle": "Staff Interaction Designer",
     "currentCompany": "Google",
     "relationship": "Coworker",
     "workedTogether": "2017-21",
-    "testimonial": "I had the pleasure of working with Paul for 4 years at Liferay. He is as an exceptional team builder and strategist. His dedication to process and design operations transforms good teams into great communities. Paul's self-discipline, lack of ego, and continuous growth impress peers. I learned a lot from him, and will always be appreciative of our time designing together. He maximizes resources effectively, proving immediate value. An asset to any team, Paul's hard work sets a top-tier example and brings out the best in others.",
+    "testimonial": "I had the pleasure of working with Paul for 4 years at Liferay. He is as an exceptional team builder and strategist. Paul's self-discipline, lack of ego, and continuous growth impress peers. I learned a lot from him, and will always be appreciative of our time designing together. He maximizes resources effectively, proving immediate value. An asset to any team, Paul's hard work sets a top-tier example and brings out the best in others.",
     "links": [
       { "LinkedIn": "https://www.linkedin.com/in/ryan-connolly" },
       { "Twitter": "https://twitter.com/ryanconnolly" }
     ]
   },
   {
+    "publish": true,
     "id": "Mercedes Oseguera",
     "currentTitle": "Principal Communication Designer",
     "currentCompany": "Liferay",
@@ -48,6 +52,7 @@
     ]
   },
   {
+    "publish": true,
     "id": "Juan Hidalgo",
     "currentTitle": "VP of Design",
     "currentCompany": "Mews",
@@ -60,6 +65,7 @@
     ]
   },
   {
+    "publish": true,
     "id": "Mike Han",
     "currentTitle": "COO of Tax Credits",
     "currentCompany": "Gusto",
@@ -69,6 +75,7 @@
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
   },
   {
+    "publish": true,
     "id": "Carolina Rodriguez",
     "currentTitle": "Staff Product Designer",
     "currentCompany": "Liferay",
@@ -78,6 +85,7 @@
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
   },
   {
+    "publish": false,
     "id": "May Chen",
     "currentTitle": "Product Designer",
     "currentCompany": "Liferay",
@@ -87,6 +95,7 @@
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
   },
   {
+    "publish": true,
     "id": "Bryan Cheung",
     "currentTitle": "Former CEO",
     "currentCompany": "Liferay",
@@ -96,10 +105,11 @@
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
   },
   {
+    "publish": true,
     "id": "Ed Chung",
     "currentTitle": "Product Manager",
     "currentCompany": "Apple",
-    "relationship": "Coworker",
+    "relationship": "VP of Product",
     "workedTogether": "2014-21",
     "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
