@@ -48,12 +48,22 @@ export function pluralize(input: number): string {
 export function convertIdToFilename(id: string): string {
   // Convert to lowercase
   const lowerCaseId = id.toLowerCase();
-  
+
   // Replace spaces with hyphens
   const hyphenatedId = lowerCaseId.replace(/\s+/g, '-');
-  
+
   // Append ".jpg" to the end
   const filename = hyphenatedId + '.jpg';
-  
+
   return filename;
+}
+
+export function yearsSince(year: number): number {
+  const date = new Date();
+
+  const currentYear = date.toLocaleDateString('en-US', { year: 'numeric' });
+
+  const years = Number(currentYear) - year;
+
+  return years;
 }
