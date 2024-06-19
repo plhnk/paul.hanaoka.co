@@ -1,0 +1,62 @@
+[
+    {
+        "id":"Abel Hancock",
+        "title":"Staff Product Designer",
+        "currentCompany":"Liferay",
+        "relationship":"Coworker",
+        "workedTogether":"2017-24",
+        "testimonial":"Paul is the best manager I’ve ever had. He always takes time to listen and genuinely cares about you as a person. What sets him apart is that he doesn’t just listen, he actively helps you solve issues and empowers you to grow as a person through whatever challenges you’re facing.",
+        "links":[
+            {"LinkedIn":"https://www.linkedin.com/in/abel-hancock"},
+            {"Twitter":"https://twitter.com/abelfhancock"}
+        ]
+    },
+    {
+        "id":"Chris Jeong",
+        "title":"Senior Product Designer",
+        "currentCompany":"Meta",
+        "relationship":"Coworker",
+        "workedTogether":"2017-22",
+        "testimonial":"Paul is the best manager I’ve ever had. He always takes time to listen and genuinely cares about you as a person. What sets him apart is that he doesn’t just listen, he actively helps you solve issues and empowers you to grow as a person through whatever challenges you’re facing.",
+        "links":[
+            {"LinkedIn":"https://www.linkedin.com/in/chris-jeong"},
+            {"Twitter":"https://twitter.com/chrisjeong"}
+        ]
+    },
+    {
+        "id":"Ryan Connolly",
+        "title":"Staff Interaction Designer",
+        "currentCompany":"Google",
+        "relationship":"Coworker",
+        "workedTogether":"2017-21",
+        "testimonial":"I had the pleasure of working with Paul for 4 years at Liferay. He is as an exceptional team builder and strategist. His dedication to process and design operations transforms good teams into great communities. Paul's self-discipline, lack of ego, and continuous growth impress peers. I learned a lot from him, and will always be appreciative of our time designing together. He maximizes resources effectively, proving immediate value. An asset to any team, Paul's hard work sets a top-tier example and brings out the best in others.",
+        "links":[
+            {"LinkedIn":"https://www.linkedin.com/in/ryan-connolly"},
+            {"Twitter":"https://twitter.com/ryanconnolly"}
+        ]
+    },
+    {
+        "id":"Mercedes Oseguera",
+        "title":"Principal Communication Designer",
+        "currentCompany":"Liferay",
+        "relationship":"Coworker",
+        "workedTogether":"2020-24",
+        "testimonial":"I’m so grateful to have had Paul as a manager, I learned a lot from him and so appreciate his supportive and caring nature. His quiet leadership style is a breath of fresh air and his focus on value over process is something I apply in my team.",
+        "links":[
+            {"LinkedIn":"https://www.linkedin.com/in/mercedes-oseguera"},
+            {"Twitter":"https://twitter.com/mercedesos"}
+        ]
+    },
+    {
+        "id":"Juan Hidalgo",
+        "title":"VP of Design",
+        "currentCompany":"Mews",
+        "relationship":"Manager",
+        "workedTogether":"2017-22",
+        "testimonial":"Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
+        "links":[
+            {"LinkedIn":"https://www.linkedin.com/in/juan-hidalgo"},
+            {"Twitter":"https://twitter.com/juanhidalgo"}
+        ]
+    }
+]
