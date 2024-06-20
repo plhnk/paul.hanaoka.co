@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import PeopleData from '@/lib/data/People.json';
+import PeopleData from '@/lib/data/people.json';
 import { convertIdToFilename } from '@/lib/utils';
 import Link from '@/components/ui/link';
 
