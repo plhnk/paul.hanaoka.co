@@ -29,12 +29,12 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <ul className="grid col-start-2 col-span-8 grid-cols-2 xl:grid-cols-3 gap-16 -ml-28">
+    <ul className="grid col-start-1 lg:col-start-2 col-span-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 lg:-ml-28">
       {sortedPeople.map(
         (person) =>
           person.publish === true && (
             <li key={person.id} className="col-span-1 ">
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col md:flex-row">
                 <div className="w-24 h-32 shrink-0 rounded-full overflow-hidden outline -outline-offset-1 outline-background/40">
                   <img
                     className="w-full h-full object-cover"
@@ -42,7 +42,7 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
                     alt={person.id}
                   />
                 </div>
-                <div className="flex flex-col gap-2 mt-8">
+                <div className="flex flex-col gap-2 md:mt-8">
                   <h3 className="font-semibold">
                     {person.id}{' '}
                     <span className="text-text/50">

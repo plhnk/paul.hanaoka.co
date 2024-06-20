@@ -8,12 +8,12 @@
     "workedTogether": "2017-24",
     "testimonial": "Paul is the best manager I’ve ever had. He always takes time to listen and genuinely cares about you as a person. What sets him apart is that he doesn’t just listen, he actively helps you solve issues and empowers you to grow as a person through whatever challenges you’re facing.",
     "links": [
-      { "LinkedIn": "https://www.linkedin.com/in/abel-hancock" },
+      { "LinkedIn": "https://www.linkedin.com/in/abelhancock" },
       { "Twitter": "https://twitter.com/abelfhancock" }
     ]
   },
   {
-    "publish": true,
+    "publish": false,
     "id": "Chris Jeong",
     "currentTitle": "Senior Product Designer",
     "currentCompany": "Meta",
@@ -21,8 +21,8 @@
     "workedTogether": "2017-22",
     "testimonial": "Paul is the best manager I’ve ever had. He always takes time to listen and genuinely cares about you as a person. What sets him apart is that he doesn’t just listen, he actively helps you solve issues and empowers you to grow as a person through whatever challenges you’re facing.",
     "links": [
-      { "LinkedIn": "https://www.linkedin.com/in/chris-jeong" },
-      { "Twitter": "https://twitter.com/chrisjeong" }
+      { "LinkedIn": "https://www.linkedin.com/in/cjeong" },
+      { "Twitter": "https://twitter.com/cj213x" }
     ]
   },
   {
@@ -35,7 +35,8 @@
     "testimonial": "I had the pleasure of working with Paul for 4 years at Liferay. He is as an exceptional team builder and strategist. Paul's self-discipline, lack of ego, and continuous growth impress peers. I learned a lot from him, and will always be appreciative of our time designing together. He maximizes resources effectively, proving immediate value. An asset to any team, Paul's hard work sets a top-tier example and brings out the best in others.",
     "links": [
       { "LinkedIn": "https://www.linkedin.com/in/ryan-connolly" },
-      { "Twitter": "https://twitter.com/ryanconnolly" }
+      { "Dribbble": "https://dribbble.com/ryconn888" },
+      { "Twitter": "https://twitter.com/ryconn888" }
     ]
   },
   {
@@ -47,42 +48,45 @@
     "workedTogether": "2020-24",
     "testimonial": "I’m so grateful to have had Paul as a manager, I learned a lot from him and so appreciate his supportive and caring nature. His quiet leadership style is a breath of fresh air and his focus on value over process is something I apply in my team.",
     "links": [
-      { "LinkedIn": "https://www.linkedin.com/in/mercedes-oseguera" },
-      { "Twitter": "https://twitter.com/mercedesos" }
+      { "LinkedIn": "https://www.linkedin.com/in/mercedes-oseguera-62276534" }
     ]
   },
   {
-    "publish": true,
+    "publish": false,
     "id": "Juan Hidalgo",
     "currentTitle": "VP of Design",
     "currentCompany": "Mews",
     "relationship": "Manager",
     "workedTogether": "2017-22",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
+    "testimonial": "",
     "links": [
-      { "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" },
-      { "Twitter": "https://twitter.com/juanhidalgo" }
+      { "LinkedIn": "https://www.linkedin.com/in/juanhidalgoreina" },
+      { "Twitter": "https://twitter.com/jhidalgoreina" }
     ]
   },
   {
-    "publish": true,
+    "publish": false,
     "id": "Mike Han",
     "currentTitle": "COO of Tax Credits",
     "currentCompany": "Gusto",
     "relationship": "CTO of Liferay",
     "workedTogether": "2019-20",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
-    "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
+    "testimonial": "",
+    "links": [{ "LinkedIn": "https://www.linkedin.com/in/mhan810" }]
   },
   {
-    "publish": true,
+    "publish": false,
     "id": "Carolina Rodriguez",
     "currentTitle": "Staff Product Designer",
     "currentCompany": "Liferay",
     "relationship": "Coworker",
     "workedTogether": "2021-24",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
-    "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
+    "testimonial": "",
+    "links": [
+      {
+        "LinkedIn": "https://www.linkedin.com/in/carolina-rodriguez-productdesigner"
+      }
+    ]
   },
   {
     "publish": false,
@@ -91,27 +95,41 @@
     "currentCompany": "Liferay",
     "relationship": "Coworker",
     "workedTogether": "2021-24",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
-    "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
+    "testimonial": "",
+    "links": [{ "LinkedIn": "https://www.linkedin.com/in/mayjchen" }]
   },
   {
-    "publish": true,
+    "publish": false,
     "id": "Bryan Cheung",
     "currentTitle": "Former CEO",
     "currentCompany": "Liferay",
     "relationship": "Manager",
     "workedTogether": "2022-24",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
-    "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
+    "testimonial": "",
+    "links": [{ "LinkedIn": "https://www.linkedin.com/in/bcheung" }]
   },
   {
     "publish": true,
     "id": "Ed Chung",
     "currentTitle": "Product Manager",
     "currentCompany": "Apple",
-    "relationship": "VP of Product",
+    "relationship": "VP of Product @ Liferay",
     "workedTogether": "2014-21",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. His ability to listen and create connections is second to none.",
-    "links": [{ "LinkedIn": "https://www.linkedin.com/in/juan-hidalgo" }]
+    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. I really appreciated his product instincts, especially paired with his humility and desire to see the best idea win.",
+    "links": [{ "LinkedIn": "https://www.linkedin.com/in/ed-chung-5251a119" }]
+  },
+  {
+    "publish": true,
+    "id": "Nathan Cook",
+    "currentTitle": "Director of Web Development",
+    "currentCompany": "Audible",
+    "relationship": "Coworker",
+    "workedTogether": "2014-15",
+    "testimonial": "The best designer I ever worked with.",
+    "links": [
+      { "LinkedIn": "https://www.linkedin.com/in/natemitchcook" },
+      { "Twitter": "https://twitter.com/natemitchcook" },
+      { "GitHub": "https://github.com/natecook" }
+    ]
   }
 ]
