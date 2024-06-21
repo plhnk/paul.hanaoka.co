@@ -19,7 +19,7 @@ interface Person {
   links: Link[];
 }
 
-const people: Person[] = PeopleData as Person[];
+const people: Person[] = PeopleData as unknown as Person[];
 
 const People: React.FC<{ className?: string }> = ({ className }) => {
   const sortedPeople = [...people].sort((a, b) => a.id.localeCompare(b.id));
