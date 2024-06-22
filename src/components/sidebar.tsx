@@ -21,6 +21,8 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
+import { getNavItems } from './navItems';
+
 interface SidebarProps {
   children?: ReactNode;
   iconStyle?: object;
@@ -34,6 +36,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   collapsed,
   toggleCollapse,
 }) => {
+
+  // const navItems = getNavItems();
+
   const [isMobile, setIsMobile] = useState(false);
   // const [isScrolled, setIsScrolled] = useState(false);
 
@@ -98,6 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       collapsed: collapsed,
       url: '/readme',
     },
+    // write a test so that hotkeys don't conflict
   ];
 
   const connect = [
