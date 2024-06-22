@@ -21,7 +21,6 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
-import { getNavItems } from './navItems';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -36,9 +35,6 @@ const Sidebar: React.FC<SidebarProps> = ({
   collapsed,
   toggleCollapse,
 }) => {
-
-  // const navItems = getNavItems();
-
   const [isMobile, setIsMobile] = useState(false);
   // const [isScrolled, setIsScrolled] = useState(false);
 
@@ -49,6 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   //       element.scrollTop + element.clientHeight < element.scrollHeight
   //   );
   // };
+  // start to have custom scrollbar...probably not worth it
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 640);
@@ -76,18 +73,11 @@ const Sidebar: React.FC<SidebarProps> = ({
       url: '/about',
     },
     {
-      icon: <Layers {...iconStyle} />,
-      label: 'Projects',
-      hotkey: 'p',
+      icon: <BookOpen {...iconStyle} />,
+      label: 'Readme',
+      hotkey: 'e',
       collapsed: collapsed,
-      url: '/projects',
-    },
-    {
-      icon: <Camera {...iconStyle} />,
-      label: 'Photos',
-      hotkey: 'u',
-      collapsed: collapsed,
-      url: '/photos',
+      url: '/readme',
     },
     {
       icon: <BadgeCheck {...iconStyle} />,
@@ -97,11 +87,18 @@ const Sidebar: React.FC<SidebarProps> = ({
       url: '/recommends',
     },
     {
-      icon: <BookOpen {...iconStyle} />,
-      label: 'Readme',
-      hotkey: 'e',
+      icon: <Layers {...iconStyle} />,
+      label: 'Projects',
+      hotkey: 'o',
       collapsed: collapsed,
-      url: '/readme',
+      url: '/projects',
+    },
+    {
+      icon: <Camera {...iconStyle} />,
+      label: 'Photos',
+      hotkey: 'u',
+      collapsed: collapsed,
+      url: '/photos',
     },
     // write a test so that hotkeys don't conflict
   ];
@@ -142,24 +139,6 @@ const Sidebar: React.FC<SidebarProps> = ({
       collapsed: collapsed,
       url: 'https://twitter.com/plhnk',
     },
-  ];
-
-  const theme = [
-    {
-      icon: <Terminal {...iconStyle} />,
-      label: 'Elite',
-      hotkey: 'e',
-      collapsed: collapsed,
-      theme: 'elite',
-    },
-    {
-      icon: <Pizza {...iconStyle} />,
-      label: 'Exec',
-      hotkey: 'c',
-      collapsed: collapsed,
-      theme: 'exec',
-    },
-    // TODO polish themes
   ];
 
   return (
