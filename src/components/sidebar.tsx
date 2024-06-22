@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     {
       icon: <BookOpen {...iconStyle} />,
       label: 'Readme',
-      hotkey: 'h',
+      hotkey: 'e',
       collapsed: collapsed,
       url: '/readme',
     },
