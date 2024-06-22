@@ -52,13 +52,13 @@
     ]
   },
   {
-    "publish": false,
+    "publish": true,
     "id": "Juan Hidalgo",
     "currentTitle": "VP of Design",
     "currentCompany": "Mews",
     "relationship": "Manager",
     "workedTogether": "2017-22",
-    "testimonial": "",
+    "testimonial": "An incredibly curious person and a natural empath, Paul is one of the most versatile designers I’ve worked with. His broad range of abilities and experiences help him excel at solving problems of scale - designing for millions of users. The depth of his technical expertise, keen eye for detail, and excellent taste make him a valuable contributor in an org looking to ship high-quality products.",
     "links": [
       { "LinkedIn": "https://www.linkedin.com/in/juanhidalgoreina" },
       { "Twitter": "https://twitter.com/jhidalgoreina" }
@@ -115,7 +115,7 @@
     "currentCompany": "Apple",
     "relationship": "VP of Product @ Liferay",
     "workedTogether": "2014-21",
-    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. He’s incredibly curious and a natural empath. I really appreciated his product instincts, especially paired with his humility and desire to see the best idea win.",
+    "testimonial": "Paul is one of the most well-rounded designers I’ve ever worked with. I really appreciated his product instincts, especially paired with his humility and desire to see the best idea win. He lives by 'Users First, Data Always' — employing quantitative and qualitative data to inform and shape design decisions that always places the user at the heart of the solution.", 
     "links": [{ "LinkedIn": "https://www.linkedin.com/in/ed-chung-5251a119" }]
   },
   {
