@@ -3,6 +3,7 @@ import React from 'react';
 import PeopleData from '@/lib/data/people.json';
 import { convertIdToFilename } from '@/lib/utils';
 import Link from '@/components/ui/link';
+import Image from 'next/image';
 
 interface Link {
   [key: string]: string;
@@ -36,7 +37,9 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
             <li key={person.id} className="col-span-1 ">
               <div className="flex gap-4 flex-col md:flex-row">
                 <div className="w-24 h-32 shrink-0 rounded-full overflow-hidden outline -outline-offset-1 outline-background/40">
-                  <img
+                  <Image
+                    width={100}
+                    height={140}
                     className="w-full h-full object-cover"
                     src={`/headshots/${convertIdToFilename(person.id)}`}
                     alt={person.id}
