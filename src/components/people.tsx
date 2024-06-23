@@ -29,7 +29,7 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <ul className="grid col-start-1 lg:col-start-2 col-span-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 lg:-ml-28">
+    <ul className="grid col-start-1 lg:col-start-2 col-span-3 md:col-span-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 lg:-ml-28">
       {sortedPeople.map(
         (person) =>
           person.publish === true && (
