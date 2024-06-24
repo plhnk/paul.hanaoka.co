@@ -35,24 +35,23 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
-  
-  // try resolving theme instead to solve theme not propogating / flashing? 
 
-  const { setTheme, resolvedTheme } = useTheme();
-  const [clientTheme, setClientTheme] = useState<string | undefined>(
-    resolvedTheme
-  );
+  // try resolving theme instead to solve theme not propogating / flashing?
+
+  const { setTheme, resolvedTheme, systemTheme, theme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+  const [clientTheme, setClientTheme] = useState<string | undefined>();
 
   useEffect(() => {
-    setClientTheme(resolvedTheme);
-  }, [resolvedTheme]);
+    setMounted(true);
+  }, []);
 
-  // const { setTheme, theme: initialTheme } = useTheme();
-  // const [theme, setClientTheme] = useState<string | undefined>();
-
-  // useEffect(() => {
-  //   setClientTheme(initialTheme);
-  // }, [initialTheme]);
+  useEffect(() => {
+    if (mounted) {
+      setClientTheme(theme === 'system' ? resolvedTheme : theme);
+    }
+  }, [mounted, theme, resolvedTheme]);
 
   useEffect(() => {
     const elements = document.querySelectorAll('[data-hotkey]');
@@ -68,6 +67,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
       });
     }
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className={cn(`col-span-1`, className)}>
@@ -90,7 +91,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
             data-hotkey={modes.hotkey}
             className={`${
               clientTheme === modes.mode && 'bg-card '
-            } w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${collapsed && 'sm:w-10'}`}
+            } first:gap-3 gap-2 w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${collapsed && 'sm:w-10'}`}
             key={index}
           >
             {modes.icon}

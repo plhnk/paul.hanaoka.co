@@ -11,7 +11,7 @@ import { useSidebarContext } from '@/components/sidebar-provider';
 
 const About: React.FC = () => {
   const sections = [
-    { id: 'Bio', component: Bio },
+    // { id: 'Bio', component: Bio },
     { id: 'Experience', component: CV },
     { id: "How It's Made", component: HowItsMade },
     { id: 'Colophon', component: Colophon },
