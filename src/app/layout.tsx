@@ -79,7 +79,7 @@ export default function RootLayout({
           themes={['light', 'dark', 'elite', 'exec']}
           // add any new themes to this list, but also don't forget to add them to the tailwind config file
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
         >
           <SidebarProvider>
