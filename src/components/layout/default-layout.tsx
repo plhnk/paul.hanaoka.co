@@ -13,7 +13,7 @@ export default function DefaultLayout({
   const { collapsed, toggleCollapse } = useSidebarContext();
 
   return (
-    <div className="page-wrapper">
+    <div id='2xl-faux-browser' className="page-wrapper">
       {/* TODO style this scrollbar on max screens */}
       <Navigation collapsed={collapsed} toggleCollapse={toggleCollapse} />
       <div className={`main-wrapper ${collapsed ? 'xl:ml-80 2xl:mr-0' : 'xl:ml-80 2xl:mr-0'}`}> 
