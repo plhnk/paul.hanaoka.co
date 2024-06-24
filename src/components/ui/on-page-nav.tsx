@@ -15,7 +15,7 @@ const OnPageNav: React.FC<{
   >({});
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleWindowScroll = () => {
       const newArrowDirections = categories.reduce((directions, category) => {
         const element = document.getElementById(category);
         if (!element) return directions;
@@ -36,9 +36,48 @@ const OnPageNav: React.FC<{
       setArrowDirections(newArrowDirections);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleWindowScroll);
+    handleWindowScroll(); // Initial call to set directions on mount
+    return () => window.removeEventListener('scroll', handleWindowScroll);
   }, [categories]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // add more resize logic...
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call on mount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const viewportWidth = window.innerWidth;
+    const isLargeViewport = viewportWidth >= 2000;
+
+    if (isLargeViewport) {
+      const container = document.getElementById('2xl-faux-browser');
+      if (container) {
+        const containerRect = container.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        const scrollToPosition =
+          elementRect.top -
+          containerRect.top +
+          container.scrollTop -
+          scrollOffset;
+        container.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+      }
+    } else {
+      const top =
+        element.getBoundingClientRect().top +
+        window.scrollY -
+        scrollOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
 
   const [arrowOpacity, setArrowOpacity] = useState(1);
   const [arrowRotate, setArrowRotate] = useState(0);
@@ -47,7 +86,7 @@ const OnPageNav: React.FC<{
     const parentDiv = document.getElementById('onPageNav');
     if (!parentDiv) return;
 
-    const handleScroll = () => {
+    const handleParentScroll = () => {
       const maxScrollLeft = parentDiv.scrollWidth - parentDiv.clientWidth;
       const opacity =
         parentDiv.scrollLeft < maxScrollLeft
@@ -59,17 +98,10 @@ const OnPageNav: React.FC<{
       setArrowRotate(rotate);
     };
 
-    parentDiv.addEventListener('scroll', handleScroll);
-    return () => parentDiv.removeEventListener('scroll', handleScroll);
+    parentDiv.addEventListener('scroll', handleParentScroll);
+    handleParentScroll(); // Initial call to set opacity and rotate on mount
+    return () => parentDiv.removeEventListener('scroll', handleParentScroll);
   }, []);
-
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const top =
-      element.getBoundingClientRect().top + window.scrollY - scrollOffset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
 
   const activeCategory = Object.entries(arrowDirections).reduce(
     (active, [category, direction]) => {
@@ -84,8 +116,6 @@ const OnPageNav: React.FC<{
     className: 'invisible group-hover:visible opacity-80 absolute -right-4',
     stroke: 'currentColor',
   };
-
-  console.log(collapsed, 'collapsed fire');
 
   return (
     <>
@@ -103,7 +133,6 @@ const OnPageNav: React.FC<{
               (category === activeCategory
                 ? 'bg-background/60'
                 : 'bg-background/20')
-              // TODO distinguish a little better
             }
             onClick={() => scrollTo(category)}
             key={category}
@@ -137,5 +166,3 @@ const OnPageNav: React.FC<{
 };
 
 export default OnPageNav;
-
-// TODO --> design a button for crying out loud
