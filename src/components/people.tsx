@@ -36,38 +36,42 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
           person.publish === true && (
             <li key={person.id} className="col-span-1 ">
               <div className="flex gap-4 flex-col md:flex-row">
-                <div className="w-24 h-32 shrink-0 rounded-full overflow-hidden outline -outline-offset-1 outline-background/40">
-                  <Image
-                    width={100}
-                    height={140}
-                    className="w-full h-full object-cover"
-                    src={`/headshots/${convertIdToFilename(person.id)}`}
-                    alt={person.id}
-                  />
-                </div>
                 <div className="flex flex-col gap-2 md:mt-8">
-                  <h3 className="font-semibold">
-                    {person.id}{' '}
-                    <span className="text-text/50">
-                      <span className="">
-                        {person.relationship} {person.workedTogether}
+                  <div className="flex items-center justify-between lg:justify-start gap-4 lg:-mb-4">
+                    <div className="order-1 lg:order-none w-16 h-20 mb-4 lg:mb-0 lg:w-24 lg:h-32 shrink-0 rounded-full overflow-hidden outline -outline-offset-1 outline-background/40">
+                      <Image
+                        width={100}
+                        height={140}
+                        className="w-full h-full object-cover"
+                        src={`/headshots/${convertIdToFilename(person.id)}`}
+                        alt={person.id}
+                      />
+                    </div>
+                    <h3 className="font-semibold">
+                      {person.id}{' '}
+                      <span className="text-text/50">
+                        <span className="">
+                          {person.relationship} {person.workedTogether}
+                        </span>
+                        <br />
+                        <span className="font-light">
+                          {person.currentTitle} @ {person.currentCompany}
+                        </span>
                       </span>
-                      <br />
-                      <span className="font-light">
-                        {person.currentTitle} @ {person.currentCompany}
-                      </span>
-                    </span>
-                  </h3>
-                  <p className="text-text/80">{person.testimonial}</p>
-                  <div className="flex gap-4">
-                    {person.links.map((link, index) => {
-                      const [platform, url] = Object.entries(link)[0];
-                      return (
-                        <Link key={index} href={url} className="text-text/50">
-                          {platform}
-                        </Link>
-                      );
-                    })}
+                    </h3>
+                  </div>
+                  <div className="ml-0 lg:ml-28">
+                    <p className="text-text/80 mb-2">{person.testimonial}</p>
+                    <div className="flex gap-4">
+                      {person.links.map((link, index) => {
+                        const [platform, url] = Object.entries(link)[0];
+                        return (
+                          <Link key={index} href={url} className="text-text/50">
+                            {platform}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
