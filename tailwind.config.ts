@@ -2,15 +2,19 @@ import type { Config } from 'tailwindcss';
 const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
+const content = [
+  './pages/**/*.{ts,tsx, md, mdx}',
+  './components/**/*.{ts,tsx, md, mdx}',
+  './app/**/*.{ts,tsx, md, mdx}',
+  './src/**/*.{ts,tsx, md, mdx}',
+];
+
 const config = {
-  mode: 'jit',
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx, md, mdx}',
-    './components/**/*.{ts,tsx, md, mdx}',
-    './app/**/*.{ts,tsx, md, mdx}',
-    './src/**/*.{ts,tsx, md, mdx}',
-  ],
+  content: content,
+  purge: {
+    content: content,
+  },
   theme: {
     boxShadow: {
       // x y blur spread color
