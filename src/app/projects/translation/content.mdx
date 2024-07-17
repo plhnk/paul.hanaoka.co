@@ -1,23 +1,29 @@
 import Image from '@/components/ui/image';
 import Summary from '@/components/layout/summary';
 import { useTheme } from 'next-themes';
+import Hammer from '@/components/svg/hammer';
 
-# An interface for translation
+# Not every UX problem needs to be solved with UI
+
+<div>
+  <Hammer />
+</div>
 
 <Summary
-  context={
-    'One of Lifery’s core features is content management. Many of our customers operate globally and need to provide content in multiple languages to serve their audiences effectively.'
+  problem={
+    'Most of Liferay’s customers support at least 2 languages, and some with large, public-facing websites often have a dozen or more languages. While the platform itself is relatively straightforward to localize from a developer’s perspective — providing localized content at scale is not.'
+  }
+  role={
+    'As the team’s Product Designer, I worked with the Technical lead and PM to do end-to-end product design. From interviewing users to implementation QA.'
   }
   contributions={[
     'User Research',
+    'Workshop Facilitation',
     'Product Strategy',
-    'User Experience',
     'Interaction Design',
-  ]}
-  impact={[
-    '60% decrease in time on task',
-    '20% increase in System Usability Score (SUS)',
-    '30% reduction in user error rates',
+    'Prototyping',
+    'Usability Testing',
+    'Quality Assurance',
   ]}
 />
 

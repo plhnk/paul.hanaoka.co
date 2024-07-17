@@ -28,6 +28,17 @@ export interface NavButtonProps {
   children?: React.ReactNode;
 }
 
+export interface ImpactCardProps {
+  className?: string;
+  content?: ReactNode;
+  extraInfo?: ReactNode;
+  graphic?: ReactNode;
+  graphicInfo?: string;
+  importantNumber?: ReactNode;
+  title?: string;
+  fullScreen?: boolean;
+  onClick?: () => void;
+}
 export interface DashboardCardProps {
   className?: string;
   content?: ReactNode;
