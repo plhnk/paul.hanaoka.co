@@ -3,12 +3,13 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
 const config = {
+  mode: 'jit',
   darkMode: ['class'],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx, md, mdx}',
+    './components/**/*.{ts,tsx, md, mdx}',
+    './app/**/*.{ts,tsx, md, mdx}',
+    './src/**/*.{ts,tsx, md, mdx}',
   ],
   theme: {
     boxShadow: {
@@ -38,7 +39,8 @@ const config = {
         xl: '1rem',
       },
       backgroundImage: {
-        'transparent-window': 'linear-gradient(to right, rgb(var(--background)) 0%, rgb(var(--background)) 3%, transparent 15%, transparent 85%, rgb(var(--background)) 97%, rgb(var(--background)) 100%)', 
+        'transparent-window':
+          'linear-gradient(to right, rgb(var(--background)) 0%, rgb(var(--background)) 3%, transparent 15%, transparent 85%, rgb(var(--background)) 97%, rgb(var(--background)) 100%)',
       },
       fontFamily: {
         sans: [
@@ -61,7 +63,7 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        'marquee': {
+        marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
