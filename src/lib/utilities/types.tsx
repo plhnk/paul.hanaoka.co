@@ -32,11 +32,9 @@ export interface ImpactCardProps {
   className?: string;
   content?: ReactNode;
   extraInfo?: ReactNode;
-  graphic?: ReactNode;
-  graphicInfo?: string;
+  indicator?: ReactNode;
   importantNumber?: ReactNode;
   title?: string;
-  fullScreen?: boolean;
   onClick?: () => void;
 }
 export interface DashboardCardProps {

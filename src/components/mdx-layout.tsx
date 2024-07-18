@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
+import '../app/globals.css';
 
 interface MdxLayoutProps {
   children: React.ReactNode;

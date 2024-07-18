@@ -2,6 +2,7 @@ import Image from '@/components/ui/image';
 import Summary from '@/components/layout/summary';
 import { useTheme } from 'next-themes';
 import Hammer from '@/components/svg/hammer';
+import ImpactCard from '@/components/ui/impact-card';
 
 # Not every UX problem needs to be solved with UI
 
@@ -25,23 +26,28 @@ import Hammer from '@/components/svg/hammer';
   ]}
 />
 
-Localization features were initially bolted on to the existing interface, which created many opportunities for improvement with a more user-centered design process.
-
-<div className="overflow-x-scroll">
-  <img
-    style={{ height: 352, width: 3410, maxWidth: 'unset' }}
-    src="/projects/translation/old-flow.png"
-    alt="Old translation flow"
+<div className="grid grid-cols-subgrid gap-8 mt-16">
+  <div />
+  <div className="mt-6">
+    <h2 className="small-caps mt-4">Impact</h2>
+  </div>
+  <ImpactCard
+    className="col-span-2"
+    title="Cost Reduction" 
+    importantNumber={
+      <span className='tracking-tighter'>
+        90<sup style={{marginLeft: '-0.1em'}}>&#65130;</sup>
+      </span>
+    }
+    content="Many customers achieved significant vendor savings"
+  />
+  <ImpactCard
+    className="col-span-3"
+    title="average hours saved per year"
+    importantNumber="550+"
+    content="Removing or reducing time-consuming process helped our customers save a lot of time"
   />
 </div>
-_The old translation flow_
-{/* TODO figure out side-scroll-blender fixed */}
-{/* TODO add arrow to scroll */}
-
-![A screenshot of the original Liferay UI for translation](/projects/translation/before.png 'The original UI for viewing a translation')
-{/* TODO create component for anontating images */}
-
-## Discovery
 
 To better understand pain points and clarify requirements, we conducted interviews with three key groups:
 
@@ -57,28 +63,7 @@ After synthesizing findings, we aligned on this problem statement:
 
 <div className="w-full h-32" />
 
-Based on the insights, we prioritized the following directions for mockups and prototyping:
 
-1. Design an export/import experience tailored for localization workflows.
-1. Rethink the editing interface, optimizing it for translation tasks and exploring auto-translate capabilities.
-1. Design admin and user experiences for automatic translation integration.
-
-## Exploration and Iterations
-
-### Export/Import for Localization
-
-One of the most consistent requests from users was the ability to export and import content for translation purposes. This would allow them to use external translation services or manage translations using spreadsheets, a common practice among our customers.
-
-We explored various export formats, including CSV, XLIFF (XML Localization Interchange File Format), and our own proprietary format. Ultimately, we chose XLIFF as it is an industry-standard format supported by most translation tools and services.
-
-For the import experience, we focused on providing a seamless workflow with features like:
-
-- Side-by-side comparison of original and translated content
-- Previewing translated content in the context of the page layout
-- Handling translation conflicts and overrides
-- Batch import and selective import options
-
-![A screenshot of the original Liferay UI for translation](/projects/translation/import-06.png 'Auto translate interface in action')
 
 ### Dedicated Translation Interface
 
@@ -108,25 +93,9 @@ We explored integrating with various translation APIs and services, allowing cus
 
 ![A screenshot of the original Liferay UI for translation](/projects/translation/settings-01.png 'Translation service API settings')
 
-### Outcomes
-
-The localization improvements we implemented had a significant positive impact on our customers' experience and productivity:
-
-- Time on translation tasks **decreased by over 60%**
-- System Usability Score (SUS) **increased by 20%**
-- User error rate **decreased by approximately 30%**
-
 While these enhancements addressed many of the core pain points, we identified several areas for future exploration and improvement:
 
 - **Localization Analytics**: Provide insights and reporting on translation progress, costs, and performance to help customers optimize their localization efforts.
 - **Adaptive Translation Workflows**: Dynamically adjust translation workflows based on content type, target audience, and other contextual factors.
 - **Multilingual Content Creation**: Explore features that enable content creators to author and manage multilingual content natively within our platform, reducing the need for separate translation workflows.
 - **Personalization and Transcreation**: Enhance support for culturally-adapted content beyond direct translations, such as transcreation (recreating content for a specific culture) and personalization based on user preferences or location.
-
-{/* For visuals I'd dig into the specific UI decisions being made, so it's clear where my eyes should look, the full-screen UI screenshots are a bit hard to navigate imo. */}
-
-{/* I think as a whole you may want to include more user flow diagrams or other visuals to help the reader build a mental map of how the features fit together and the flow the user journeys through. Then they can map the actual screens to this map. But since I see screen after screen, as I quickly scan the project it all smashes together. */}
-
-{/* Similar to the above point, I think it reads a bit wordy right now, I'd want to distill some of the paragraph is into mini diagrams or illustrations to help me see more things and read less. */}
-
-{/* While it's impressive you've integrated some cool transitions and features within your figma prototype, I think it breaks away from the patterns I may expect in a figma prototype. So the the horizontal scroll gallery may be missed by some readers, for example. May be worth limiting those things so as to ensure the whole thing gets read. */}
