@@ -3,18 +3,20 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
 const content = [
-  './pages/**/*.{ts,tsx, md, mdx}',
-  './components/**/*.{ts,tsx, md, mdx}',
-  './app/**/*.{ts,tsx, md, mdx}',
-  './src/**/*.{ts,tsx, md, mdx}',
+  // './pages/**/*.{ts,tsx, md, mdx}',
+  // './components/**/*.{ts,tsx, md, mdx}',
+  // './app/**/*.{ts,tsx, md, mdx}',
+  // './src/**/*.{js, jsx, ts, tsx, md, mdx}',
 ];
 
 const config = {
   darkMode: ['class'],
-  content: content,
-  purge: {
-    content: content,
-  },
+  content: [
+    './src/**/*.tsx',
+    './src/app/**/*.{js,jsx,ts,tsx,md,mdx}',
+    './src/components/**/*.{js,jsx,ts,tsx,md,mdx}',
+    './src/pages/**/*.{js,jsx,ts,tsx,md,mdx}',
+  ],
   theme: {
     boxShadow: {
       // x y blur spread color

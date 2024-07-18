@@ -2,7 +2,6 @@
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -13,36 +12,30 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
   className,
   content,
   extraInfo,
-  graphic,
-  graphicInfo,
+  indicator,
   importantNumber,
   title,
-  fullScreen,
   onClick,
 }) => {
   return (
     <Card
-      className={cn('w-full min-h-fit max-h-72 outline-background/40', className)}
+      className={cn('w-full min-h-fit outline-background/40 px-4', className)}
       onClick={onClick}
     >
       <CardHeader className={title ? '' : 'hidden'}>
         <CardTitle>
-          <div className="text-sm mb-0 text-text/40 font-semibold uppercase leading-tight tracking-[.12em]">
+          <div className="small-caps">
             {title}
           </div>
-          <div className="text-[4rem] -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
+          <div className="text-[8rem] -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
             {importantNumber}
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="sm:py-0">
+      <CardContent className="sm:pt-0">
         {extraInfo}
         {content}
       </CardContent>
-      <CardFooter className={graphic ? '' : 'hidden'}>
-        {graphic}
-        <span>{graphicInfo}</span>
-      </CardFooter>
     </Card>
   );
 };

@@ -146,6 +146,9 @@
   .side-scroll-blender {
     @apply after:absolute after:-top-4 after:-left-4 after:-right-4 after:-bottom-4 p-4 after:bg-transparent-window after:m-4 relative after:pointer-events-none;
   }
+  .small-caps {
+    @apply text-sm mb-0 text-text/40 font-semibold uppercase leading-tight tracking-[.12em];
+  }
 }
 .prevent-orphans {
   text-wrap: pretty;
