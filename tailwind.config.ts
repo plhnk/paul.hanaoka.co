@@ -2,13 +2,6 @@ import type { Config } from 'tailwindcss';
 const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
-const content = [
-  // './pages/**/*.{ts,tsx, md, mdx}',
-  // './components/**/*.{ts,tsx, md, mdx}',
-  // './app/**/*.{ts,tsx, md, mdx}',
-  // './src/**/*.{js, jsx, ts, tsx, md, mdx}',
-];
-
 const config = {
   darkMode: ['class'],
   content: [
