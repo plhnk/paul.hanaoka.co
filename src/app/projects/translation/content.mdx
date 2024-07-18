@@ -1,8 +1,11 @@
-import Image from '@/components/ui/image';
+import Image from 'next/image';
 import Summary from '@/components/layout/summary';
 import { useTheme } from 'next-themes';
 import Hammer from '@/components/svg/hammer';
+import User from '@/components/svg/user';
+import Spreadsheet from '@/components/svg/spreadsheet';
 import ImpactCard from '@/components/ui/impact-card';
+import Device from '@/components/ui/device';
 
 # Not every UX problem needs to be solved with UI
 
@@ -26,27 +29,76 @@ import ImpactCard from '@/components/ui/impact-card';
   ]}
 />
 
-<div className="grid grid-cols-subgrid gap-8 mt-16">
-  <div />
-  <div className="mt-6">
-    <h2 className="small-caps mt-4">Impact</h2>
-  </div>
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h2 className="small-caps max-md:col-span-5 lg:col-start-2 mt-6">Impact</h2>
   <ImpactCard
-    className="col-span-2"
-    title="Cost Reduction" 
+    className="col-span-2 lg:col-span-3"
+    title="Cost Reduction"
     importantNumber={
-      <span className='tracking-tighter'>
-        90<sup style={{marginLeft: '-0.1em'}}>&#65130;</sup>
+      <span className="tracking-tighter">
+        90<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
       </span>
     }
     content="Many customers achieved significant vendor savings"
   />
   <ImpactCard
-    className="col-span-3"
+    className="col-span-2 lg:col-span-4"
     title="average hours saved per year"
     importantNumber="550+"
     content="Removing or reducing time-consuming process helped our customers save a lot of time"
   />
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <div className="col-start-2 col-span-2">
+    <div className="top-64 sticky flex flex-col gap-8">
+      <h3 className="small-caps">Customer Insight No. 1</h3>
+      <User />
+      <p>
+        Larger customers often added vendors as users to their instance to
+        translate content for them – however this would often result in errors
+        To make this much easier, I designed a way to define specific roles for
+        translators. This allowed{' '}
+      </p>
+    </div>
+  </div>
+  <div className="col-span-6 flex flex-col gap-8">
+    <Device
+      src="/projects/translation/permissions.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+  </div>
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <div className="col-start-2 col-span-2">
+    <div className="top-64 sticky flex flex-col gap-8">
+      <h3 className="small-caps">Customer Insight No. 2</h3>
+      <Spreadsheet />
+      <p>
+        Larger customers often added vendors as users to their instance to
+        translate content for them – however this would often result in errors
+        To make this much easier, I designed a way to define specific roles for
+        translators. This allowed{' '}
+      </p>
+    </div>
+  </div>
+  <div className="col-span-6 flex flex-col gap-32">
+    <Device
+      src="/projects/translation/import.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <Device
+      src="/projects/translation/settings.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+  </div>
 </div>
 
 To better understand pain points and clarify requirements, we conducted interviews with three key groups:
@@ -62,8 +114,6 @@ After synthesizing findings, we aligned on this problem statement:
 > Our global customers struggle to translate content efficiently. The current translation process uses the same interface designed for creating content, not translation workflows. This outdated approach wastes time, causes errors, and delays getting localized content to international audiences.
 
 <div className="w-full h-32" />
-
-
 
 ### Dedicated Translation Interface
 

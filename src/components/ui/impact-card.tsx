@@ -19,15 +19,15 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
 }) => {
   return (
     <Card
-      className={cn('w-full min-h-fit outline-background/40 px-4', className)}
+      className={cn('w-full min-h-fit outline-background/40 lg:px-4', className)}
       onClick={onClick}
     >
-      <CardHeader className={title ? '' : 'hidden'}>
+      <CardHeader>
         <CardTitle>
           <div className="small-caps">
             {title}
           </div>
-          <div className="text-[8rem] -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
+          <div className="text-7xl lg:text-9xl leading-normal -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
             {importantNumber}
           </div>
         </CardTitle>
