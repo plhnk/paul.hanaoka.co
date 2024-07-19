@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Summary from '@/components/layout/summary';
 import { useTheme } from 'next-themes';
 import Hammer from '@/components/svg/hammer';
+import Key from '@/components/svg/key';
+import TranslationAPI from '@/components/svg/api-solution';
 import User from '@/components/svg/user';
 import Spreadsheet from '@/components/svg/spreadsheet';
 import ImpactCard from '@/components/ui/impact-card';
@@ -13,7 +15,7 @@ import Device from '@/components/ui/device';
 
 <Summary
   problem={
-    'Most of Liferay’s customers support at least 2 languages, and some with large, public-facing websites often have a dozen or more languages. While the platform itself is relatively straightforward to localize from a developer’s perspective — providing localized content at scale is not.'
+    'Most of Liferay’s customers support at least 2 languages, and some with large, public-facing websites often have a dozen or more languages.\n While technically possible, translating at this scale requires a lot of error-prone manual work.'
   }
   role={
     'As the team’s Product Designer, I worked with the Technical lead and PM to do end-to-end product design. From interviewing users to implementation QA.'
@@ -29,7 +31,7 @@ import Device from '@/components/ui/device';
   ]}
 />
 
-<div className="grid grid-cols-subgrid gap-8 mt-40">
+<div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 lg:col-start-2 mt-6">Impact</h2>
   <ImpactCard
     className="col-span-2 lg:col-span-3"
@@ -50,16 +52,60 @@ import Device from '@/components/ui/device';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h3 className="small-caps max-md:col-span-5 lg:col-start-2 mt-6">Solution</h3>
+  <div className="col-start-2 mb-16 col-span-6">
+    Through a design sprint, I helped the team ideate to a largely non-interface solution would provide the most value to our customers.
+
+    This was achieved in three ways:
+    1. Adding more granular permissions and dedicated roles for translators
+    1. Adding `.xlf` import/export features to the existing content editing interface
+    1. Exposing an API and providing endpoints for integration with translation services
+
+  </div>
+  <TranslationAPI className="my-16 col-span-8" />
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h3 className="small-caps max-md:col-span-5 lg:col-start-2 mt-6">Process</h3>
+  <div className="col-start-2 col-span-6">
+    To translate content, users chose a language at the page level, which meant 1 page at a time:
+   </div>
+
+  <Device
+    src="/projects/translation/before-choose.png"
+    alt="Interface showing the manual process of choosing which language to translate to"
+    width={1400}
+    height={800}
+    className="-ml-4 !col-span-9" 
+  />
+</div>
+
+<div className="!col-start-2 my-16 col-span-6">
+ To better understand how people used the existing features, I conducted interviews with three user groups:
+
+    1. End-users: Direct feedback from customers and internal teams focused on goals, processes, and pain points.
+    1. Customer Support: Gathered indirect user feedback and learned about the most common issues reported by customers.
+    1. Consulting Services: Customer requirements from common customizations made to the product.
+    <div className='mt-16' />
+      <Image
+    src="/projects/translation/sprint.png"
+    alt="A screenshot of the design sprint"
+    width={1400}
+    height={800}
+    className='my-16'/>
+
+Two of the most important insights from these interviews helped shape the solution.
+
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-40">
   <div className="col-start-2 col-span-2">
     <div className="top-64 sticky flex flex-col gap-8">
       <h3 className="small-caps">Customer Insight No. 1</h3>
       <User />
-      <p>
-        Larger customers often added vendors as users to their instance to
-        translate content for them – however this would often result in errors
-        To make this much easier, I designed a way to define specific roles for
-        translators. This allowed{' '}
-      </p>
+      Larger customers often added vendors as users to their instance to
+      translate content for them &mdash; this would often result in errors and
+      was also cost-prohibitive.
     </div>
   </div>
   <div className="col-span-6 flex flex-col gap-8">
@@ -69,83 +115,55 @@ import Device from '@/components/ui/device';
       width={1200}
       height={800}
     />
+    <div className="ml-4">
+      By defining specific roles for translators this helped reduce the ability
+      of vendors to inadvertently access, modify, or delete content &mdash; thus
+      reducing costs and errors.
+    </div>
   </div>
 </div>
 
-<div className="grid grid-cols-subgrid gap-8 mt-40">
+<div className="grid grid-cols-subgrid gap-8 my-40">
   <div className="col-start-2 col-span-2">
     <div className="top-64 sticky flex flex-col gap-8">
       <h3 className="small-caps">Customer Insight No. 2</h3>
       <Spreadsheet />
-      <p>
-        Larger customers often added vendors as users to their instance to
-        translate content for them – however this would often result in errors
-        To make this much easier, I designed a way to define specific roles for
-        translators. This allowed{' '}
-      </p>
+        Spreadsheets were the artifact that customers used to connect Liferay and the goal they were trying to achieve (translated content).
     </div>
+
   </div>
-  <div className="col-span-6 flex flex-col gap-32">
+  <div className="col-span-6 flex flex-col gap-8">
     <Device
       src="/projects/translation/import.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
     />
+    <div className="ml-4 mb-16">
+      Adding the ability to export and import content as .xlf files eliminated the need for customers to use a spreadsheet to manage translations.
+    </div>
     <Device
       src="/projects/translation/settings.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
     />
+    <div className="ml-4">
+      Going a step further, by adding integrations for translation services customers were able to automatically translate content within Liferay.
+    </div>
   </div>
 </div>
 
-To better understand pain points and clarify requirements, we conducted interviews with three key groups:
+<Key />
 
-1. Customer Support: Gathered indirect user feedback and learned about the most common issues reported by customers.
-1. Consulting Services: Customer requirements from common customizations made to the product.
-1. End-users: Direct feedback from customers and internal teams focused on goals, processes, and pain points.
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h3 className="small-caps col-span-5 lg:col-start-2 mt-6">Outcomes & Learnings</h3>
+  <div className="col-start-2 col-span-5">
+      While not exactly the sexiest case study in the world, working on this problem
+  was rewarding because of the customer outcomes we were able to achieve. 
+  
+  By focusing on their problems we created a huge amount of value, eliminated thousands of hours
+  of busywork, enabling our customers and their customers to spend time doing more meaningful work.
+   </div>
 
-After synthesizing findings, we aligned on this problem statement:
-
-<div className="w-full h-32" />
-
-> Our global customers struggle to translate content efficiently. The current translation process uses the same interface designed for creating content, not translation workflows. This outdated approach wastes time, causes errors, and delays getting localized content to international audiences.
-
-<div className="w-full h-32" />
-
-### Dedicated Translation Interface
-
-While exploring the export/import experience, we realized that the existing content editing interface was not optimized for translation tasks. Translators often work with specific requirements, such as character limits, formatting constraints, and the need to provide context for ambiguous terms.
-
-We designed a dedicated translation interface that addressed these needs, featuring:
-
-- Side-by-side view of source and target languages
-- In-context previews and WYSIWYG editing
-- Terminology management and glossary integration
-- Translation memory and machine translation suggestions
-- Workflow and collaboration tools (e.g., comments, task assignments)
-- Translator-specific roles and permissions
-
-![A screenshot of the original Liferay UI for translation](/projects/translation/translate-01.png 'Auto translate interface in action')
-
-### Automatic Translation Integration
-
-During our research, we discovered that some customers were interested in using automatic translation as a starting point, either to test content in new markets or to reduce translation costs by leveraging post-editing workflows.
-
-We explored integrating with various translation APIs and services, allowing customers to automatically translate content within our platform. This feature included:
-
-- Configurable translation settings (e.g., language pairs, translation quality)
-- Bulk translation of multiple pages or content types
-- Post-editing tools for refining machine-translated content
-- Cost estimation and billing integration for translation services
-
-![A screenshot of the original Liferay UI for translation](/projects/translation/settings-01.png 'Translation service API settings')
-
-While these enhancements addressed many of the core pain points, we identified several areas for future exploration and improvement:
-
-- **Localization Analytics**: Provide insights and reporting on translation progress, costs, and performance to help customers optimize their localization efforts.
-- **Adaptive Translation Workflows**: Dynamically adjust translation workflows based on content type, target audience, and other contextual factors.
-- **Multilingual Content Creation**: Explore features that enable content creators to author and manage multilingual content natively within our platform, reducing the need for separate translation workflows.
-- **Personalization and Transcreation**: Enhance support for culturally-adapted content beyond direct translations, such as transcreation (recreating content for a specific culture) and personalization based on user preferences or location.
+</div>
