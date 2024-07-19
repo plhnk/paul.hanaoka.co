@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 
 interface ThemedImageProps {
   src: string;
+  caption: string;
   alt: string;
   width: number;
   height: number;
@@ -14,6 +13,7 @@ interface ThemedImageProps {
 
 const ThemedImage: React.FC<ThemedImageProps> = ({
   src,
+  caption,
   alt,
   width,
   height,
@@ -28,6 +28,7 @@ const ThemedImage: React.FC<ThemedImageProps> = ({
         height={height}
         className='p-4 rounded-xl'
       />
+      <figcaption className='absolute -bottom-8 left-4 italic text-text/80'>{caption}</figcaption>
     </div>
   );
 };

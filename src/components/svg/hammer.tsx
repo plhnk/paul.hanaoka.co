@@ -19,12 +19,13 @@ const Hammer: React.FC<HammerProps> = ({ className }) => {
         viewBox="0 0 906 836"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className='w-full'
       >
         <style jsx>{`
           .order-6 {
             stroke-dasharray: 742;
             stroke-dashoffset: 742;
-            animation: draw 1000ms linear forwards 2400ms;
+            animation: draw 1100ms linear forwards 2150ms;
           }
           .order-5 {
             stroke-dasharray: 1038;

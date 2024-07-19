@@ -27,7 +27,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
           <div className="small-caps">
             {title}
           </div>
-          <div className="text-7xl lg:text-9xl leading-normal -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
+          <div className="text-7xl lg:text-9xl !leading-normal -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
             {importantNumber}
           </div>
         </CardTitle>

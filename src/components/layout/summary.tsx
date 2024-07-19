@@ -11,20 +11,27 @@ const Summary: React.FC<SummaryProps> = ({
   role,
   contributions,
 }) => {
+  const paragraphs = problem.split('\n');
   return (
     <div className="grid grid-cols-subgrid lg:!col-start-2 2xl:col-start-3">
       <div className="col-span-3 md:max-lg:col-span-5 mb-8">
         <h3 className="text-element uppercase tracking-widest text-xs">
           Problem
-        </h3>
-        <p className="my-[.5em] ">{problem}</p>
+        </h3>{paragraphs.map((paragraph, index) => (
+          <p
+            className="my-2 "
+            key={index}
+          >
+            {paragraph}
+          </p>
+        ))}
       </div>
       <div className="grid grid-cols-subgrid gap-4 sm:gap-8 col-span-3 md:col-span-5">
         <div className="col-span-3">
           <h3 className="text-element uppercase tracking-widest text-xs">
             Role
           </h3>
-          <p className="my-[.5em] ">{role}</p>
+          <p className="my-2 ">{role}</p>
         </div>
         <div className="col-span-3 md:col-span-2">
           <h3 className="text-element uppercase tracking-widest text-xs">

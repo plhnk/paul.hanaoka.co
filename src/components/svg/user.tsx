@@ -15,6 +15,7 @@ const Hammer: React.FC<HammerProps> = ({ className }) => {
         viewBox="0 0 200 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className='w-full'
       >
         <path
           d="M139 196V157.667C139 147.412 134.876 137.577 127.535 130.325C120.195 123.074 110.238 119 99.8571 119H41.1429C30.7615 119 20.8054 123.074 13.4647 130.325C6.12397 137.577 2 147.412 2 157.667L2 196"
