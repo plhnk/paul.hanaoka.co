@@ -13,7 +13,7 @@ const Hammer: React.FC<HammerProps> = ({ className }) => {
   };
 
   return (
-    <div className={cn('relative pr-64 lg:w-3/4', className)}>
+    <div className={cn('relative lg:pr-64 lg:w-3/4', className)}>
       <svg
         key={key}
         viewBox="0 0 906 836"
@@ -128,7 +128,7 @@ const Hammer: React.FC<HammerProps> = ({ className }) => {
         />
       </svg>
       <button
-        className="text-text/50 hover:text-text/80 right-64 bottom-0 p-4 absolute"
+        className="text-text/50 hover:text-text/80 right-0 lg:right-64 bottom-0 p-4 absolute"
         onClick={replayAnimation}
       >
         <svg
