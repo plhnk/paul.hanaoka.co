@@ -4,7 +4,8 @@
     "labels": ["Enterprise", "Feature"],
     "title": "Reduce translation costs by 90%",
     "subtitle": "Going beyond the interface is key to providing value",
-    "publish": true
+    "publish": true,
+    "prototypeUrl": ""
   },
   {
     "id": "quality",
