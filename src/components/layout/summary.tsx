@@ -7,21 +7,20 @@ interface SummaryProps {
 }
 
 const Summary: React.FC<SummaryProps> = ({
-  problem,
+  problem = '',
   role,
   contributions,
 }) => {
-  const paragraphs = problem.split('\n');
+  const paragraphs = problem?.split('\n') ?? [];
+
   return (
     <div className="grid grid-cols-subgrid lg:!col-start-2 2xl:col-start-3">
       <div className="col-span-3 md:max-lg:col-span-5 mb-8">
         <h3 className="text-element uppercase tracking-widest text-xs">
           Problem
-        </h3>{paragraphs.map((paragraph, index) => (
-          <p
-            className="my-2 "
-            key={index}
-          >
+        </h3>
+        {paragraphs.map((paragraph, index) => (
+          <p className="my-2" key={index}>
             {paragraph}
           </p>
         ))}
@@ -31,7 +30,7 @@ const Summary: React.FC<SummaryProps> = ({
           <h3 className="text-element uppercase tracking-widest text-xs">
             Role
           </h3>
-          <p className="my-2 ">{role}</p>
+          <p className="my-2">{role}</p>
         </div>
         <div className="col-span-3 md:col-span-2">
           <h3 className="text-element uppercase tracking-widest text-xs">
