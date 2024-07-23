@@ -1,31 +1,74 @@
 import Summary from '@/components/layout/summary';
+import Device from '@/components/ui/device';
+import ImpactCard from '@/components/ui/impact-card';
 
-# B2B2C features that are a delight to use
+# TODO Attention-grabbing headline
 
+<Device
+  variant="tabs"
+  beforeSrc="/projects/navigation/before.png"
+  afterVideo="/projects/navigation/after.mp4"
+  afterSrc="/projects/navigation/after.png"
+  afterAlt="Video showing the new navigation interface"
+  width={1400}
+  height={800}
+/>
+
+<div className="mt-40" />
 
 <Summary
-  context={
-    'Raylife is a starter kit for B2B2C insurance companies, reducing time-to-value building custom solutions with Liferay. My challenge was to design a key touchpoint in the customer journey: filing a claim.'
+  problem={
+    'Liferay had expanded its product offerings in silos and finally reached the tipping point where we needed to improve the core product navigation. This feature was a key part of the company’s product-led growth strategy.'
+  }
+  role={
+    'As Product Design lead, I collaborated with the Technical lead and PM to develop a strategy, ideating in tight feedback loops through execution. \n I consulted with Product Designers while building requirements and coached them through applying improvements in specific platform areas.'
   }
   contributions={[
+    'Information Architecture',
+    'Wireframing',
     'User Research',
     'Product Strategy',
-    'User Experience',
     'Interaction Design',
     'Usability Testing',
-  ]}
-  impact={[
-    '90%+ task completion in prototype testing',
-    'This feature was key to signing early customers for an accelerator-based subscription model we tested',
+    'Prototyping',
+    'Quality Assurance',
   ]}
 />
 
-- Complex process in a highly regulated industry
-- Customers in emotionally charged state
-- Accurate data gathering and entry required
+<div className="grid grid-cols-subgrid gap-8 mt-32">
+  <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
+  <ImpactCard
+    className="col-span-2"
+    title="Increased Task Success Rate"
+    importantNumber={
+      <span className="tracking-tighter">
+        45<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+      </span>
+    }
+    content="Guesswork and clicks significantly reduced"
+  />
 
-![TODO alt](/projects/insurance/market-research.png 'TODO title')
+{' '}
 
-![TODO alt](/projects/insurance/wireframes.png 'TODO title')
+<ImpactCard
+  className="col-span-2"
+  title="More User-Friendly"
+  importantNumber={
+    <span className="tracking-tighter">
+      80<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+    </span>
+  }
+  content="System Usability Scale scores improved dramatically"
+/>
 
-![TODO alt](/projects/insurance/customer-journey-map.png 'TODO title')
+  <ImpactCard
+    className="col-span-2"
+    title="Decrease in Support Tickets"
+    importantNumber={
+      <span className="tracking-tighter">
+        10<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+      </span>
+    }
+    content="Navigation-related tickets down"
+  />
+</div>
