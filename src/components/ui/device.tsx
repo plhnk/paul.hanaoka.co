@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import {
   Dialog,
@@ -9,8 +9,8 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { cn } from '@/lib/utils';
-import { Minimize2, Maximize2 } from 'lucide-react';
+import { cn, throttle } from '@/lib/utils';
+import { Minimize2, Maximize2, MoveHorizontal } from 'lucide-react';
 
 interface DeviceProps {
   beforeSrc: string;
@@ -44,6 +44,8 @@ const Device: React.FC<DeviceProps> = ({
   const [sliderValue, setSliderValue] = useState(50);
   const [activeTab, setActiveTab] = useState<'before' | 'after'>('after');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleTabChange = (value: string) => {
     setActiveTab(value as 'before' | 'after');
@@ -52,6 +54,8 @@ const Device: React.FC<DeviceProps> = ({
   const imgStyle = 'rounded-b-md';
   const browserStyle =
     'bg-card rounded-lg outline outline-1 outline-text/20 -outline-offset-1';
+  const label =
+    'small-caps font-mono font-normal text-xs px-2 py-1 m-2 text-text/90 rounded-sm bg-background/10 backdrop-blur-lg absolute bottom-0';
 
   const Toolbar = ({
     isDialogOpen,
@@ -109,48 +113,75 @@ const Device: React.FC<DeviceProps> = ({
         width={width}
         height={height}
         className={imgStyle}
+        priority
       />
     );
   };
 
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = throttle((e: React.MouseEvent<HTMLDivElement>) => {
+    if (isDragging && sliderRef.current) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const newValue = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      setSliderValue(newValue);
+    }
+  }, 16);
+
+  useEffect(() => {
+    const handleGlobalMouseUp = () => setIsDragging(false);
+    window.addEventListener('mouseup', handleGlobalMouseUp);
+    return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
+  }, []);
+
   const DeviceContent = () => (
-    <div className="p-0.5">
+    <div className="p-0.5 relative select-none">
       {variant === 'default' && renderMedia(beforeSrc, beforeAlt, beforeVideo)}
 
       {variant === 'slider' && (
-        <div className="relative w-full h-full">
+        <div
+          className="relative w-full h-full"
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          ref={sliderRef}
+        >
           {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
-          {afterSrc && afterAlt && afterVideo && (
-            <video
-              width={width}
-              height={height}
-              controls
-              poster={afterSrc}
-              className="absolute top-0 left-0 w-full h-full object-cover"
+          {afterSrc && afterAlt && (
+            <div
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
               style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
             >
-              <source src={afterVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              {renderMedia(afterSrc, afterAlt, afterVideo)}
+            </div>
           )}
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={sliderValue}
-            onChange={(e) => setSliderValue(Number(e.target.value))}
-            className="absolute bottom-2 left-1/2 transform -translate-x-1/2"
-          />
+          <div className={label}>Before</div>
+          <div className={cn(label, 'right-0')}>After</div>
+          <div
+            className={`absolute top-0 bottom-0 w-px bg-text/30 ${
+              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            }`}
+            style={{ left: `${sliderValue}%` }}
+          >
+            <div className="bg-text/40 outline outline-1 outline-text/60 p-2 rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2"><MoveHorizontal className='text-card/90' strokeWidth="1" /></div>
+          </div>
         </div>
       )}
 
       {variant === 'tabs' && (
         <>
-          <TabsContent className='mt-0' value="before">
+          <TabsContent className="mt-0" value="before">
             {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
           </TabsContent>
-          {afterSrc && afterAlt && afterVideo && (
-            <TabsContent className='mt-0' value="after">
+          {afterSrc && afterAlt && (
+            <TabsContent className="mt-0" value="after">
               {renderMedia(afterSrc, afterAlt, afterVideo)}
             </TabsContent>
           )}
@@ -161,7 +192,7 @@ const Device: React.FC<DeviceProps> = ({
 
   const TabsWrapper: React.FC<{
     isDialogOpen: boolean;
-    children: ReactNode;
+    children: React.ReactNode;
     className?: string;
     browserStyle: string;
   }> = ({ isDialogOpen, children, className, browserStyle }) => {
@@ -194,8 +225,12 @@ const Device: React.FC<DeviceProps> = ({
               tabsList={
                 variant === 'tabs' && (
                   <TabsList className="mx-auto py-0 h-auto w-full">
-                    <TabsTrigger className='w-full' value="after">After</TabsTrigger>
-                    <TabsTrigger className='w-full' value="before">Before</TabsTrigger>
+                    <TabsTrigger className="w-full" value="after">
+                      After
+                    </TabsTrigger>
+                    <TabsTrigger className="w-full" value="before">
+                      Before
+                    </TabsTrigger>
                   </TabsList>
                 )
               }
