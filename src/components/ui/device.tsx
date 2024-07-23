@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import Image from 'next/image';
 import {
   Dialog,
@@ -17,6 +17,8 @@ interface DeviceProps {
   afterSrc?: string;
   beforeAlt: string;
   afterAlt?: string;
+  beforeVideo?: string;
+  afterVideo?: string;
   title?: string;
   width: number;
   height: number;
@@ -30,6 +32,8 @@ const Device: React.FC<DeviceProps> = ({
   afterSrc,
   beforeAlt,
   afterAlt,
+  beforeVideo,
+  afterVideo,
   width,
   height,
   title,
@@ -49,7 +53,13 @@ const Device: React.FC<DeviceProps> = ({
   const browserStyle =
     'bg-card rounded-lg outline outline-1 outline-text/20 -outline-offset-1';
 
-  const Toolbar = ({ isDialogOpen }: { isDialogOpen: boolean }) => (
+  const Toolbar = ({
+    isDialogOpen,
+    tabsList,
+  }: {
+    isDialogOpen: boolean;
+    tabsList?: React.ReactNode;
+  }) => (
     <div className="flex justify-between items-center rounded-t-lg p-1 pb-0">
       <div className="flex ml-1">
         <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-red-500 rounded-full"></div>
@@ -57,6 +67,7 @@ const Device: React.FC<DeviceProps> = ({
         <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-green-500 rounded-full"></div>
       </div>
       {title && <div className="text-sm text-text/60">{title}</div>}
+      {tabsList}
       {isDialogOpen ? (
         <DialogClose asChild>
           <Button
@@ -79,36 +90,48 @@ const Device: React.FC<DeviceProps> = ({
     </div>
   );
 
+  const renderMedia = (src: string, alt: string, videoSrc?: string) => {
+    return videoSrc ? (
+      <video
+        width={width}
+        height={height}
+        controls
+        poster={src}
+        className={imgStyle}
+      >
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={imgStyle}
+      />
+    );
+  };
+
   const DeviceContent = () => (
     <div className="p-0.5">
-      {variant === 'default' && (
-        <Image
-          src={beforeSrc}
-          alt={beforeAlt}
-          width={width}
-          height={height}
-          className={imgStyle}
-        />
-      )}
+      {variant === 'default' && renderMedia(beforeSrc, beforeAlt, beforeVideo)}
 
       {variant === 'slider' && (
         <div className="relative w-full h-full">
-          <Image
-            src={beforeSrc}
-            alt={beforeAlt}
-            width={width}
-            height={height}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
-          />
-          {afterSrc && afterAlt && (
-            <Image
-              src={afterSrc}
-              alt={afterAlt}
+          {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
+          {afterSrc && afterAlt && afterVideo && (
+            <video
               width={width}
               height={height}
+              controls
+              poster={afterSrc}
               className="absolute top-0 left-0 w-full h-full object-cover"
-            />
+              style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
+            >
+              <source src={afterVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           )}
           <input
             type="range"
@@ -122,43 +145,27 @@ const Device: React.FC<DeviceProps> = ({
       )}
 
       {variant === 'tabs' && (
-        <Tabs value={activeTab} onValueChange={handleTabChange}>
-          <TabsList>
-            <TabsTrigger value="before">Before</TabsTrigger>
-            <TabsTrigger value="after">After</TabsTrigger>
-          </TabsList>
+        <>
           <TabsContent value="before">
-            <Image
-              src={beforeSrc}
-              alt={beforeAlt}
-              width={width}
-              height={height}
-              className="w-full h-full object-cover"
-            />
+            {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
           </TabsContent>
-          {afterSrc && afterAlt && (
+          {afterSrc && afterAlt && afterVideo && (
             <TabsContent value="after">
-              <Image
-                src={afterSrc}
-                alt={afterAlt}
-                width={width}
-                height={height}
-                className="w-full h-full object-cover"
-              />
+              {renderMedia(afterSrc, afterAlt, afterVideo)}
             </TabsContent>
           )}
-        </Tabs>
+        </>
       )}
     </div>
   );
 
-  return (
-    <Dialog onOpenChange={setIsDialogOpen}>
-      <div className={cn('relative', className, browserStyle)}>
-        {toolbar && <Toolbar isDialogOpen={false} />}
-        <DeviceContent />
-      </div>
-      <DialogOverlay className="bg-black/50 fixed inset-0 z-40" />
+  const TabsWrapper: React.FC<{
+    isDialogOpen: boolean;
+    children: ReactNode;
+    className?: string;
+    browserStyle: string;
+  }> = ({ isDialogOpen, children, className, browserStyle }) => {
+    return isDialogOpen ? (
       <DialogContent
         hideDefaultClose
         className={cn(
@@ -166,9 +173,40 @@ const Device: React.FC<DeviceProps> = ({
           browserStyle
         )}
       >
-        {toolbar && <Toolbar isDialogOpen={true} />}
-        <DeviceContent />
+        {children}
       </DialogContent>
+    ) : (
+      <div className={cn('relative', className, browserStyle)}>{children}</div>
+    );
+  };
+
+  return (
+    <Dialog onOpenChange={setIsDialogOpen}>
+      <TabsWrapper
+        isDialogOpen={isDialogOpen}
+        className={className}
+        browserStyle={browserStyle}
+      >
+        <Tabs value={activeTab} onValueChange={handleTabChange}>
+          {toolbar && (
+            <Toolbar
+              isDialogOpen={isDialogOpen}
+              tabsList={
+                variant === 'tabs' && (
+                  <TabsList className="mx-auto w-full">
+                    <TabsTrigger value="before">Before</TabsTrigger>
+                    <TabsTrigger value="after">After</TabsTrigger>
+                  </TabsList>
+                )
+              }
+            />
+          )}
+          <DeviceContent />
+        </Tabs>
+      </TabsWrapper>
+      {isDialogOpen && (
+        <DialogOverlay className="bg-black/50 fixed inset-0 z-40" />
+      )}
     </Dialog>
   );
 };
