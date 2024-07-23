@@ -15,7 +15,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
   return (
     <Card
       className={cn(
-        'w-full min-h-fit flex-row sm:flex-col outline-background/40 lg:px-4',
+        'w-full min-h-fit min-w-fit flex-row sm:flex-col outline-background/40 lg:px-4',
         className
       )}
       onClick={onClick}

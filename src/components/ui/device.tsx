@@ -11,8 +11,11 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn, throttle } from '@/lib/utils';
 import { Minimize2, Maximize2, MoveHorizontal } from 'lucide-react';
+import { before } from 'node:test';
 
 interface DeviceProps {
+  beforeLabel?: string;
+  afterLabel?: string;
   beforeSrc: string;
   afterSrc?: string;
   beforeAlt: string;
@@ -29,6 +32,8 @@ interface DeviceProps {
 
 const Device: React.FC<DeviceProps> = ({
   beforeSrc,
+  beforeLabel,
+  afterLabel,
   afterSrc,
   beforeAlt,
   afterAlt,
@@ -162,15 +167,19 @@ const Device: React.FC<DeviceProps> = ({
               {renderMedia(afterSrc, afterAlt, afterVideo)}
             </div>
           )}
-          <div className={label}>Before</div>
-          <div className={cn(label, 'right-0')}>After</div>
+          <div className={label}>{beforeLabel ? beforeLabel : 'Before'}</div>
+          <div className={cn(label, 'right-0')}>
+            {afterLabel ? afterLabel : 'After'}
+          </div>
           <div
             className={`absolute top-0 bottom-0 w-px bg-text/30 ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
             style={{ left: `${sliderValue}%` }}
           >
-            <div className="bg-text/40 outline outline-1 outline-text/60 p-2 rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2"><MoveHorizontal className='text-card/90' strokeWidth="1" /></div>
+            <div className="bg-text/40 outline outline-1 outline-text/60 p-2 rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+              <MoveHorizontal className="text-card/90" strokeWidth="1" />
+            </div>
           </div>
         </div>
       )}
@@ -226,10 +235,10 @@ const Device: React.FC<DeviceProps> = ({
                 variant === 'tabs' && (
                   <TabsList className="mx-auto py-0 h-auto w-full">
                     <TabsTrigger className="w-full" value="after">
-                      After
+                      {afterLabel ? afterLabel : 'After'}
                     </TabsTrigger>
                     <TabsTrigger className="w-full" value="before">
-                      Before
+                      {beforeLabel ? beforeLabel : 'Before'}
                     </TabsTrigger>
                   </TabsList>
                 )

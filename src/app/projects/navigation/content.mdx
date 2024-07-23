@@ -3,7 +3,7 @@ import Device from '@/components/ui/device';
 import ImpactCard from '@/components/ui/impact-card';
 import Image from 'next/image';
 
-# TODO Attention-grabbing headline
+# Enterprise Platform Navigation Redesign
 
 <Device
   variant="tabs"
@@ -13,6 +13,7 @@ import Image from 'next/image';
   afterAlt="Video showing the new navigation interface"
   width={1400}
   height={800}
+  className="!col-span-9"
 />
 
 <div className="mt-40" />
@@ -38,40 +39,38 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
-  <ImpactCard
-    className="col-span-2"
-    title="Increased Task Success"
-    importantNumber={
-      <span className="tracking-tighter">
-        45<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
-      </span>
-    }
-    content="Guesswork and clicks significantly reduced"
-  />
-
-{' '}
-
-<ImpactCard
-  className="col-span-2"
-  title="More User-Friendly"
-  importantNumber={
-    <span className="tracking-tighter">
-      80<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
-    </span>
-  }
-  content="System Usability Scale scores improved dramatically"
-/>
-
-  <ImpactCard
-    className="col-span-2"
-    title="Fewer Support Tickets"
-    importantNumber={
-      <span className="tracking-tighter">
-        10<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
-      </span>
-    }
-    content="Reduced navigation-related requests "
-  />
+  <div className="flex gap-8">
+    <ImpactCard
+      className="col-span-2"
+      title="Increased Task Success"
+      importantNumber={
+        <span className="tracking-tighter">
+          45<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+        </span>
+      }
+      content="Significantly reduced guesswork and clicks"
+    />
+    <ImpactCard
+      className="col-span-2"
+      title="More User-Friendly"
+      importantNumber={
+        <span className="tracking-tighter">
+        75<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+        </span>
+      }
+      content="Dramatically improved System Usability Scale"
+    />
+    <ImpactCard
+      className="col-span-2"
+      title="Fewer Support Tickets"
+      importantNumber={
+        <span className="tracking-tighter">
+          10<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
+        </span>
+      }
+      content="Reduced navigation-related requests"
+    />
+  </div>
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
@@ -99,23 +98,28 @@ import Image from 'next/image';
     <div className="top-64 sticky flex flex-col gap-8">
     <h3 className="small-caps">Iterations</h3>
     <div className="md:max-lg:col-start-2 col-span-5">
-      I created close to 2 dozen experiments of menu iterations at various fidelities, including plenty of Figma spaghetti.
-      
-      When working with a high degree of ambiguity, it’s often useful to diverge and pursue a wide range of ideas and threads to uncover things that work.
+      I created close to 2 dozen experiments at various fidelities, including plenty of Figma spaghetti.
+
+      This is a selection of a few that best related to the final product.
       </div>
 </div>
 
   </div>
   <div className="col-span-6 flex flex-col gap-8">
+
       <Image src="/projects/navigation/prototypes.png" className='mb-80' alt="A screenshot of the design sprint" width={1400} height={800} />
+
+    When working with a high degree of ambiguity, it’s often useful to diverge and pursue a wide range of ideas and threads to uncover things that work.
+
     <Device
       beforeSrc="/projects/navigation/iteration-01.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      className='mt-40'
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.
     </div>
     <Device
       beforeSrc="/projects/navigation/iteration-02.png"
@@ -123,8 +127,8 @@ import Image from 'next/image';
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      An experiment using theme as a signal to users what area of the product they are in.
     </div>
     <Device
       beforeSrc="/projects/navigation/iteration-03.png"
@@ -132,8 +136,8 @@ import Image from 'next/image';
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      A quick foray into a horizontal navbar &mdash; while this iteration had lots of issues, it led to a lot more ideas.
     </div>
     <Device
       beforeSrc="/projects/navigation/iteration-04.png"
@@ -141,36 +145,20 @@ import Image from 'next/image';
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      An idea for a quick site-switcher to make it easier for users to switch between sites.
     </div>
-    <Device
-      beforeSrc="/projects/navigation/iteration-05.png"
-      alt="Auto translate interface in action"
-      width={1200}
-      height={800}
-    />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
-    </div>
-    <Device
-      beforeSrc="/projects/navigation/iteration-06.png"
-      alt="Auto translate interface in action"
-      width={1200}
-      height={800}
-    />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
-    </div>
+    
     <Device
       beforeSrc="/projects/navigation/iteration-07.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      One of the first versions of the mega menu &mdash; testing this idea helped me sell it to the team.
     </div>
+
   </div>
 </div>
 
@@ -193,8 +181,8 @@ import Image from 'next/image';
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one such lost idea. 
     </div>
     <Device
     variant='slider'
@@ -202,11 +190,13 @@ import Image from 'next/image';
       beforeAlt="Auto translate interface in action"
       afterSrc="/projects/navigation/menu-mockup.png"
       afterAlt="Auto translate interface in action"
+      beforeLabel='Mockup'
+      afterLabel='Implementation'
       width={1200}
       height={800}
     />
-    <div className="ml-4 mb-16">
-      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    <div className="mb-32">
+      A lot can be lost on the road to implementation &mdash; one of the biggest things I’d change up is how much time I would have spent polishing the mockups versus engaging with engineers during the build.
     </div>
   </div>
 </div>
