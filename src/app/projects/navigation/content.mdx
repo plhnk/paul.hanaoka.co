@@ -1,6 +1,7 @@
 import Summary from '@/components/layout/summary';
 import Device from '@/components/ui/device';
 import ImpactCard from '@/components/ui/impact-card';
+import Image from 'next/image';
 
 # TODO Attention-grabbing headline
 
@@ -39,7 +40,7 @@ import ImpactCard from '@/components/ui/impact-card';
   <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
   <ImpactCard
     className="col-span-2"
-    title="Increased Task Success Rate"
+    title="Increased Task Success"
     importantNumber={
       <span className="tracking-tighter">
         45<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
@@ -63,12 +64,145 @@ import ImpactCard from '@/components/ui/impact-card';
 
   <ImpactCard
     className="col-span-2"
-    title="Decrease in Support Tickets"
+    title="Fewer Support Tickets"
     importantNumber={
       <span className="tracking-tighter">
         10<sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>
       </span>
     }
-    content="Navigation-related tickets down"
+    content="Reduced navigation-related requests "
   />
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h3 className="small-caps max-md:col-span-5 mt-6">Process</h3>
+  <div className="md:max-lg:col-start-2 lg:col-start-1 col-span-6">
+    Improving our understanding of the user was a critical first step. 
+    
+    I interviewed a variety of users, summarized the qualitative data, and facilitated ideation sessions.
+
+    One outcome was an updated map of where the different user groups did most of their work.
+
+   </div>
+
+  <Image
+    src="/projects/navigation/mental-models.png"
+    alt="A graphic showing two diagrams of the mental model for navigation"
+    width={1400}
+    height={800}
+    className="-ml-4 !col-span-9 !col-start-1" 
+  />
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 my-40">
+  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
+    <div className="top-64 sticky flex flex-col gap-8">
+      <h3 className="small-caps">Iterations</h3>
+      I created close to 2 dozen experiments of menu iterations at various fidelities, including plenty of Figma spaghetti.
+      
+      When working with a high degree of ambiguity, it’s often useful to diverge and pursue a wide range of ideas and threads to uncover things that work.
+</div>
+
+  </div>
+  <div className="col-span-6 flex flex-col gap-8">
+      <Image src="/projects/navigation/prototypes.png" className='mb-80' alt="A screenshot of the design sprint" width={1400} height={800} />
+    <Device
+      beforeSrc="/projects/navigation/iteration-01.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-02.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-03.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-04.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-05.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-06.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+      beforeSrc="/projects/navigation/iteration-07.png"
+      alt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+  </div>
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 my-40">
+  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
+    <div className="top-64 sticky flex flex-col gap-8">
+      <h3 className="small-caps">Outcomes & Learnings</h3>
+      Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
+      
+      One difficult tradeoff in the moment was cutting a custom menu builder and instead implementing a way for site admins to enable the new nav at the pace of their organization. 
+</div>
+
+  </div>
+  <div className="col-span-6 flex flex-col gap-8">
+    <Device
+      beforeSrc="/projects/navigation/modular-nav.png"
+      beforeAlt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+    <Device
+    variant='slider'
+      beforeSrc="/projects/navigation/menu-implemented.png"
+      beforeAlt="Auto translate interface in action"
+      afterSrc="/projects/navigation/menu-mockup.png"
+      afterAlt="Auto translate interface in action"
+      width={1200}
+      height={800}
+    />
+    <div className="ml-4 mb-16">
+      Maintaining consistency between navigation structure while differentiating between users with a theme.
+    </div>
+  </div>
 </div>

@@ -22,7 +22,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
     >
       <CardHeader>
         <CardTitle className='pb-4 sm:pb-0'>
-          <div className="hidden sm:blocksmall-caps">{title}</div>
+          <div className="hidden sm:block small-caps">{title}</div>
           <div className="text-7xl lg:text-9xl !leading-normal -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
             {importantNumber}
           </div>
