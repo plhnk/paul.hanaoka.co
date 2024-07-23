@@ -146,11 +146,11 @@ const Device: React.FC<DeviceProps> = ({
 
       {variant === 'tabs' && (
         <>
-          <TabsContent value="before">
+          <TabsContent className='mt-0' value="before">
             {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
           </TabsContent>
           {afterSrc && afterAlt && afterVideo && (
-            <TabsContent value="after">
+            <TabsContent className='mt-0' value="after">
               {renderMedia(afterSrc, afterAlt, afterVideo)}
             </TabsContent>
           )}
@@ -193,9 +193,9 @@ const Device: React.FC<DeviceProps> = ({
               isDialogOpen={isDialogOpen}
               tabsList={
                 variant === 'tabs' && (
-                  <TabsList className="mx-auto w-full">
-                    <TabsTrigger value="before">Before</TabsTrigger>
-                    <TabsTrigger value="after">After</TabsTrigger>
+                  <TabsList className="mx-auto py-0 h-auto w-full">
+                    <TabsTrigger className='w-full' value="after">After</TabsTrigger>
+                    <TabsTrigger className='w-full' value="before">Before</TabsTrigger>
                   </TabsList>
                 )
               }
