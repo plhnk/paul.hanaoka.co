@@ -154,7 +154,7 @@ const Device: React.FC<DeviceProps> = ({
 
   return (
     <Dialog onOpenChange={setIsDialogOpen}>
-      <div className={cn('relative', browserStyle)}>
+      <div className={cn('relative', className, browserStyle)}>
         {toolbar && <Toolbar isDialogOpen={false} />}
         <DeviceContent />
       </div>
@@ -162,7 +162,7 @@ const Device: React.FC<DeviceProps> = ({
       <DialogContent
         hideDefaultClose
         className={cn(
-          'max-w-[95vw] w-[95vw] max-h-[95vh] h-auto p-0 overflow-auto border-none gap-0',
+          'max-w-[95vw] w-max max-h-[95vh] h-auto p-0 overflow-auto border-none gap-0',
           browserStyle
         )}
       >
