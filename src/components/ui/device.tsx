@@ -49,7 +49,7 @@ const Device: React.FC<DeviceProps> = ({
     setActiveTab(value as 'before' | 'after');
   };
 
-  const imgStyle = 'rounded-md';
+  const imgStyle = 'rounded-b-md';
   const browserStyle =
     'bg-card rounded-lg outline outline-1 outline-text/20 -outline-offset-1';
 
