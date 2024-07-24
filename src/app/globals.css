@@ -157,3 +157,4 @@
 /* moleskin dot grid as background? --> tried this and it does not perf well at all... at least my approach using a repeating radial gradient, maybe try with svg? */
 /* TODO maybe add a custom scrollbar outside of frame ? https://css-tricks.com/custom-scrollbars-in-webkit/ */
 /* TODO --> consolidate sidebar class w/sidebar component... :facepalm: */
+/* TODO fix case study container defaults */

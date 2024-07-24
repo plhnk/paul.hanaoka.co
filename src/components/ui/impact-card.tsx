@@ -1,39 +1,88 @@
 'use client';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ImpactCardProps } from '../../lib/utilities/types';
 import { cn } from '../../lib/utils';
+import { ArrowUp, ArrowDown } from 'lucide-react';
+
+const getOutcomeColor = (outcome: ImpactCardProps['outcome']): string => {
+  switch (outcome) {
+    case 'positive':
+      return 'text-green-500 bg-green-800/10 outline-green-900/20';
+    case 'negative':
+      return 'text-red-500 bg-red-800/10 outline-red-900/20';
+    case 'neutral':
+      return 'text-yellow-500 bg-yellow-800/10 outline-yellow-900/20';
+    default:
+      return 'black';
+  }
+};
+
+const getArrowIcon = (arrow: ImpactCardProps['arrow']): JSX.Element | null => {
+  switch (arrow) {
+    case 'up':
+      return <ArrowUp />;
+    case 'down':
+      return <ArrowDown />;
+    case 'none':
+      return null;
+    default:
+      return null;
+  }
+};
+
+const getNumberModifier = (
+  type: 'percentage' | 'integer'
+): JSX.Element | null => {
+  if (type === 'percentage') {
+    return <sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>;
+  }
+  return null;
+};
 
 const ImpactCard: React.FC<ImpactCardProps> = ({
   className,
   content,
   extraInfo,
-  indicator,
+  outcome = 'positive',
+  arrow = 'up',
   importantNumber,
+  numberType = 'percentage',
   title,
   onClick,
 }) => {
+  const outcomeColor = outcome ? getOutcomeColor(outcome) : 'black';
+  const ArrowIcon = arrow ? getArrowIcon(arrow) : null;
+  const NumberModifier = getNumberModifier(numberType);
+
   return (
     <Card
-      className={cn(
-        'w-full min-h-fit min-w-fit flex-row sm:flex-col outline-background/40 lg:px-4',
-        className
-      )}
+      className={cn('min-h-fit min-w-48 outline-background/40', className)}
       onClick={onClick}
     >
-      <CardHeader>
-        <CardTitle className='pb-4 sm:pb-0'>
-          <div className="hidden sm:block small-caps">{title}</div>
-          <div className="text-7xl lg:text-9xl !leading-normal -mb-4 font-thin tracking-tighter font-mono -ml-1 text-text">
-            {importantNumber}
-          </div>
+      <CardHeader className="">
+        <CardTitle className="text-pretty flex flex-col h-full">
+          <span className="block small-caps ml-16">{title}</span>
+          <span className={`flex ${ArrowIcon ? null : 'ml-9'}`}>
+            {ArrowIcon && (
+              <span
+                className={`my-auto rounded-full outline-2 outline -outline-offset-2 p-2 ${outcomeColor}`}
+              >
+                {ArrowIcon}
+              </span>
+            )}
+            <span className="ml-5 text-7xl lg:text-9xl !leading-normal font-thin tracking-tighter font-mono text-text">
+              {importantNumber}
+              {NumberModifier}
+            </span>
+          </span>
         </CardTitle>
       </CardHeader>
-      <CardContent className="pl-0 sm:pl-4 sm:pt-0">
-        <div className="sm:hidden small-caps">{title}</div>
-        {extraInfo}
-        {content}
+      <CardContent className='!pt-0'>
+        <span className="ml-16 block">{content}</span>
       </CardContent>
     </Card>
   );
 };
+
 export default ImpactCard;

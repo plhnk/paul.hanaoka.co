@@ -32,8 +32,10 @@ export interface ImpactCardProps {
   className?: string;
   content?: ReactNode;
   extraInfo?: ReactNode;
-  indicator?: ReactNode;
+  outcome?: 'positive' | 'negative' | 'neutral';
+  arrow?: 'up' | 'down' | 'none';
   importantNumber?: ReactNode;
+  numberType?: 'percentage' | 'integer';
   title?: string;
   onClick?: () => void;
 }
