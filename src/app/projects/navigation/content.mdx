@@ -39,7 +39,7 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
-  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-7">
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-8">
     <ImpactCard
       className="flex-1 md:w-1/3"
       title="Task Success Rate"
@@ -63,7 +63,7 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
   <h3 className="small-caps max-md:col-span-5 mt-0.5">Process</h3>
-  <div className="md:max-lg:col-start-2 lg:col-start-1 col-span-6">
+  <div className="col-span-6">
     Improving our understanding of the user was a critical first step. 
     
     I interviewed a variety of users, summarized the qualitative data, and facilitated ideation sessions.
@@ -82,80 +82,66 @@ import Image from 'next/image';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
+  <div className="col-span-3 lg:col-span-2">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Iterations</h3>
-    <div className="md:max-lg:col-start-2 col-span-5">
+    <div className="">
       I created close to 2 dozen experiments at various fidelities, including plenty of Figma spaghetti.
 
       This is a selection of a few that best related to the final product.
       </div>
-
-</div>
+    </div>
 
   </div>
-  <div className="col-span-6 flex flex-col gap-8">
+  <div className="col-span-6 flex flex-col gap-40">
+    <Image src="/projects/navigation/prototypes.png" className='mb-64' alt="A screenshot of the design sprint" width={1400} height={800} />
 
-      <Image src="/projects/navigation/prototypes.png" className='mb-80' alt="A screenshot of the design sprint" width={1400} height={800} />
-
-    Because this impacted so many teams, I wanted to ensure as many , I found it useful to pursue a wide range of ideas to uncover things that could work, test them and iterate.
+    Because this impacted so many teams, I had to balance consensus making with getting things done. I found it useful to go wide, then test and iterate.
 
     <Device
       beforeSrc="/projects/navigation/iteration-01.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
-      className='mt-40'
+      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
     />
-    <div className="mb-32">
-      Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.
-    </div>
     <Device
       beforeSrc="/projects/navigation/iteration-02.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption='An experiment using theme as a signal to users what area of the product they are in.'
     />
-    <div className="mb-32">
-      An experiment using theme as a signal to users what area of the product they are in.
-    </div>
     <Device
       beforeSrc="/projects/navigation/iteration-03.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption='A quick foray into a horizontal navbar &mdash; while this iteration had lots of issues, it led to a lot more ideas.'
     />
-    <div className="mb-32">
-      A quick foray into a horizontal navbar &mdash; while this iteration had lots of issues, it led to a lot more ideas.
-    </div>
     <Device
       beforeSrc="/projects/navigation/iteration-04.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption='An idea for a quick site-switcher to make it easier for users to switch between sites.'
     />
-    <div className="mb-32">
-      An idea for a quick site-switcher to make it easier for users to switch between sites.
-    </div>
-
     <Device
       beforeSrc="/projects/navigation/iteration-07.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption='One of the first versions of the mega menu &mdash; testing this idea helped me sell it to the team.'
     />
-    <div className="mb-32">
-      One of the first versions of the mega menu &mdash; testing this idea helped me sell it to the team.
-    </div>
 
   </div>
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
+  <div className="col-span-full lg:col-span-2">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Outcomes & Learnings</h3>
-    <div className="md:max-lg:col-start-2 col-span-5">
+    <div className="">
       Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
       
       One difficult tradeoff in the moment was cutting a custom menu builder and instead implementing a way for site admins to enable the new nav at the pace of their organization. 
@@ -170,19 +156,19 @@ import Image from 'next/image';
       beforeAlt="final view of the modular nav"
       width={1200}
       height={800}
+      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      className='mb-40'
     />
-    <div className="mb-32">
-      The final version we shipped included a user-friendly way for admins to toggle the new nav.
-    </div>
+    
     <Device
       beforeSrc="/projects/navigation/modular-nav.png"
       beforeAlt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      className='mb-40'
     />
-    <div className="mb-32">
-      Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one such lost idea. 
-    </div>
+    
     <Device
     variant='tabs'
       beforeSrc="/projects/navigation/menu-implemented.png"
@@ -193,9 +179,9 @@ import Image from 'next/image';
       beforeLabel='Implementation'
       width={1200}
       height={800}
+      caption='A lot can be lost on the road to implementation &mdash; one of the biggest things I’d change up is how much time I spent polishing mockups versus engaging with engineers during the build.'
+      className='mb-40'
     />
-    <div className="mb-32">
-      A lot can be lost on the road to implementation &mdash; one of the biggest things I’d change up is how much time I would have spent polishing mockups versus engaging with engineers during the build.
-    </div>
+    
   </div>
 </div>
