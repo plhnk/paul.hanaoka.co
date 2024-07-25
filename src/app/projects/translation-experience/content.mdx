@@ -12,7 +12,7 @@ import Device from '@/components/ui/device';
 # Not every UX problem needs to be solved with UI
 
 <Hammer className="mx-auto mb-16 w-full" />
-<span className="text-text/60 mb-12 col-span-full">
+<span className="text-text/60 mb-12 lg:col-start-2 col-span-full">
   _Or: You don’t have to take the hammer approach_
 </span>
 
@@ -41,7 +41,7 @@ import Device from '@/components/ui/device';
     title="Cost Reduction"
     arrow="down"
     importantNumber={90}
-    content="Many customers achieved significant vendor savings"
+    content="Many customers achieved significant vendor savings in addition to employee efficiencies"
   />
   <ImpactCard
     className="col-span-3 sm:max-lg:col-span-2 lg:col-span-3"
@@ -68,9 +68,14 @@ import Device from '@/components/ui/device';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
-  <h3 className="small-caps max-md:col-span-5 mt-6">Process</h3>
-  <div className="md:max-lg:col-start-2 lg:col-start-1 col-span-6">
-    To translate content, users chose a language at the page level, which meant 1 page at a time:
+  <h3 className="small-caps max-md:col-span-3 mt-1">Process</h3>
+  <div className="md:max-lg:col-start-2 col-span-6">
+    I conducted interviews with three user groups to better understand how people used the existing features:
+
+    1. End-users: Direct feedback from customers and internal teams focused on goals, processes, and pain points.
+    1. Customer Support: Gathered indirect user feedback and learned about the most common issues reported by customers.
+    1. Consulting Services: Customer requirements from common customizations made to the product.
+
    </div>
 
   <Device
@@ -79,99 +84,88 @@ import Device from '@/components/ui/device';
     width={1400}
     height={800}
     className="!col-span-9 !col-start-1" 
+    caption='To translate content, users chose a language at the page level, which meant translating 1 page at a time'
   />
 </div>
 
-<div className="!md:col-start-2 my-16 col-span-6">
- I conducted interviews with three user groups to better understand how people used the existing features:
+<Image
+  src="/projects/translation-experience/sprint.png"
+  alt="A screenshot of the design sprint"
+  width={1400}
+  height={800}
+  className="my-16"
+/>
 
-    1. End-users: Direct feedback from customers and internal teams focused on goals, processes, and pain points.
-    1. Customer Support: Gathered indirect user feedback and learned about the most common issues reported by customers.
-    1. Consulting Services: Customer requirements from common customizations made to the product.
-    <div className='mt-16' />
-      <Image
-    src="/projects/translation-experience/sprint.png"
-    alt="A screenshot of the design sprint"
-    width={1400}
-    height={800}
-    className='my-16'/>
-
-Two of the most important insights from these interviews helped shape the solution.
-
-</div>
+Two important insights from these interviews helped shape the solution:
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
-    <div className="top-64 sticky flex flex-col gap-8">
-      <h3 className="small-caps">Customer Insight No. 1</h3>
-      <div className="flex sm:flex-col">
-        <User className="order-2 sm:order-none m-4 mr-0 w-full sm:w-48" />
+  <div className="col-span-3 md:col-span-4 lg:col-span-2">
+    <div className="top-14 sticky flex flex-col gap-8">
+      <h3 className="small-caps mt-1.5">Customer Insight No. 1</h3>
+      <div className="flex lg:flex-col">
+        <User className="order-2 lg:order-none m-4 mr-0 mt-0 w-full sm:w-48" />
         Larger customers often added vendors as users to their instance to translate
         content for them &mdash; this would often result in errors and was also cost-prohibitive.
       </div>
     </div>
   </div>
-  <div className="col-span-6 flex flex-col gap-8">
-    <Device
-      beforeSrc="/projects/translation-experience/permissions.png"
-      alt="Auto translate interface in action"
-      width={1200}
-      height={800}
-    />
-    <div className="ml-4">
-      By defining specific roles for translators this helped reduce the ability
+  <Device
+    beforeSrc="/projects/translation-experience/permissions.png"
+    alt="Auto translate interface in action"
+    width={1200}
+    height={800}
+    caption="By defining specific roles for translators this helped reduce the ability
       of vendors to inadvertently access, modify, or delete content &mdash; thus
-      reducing costs and errors.
-    </div>
-  </div>
+      reducing costs and errors."
+    className="col-span-full lg:col-span-6"
+  />
 </div>
 
-<div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
-    <div className="top-64 sticky flex flex-col gap-8">
-      <h3 className="small-caps">Customer Insight No. 2</h3>
-      <div className="flex sm:flex-col">
-        <Spreadsheet className="order-2 sm:order-none m-4 mr-0 w-full sm:w-48" />
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <div className="col-span-3 md:col-span-4 lg:col-span-2">
+    <div className="top-14 sticky flex flex-col gap-8">
+      <h3 className="small-caps mt-1.5">Customer Insight No. 2</h3>
+      <div className="flex lg:flex-col">
+        <Spreadsheet className="order-2 lg:order-none m-4 mr-0 mt-0 w-full sm:w-48" />
         Customers often used spreadsheets outside of Liferay to achieve their goals
         of translating content.
       </div>
     </div>
   </div>
-  <div className="col-span-6 flex flex-col gap-8">
+  <div className="col-span-6 flex flex-col gap-40">
     <Device
       beforeSrc="/projects/translation-experience/import.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
+      caption="Adding the ability to export and import content as .xlf files eliminated
+      the need for customers to use a spreadsheet to manage translations."
     />
-    <div className="ml-4 mb-16">
-      Adding the ability to export and import content as .xlf files eliminated
-      the need for customers to use a spreadsheet to manage translations.
-    </div>
+
     <Device
       beforeSrc="/projects/translation-experience/settings.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
-    />
-    <div className="ml-4">
-      Going a step further, adding integrations for translation services so that
+      caption="Going a step further, adding integrations for translation services so that
       customers were able to automatically translate content within Liferay,
-      eliminating the need for other tools.
-    </div>
+      eliminating the need for other tools."
+    />
+
   </div>
 </div>
 
-  <Key className='!col-span-4 2xl:!col-start-4 mt-16' />
-<div className="grid grid-cols-subgrid gap-8 mt-40">
-  <h3 className="small-caps col-span-5 mt-6">Outcomes & Learnings</h3>
-  <div className="md:max-lg:col-start-2 col-span-5">
-    While this wasn't an entirely UI-less solution, interactions followed conventional patterns. 
-    
+<Key className="!col-span-4 2xl:!col-start-4 my-64" />
+
+<div className="grid grid-cols-subgrid gap-8">
+  <div className="col-span-full lg:col-span-5 lg:col-start-2">
+      <h3 className="small-caps my-8">Outcomes & Learnings</h3>
+
+    While this wasn't an entirely UI-less solution, interactions followed conventional patterns.
+
     I added value by understanding and explaining user pain, helping the team to ideate and prioritize effort through business outcomes. We were able to expend the same (or less) effort on implementing the right solution quickly.
 
     By focusing on user problems we created a huge amount of value, eliminated thousands of hoursof busywork, enabling our customers and their customers to spend their time doing more meaningful work.
-
-   </div>
+    </div>
 
 </div>

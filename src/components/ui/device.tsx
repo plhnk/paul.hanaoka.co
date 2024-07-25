@@ -219,7 +219,7 @@ const Device: React.FC<DeviceProps> = ({
     ) : (
       <figure className={cn('relative', className, browserStyle)}>
         {children}
-        {caption && <figcaption className='absolute mt-4 max-w-[70ch] text-text/70 italic'>{caption}</figcaption>}
+        {caption && <figcaption className='absolute text-pretty mt-4 max-w-[70ch] text-text/70 italic'>{caption}</figcaption>}
       </figure>
     );
   };
