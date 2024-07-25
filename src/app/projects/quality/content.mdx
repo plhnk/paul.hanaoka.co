@@ -12,48 +12,60 @@ import Image from 'next/image';
   afterAlt="comparison of the old and new nav interfaces"
   width={1400}
   height={800}
-  className="!col-span-9"
+  className="my-16 col-span-full lg:!col-start-2"
+  caption='Comparing the old and new header components in sitebuilder &mdash; helping users focus on their tasks by making the UI more efficient'
 />
 
 <div className="mt-40" />
 
 <Summary
   problem={
-    'Adoption for two major feature updates was low, revenue had lagged for consecutive quarters, and new customer targets were below goal projections. \n A steady uptick in UX bugs had been reported since the last major release — previous to this, there was not a single team responsible for the platform-wide experience, so our working hypothesis was we could make outsized (yet cost-effective) improvements by doing it at the platform level with a single, small team.'
+    'Revenue had lagged for consecutive quarters following a major release, new customer growth was notably stagnant. \n The biggest problem was the lack of a cohesive vision for how to solve the myriad of UX issues across the platform.'
   }
   role={
-    'As Product Design lead, I collaborated with the Technical lead and PM to develop a strategy, ideating in tight feedback loops through execution. \n I consulted with Product Designers while building requirements and coached them through applying improvements in specific platform areas.'
+    'As Product Design lead, I collaborated with the Technical lead and PM to develop a strategy, ideating in tight feedback loops through execution. \n I consulted with Product Designers while building requirements and coached them through applying improvements in their specific platform areas.'
   }
   contributions={[
-    'Workshop facilitation: brainstorming, prioritizing, etc',
-    'Championing User Research',
+    'Workshop facilitation',
     'UX and UI Design',
     'Prototyping and Usability Testing',
-    'Unblocking teams',
     'Quality Assurance',
   ]}
 />
 
+<div className="grid grid-cols-subgrid gap-8 mt-40">
+  <h3 className="small-caps max-md:col-span-5">Solution</h3>
+  <div className="lg:col-start-2 mb-16 col-span-6 2xl:col-span-4">
+    Given that this was the first initiative of its kind, we imposed strict constraints &mdash; briefly, the improvements were focused in:
+    1. The header toolbar component &mdash; I contributed by designing the overall structure, documentation, and supporting designers implementing in their specific platform areas
+    1. The page wrapper &mdash; my contributions were designing a rough idea and ideating with engineers in code to arrive at a cost-effective solution
+    1. An on-page nav component &mdash; an outcome of early header toolbar explorations, this was a new component that I contributed an initial design for and then worked with the Design Systems team to implement
+
+  </div>
+
+</div>
+
 <div className="grid grid-cols-subgrid gap-8 mt-32">
-  <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
-  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full">
+  <h2 className="small-caps max-lg:col-span-5 mt-6">Impact</h2>
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-8">
+    <ImpactCard
+      className="flex-1 md:w-1/3"
+      title="Reduced Support Costs"
+      importantNumber={10}
+      arrow="down"
+      content="YoY reduction in support tickets for quarter following release"
+    />
     <ImpactCard
       className="flex-1 md:w-1/3"
       title="Perceived Value"
       importantNumber={30}
-      content="The aesthetic-usability effect at work"
-    />
-    <ImpactCard
-      className="flex-1 md:w-1/3"
-      title="TODO"
-      importantNumber={10}
-      content="TODO"
+      content="Employing Design strategically to provide value"
     />
     <ImpactCard
       className="flex-1 md:w-1/3"
       title="Revenue Growth"
-      importantNumber={34}
-      content="Exceeded new revenue goals for new business"
+      importantNumber={54}
+      content="Exceeded revenue goals for new business"
     />
   </div>
 </div>
@@ -65,66 +77,77 @@ import Image from 'next/image';
   afterAlt="comparison of the old and new nav interfaces"
   width={1400}
   height={800}
-  className="!col-span-9"
+  className="my-16 col-span-full lg:!col-start-2"
+  caption='Comparing the old page layout and header components in a dense UI &mdash; increasing the density helped users achieve tasks faster and more efficiently'
 />
 
 <Device
-  variant="slider"
+  variant="tabs"
   beforeSrc="/projects/quality/admin-before.png"
   afterSrc="/projects/quality/admin-after.png"
   afterAlt="comparison of the old and new nav interfaces"
   width={1400}
   height={800}
-  className="!col-span-9"
+  className="my-16 col-span-full lg:!col-start-2"
+  caption='The new onpage nav component eliminated the unfortunately common pattern of stacked tabs &mdash; a critical dependency for improving the header toolbar'
 />
 
-
 <div className="grid grid-cols-subgrid gap-8 mt-40">
-  <h3 className="small-caps max-md:col-span-5 mt-0.5">Process</h3>
-  <div className="md:max-lg:col-start-2 lg:col-start-1 col-span-6">
-    Setting a clear vision is the first step to any successful project — together with a PM, we drafted a pitch deck to the rest of the platform teams as a way to inspire them to contribute to the larger goal of improving UX at the platform level. 
-    
-    After hosting an initial async brainstorm with designers to capture the problem screens in their areas, I then categorized and documented the issues at the component level.
-    
-    As a cross-functional leadership team we met to review the components and run an evaluation matrix exercise to focus our efforts.
-
-   </div>
-
-  <Image
-    src="/projects/navigation/mental-models.png"
-    alt="A graphic showing two diagrams of the mental model for navigation"
-    width={1400}
-    height={800}
-    className="-ml-4 !col-span-9 !col-start-1" 
-  />
-</div>
-
-<div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
-    <div className="top-64 sticky flex flex-col gap-8">
-      <h3 className="small-caps">Iterations</h3>
-      <div className="md:max-lg:col-start-2 col-span-5">
-        I created close to 2 dozen experiments at various fidelities, including plenty of Figma spaghetti.
-
-        This is a selection of a few that best related to the final product.
-      </div>
+  <h3 className="small-caps max-md:col-span-5">Process</h3>
+  <div className="col-span-8 flex max-md:flex-col gap-8">
+    <div className="w-full md:w-1/2">
+      My high-level approach: 
+      
+      1. **Go wide**: audit the entire platform to
+      identify opportunities 
+      1. **Make sense of the mess**: group issues by
+      component 
+      1. **Prioritize ruthlessly**: index high on technical complexity
+      and impact on support 
+      
+      Setting a clear vision is the first step to any
+      successful project &mdash; I drafted a pitch deck to the rest of the
+      platform teams as a way to inspire them to contribute to the larger goal
+      of improving UX at the platform level.
     </div>
+    <Image
+      src="/projects/quality/slides.png"
+      alt="A graphic showing two diagrams of the mental model for navigation"
+      width={1400}
+      height={800}
+      className="w-full md:w-1/2 rounded-lg"
+    />
   </div>
 </div>
 
+<Image
+  src="/projects/quality/audit.png"
+  alt="A graphic showing two diagrams of the mental model for navigation"
+  width={1400}
+  height={800}
+  className="my-8 !col-span-full rounded-lg"
+/>
+
+<div className="lg:!col-start-2 !col-span-4">
+  After hosting an initial async brainstorm with designers to capture the
+  problem screens in their areas, I then categorized and documented the issues
+  at the component level.
+</div>
+
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="md:max-lg:col-start-2 col-span-3 md:col-span-2">
-    <div className="top-64 sticky flex flex-col gap-8">
-      <h3 className="small-caps">Outcomes & Learnings</h3>
-      <div className="md:max-lg:col-start-2 col-span-5">
-        By all accounts the project was a great success — in addition to
-        increased usability scores (an important component of the perceived
-        value) revenue and new business goals were exceeded in the quarters
-        following this release. A major reason for the success was the team’s
-        ability to focus and prioritize. Because we had a clear goal and clear
-        budget constraints we could quickly determine what was feasible and
-        viable, maximizing value produced.
-      </div>
+  <div className="col-span-full lg:col-span-4 lg:col-start-2">
+      <h3 className="small-caps my-8">Outcomes & Learnings</h3>
+
+      By all accounts the project was a great success — in addition to increased
+      usability scores (an important component of the perceived value) revenue and
+      new business goals were exceeded in the quarters following this release.
+
+      A major contributor to success was the team’s ability to focus and prioritize.
+
+      Because we had a clear goal and clear budget constraints we could quickly determine
+      what was feasible and viable, maximizing value produced.
+
+      Design was critical to providing a clear vision for what was possible and helping make that a reality.
     </div>
-  </div>
+
 </div>

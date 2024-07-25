@@ -23,8 +23,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children }) => <h3 className="text-base mt-12">{children}</h3>,
     h4: ({ children }) => <h4 className="text-base mb-8">{children}</h4>,
     p: ({ children }) => <p className="mb-2">{children}</p>,
-    ol: ({ children }) => <ol className="list-decimal max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ol>, 
-    ul: ({ children }) => <ul className="list-disc max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ul>, 
+    ol: ({ children }) => <ol className="list-decimal marker:text-text/60 max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ol>, 
+    ul: ({ children }) => <ul className="list-disc marker:text-text/60 max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ul>, 
     img: (props) => (
       <Image
         width={1200}

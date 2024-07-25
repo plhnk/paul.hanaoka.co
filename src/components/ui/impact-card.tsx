@@ -57,13 +57,13 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
 
   return (
     <Card
-      className={cn('min-h-fit min-w-48 outline-background/40', className)}
+      className={cn('min-h-fit overflow-visible min-w-48 outline-background/40', className)}
       onClick={onClick}
     >
       <CardHeader className="">
         <CardTitle className="text-pretty flex flex-col h-full">
-          <span className="block small-caps ml-16">{title}</span>
-          <span className={`flex ${ArrowIcon ? null : 'ml-9'}`}>
+          <span className="block small-caps text-text/80 md:max-lg:ml-4 ml-16">{title}</span>
+          <span className={`flex md:max-lg:-ml-11  ${ArrowIcon ? null : 'md:max-lg:-ml-1 ml-9'}`}>
             {ArrowIcon && (
               <span
                 className={`my-auto rounded-full outline-2 outline -outline-offset-2 p-2 ${outcomeColor}`}
@@ -71,7 +71,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
                 {ArrowIcon}
               </span>
             )}
-            <span className="ml-5 text-7xl lg:text-9xl !leading-normal font-thin tracking-tighter font-mono text-text">
+            <span className="md:max-lg:ml-3 ml-5 text-7xl lg:text-9xl !leading-normal font-thin tracking-tighter font-mono text-text">
               {importantNumber}
               {NumberModifier}
             </span>
@@ -79,7 +79,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
         </CardTitle>
       </CardHeader>
       <CardContent className='!pt-0'>
-        <span className="ml-16 block">{content}</span>
+        <span className="md:max-lg:ml-4 text-text/60 ml-16 block">{content}</span>
       </CardContent>
     </Card>
   );

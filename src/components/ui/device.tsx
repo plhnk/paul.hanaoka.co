@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn, throttle } from '@/lib/utils';
 import { Minimize2, Maximize2, MoveHorizontal } from 'lucide-react';
-import { before } from 'node:test';
 
 interface DeviceProps {
   beforeLabel?: string;
@@ -23,6 +22,7 @@ interface DeviceProps {
   beforeVideo?: string;
   afterVideo?: string;
   title?: string;
+  caption?: string;
   width: number;
   height: number;
   className?: string;
@@ -39,6 +39,7 @@ const Device: React.FC<DeviceProps> = ({
   afterAlt,
   beforeVideo,
   afterVideo,
+  caption,
   width,
   height,
   title,
@@ -60,7 +61,7 @@ const Device: React.FC<DeviceProps> = ({
   const browserStyle =
     'bg-card rounded-lg outline outline-1 outline-text/20 -outline-offset-1';
   const label =
-    'small-caps font-mono font-normal text-xs px-2 py-1 m-2 text-text/90 rounded-sm bg-background/10 backdrop-blur-lg absolute bottom-0';
+    'small-caps font-mono text-xs px-2 py-1 m-2 text-text/90 rounded-sm bg-background/30 backdrop-blur-lg absolute bottom-0';
 
   const Toolbar = ({
     isDialogOpen,
@@ -69,7 +70,7 @@ const Device: React.FC<DeviceProps> = ({
     isDialogOpen: boolean;
     tabsList?: React.ReactNode;
   }) => (
-    <div className="flex justify-between items-center rounded-t-lg p-1 pb-0">
+    <div className="flex justify-between items-center rounded-t-lg p-1 pb-0 select-none">
       <div className="flex ml-1">
         <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-red-500 rounded-full"></div>
         <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-yellow-500 rounded-full"></div>
@@ -149,7 +150,7 @@ const Device: React.FC<DeviceProps> = ({
   const DeviceContent = () => (
     <div className="p-0.5 relative select-none">
       {variant === 'default' && renderMedia(beforeSrc, beforeAlt, beforeVideo)}
-  
+
       {variant === 'slider' && (
         <div
           className="relative w-full h-full"
@@ -177,13 +178,13 @@ const Device: React.FC<DeviceProps> = ({
             }`}
             style={{ left: `${sliderValue}%` }}
           >
-            <div className="bg-text/40 outline outline-1 outline-text/60 p-2 rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2">
-              <MoveHorizontal className="text-card/90" strokeWidth="1" />
+            <div className="bg-text/30 outline outline-1 outline-text/50 p-2 rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+              <MoveHorizontal className="text-background" strokeWidth="1" />
             </div>
           </div>
         </div>
       )}
-  
+
       {variant === 'tabs' && (
         <>
           <TabsContent className="mt-0" value="before">
@@ -198,7 +199,6 @@ const Device: React.FC<DeviceProps> = ({
       )}
     </div>
   );
-  
 
   const TabsWrapper: React.FC<{
     isDialogOpen: boolean;
@@ -217,7 +217,10 @@ const Device: React.FC<DeviceProps> = ({
         {children}
       </DialogContent>
     ) : (
-      <div className={cn('relative', className, browserStyle)}>{children}</div>
+      <figure className={cn('relative', className, browserStyle)}>
+        {children}
+        {caption && <figcaption className='absolute mt-4 max-w-[70ch] text-text/70 italic'>{caption}</figcaption>}
+      </figure>
     );
   };
 
