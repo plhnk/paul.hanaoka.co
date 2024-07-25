@@ -149,7 +149,7 @@ const Device: React.FC<DeviceProps> = ({
   const DeviceContent = () => (
     <div className="p-0.5 relative select-none">
       {variant === 'default' && renderMedia(beforeSrc, beforeAlt, beforeVideo)}
-
+  
       {variant === 'slider' && (
         <div
           className="relative w-full h-full"
@@ -158,15 +158,15 @@ const Device: React.FC<DeviceProps> = ({
           onMouseMove={handleMouseMove}
           ref={sliderRef}
         >
-          {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
           {afterSrc && afterAlt && (
             <div
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
-              style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
+              style={{ clipPath: `inset(0 0 0 ${sliderValue}%)` }}
             >
               {renderMedia(afterSrc, afterAlt, afterVideo)}
             </div>
           )}
+          {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
           <div className={label}>{beforeLabel ? beforeLabel : 'Before'}</div>
           <div className={cn(label, 'right-0')}>
             {afterLabel ? afterLabel : 'After'}
@@ -183,7 +183,7 @@ const Device: React.FC<DeviceProps> = ({
           </div>
         </div>
       )}
-
+  
       {variant === 'tabs' && (
         <>
           <TabsContent className="mt-0" value="before">
@@ -198,6 +198,7 @@ const Device: React.FC<DeviceProps> = ({
       )}
     </div>
   );
+  
 
   const TabsWrapper: React.FC<{
     isDialogOpen: boolean;
