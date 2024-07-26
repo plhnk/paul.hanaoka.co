@@ -13,7 +13,7 @@ import Image from 'next/image';
   afterAlt="Video showing the new navigation interface"
   width={1600}
   height={800}
-  className="!col-span-9"
+  className="!col-span-full"
 />
 
 <div className="mt-40" />
@@ -77,12 +77,12 @@ import Image from 'next/image';
     alt="A graphic showing two diagrams of the mental model for navigation"
     width={1400}
     height={800}
-    className="-ml-4 !col-span-9 !col-start-1" 
+    className="-ml-4 !col-span-full !col-start-1" 
   />
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="col-span-3 lg:col-span-2">
+  <div className="col-span-full lg:col-span-2">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Iterations</h3>
     <div className="">
@@ -93,7 +93,7 @@ import Image from 'next/image';
     </div>
 
   </div>
-  <div className="col-span-6 flex flex-col gap-40">
+  <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-40">
     <Image src="/projects/navigation/prototypes.png" className='mb-64' alt="A screenshot of the design sprint" width={1400} height={800} />
 
     Because this impacted so many teams, I had to balance consensus making with getting things done. I found it useful to go wide, then test and iterate.
@@ -149,7 +149,7 @@ import Image from 'next/image';
 </div>
 
   </div>
-  <div className="col-span-6 flex flex-col gap-8">
+  <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8">
     <Device
       beforeSrc="/projects/navigation/enable-menu.png" 
       beforeVideo="/projects/navigation/disable-menu.mp4"

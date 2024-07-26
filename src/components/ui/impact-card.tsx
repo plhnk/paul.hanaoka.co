@@ -63,7 +63,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
       <CardHeader className="">
         <CardTitle className="text-pretty flex flex-col h-full">
           <span className="block small-caps text-text/80 md:max-lg:ml-4 ml-16">{title}</span>
-          <span className={`flex md:max-lg:-ml-11  ${ArrowIcon ? null : 'md:max-lg:-ml-1 ml-9'}`}>
+          <span className={`flex md:max-lg:-ml-11  ${ArrowIcon ? null : 'md:max-lg:-ml-0.5 ml-9'}`}>
             {ArrowIcon && (
               <span
                 className={`my-auto rounded-full outline-2 outline -outline-offset-2 p-2 ${outcomeColor}`}

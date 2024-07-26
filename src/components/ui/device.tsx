@@ -72,9 +72,9 @@ const Device: React.FC<DeviceProps> = ({
   }) => (
     <div className="flex justify-between items-center rounded-t-lg p-1 pb-0 select-none">
       <div className="flex ml-1">
-        <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-red-500 rounded-full"></div>
+        <div className="w-2 h-2 m-0.5 bg-text/20  hover:bg-red-500 rounded-full"></div>
         <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-yellow-500 rounded-full"></div>
-        <div className="w-2 h-2 m-0.5 bg-text/20 hover:bg-green-500 rounded-full"></div>
+        <div className="w-2 h-2 m-0.5 bg-text/20 hover:cursor-pointer hover:bg-green-500 rounded-full"></div>
       </div>
       {title && <div className="text-sm text-text/60">{title}</div>}
       {tabsList}

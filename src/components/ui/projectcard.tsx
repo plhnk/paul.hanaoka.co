@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import ProgressiveBlur from './progressiveblur';
 import { useTheme } from 'next-themes';
 
 interface ProjectCardProps {
@@ -19,28 +18,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { theme, systemTheme } = useTheme();
   const [imageSrc, setImageSrc] = useState('');
-  // <string>(`/projects/${id}/cover-${theme}.jpg`);
+
+  const checkImageExists = (src: string): Promise<boolean> => {
+    return new Promise((resolve) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+    });
+  };
 
   useEffect(() => {
-    const currentTheme = theme === 'system' ? systemTheme : theme;
-    setImageSrc(`/projects/${id}/cover-${currentTheme}.jpg`);
-  }, [theme, systemTheme, id]);
+    const loadImage = async () => {
+      const currentTheme = theme === 'system' ? systemTheme : theme;
+      const baseSrc = `/projects/${id}/cover-${currentTheme}`;
+      const extensions = ['jpg', 'png', 'webp'];
 
-  // NB --> projects need to be in public/$id with cover-$themes.jpg  
+      for (const ext of extensions) {
+        const src = `${baseSrc}.${ext}`;
+        const exists = await checkImageExists(src);
+        if (exists) {
+          setImageSrc(src);
+          return;
+        }
+      }
+
+      setImageSrc('/images/dank-guy.png');
+    };
+
+    loadImage();
+  }, [theme, systemTheme, id]);
 
   return (
     <Card className="max-sm:outline-none m-0 px-0 py-4 bg-transparent group-hover:shadow-elevate group-hover:-translate-y-1 transition-transform duration-75 ease-in-out overflow-visible relative -z-20 text-left">
       <CardContent className="sm:py-0 px-0">
         <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color">
-          <Image
-            className="rounded-sm"
-            src={imageSrc}
-            alt={title + ' ' + subtitle}
-            width={900}
-            height={600}
-          />
-          {/* <ProgressiveBlur className="group-hover:invisible absolute -bottom-48 -right-48 rotate-[-45deg] w-[30rem] h-[30rem]" />
-          <ProgressiveBlur className="group-hover:invisible absolute -top-48 -left-48 rotate-[135deg] w-[30rem] h-[30rem]" /> */}
+          {imageSrc && (
+            <Image
+              className="rounded-sm"
+              src={imageSrc}
+              alt={`${title} ${subtitle}`}
+              width={900}
+              height={600}
+            />
+          )}
         </div>
         <div className="shadow" />
       </CardContent>
