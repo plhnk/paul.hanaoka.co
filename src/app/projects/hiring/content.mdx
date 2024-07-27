@@ -19,127 +19,124 @@ import Image from 'next/image';
 
 <Summary
   problem={
-    'Liferay expanded its product suite and was facing challenges with in feature adoption, poor usability in the navigation was a significant factor. This feature was a key part of the company’s product-led growth strategy.'
+    'Hiring good designers for an enterprise software company is a perennial challenge, especially if your corporate website has all of the constraints of the typical corporate website. \n Once you hire a good designer — how do you onboard, grow, and retain them? '
   }
   role={
-    'As Product Design lead, I collaborated with the Technical lead and PM to develop a strategy, ideating in tight feedback loops through execution. \n I consulted with Product Designers while building requirements and coached them through applying improvements in specific platform areas.'
+    'As one of the Design Managers on the team, I contributed to the content strategy and design. In my spare time, I was the lead developer for the site, contributing over 250k lines of code.'
   }
   contributions={[
-    'Information Architecture',
+    'Content Strategy',
+    'Information Architecture ',
     'Wireframing',
-    'User Research',
-    'Product Strategy',
     'Interaction Design',
-    'Usability Testing',
     'Prototyping',
+    'Usability Testing',
     'Quality Assurance',
+    'Frontend Development',
+    'JSX / SCSS / MDX',
   ]}
 />
 
 <div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
-  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-8">
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-7">
     <ImpactCard
-      className="flex-1 md:w-1/3"
-      title="Task Success Rate"
-      importantNumber={45}
-      content="Reduced guesswork and clicks"
+      className="flex-2"
+      title="Reduced Time to Hire"
+      importantNumber={300}
+      content="From Months to Weeks"
     />
     <ImpactCard
-      className="flex-1 md:w-1/3"
-      title="System Usability Scale"
-      importantNumber={75}
-      content="Significantly more user-friendly"
+      className="flex-2"
+      title="Designer Retention"
+      importantNumber={240}
+      content="Significantly over industry average"
     />
     <ImpactCard
-      className="flex-1 md:w-1/3"
-      title="Commerce Adoption"
-      importantNumber={220}
-      content="YoY growth of our ecommerce features"
+      className="flex-1"
+      title="Good Designers Hired"
+      importantNumber={40}
+      arrow="none"
+      numberType="integer"
+      content="From 2018 to 2023"
     />
   </div>
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 mt-40">
-  <h3 className="small-caps max-md:col-span-5 mt-0.5">Process</h3>
-  <div className="col-span-6">
-    Improving our understanding of the user was a critical first step. 
+  <h3 className="small-caps max-md:col-span-5 mt-0.5">Solution</h3>
+  <div className="col-span-3">
+    Creating a home on the web for our burgeoning design team was one way to compete with cool startups who were able to lure top talent.
     
-    I interviewed a variety of users, summarized the qualitative data, and facilitated ideation sessions.
-
-    One outcome was an updated map of where the different user groups did most of their work.
+    On one hand, yes — this was just a few websites — but it was also so much more. It became a vehicle for us to learn and grow together.
+    
+    Along the way, I learned a ton about management, engineering, marketing, and how hard it is to design for designers.
 
    </div>
 
   <Image
-    src="/projects/navigation/mental-models.png"
+    src="/projects/design-site/commits.png"
     alt="A graphic showing two diagrams of the mental model for navigation"
-    width={1400}
-    height={800}
-    className="-ml-4 !col-span-full !col-start-1" 
+    width={752}
+    height={458}
+    className="col-span-3 -mt-4 rounded-lg ml-16 outline outline-1 outline-text/20 -outline-offset-1"
   />
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
   <div className="col-span-full lg:col-span-2">
     <div className="top-14 sticky flex flex-col gap-8">
-    <h3 className="small-caps mt-1.5">Iterations</h3>
+    <h3 className="small-caps mt-1.5">The Liferay.Design Ecosystem</h3>
     <div className="">
-      I created close to 2 dozen experiments at various fidelities, including plenty of Figma spaghetti.
-
-      This is a selection of a few that best related to the final product.
+      What initially started as a landing page for our first Design meetup grew to a monorepo that held our entire DesignOps library, including our Department Handbook and Design System documentation. It also connected to external tools and services like Cloudflare and MailChimp.
       </div>
     </div>
 
   </div>
   <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-40">
-    <Image src="/projects/navigation/prototypes.png" className='mb-64' alt="A screenshot of the design sprint" width={1400} height={800} />
-
-    Because this impacted so many teams, I had to balance consensus making with getting things done. I found it useful to go wide, then test and iterate.
-
     <Device
-      beforeSrc="/projects/navigation/iteration-01.png"
+      beforeSrc="/projects/design-site/home-desktop.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
       caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
     />
     <Device
-      beforeSrc="/projects/navigation/iteration-02.png"
+      beforeSrc="/projects/design-site/404.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
-      caption='An experiment using theme as a signal to users what area of the product they are in.'
+      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
     />
     <Device
-      beforeSrc="/projects/navigation/iteration-03.png"
-      alt="Auto translate interface in action"
-      width={1200}
+      variant="tabs"
+      beforeSrc="/projects/design-site/mobile-update.png"
+      afterVideo="/projects/design-site/carousel.mp4"
+      afterSrc="/projects/design-site/after.png"
+      afterAlt="Video showing the new navigation interface"
+      afterLabel='Designer Profile'
+      beforeLabel='Mobile Version'
+      width={1600}
       height={800}
-      caption='A quick foray into a horizontal navbar &mdash; while this iteration had lots of issues, it led to a lot more ideas.'
+      className="!col-span-full"
+      autoplay={true}
+      loop={true}
+      caption='Profiles for the designers'
     />
     <Device
-      beforeSrc="/projects/navigation/iteration-04.png"
+      beforeSrc="/projects/design-site/handbook.png"
       alt="Auto translate interface in action"
       width={1200}
       height={800}
-      caption='An idea for a quick site-switcher to make it easier for users to switch between sites.'
+      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
     />
-    <Device
-      beforeSrc="/projects/navigation/iteration-07.png"
-      alt="Auto translate interface in action"
-      width={1200}
-      height={800}
-      caption='One of the first versions of the mega menu &mdash; testing this idea helped me sell it to the team.'
-    />
-
   </div>
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
   <div className="col-span-full lg:col-span-2">
     <div className="top-14 sticky flex flex-col gap-8">
-    <h3 className="small-caps mt-1.5">Outcomes & Learnings</h3>
+    <h3 className="small-caps mt-1.5">Hire & Onboard</h3>
     <div className="">
       Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
       
@@ -148,39 +145,144 @@ import Image from 'next/image';
 </div>
 
   </div>
-  <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8">
+  <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8"> 
     <Device
-      beforeSrc="/projects/navigation/enable-menu.png" 
-      beforeVideo="/projects/navigation/disable-menu.mp4"
-      beforeAlt="final view of the modular nav"
-      width={1200}
-      height={800}
-      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
-      className='mb-40'
-    />
-    
-    <Device
-      beforeSrc="/projects/navigation/modular-nav.png"
+      beforeSrc="/projects/design-site/article.png"
       beforeAlt="Auto translate interface in action"
       width={1200}
       height={800}
       caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
       className='mb-40'
     />
-    
     <Device
-    variant='tabs'
-      beforeSrc="/projects/navigation/menu-implemented.png"
+      beforeSrc="/projects/design-site/events.png"
       beforeAlt="Auto translate interface in action"
-      afterSrc="/projects/navigation/menu-mockup.png"
-      afterAlt="Auto translate interface in action"
-      afterLabel='Mockup'
-      beforeLabel='Implementation'
       width={1200}
       height={800}
-      caption='A lot can be lost on the road to implementation &mdash; one of the biggest things I’d change up is how much time I spent polishing mockups versus engaging with engineers during the build.'
+      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
       className='mb-40'
     />
-    
+    <Device
+      beforeSrc="/projects/design-site/newsletter.png"
+      beforeAlt="Auto translate interface in action"
+      width={1200}
+      height={800}
+      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      className='mb-40'
+    />
+    <Device
+      beforeSrc="/projects/design-site/job-ad.png" 
+      beforeAlt="final view of the modular nav"
+      width={1200}
+      height={800}
+      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      className='mb-40'
+    />
+    <Device
+      beforeSrc="/projects/design-site/onboarding.png" 
+      beforeAlt="final view of the modular nav"
+      width={1200}
+      height={800}
+      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      className='mb-40'
+    />
+    <Device
+      beforeSrc="/projects/design-site/team.png" 
+      beforeAlt="final view of the modular nav"
+      width={1200}
+      height={800}
+      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      className='mb-40'
+    />
   </div>
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 my-40">
+  <div className="col-span-full lg:col-span-2">
+    <div className="top-14 sticky flex flex-col gap-8">
+    <h3 className="small-caps mt-1.5">Grow & Get Better</h3>
+    <div className="">
+      Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
+      
+      One difficult tradeoff in the moment was cutting a custom menu builder and instead implementing a way for site admins to enable the new nav at the pace of their organization. 
+      </div>
+</div>
+
+  </div>
+  <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8"> 
+    <Device
+      beforeSrc="/projects/design-site/career-paths.png"
+      beforeAlt="Auto translate interface in action"
+      width={1200}
+      height={800}
+      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      className='mb-40'
+    />
+    <Device
+      beforeSrc="/projects/design-site/best-practices.png"
+      beforeAlt="Auto translate interface in action"
+      width={1200}
+      height={800}
+      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      className='mb-40'
+    />
+    <Device
+      beforeSrc="/projects/design-site/enable-menu.png" 
+      beforeVideo="/projects/design-site/promotions.mp4"
+      beforeAlt="final view of the modular nav"
+      autoplay={true}
+      loop={true}
+      width={1200}
+      height={800}
+      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      className='mb-40'
+    />
+  </div>
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 mt-32">
+  <h2 className="small-caps max-md:col-span-5 mt-6">By the Numbers</h2>
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-7">
+    <ImpactCard
+      className="flex-2"
+      title="Newsletter Subscribers"
+      importantNumber={170}
+      numberType="integer"
+      content="Significantly over industry average"
+      arrow="none"
+    />
+    <ImpactCard
+      className="flex-4"
+      title="Weekly Visitors"
+      importantNumber={1000}
+      numberType="integer"
+      arrow="none"
+      content="From Months to Weeks"
+    />
+    <ImpactCard
+      className="flex-1"
+      title="Millions of Page Views"
+      importantNumber={1}
+      arrow="none"
+      numberType="integer"
+      content="From 2018 to 2023"
+    />
+  </div>
+</div>
+
+<div className="grid grid-cols-subgrid gap-8 my-40">
+  <div className="col-span-full lg:col-span-3">
+    <h3 className="small-caps my-8">Looking Back & Thinking Ahead</h3>
+
+    Was this a good idea?
+
+    Absolutely yes. The team loved being able to have one place to go and find almost anything they needed.
+
+    Would I do it again?
+
+    "It depends."
+
+    There are so many factors to consider, at the time I started it, I didn’t realize how much time and effort I and others would pour into it. While it was a great way to learn a lot, and especially helped me level-up as a react developer, I would really need to consider the goals and long-term impacts before I would undertake something like this again.
+    </div>
+
 </div>

@@ -30,6 +30,7 @@ interface DeviceProps {
   toolbar?: boolean;
   autoplay?: boolean;
   loop?: boolean;
+  pauseTimeout?: number;
 }
 
 const Device: React.FC<DeviceProps> = ({
@@ -50,12 +51,16 @@ const Device: React.FC<DeviceProps> = ({
   toolbar = true,
   autoplay = false,
   loop = false,
+  pauseTimeout = 20000,
 }) => {
   const [sliderValue, setSliderValue] = useState(50);
   const [activeTab, setActiveTab] = useState<'before' | 'after'>('after');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const beforeVideoRef = useRef<HTMLVideoElement>(null);
+  const afterVideoRef = useRef<HTMLVideoElement>(null);
+  const pauseTimeoutRef = useRef<number | undefined>(undefined);
 
   const handleTabChange = (value: string) => {
     setActiveTab(value as 'before' | 'after');
@@ -107,10 +112,12 @@ const Device: React.FC<DeviceProps> = ({
   const renderMedia = (
     src: string,
     alt: string,
-    videoSrc?: string
+    videoSrc?: string,
+    videoRef?: React.RefObject<HTMLVideoElement>
   ) => {
     return videoSrc ? (
       <video
+        ref={videoRef}
         width={width}
         height={height}
         controls
@@ -157,9 +164,45 @@ const Device: React.FC<DeviceProps> = ({
     return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
   }, []);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        beforeVideoRef.current?.pause();
+        afterVideoRef.current?.pause();
+      } else {
+        if (autoplay) {
+          beforeVideoRef.current?.play();
+          afterVideoRef.current?.play();
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [autoplay]);
+
+  useEffect(() => {
+    if (pauseTimeout > 0) {
+      pauseTimeoutRef.current = window.setTimeout(() => {
+        beforeVideoRef.current?.pause();
+        afterVideoRef.current?.pause();
+      }, pauseTimeout);
+
+      return () => {
+        if (pauseTimeoutRef.current) {
+          clearTimeout(pauseTimeoutRef.current);
+        }
+      };
+    }
+  }, [pauseTimeout]);
+
   const DeviceContent = () => (
     <div className="p-0.5 relative select-none">
-      {variant === 'default' && renderMedia(beforeSrc, beforeAlt, beforeVideo)}
+      {variant === 'default' &&
+        renderMedia(beforeSrc, beforeAlt, beforeVideo, beforeVideoRef)}
 
       {variant === 'slider' && (
         <div
@@ -174,10 +217,10 @@ const Device: React.FC<DeviceProps> = ({
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
               style={{ clipPath: `inset(0 0 0 ${sliderValue}%)` }}
             >
-              {renderMedia(afterSrc, afterAlt, afterVideo)}
+              {renderMedia(afterSrc, afterAlt, afterVideo, afterVideoRef)}
             </div>
           )}
-          {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
+          {renderMedia(beforeSrc, beforeAlt, beforeVideo, beforeVideoRef)}
           <div className={label}>{beforeLabel ? beforeLabel : 'Before'}</div>
           <div className={cn(label, 'right-0')}>
             {afterLabel ? afterLabel : 'After'}
@@ -198,11 +241,11 @@ const Device: React.FC<DeviceProps> = ({
       {variant === 'tabs' && (
         <>
           <TabsContent className="mt-0" value="before">
-            {renderMedia(beforeSrc, beforeAlt, beforeVideo)}
+            {renderMedia(beforeSrc, beforeAlt, beforeVideo, beforeVideoRef)}
           </TabsContent>
           {afterSrc && afterAlt && (
             <TabsContent className="mt-0" value="after">
-              {renderMedia(afterSrc, afterAlt, afterVideo)}
+              {renderMedia(afterSrc, afterAlt, afterVideo, afterVideoRef)}
             </TabsContent>
           )}
         </>
@@ -229,7 +272,11 @@ const Device: React.FC<DeviceProps> = ({
     ) : (
       <figure className={cn('relative', className, browserStyle)}>
         {children}
-        {caption && <figcaption className='absolute text-pretty mt-4 max-w-[70ch] text-text/70 italic'>{caption}</figcaption>}
+        {caption && (
+          <figcaption className="absolute text-pretty mt-4 max-w-[70ch] text-text/70 italic">
+            {caption}
+          </figcaption>
+        )}
       </figure>
     );
   };

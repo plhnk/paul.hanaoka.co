@@ -16,6 +16,14 @@
     "prototypeUrl": ""
   },
   {
+    "id": "hiring",
+    "labels": ["People Management", "Design Operations"],
+    "title": "Fostering a culture of growth and design excellence",
+    "subtitle": "Create a digital home for designers",
+    "publish": true,
+    "prototypeUrl": ""
+  },
+  {
     "id": "quality",
     "labels": ["Enterprise", "Platform"],
     "title": "Surpass revenue targets by 20%",
