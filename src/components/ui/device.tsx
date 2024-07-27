@@ -28,6 +28,8 @@ interface DeviceProps {
   className?: string;
   variant?: 'default' | 'slider' | 'tabs';
   toolbar?: boolean;
+  autoplay?: boolean;
+  loop?: boolean;
 }
 
 const Device: React.FC<DeviceProps> = ({
@@ -46,6 +48,8 @@ const Device: React.FC<DeviceProps> = ({
   className,
   variant = 'default',
   toolbar = true,
+  autoplay = false,
+  loop = false,
 }) => {
   const [sliderValue, setSliderValue] = useState(50);
   const [activeTab, setActiveTab] = useState<'before' | 'after'>('after');
@@ -100,7 +104,11 @@ const Device: React.FC<DeviceProps> = ({
     </div>
   );
 
-  const renderMedia = (src: string, alt: string, videoSrc?: string) => {
+  const renderMedia = (
+    src: string,
+    alt: string,
+    videoSrc?: string
+  ) => {
     return videoSrc ? (
       <video
         width={width}
@@ -108,6 +116,8 @@ const Device: React.FC<DeviceProps> = ({
         controls
         poster={src}
         className={imgStyle}
+        autoPlay={autoplay}
+        loop={loop}
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
