@@ -122,6 +122,7 @@ const Device: React.FC<DeviceProps> = ({
         height={height}
         controls
         poster={src}
+        preload="metadata"
         className={imgStyle}
         autoPlay={autoplay}
         loop={loop}
@@ -136,7 +137,7 @@ const Device: React.FC<DeviceProps> = ({
         width={width}
         height={height}
         className={imgStyle}
-        priority
+        loading="lazy"
       />
     );
   };
