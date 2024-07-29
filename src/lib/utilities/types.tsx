@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { LucideIcon } from 'lucide-react';
 
 export interface RecommendsProps {
   label: string;
@@ -38,6 +39,8 @@ export interface ImpactCardProps {
   numberType?: 'percentage' | 'integer';
   title?: string;
   onClick?: () => void;
+  icon?: LucideIcon; 
+  iconClassName?: string; 
 }
 export interface DashboardCardProps {
   className?: string;

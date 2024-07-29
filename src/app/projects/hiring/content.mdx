@@ -2,6 +2,7 @@ import Summary from '@/components/layout/summary';
 import Device from '@/components/ui/device';
 import ImpactCard from '@/components/ui/impact-card';
 import Image from 'next/image';
+import { UserRoundPlus, MailCheck, ChartLine, Eye } from 'lucide-react';
 
 # If you build it, they will come (and stay!)
 
@@ -39,24 +40,24 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 mt-6">Impact</h2>
-  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-7">
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full xl:col-span-8">
     <ImpactCard
-      className="flex-2"
+      className="flex-1"
       title="Reduced Time to Hire"
       importantNumber={300}
       content="From Months to Weeks"
     />
     <ImpactCard
-      className="flex-2"
+      className="flex-1"
       title="Designer Retention"
       importantNumber={240}
       content="Significantly over industry average"
     />
     <ImpactCard
-      className="flex-1"
-      title="Good Designers Hired"
+      className="flex-0"
+      title="Designers Hired"
       importantNumber={40}
-      arrow="none"
+      icon={UserRoundPlus}
       numberType="integer"
       content="From 2018 to 2023"
     />
@@ -66,9 +67,9 @@ import Image from 'next/image';
 <div className="grid grid-cols-subgrid gap-8 mt-40">
   <h3 className="small-caps max-md:col-span-5 mt-0.5">Solution</h3>
   <div className="col-span-3">
-    Creating a home on the web for our burgeoning design team was one way to compete with cool startups who were able to lure top talent.
+    Creating a home on the web for our small, yet growing, design team was one way to compete with cool startups who were able to lure top talent.
     
-    On one hand, yes — this was just a few websites — but it was also so much more. It became a vehicle for us to learn and grow together.
+    On one hand, yes — this was just a few websites — but it became so much more, a tool and place for us to learn and grow together.
     
     Along the way, I learned a ton about management, engineering, marketing, and how hard it is to design for designers.
 
@@ -88,7 +89,11 @@ import Image from 'next/image';
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">The Liferay.Design Ecosystem</h3>
     <div className="">
-      What initially started as a landing page for our first Design meetup grew to a monorepo that held our entire DesignOps library, including our Department Handbook and Design System documentation. It also connected to external tools and services like Cloudflare and MailChimp.
+      What initially started as a landing page for our first Design meetup grew to a monorepo that held our entire DesignOps library, including our Department Handbook and Design System documentation. 
+      
+      I learned how to use Firebase Authentication and created an "internal only" brand guideline section of the site.
+
+      I also connected to external tools and services like Cloudflare to manage domains and even a MailChimp integration to automatically generate a newsletter archive.
       </div>
     </div>
 
@@ -96,24 +101,17 @@ import Image from 'next/image';
   <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-40">
     <Device
       beforeSrc="/projects/design-site/home-desktop.png"
-      alt="Auto translate interface in action"
+      alt="Screenshot of Liferay Design's home page"
       width={1200}
       height={800}
-      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
-    />
-    <Device
-      beforeSrc="/projects/design-site/404.png"
-      alt="Auto translate interface in action"
-      width={1200}
-      height={800}
-      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
+      caption='Initially launched as a basic react app, I rebuilt it in Gatsby using Theme UI and MDX for flexibility and portability.'
     />
     <Device
       variant="tabs"
       beforeSrc="/projects/design-site/mobile-update.png"
       afterVideo="/projects/design-site/carousel.mp4"
       afterSrc="/projects/design-site/after.png"
-      afterAlt="Video showing the new navigation interface"
+      afterAlt="Video showing the Designer profiles"
       afterLabel='Designer Profile'
       beforeLabel='Mobile Version'
       width={1600}
@@ -121,14 +119,28 @@ import Image from 'next/image';
       className="!col-span-full"
       autoplay={true}
       loop={true}
-      caption='Profiles for the designers'
+      caption='A major milestone was launching profiles for each designer &mdash; creating your profile was one of your first onboarding tasks when you joined the team.'
     />
     <Device
       beforeSrc="/projects/design-site/handbook.png"
-      alt="Auto translate interface in action"
+      alt="A screenshot of the Handbook"
       width={1200}
       height={800}
-      caption='Experimenting with a multi-layer sidebar &mdash; testing revealed no improvement in task success.'
+      caption='Writing stuff down help teams learn and grow together efficiently. I started the Handbook as a side project in Google Docs, eventually creating a dedicated site within the site for it.'
+    />
+    <Device
+      beforeSrc="/projects/design-site/lexicon.png"
+      alt="A screenshot of Lexicon's homepage (our Design System)" 
+      width={1200}
+      height={800}
+      caption="One of the engineering teams had built an MVP site for our Design System, one of my earliest contributitions to Lexicon was upgrading it to a more complete documentation site and bringing it into our repo." 
+    />
+    <Device
+      beforeSrc="/projects/design-site/blueprints.png"
+      alt="A screenshot of Blueprints (our online brand guide)"
+      width={1200}
+      height={800}
+      caption='A pain point our Marketing Designers had was constantly having to share brand assets with a variety of teams. I helped them by creating a private brand guide they could update and share with internal teams and vendors.' 
     />
   </div>
 </div>
@@ -138,60 +150,63 @@ import Image from 'next/image';
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Hire & Onboard</h3>
     <div className="">
-      Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
-      
-      One difficult tradeoff in the moment was cutting a custom menu builder and instead implementing a way for site admins to enable the new nav at the pace of their organization. 
+      A huge challenge we faced was awareness. Despite being in business for over 10 years with offices in major cities across the globe, almost no one in the design community knew about Liferay.
+
+      To address this, Design Managers in each region (I was the lead Manager in North America) hosted events, wrote articles, and encouraged the team to publish work and writing as a way to share knowledge and generate traffic to the site.
+
+      When we had built a good rythm of contents and events, I started a monthly newsletter which grew to 170 subscribers after a year. While not amazing numbers, it definitely helped legitimize our team and even though people still didn’t really know about us, the site and all the content helped Designers immediately feel like they wanted to be part of the team.
       </div>
+
 </div>
 
   </div>
   <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8"> 
     <Device
       beforeSrc="/projects/design-site/article.png"
-      beforeAlt="Auto translate interface in action"
+      beforeAlt="screenshot of the article page"
       width={1200}
       height={800}
-      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      caption='In its heyday, we were publishing two articles a month.'
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/events.png"
-      beforeAlt="Auto translate interface in action"
+      beforeAlt="screenshot of the events page"
       width={1200}
       height={800}
-      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      caption='In cities like Madrid, our office was centrally located and events were packed. Our site served as a place to get RSVPs and share recaps.'
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/newsletter.png"
-      beforeAlt="Auto translate interface in action"
+      beforeAlt="screenshot of the newsletter archive"
       width={1200}
       height={800}
-      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      caption='Connecting the MailChimp API to our site allowed us to have an automated newsletter archive.'
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/job-ad.png" 
-      beforeAlt="final view of the modular nav"
+      beforeAlt="screenshot of a job ad"
       width={1200}
       height={800}
-      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      caption='Liferay used Jobvite and if you’ve used it before, you’ll understand why we made a dedicated section on our site that manually surfaced job ads.'  
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/onboarding.png" 
-      beforeAlt="final view of the modular nav"
+      beforeAlt="screenshot of our onboarding handbook page"
       width={1200}
       height={800}
-      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      caption='This was the start of our onboarding process, the repo helped our team consolidate a variety of different onboardings into a more cohesive, globally refined process.'  
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/team.png" 
-      beforeAlt="final view of the modular nav"
+      beforeAlt="screenshot of the team page"
       width={1200}
       height={800}
-      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      caption='One of the first onboarding tasks was adding yourself to the team page.'
       className='mb-40'
     />
   </div>
@@ -202,39 +217,42 @@ import Image from 'next/image';
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Grow & Get Better</h3>
     <div className="">
-      Shipping a feature of this magnitude at enterprise scale gave me a new appreciation for the value of effective change management.
-      
-      One difficult tradeoff in the moment was cutting a custom menu builder and instead implementing a way for site admins to enable the new nav at the pace of their organization. 
+      Liferay was not initially different than most tech companies, we had turnover at a typical cadence of 1-2 years.
+
+      One initiative that I contributed heavily to was creating career paths for Designers, including tool that I forked from the Medium engineering team, adapted to our needs (including connecting to a Google doc as a content source) and published as a standalone site to help managers level and grow their teams.
+
+      Along with many other efforts led by Juan Hidalgo, helped to create a culture of learning and growth that retained Designers for 2 to 3x longer than industry average.
       </div>
+
 </div>
 
   </div>
   <div className="max-lg:col-start-1 col-span-6 flex flex-col gap-8"> 
     <Device
-      beforeSrc="/projects/design-site/career-paths.png"
-      beforeAlt="Auto translate interface in action"
+      beforeSrc="/projects/design-site/path.png"
+      beforeAlt="Screenshot of the career paths page"
       width={1200}
       height={800}
-      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      caption='path.liferay.design was a standalone tool I made for designers and managers to be globally aligned on our career levels.'
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/best-practices.png"
-      beforeAlt="Auto translate interface in action"
+      beforeAlt="a screenshot of Best Practices articles we wrote"
       width={1200}
       height={800}
-      caption='Generating a lot of ideas and holding them loosely is essential to not getting stuck &mdash; this drag-n-drop builder was one idea left on the editing room floor.'
+      caption='I organized the whole department to write a series of Best Practice articles' 
       className='mb-40'
     />
     <Device
       beforeSrc="/projects/design-site/enable-menu.png" 
       beforeVideo="/projects/design-site/promotions.mp4"
-      beforeAlt="final view of the modular nav"
+      beforeAlt="promotions landing page"
       autoplay={true}
       loop={true}
       width={1200}
       height={800}
-      caption='The final version we shipped included a user-friendly way for admins to toggle the new nav.'
+      caption='As part of our annual report (which is another story) I created a page to showcase promotions, to celebrate the team’s growth.'
       className='mb-40'
     />
   </div>
@@ -242,28 +260,28 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 mt-32">
   <h2 className="small-caps max-md:col-span-5 mt-6">By the Numbers</h2>
-  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-7">
+  <div className="flex flex-col sm:flex-row gap-4 md:gap-8 flex-wrap col-span-full lg:col-span-8">
     <ImpactCard
-      className="flex-2"
+      className="flex-1"
       title="Newsletter Subscribers"
       importantNumber={170}
       numberType="integer"
       content="Significantly over industry average"
-      arrow="none"
-    />
-    <ImpactCard
-      className="flex-4"
-      title="Weekly Visitors"
-      importantNumber={1000}
-      numberType="integer"
-      arrow="none"
-      content="From Months to Weeks"
+      icon={MailCheck}
     />
     <ImpactCard
       className="flex-1"
+      title="Weekly Visitors"
+      importantNumber={1000}
+      numberType="integer"
+      icon={ChartLine}
+      content="From Months to Weeks"
+    />
+    <ImpactCard
+      className="flex-0"
       title="Millions of Page Views"
       importantNumber={1}
-      arrow="none"
+      icon={Eye}
       numberType="integer"
       content="From 2018 to 2023"
     />
@@ -272,17 +290,31 @@ import Image from 'next/image';
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
   <div className="col-span-full lg:col-span-3">
-    <h3 className="small-caps my-8">Looking Back & Thinking Ahead</h3>
+    <h3 className="small-caps my-8">In Retrospect</h3>
 
     Was this a good idea?
 
-    Absolutely yes. The team loved being able to have one place to go and find almost anything they needed.
+    Absolutely, yes. The team loved being able to have one place to go and find almost anything they needed.
+
+    It also served a great tool teach Designers technical concepts, tools, and workflows. I trained over 20 Designers, who had never used Git before, how to clone a repo, install dependencies, make changes in code, and submit pull requests.
+
+    <div className="mt-16" />
 
     Would I do it again?
 
+    <div className="mt-8" />
     "It depends."
+    <div className="mt-8" />
 
-    There are so many factors to consider, at the time I started it, I didn’t realize how much time and effort I and others would pour into it. While it was a great way to learn a lot, and especially helped me level-up as a react developer, I would really need to consider the goals and long-term impacts before I would undertake something like this again.
+    There are many factors to consider. At the time I started this project, I didn’t realize how much of an investment it would be. While it was a great way to learn a lot, and especially helped me level-up as a react developer, I would thoroughly consider the goals, opportunity costs, alternatives, and long-term impacts before I would undertake something like this again.
     </div>
 
+<Device
+  beforeSrc="/projects/design-site/404.png"
+  alt="a screenshot of the 404 page"
+  width={1200}
+  height={800}
+  caption='I loved adding fun, yet strategic, details like random headshots with articles to help prevent bounces.'
+  className='col-span-full lg:!col-start-4 lg:!col-span-full lg:ml-16'
+/>
 </div>

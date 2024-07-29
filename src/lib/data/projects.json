@@ -1,9 +1,9 @@
 [
   {
-    "id": "translation-experience",
-    "labels": ["Enterprise", "Feature"],
-    "title": "Reduce translation costs by 90%",
-    "subtitle": "Going beyond the interface is key to providing value",
+    "id": "quality",
+    "labels": ["Enterprise", "Platform"],
+    "title": "Surpass revenue targets by 20%",
+    "subtitle": "How focusing on design quality can impact a business",
     "publish": true,
     "prototypeUrl": ""
   },
@@ -24,10 +24,10 @@
     "prototypeUrl": ""
   },
   {
-    "id": "quality",
-    "labels": ["Enterprise", "Platform"],
-    "title": "Surpass revenue targets by 20%",
-    "subtitle": "How focusing on design quality can impact a business",
+    "id": "translation-experience",
+    "labels": ["Enterprise", "Feature"],
+    "title": "Reduce translation costs by 90%",
+    "subtitle": "Going beyond the interface is key to providing value",
     "publish": true,
     "prototypeUrl": ""
   },
