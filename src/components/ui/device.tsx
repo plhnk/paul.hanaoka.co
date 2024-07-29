@@ -270,7 +270,7 @@ const Device: React.FC<DeviceProps> = ({
         {children}
       </DialogContent>
     ) : (
-      <figure className={cn('relative', className, browserStyle)}>
+      <figure className={cn('relative h-min', className, browserStyle)}>
         {children}
         {caption && (
           <figcaption className="absolute text-pretty mt-4 max-w-[70ch] text-text/70 italic">

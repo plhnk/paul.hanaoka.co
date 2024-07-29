@@ -8,6 +8,7 @@ import User from '@/components/svg/user';
 import Spreadsheet from '@/components/svg/spreadsheet';
 import ImpactCard from '@/components/ui/impact-card';
 import Device from '@/components/ui/device';
+import { Clock } from 'lucide-react';
 
 # Not every UX problem needs to be solved with UI
 
@@ -46,7 +47,7 @@ import Device from '@/components/ui/device';
   <ImpactCard
     className="col-span-3 sm:max-lg:col-span-2 lg:col-span-3"
     title="average hours saved per year"
-    arrow="none"
+    icon={Clock}
     importantNumber={550}
     numberType="integer"
     content="Removing or reducing time-consuming process helped our customers save a lot of time"
