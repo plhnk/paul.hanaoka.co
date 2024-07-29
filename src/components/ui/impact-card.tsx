@@ -30,10 +30,10 @@ const getNumberModifier = (
 const ImpactCard: React.FC<ImpactCardProps> = ({
   className,
   content,
-  extraInfo,
   outcome = 'positive',
   importantNumber,
   numberType = 'percentage',
+  numberSuffix = '',
   title,
   onClick,
   icon: Icon = ArrowUp,
@@ -41,6 +41,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
 }) => {
   const outcomeColor = outcome ? getOutcomeColor(outcome) : 'black';
   const NumberModifier = getNumberModifier(numberType);
+  const formattedNumber = numberType === 'integer' ? `${importantNumber}${numberSuffix}` : importantNumber;
 
   return (
     <Card
@@ -62,7 +63,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
               </span>
             )}
             <span className="md:max-lg:ml-3 ml-5 text-7xl lg:text-9xl !leading-normal font-thin tracking-tighter font-mono text-text">
-              {importantNumber}
+              {formattedNumber}
               {NumberModifier}
             </span>
           </span>

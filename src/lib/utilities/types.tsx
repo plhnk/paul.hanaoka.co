@@ -31,16 +31,16 @@ export interface NavButtonProps {
 
 export interface ImpactCardProps {
   className?: string;
-  content?: ReactNode;
-  extraInfo?: ReactNode;
+  content: string;
+  extraInfo?: string;
   outcome?: 'positive' | 'negative' | 'neutral';
-  arrow?: 'up' | 'down' | 'none';
-  importantNumber?: ReactNode;
+  importantNumber: number | string;
   numberType?: 'percentage' | 'integer';
-  title?: string;
+  numberSuffix?: string;
+  title: string;
   onClick?: () => void;
-  icon?: LucideIcon; 
-  iconClassName?: string; 
+  icon?: React.ComponentType;
+  iconClassName?: string;
 }
 export interface DashboardCardProps {
   className?: string;
@@ -69,7 +69,7 @@ export interface UnsplashPhoto {
   blur_hash: string;
   description: string;
   alt_description: string;
-  breadcrumbs: any[]; // Replace 'any' with the actual type if known
+  breadcrumbs: any[]; 
   urls: {
     raw: string;
     full: string;
@@ -86,8 +86,8 @@ export interface UnsplashPhoto {
   };
   likes: number;
   liked_by_user: boolean;
-  current_user_collections: any[]; // Replace 'any' with the actual type if known
-  sponsorship: null | any; // Replace 'any' with the actual type if known
+  current_user_collections: any[]; 
+  sponsorship: null | any;
   topic_submissions: {
     [topic: string]: {
       status: string;

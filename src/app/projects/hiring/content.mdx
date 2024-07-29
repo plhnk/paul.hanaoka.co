@@ -85,7 +85,7 @@ import { UserRoundPlus, MailCheck, ChevronRight, Eye } from 'lucide-react';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="col-span-full lg:col-span-2">
+  <div className="col-span-full lg:col-span-3">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">The Liferay.Design Ecosystem</h3>
     <div className="">
@@ -146,7 +146,7 @@ import { UserRoundPlus, MailCheck, ChevronRight, Eye } from 'lucide-react';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="col-span-full lg:col-span-2">
+  <div className="col-span-full lg:col-span-3">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Hire & Onboard</h3>
     <div className="">
@@ -190,7 +190,7 @@ import { UserRoundPlus, MailCheck, ChevronRight, Eye } from 'lucide-react';
       beforeAlt="screenshot of a job ad"
       width={1200}
       height={800}
-      caption='Liferay used Jobvite and if you’ve used it before, you’ll understand why we made a dedicated section on our site that manually surfaced job ads.'  
+      caption='Liferay used Jobvite and if you’ve used it before, you’ll understand why we made a dedicated section on our site to share nice job ads.'  
       className='mb-40'
     />
     <Device
@@ -213,11 +213,11 @@ import { UserRoundPlus, MailCheck, ChevronRight, Eye } from 'lucide-react';
 </div>
 
 <div className="grid grid-cols-subgrid gap-8 my-40">
-  <div className="col-span-full lg:col-span-2">
+  <div className="col-span-full lg:col-span-3">
     <div className="top-14 sticky flex flex-col gap-8">
     <h3 className="small-caps mt-1.5">Grow & Get Better</h3>
     <div className="">
-      Liferay was not initially different than most tech companies, we had turnover at a typical cadence of 1-2 years.
+      Liferay’s designer retention was in-line with the industry average of 1-2 years. While this is fine if you’re a large company and can attract talent easily, this rate made it exceptionally challenging to improve the design maturity of our company.
 
       One initiative that I contributed heavily to was creating career paths for Designers, including tool that I forked from the Medium engineering team, adapted to our needs (including connecting to a Google doc as a content source) and published as a standalone site to help managers level and grow their teams.
 
@@ -272,15 +272,17 @@ import { UserRoundPlus, MailCheck, ChevronRight, Eye } from 'lucide-react';
     <ImpactCard
       className="flex-1"
       title="Weekly Visitors"
-      importantNumber={1000}
+      importantNumber={1}
+      numberSuffix='K+'
       numberType="integer"
       icon={ChevronRight}
       content="We were able to generate traffic without any ad spend"
     />
     <ImpactCard
-      className="flex-0"
-      title="Millions of Page Views"
+      className="flex-1"
+      title="Pageviews"
       importantNumber={1}
+      numberSuffix='M+'
       icon={Eye}
       numberType="integer"
       content="More than 250k pageviews annually"
