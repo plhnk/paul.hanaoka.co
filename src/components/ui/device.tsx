@@ -126,9 +126,10 @@ const Device: React.FC<DeviceProps> = ({
         className={imgStyle}
         autoPlay={autoplay}
         loop={loop}
+        playsInline
       >
         <source src={videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
+        Sorry, your browser doesn’t support the video tag &mdash; <a href='https://arc.net/gift/52adc68a'>try using Arc instead</a>.
       </video>
     ) : (
       <Image
