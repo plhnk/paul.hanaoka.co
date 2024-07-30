@@ -1,5 +1,6 @@
 'use client';
 import React, { ReactNode, useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   BadgeCheck,
   BookOpen,
@@ -35,6 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   collapsed,
   toggleCollapse,
 }) => {
+  const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
   // const [isScrolled, setIsScrolled] = useState(false);
 
@@ -56,45 +58,44 @@ const Sidebar: React.FC<SidebarProps> = ({
     // }
   }, []);
 
-  const iconStyle = {
+  const getIconStyle = (isActive: boolean) => ({
     size: 16,
     color: 'currentColor',
     strokeWidth: 2,
-    className:
-      'hidden sm:block text-element/50 self-center group-hover:text-accent group-focus-visible:text-accent/60',
-  };
+    className: `hidden sm:block self-center group-hover:text-accent group-focus-visible:text-accent/60 ${isActive ? 'text-accent' : 'text-element/50'}`, 
+  });
 
   const browse = [
     {
-      icon: <CircleUserRound {...iconStyle} />,
+      icon: <CircleUserRound {...getIconStyle(pathname === '/about')} />,
       label: 'About',
       hotkey: 'a',
       collapsed: collapsed,
       url: '/about',
     },
     {
-      icon: <BookOpen {...iconStyle} />,
+      icon: <BookOpen {...getIconStyle(pathname === '/readme')} />,
       label: 'Readme',
       hotkey: 'e',
       collapsed: collapsed,
       url: '/readme',
     },
     {
-      icon: <BadgeCheck {...iconStyle} />,
+      icon: <BadgeCheck {...getIconStyle(pathname === '/recommends')} />,
       label: 'Picks',
       hotkey: 'i',
       collapsed: collapsed,
       url: '/recommends',
     },
     {
-      icon: <Layers {...iconStyle} />,
+      icon: <Layers {...getIconStyle(pathname === '/projects')} />,
       label: 'Projects',
       hotkey: 'o',
       collapsed: collapsed,
       url: '/projects',
     },
     {
-      icon: <Camera {...iconStyle} />,
+      icon: <Camera {...getIconStyle(pathname === '/photos')} />,
       label: 'Photos',
       hotkey: 'u',
       collapsed: collapsed,
@@ -105,35 +106,35 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const connect = [
     {
-      icon: <Calendar {...iconStyle} />,
+      icon: <Calendar {...getIconStyle(false)} />,
       label: 'Calendar',
       hotkey: 'c',
       collapsed: collapsed,
       url: 'https://cal.com/plhnk',
     },
     {
-      icon: <Mail {...iconStyle} />,
+      icon: <Mail {...getIconStyle(false)} />,
       label: 'Email',
       hotkey: 'm',
       collapsed: collapsed,
       textToCopy: 'paul@hanaoka.co',
     },
     {
-      icon: <Github {...iconStyle} />,
+      icon: <Github {...getIconStyle(false)} />,
       label: 'GitHub',
       hotkey: 'g',
       collapsed: collapsed,
       url: 'https://github.com/plhnk',
     },
     {
-      icon: <FileText {...iconStyle} />,
+      icon: <FileText {...getIconStyle(false)} />,
       label: 'Read.cv',
       hotkey: 'r',
       collapsed: collapsed,
       url: 'https://read.cv/plhnk',
     },
     {
-      icon: <Twitter {...iconStyle} />,
+      icon: <Twitter {...getIconStyle(false)} />,
       label: 'Twitter',
       hotkey: 't',
       collapsed: collapsed,
@@ -175,7 +176,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
                   collapsed={collapsed}
-                  icon={collapsed && <Home {...iconStyle} />}
+                  icon={collapsed && <Home {...getIconStyle(false)} />}
                   label={
                     <span>
                       <span className="text-text/90 gap-0">paul.</span>
@@ -213,9 +214,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                   hotkey="s"
                   icon={
                     collapsed ? (
-                      <PanelLeftOpen {...iconStyle} />
+                      <PanelLeftOpen {...getIconStyle(false)} />
                     ) : (
-                      <PanelLeftClose {...iconStyle} />
+                      <PanelLeftClose {...getIconStyle(false)} />
                     )
                   }
                 />

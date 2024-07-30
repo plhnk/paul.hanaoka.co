@@ -2,7 +2,7 @@
   {
     "id": "quality",
     "labels": ["Enterprise", "Platform"],
-    "title": "Surpass revenue targets by 20%",
+    "title": "Driving revenue by improving quality across an enterprise platform",
     "subtitle": "How focusing on design quality can impact a business",
     "publish": true,
     "prototypeUrl": ""
@@ -26,8 +26,8 @@
   {
     "id": "translation-experience",
     "labels": ["Enterprise", "Feature"],
-    "title": "Reduce translation costs by 90%",
-    "subtitle": "Going beyond the interface is key to providing value",
+    "title": "Going beyond the interface is key to providing value",
+    "subtitle": "Reduce translation costs by 90%",
     "publish": true,
     "prototypeUrl": ""
   },

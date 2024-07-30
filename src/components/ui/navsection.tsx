@@ -1,4 +1,5 @@
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { Label } from '@/components/ui/label';
 import NavButton from './navbutton';
 import { NavButtonProps } from '../../lib/utilities/types';
@@ -17,8 +18,14 @@ const NavSection: React.FC<NavSectionProps> = ({
   className,
   collapsed,
 }) => {
+  const pathname = usePathname();
   return (
-    <div className={cn(`flex flex-col gap-0.5 ${collapsed && 'lg:gap-1'}`, className)}>
+    <div
+      className={cn(
+        `flex flex-col gap-0.5 ${collapsed && 'lg:gap-1'}`,
+        className
+      )}
+    >
       {!collapsed && (
         <Label
           className="uppercase text-xs tracking-widest text-text/50 font-semibold ml-3 my-2"
@@ -37,6 +44,7 @@ const NavSection: React.FC<NavSectionProps> = ({
           url={button.url}
           textToCopy={button.textToCopy}
           theme={button.theme}
+          isActive={pathname === button.url}
         />
       ))}
     </div>

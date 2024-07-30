@@ -19,6 +19,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   icon,
   label,
   url,
+  isActive,
   hotkey,
   textToCopy,
   theme,

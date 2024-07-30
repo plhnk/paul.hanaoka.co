@@ -19,6 +19,7 @@ export interface NavButtonProps {
   icon?: ReactNode;
   label?: string | ReactNode;
   hotkey?: string;
+  isActive?: boolean;
   // options
   url?: string;
   textToCopy?: string;
