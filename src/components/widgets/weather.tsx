@@ -1,13 +1,76 @@
 'use client';
 import { useEffect, useState } from 'react';
 import DashboardCard from '../ui/dashboardcard';
-import { getIcon, useWeatherData } from '../../lib/utilities/weather';
+import {
+  getIcon,
+  useWeatherData,
+  getLocationFromZip,
+} from '../../lib/utilities/weather';
+import { Navigation } from 'lucide-react';
+import { Button } from '../ui/button';
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '../ui/tooltip';
+
 interface WeatherProps {
   className?: string;
 }
+
 export default function Weather(props: WeatherProps) {
   const { className } = props;
-  const { data, isLoading } = useWeatherData();
+  const [location, setLocation] = useState<{ lat: number; lon: number } | null>(
+    null
+  );
+  const [zipCode, setZipCode] = useState('');
+  const { data, isLoading } = useWeatherData(
+    location?.lat || 0,
+    location?.lon || 0
+  );
+
+  const [isCelsius, setIsCelsius] = useState(false);
+
+  useEffect(() => {
+    const browserLanguage = navigator.language;
+    const isEnUs = browserLanguage === 'en-US';
+    setIsCelsius(isEnUs ? false : true);
+
+    // Set default location to Bellingham, WA
+    setLocation({ lat: 48.7519, lon: -122.4787 });
+  }, []);
+
+  const handleZipCodeSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const newLocation = await getLocationFromZip(zipCode);
+    if (newLocation) {
+      setLocation(newLocation);
+    }
+  };
+
+  const handleLocateMe = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          alert(
+            'Unable to retrieve your location. Please try entering a ZIP code.'
+          );
+        }
+      );
+    } else {
+      alert(
+        'Geolocation is not supported by your browser. Please enter a ZIP code.'
+      );
+    }
+  };
 
   const currentTemp = data
     ? data.hourlyData.properties.periods[0].temperature
@@ -23,13 +86,6 @@ export default function Weather(props: WeatherProps) {
     const celsius = ((fahrenheit - 32) * 5) / 9;
     return celsius.toFixed(0);
   }
-
-  useEffect(() => {
-    const browserLanguage = navigator.language;
-    const isEnUs = browserLanguage === 'en-US';
-    setIsCelsius(isEnUs ? false : true);
-  }, []);
-  const [isCelsius, setIsCelsius] = useState(false);
 
   function toggleTemperatureUnit() {
     setIsCelsius((prevIsCelsius) => !prevIsCelsius);
@@ -81,11 +137,43 @@ export default function Weather(props: WeatherProps) {
     </>
   );
 
+  const locateMe = (
+    <TooltipProvider delayDuration={100}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            className="-mt-2 translate-x-2 rounded-lg sm:rounded-md sm:-mt-3.5 sm:translate-x-3.5 hover:text-text"
+            onClick={handleLocateMe}
+          >
+            <Navigation />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent
+          side="left"
+          sideOffset={8}
+          className="text-text/80 bg-element/10 rounded-md w-auto"
+        >
+          <p className="text-sm normal-case tracking-normal">
+            Click to use your current location.
+          </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+
+  const title = (
+    <span className="flex justify-between">
+      {data?.location || 'Loading...'}
+      {locateMe}
+    </span>
+  );
+
   return (
     <>
       <DashboardCard
         className={className}
-        title="Bellingham, WA"
+        title={title}
         importantNumber={tempData}
         extraInfo={toggle}
         graphic={icon}
@@ -94,3 +182,22 @@ export default function Weather(props: WeatherProps) {
     </>
   );
 }
+
+// for later
+// <div className="mt-2 flex flex-col space-y-2">
+//   <form onSubmit={handleZipCodeSubmit} className="flex">
+//     <input
+//       type="text"
+//       value={zipCode}
+//       onChange={(e) => setZipCode(e.target.value)}
+//       placeholder="Enter ZIP code"
+//       className="text-black px-2 py-1 text-sm rounded-l flex-grow"
+//     />
+//     <button
+//       type="submit"
+//       className="text-sm bg-blue-500 text-white px-2 py-1 rounded-r"
+//     >
+//       Update
+//     </button>
+//   </form>
+// </div>;

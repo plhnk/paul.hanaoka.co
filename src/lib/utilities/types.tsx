@@ -50,7 +50,7 @@ export interface DashboardCardProps {
   graphic?: ReactNode;
   graphicInfo?: string;
   importantNumber?: ReactNode;
-  title?: string;
+  title?: string | ReactNode;
   fullScreen?: boolean;
   onClick?: () => void;
 }
