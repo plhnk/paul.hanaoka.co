@@ -33,53 +33,58 @@ export function getIcon(
   return icon;
 }
 
-export function useWeatherData() {
+export function useWeatherData(latitude: number, longitude: number) {
   const [data, setData] = useState<{
     hourlyData: any;
     forecastData: any;
+    location: string;
   } | null>(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetch(
-        'https://api.weather.gov/gridpoints/SEW/132,123/forecast/hourly'
-      ).then((res) => res.json()),
-      fetch('https://api.weather.gov/gridpoints/SEW/132,123/forecast').then(
-        (res) => res.json()
-      ),
-    ])
-      .then(([hourlyData, forecastData]) => {
-        setData({ hourlyData, forecastData });
+    const fetchWeatherData = async () => {
+      try {
+        // First, get the grid points
+        const pointResponse = await fetch(`https://api.weather.gov/points/${latitude},${longitude}`);
+        const pointData = await pointResponse.json();
+        const { gridX, gridY, gridId: office, relativeLocation } = pointData.properties;
+
+        // Then fetch the weather data
+        const [hourlyData, forecastData] = await Promise.all([
+          fetch(`https://api.weather.gov/gridpoints/${office}/${gridX},${gridY}/forecast/hourly`).then(res => res.json()),
+          fetch(`https://api.weather.gov/gridpoints/${office}/${gridX},${gridY}/forecast`).then(res => res.json()),
+        ]);
+
+        setData({ 
+          hourlyData, 
+          forecastData, 
+          location: `${relativeLocation.properties.city}, ${relativeLocation.properties.state}` 
+        });
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching weather data:', error);
         setLoading(false);
-      });
-    }, []);
-    return { data, isLoading };
+      }
+    };
+
+    if (latitude && longitude) {
+      fetchWeatherData();
+    }
+  }, [latitude, longitude]);
+
+  return { data, isLoading };
+}
+
+export async function getLocationFromZip(zipCode: string): Promise<{ lat: number, lon: number } | null> {
+  try {
+    const response = await fetch(`https://api.zippopotam.us/us/${zipCode}`);
+    const data = await response.json();
+    return {
+      lat: parseFloat(data.places[0].latitude),
+      lon: parseFloat(data.places[0].longitude)
+    };
+  } catch (error) {
+    console.error('Error fetching location from zip code:', error);
+    return null;
   }
-
-// const myLocation = {
-//     'long': '48.7637° N',
-//     'lat': '122.458° W',
-//     'office': 'SEW',
-//     'gridX': 132,
-//     'gridY':123,
-// },
-
-// // current weather conditions
-// GET https://api.weather.gov/gridpoints/{office}/{gridX},{gridY}/forecast
-
-// // hourly forecast
-// GET https://api.weather.gov/gridpoints/{office}/{gridX},{gridY}/forecast/hourly
-
-// // alerts
-// GET https://api.weather.gov/alerts?point={latitude},{longitude}
-
-// // forecast for date
-// GET https://api.weather.gov/gridpoints/{office}/{gridX},{gridY}/forecast?start={YYYY-MM-DD}T00:00:00Z&end={YYYY-MM-DD}T23:59:59Z
-
-// // nearby weather stations
-// GET https://api.weather.gov/points/{latitude},{longitude}/stations
+}
