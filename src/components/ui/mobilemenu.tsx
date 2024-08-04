@@ -12,7 +12,7 @@ import ProgressiveBlur from './progressiveblur';
 const MobileMenu: React.FC = () => {
   const menuRef = useRef(null);
 
-  const { data, isLoading } = useWeatherData();
+  const { data, isLoading } = useWeatherData(48.7519, -122.4787);
 
   const shortForecast = data
     ? data.forecastData.properties.periods[0].shortForecast
