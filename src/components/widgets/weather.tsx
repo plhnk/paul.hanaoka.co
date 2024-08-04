@@ -61,20 +61,20 @@ export default function Weather(props: WeatherProps) {
         (error) => {
           console.error('Error getting location:', error);
           alert(
-            'Unable to retrieve your location. Please try entering a ZIP code.'
+            'Sorry there was an error, please try again or send me an email with your location.'
           );
         }
       );
     } else {
       alert(
-        'Geolocation is not supported by your browser. Please enter a ZIP code.'
+        'Geolocation is not supported by your browser. Go outside and look up.'
       );
     }
   };
 
   const currentTemp = data
     ? data.hourlyData.properties.periods[0].temperature
-    : 'ono';
+    : 'ERR';
   const shortForecast = data
     ? data.forecastData.properties.periods[0].shortForecast
     : 'Weather API error';
