@@ -34,6 +34,7 @@ const WeirdGuy: React.FC<WeirdGuyProps> = ({ className }) => {
     <MaskedImage
       className={cn('before:absolute before:inset-0 before:bg-card before:w-full before:h-[300px] before:rounded-full before:mt-auto transition-transform duration-300 ease-in-out', className)}
       variant="clip"
+      imageAlt='Headshot of Paul Hanaoka'
       imagePosition="50% 18px"
       maskPosition="bottom"
       svgPath={svgPath}
