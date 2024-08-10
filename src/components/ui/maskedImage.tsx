@@ -8,7 +8,7 @@ interface MaskedImageProps {
   className?: string;
   width: string;
   height: string;
-  imageAlt?: string;
+  imageAlt: string;
   variant: 'mask' | 'clip';
   imagePosition?: string;
   maskPosition?: string;
