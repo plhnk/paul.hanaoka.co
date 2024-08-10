@@ -52,7 +52,7 @@ const MaskedImage: React.FC<MaskedImageProps & ComponentProps<'div'>> = ({
   return (
     <div
       {...rest}
-      className={cn('relative overflow-hidden', className)}
+      className={cn('relative', className)}
       style={{
         width,
         height,
@@ -81,9 +81,10 @@ const MaskedImage: React.FC<MaskedImageProps & ComponentProps<'div'>> = ({
       <Image
         src={imageSrc}
         alt="Masked or Clipped Image"
-        layout="fill"
-        objectFit="cover"
-        objectPosition={imagePosition}
+        fill={true}
+        quality={90}
+        sizes="(max-width: 1200px) 300px, (max-width: 2000px) 500px, 800px"
+        style={{ objectFit: 'cover', objectPosition: imagePosition }}
       />
     </div>
   );
