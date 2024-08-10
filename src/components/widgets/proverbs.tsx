@@ -99,7 +99,7 @@ export default function Proverbs(props: { className?: string }) {
     <DashboardCard
       title={title}
       content={proverb}
-      className={cn(`${passageCount > 1 ? 'cursor-pointer' : 'pb-8'}`, className)}
+      className={cn(`${passageCount > 1 ? 'cursor-pointer' : 'pb-2 md:pb-8'}`, className)}
       onClick={passageCount > 1 ? handleClick : undefined}
       graphic={
         passageCount > 1 ? <div className="flex space-x-2">{dots}</div> : null

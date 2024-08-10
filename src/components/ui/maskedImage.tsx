@@ -8,6 +8,7 @@ interface MaskedImageProps {
   className?: string;
   width: string;
   height: string;
+  imageAlt?: string;
   variant: 'mask' | 'clip';
   imagePosition?: string;
   maskPosition?: string;
@@ -20,6 +21,7 @@ const MaskedImage: React.FC<MaskedImageProps & ComponentProps<'div'>> = ({
   className,
   width,
   height,
+  imageAlt,
   variant,
   style,
   imagePosition = 'center',
@@ -79,8 +81,9 @@ const MaskedImage: React.FC<MaskedImageProps & ComponentProps<'div'>> = ({
         </svg>
       )}
       <Image
+        unoptimized
         src={imageSrc}
-        alt="Masked or Clipped Image"
+        alt={imageAlt}
         fill={true}
         quality={90}
         sizes="(max-width: 1200px) 300px, (max-width: 2000px) 500px, 800px"
