@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
     >
       <Weather className="lg:col-start-2 col-span-2" />
       <Calendar className="col-span-2" />
-      <Photos className="col-start-1 lg:col-start-6 max-sm:col-span-4 col-span-3 max-sm:h-[70vh] row-span-2" />
+      <Photos className="col-start-1 lg:col-start-6 max-lg:col-span-4 col-span-3 max-lg:h-[70vh] row-span-2" />
       <Proverbs className="lg:col-start-2 col-span-4" />
       <div className="flex flex-col md:flex-row justify-between lg:col-start-2 col-span-full lg:col-span-7 mt-40 md:mb-14 text-text/80 pr-12 lg:pr-0">
         <div className="">

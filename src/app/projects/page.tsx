@@ -10,7 +10,7 @@ export default function Projects() {
       <MdxLayout>
         <Content />
       </MdxLayout>
-      <ProjectsComponent variant='all' />
+      <ProjectsComponent variant='all' className='col-start-1 col-span-full' />
     </>
   );
 }
