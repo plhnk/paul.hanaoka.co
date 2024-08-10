@@ -10,7 +10,7 @@ export default function Projects() {
       <MdxLayout>
         <Content />
       </MdxLayout>
-      <ProjectsComponent />
+      <ProjectsComponent variant='all' />
     </>
   );
 }
