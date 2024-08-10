@@ -1,11 +1,5 @@
-import Photos from '@/components/widgets/photos';
-import Calendar from '../components/widgets/calendar';
-import Weather from '../components/widgets/weather';
 import Projects from '@/components/projects';
 import MaskedImage from '@/components/ui/maskedImage';
-import Link from '@/components/ui/link';
-import ProjectCard from '@/components/ui/projectcard';
-import projectsData from '@/lib/data/projects.json';
 
 const svgMask = `
 <svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +10,7 @@ const svgMask = `
 export default function Home() {
   return (
     <>
-      <div className="col-span-5 col-start-2 ">
+      <div className="col-span-7 lg:col-start-2 ">
         <div className="flex justify-between">
           <span>Good Morning! </span>
           <span>Available</span>
@@ -38,7 +32,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="col-span-4 col-start-2">
+      <div className="col-span-4 lg:col-start-2">
         <Projects variant="random" />
       </div>
     </>

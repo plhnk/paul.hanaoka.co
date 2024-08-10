@@ -44,7 +44,7 @@ export default function Proverbs(props: { className?: string }) {
 
   const ESV_hover = (
     <HoverCard openDelay={100}>
-      <HoverCardTrigger>
+      <HoverCardTrigger className='cursor-default'>
         <LogoEsvIcon />
       </HoverCardTrigger>
       <HoverCardContent
@@ -99,7 +99,7 @@ export default function Proverbs(props: { className?: string }) {
     <DashboardCard
       title={title}
       content={proverb}
-      className={cn(`${passageCount > 1 ? '' : 'pb-8'}`, className)}
+      className={cn(`${passageCount > 1 ? 'cursor-pointer' : 'pb-8'}`, className)}
       onClick={passageCount > 1 ? handleClick : undefined}
       graphic={
         passageCount > 1 ? <div className="flex space-x-2">{dots}</div> : null
