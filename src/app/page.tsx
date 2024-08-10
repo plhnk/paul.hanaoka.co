@@ -25,11 +25,11 @@ export default function Home() {
 
   return (
     <>
-      <div className="col-span-7 lg:col-start-2">
+      <div className="col-span-full lg:col-span-7 lg:col-start-2">
         <div className="flex justify-between">
           <span className="flex items-center gap-2 mt-6">
             <IconComponent
-              className="text-text/50 -ml-6 -mr-0.5"
+              className="text-text/50 lg:-ml-6 lg:-mr-0.5"
               width={20}
               height={20}
               strokeWidth={1.5}
@@ -42,7 +42,7 @@ export default function Home() {
           </span>
         </div>
         <div className="flex justify-between items-end mt-40 mb-32">
-          <h1 className="text-4xl text-text/60">
+          <h1 className="text-4xl text-text/60 mb-12 mt-32 md:mt-8">
             Paul Hanaoka is a <br />
             <Highlight word="designer" hoverContent="designer" /> with a passion
             for building <br />
@@ -58,7 +58,7 @@ export default function Home() {
             <br />
             other stuff good too.
           </h1>
-          <WeirdGuy />
+          <WeirdGuy className='absolute top-32 lg:top-0 lg:relative -z-10 -ml-2 md:right-4 lg:-mr-4' />
         </div>
       </div>
       <div className="col-span-4 lg:col-start-2">
