@@ -152,7 +152,7 @@ export default function Weather(props: WeatherProps) {
         <TooltipContent
           side="left"
           sideOffset={8}
-          className="text-text/80 bg-element/10 rounded-md w-auto"
+          className="text-text/80 bg-element/10 rounded-md w-auto outline outline-1 outline-element/20"
         >
           <p className="text-sm normal-case tracking-normal">
             Click to use your current location.

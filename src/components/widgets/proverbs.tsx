@@ -1,18 +1,17 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import LogoEsvIcon from '@/app/assets/images/icons/logo-esv';
-
 import { getDateInfo } from '@/lib/utils';
 import proverbsData from '../../lib/data/proverbs.json';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
+import DashboardCard from '../ui/dashboardcard';
 
 const { today } = getDateInfo();
 
@@ -27,62 +26,57 @@ export default function Proverbs(props: { className?: string }) {
       }[];
     };
   }
-  // // const proverbIndex = 11; // testing random proverb
-
-  // // determine how many passages are available for the selected proverb
-  // const passageCount = proverbs[proverbIndex].passages.length;
-  // // get a random passage from the selected proverb, if available
-  // const randomPassageIndex = Math.floor(Math.random() * passageCount);
-  // // get the selected proverb
-  // const proverb = proverbs[proverbIndex].passages[randomPassageIndex];
-  // const passage =
-  //   proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
 
   const { className } = props;
+  const proverbIndex = Number(today) - 1; // 0-indexed
+  const [currentProverbIndex, setCurrentProverbIndex] = useState(0);
 
-  // const [proverb, setProverb] = useState(null);
-  // const [passage, setPassage] = useState(null);
+  const passageCount = proverbs[proverbIndex].passages.length;
+  const proverb = proverbs[proverbIndex].passages[currentProverbIndex];
+  const passage =
+    proverbs[proverbIndex].passage_meta[currentProverbIndex].canonical;
 
-  const [proverb, setProverb] = useState<string | null>(null);
-  const [passage, setPassage] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Select a random proverb after hydration
-    const proverbIndex = Number(today) - 1; // 0-indexed
-    const passageCount = proverbs[proverbIndex].passages.length;
-    const randomPassageIndex = Math.floor(Math.random() * passageCount);
-    const selectedProverb = proverbs[proverbIndex].passages[randomPassageIndex];
-    const selectedPassage =
-      proverbs[proverbIndex].passage_meta[randomPassageIndex].canonical;
-
-    setProverb(selectedProverb);
-    setPassage(selectedPassage);
-  }, [proverbs]);
-
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const checkIfInView = () => {
-    const marquee = marqueeRef.current;
-    if (marquee) {
-      const rect = marquee.getBoundingClientRect();
-      const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-      marquee.style.animationPlayState = inView ? 'running' : 'paused';
+  const handleClick = () => {
+    if (passageCount > 1) {
+      setCurrentProverbIndex((prevIndex) => (prevIndex + 1) % passageCount);
     }
   };
 
-  useEffect(() => {
-    checkIfInView(); // Initial check
+  const ESV_hover = (
+    <HoverCard openDelay={100}>
+      <HoverCardTrigger>
+        <LogoEsvIcon />
+      </HoverCardTrigger>
+      <HoverCardContent
+        side="right"
+        align="start"
+        sideOffset={32}
+        alignOffset={-4}
+        className="group z-50 bg-card/60 backdrop-blur-md rounded-md w-auto border-card/80 hover:border-element/50 hover:-translate-y-2 transition transform"
+        asChild
+      >
+        <a
+          href={'https://www.esv.org/' + passage}
+          className="flex justify-between align-middle space-x-4"
+        >
+          <div className="space-y-1 text-sm font-light normal-case tracking-normal text-text/70 group-hover:text-text italic">
+            {passage}
+          </div>
+          <ArrowUpRight className="mr-1 -mt-1 group-hover:text-text/80" />
+        </a>
+      </HoverCardContent>
+    </HoverCard>
+  );
 
-    window.addEventListener('scroll', checkIfInView);
-    window.addEventListener('resize', checkIfInView);
+  const title = (
+    <span className="flex justify-between">
+      {'Proverb of the Day'}
+      {ESV_hover}
+    </span>
+  );
 
-    return () => {
-      window.removeEventListener('scroll', checkIfInView);
-      window.removeEventListener('resize', checkIfInView);
-    };
-  }, []);
-
+  // Render skeleton while proverb is loading
   if (!proverb || !passage) {
-    // Render skeleton while proverb is loading
     return (
       <div className="flex space-y-4">
         <Skeleton className="h-4 w-80" />
@@ -91,49 +85,25 @@ export default function Proverbs(props: { className?: string }) {
     );
   }
 
+  const dots = Array.from({ length: passageCount }).map((_, index) => (
+    <span
+      key={index}
+      className={cn('h-2 w-2 rounded-full', {
+        'bg-element/10': index !== currentProverbIndex,
+        'bg-element/20': index === currentProverbIndex,
+      })}
+    />
+  ));
+
   return (
-    <HoverCard openDelay={100}>
-      <HoverCardTrigger asChild>
-        <div className={cn('overflow-hidden py-8 mb-24 sm:mb-16', className)}>
-          <div className="relative w-full overflow-hidden whitespace-nowrap">
-            <div
-              ref={marqueeRef}
-              style={{ animationPlayState: 'paused' }}
-              className="inline-block whitespace-nowrap animate-[marquee_20s_linear_infinite] text-text"
-            >
-              <div className="flex *:pr-64">
-                <span>{proverb}</span>
-                <span>{proverb}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </HoverCardTrigger>
-      <HoverCardContent
-        side="top"
-        align="start"
-        sideOffset={-8}
-        alignOffset={0}
-        className="group z-50 w-80 bg-card/95 border-card hover:border-element/50 hover:-translate-y-2 transition transform"
-        asChild
-      >
-        <a
-          href={'https://www.esv.org/' + passage}
-          className="flex justify-between align-middle space-x-4"
-        >
-          <Avatar>
-            <AvatarFallback>
-              <LogoEsvIcon />
-            </AvatarFallback>
-          </Avatar>
-          <div className="space-y-1 text-sm font-light text-text/70 group-hover:text-text italic">
-            {passage} from the ESV translation of the Bible.
-          </div>
-          <ArrowUpRight className="mr-1 -mt-1" />
-        </a>
-      </HoverCardContent>
-    </HoverCard>
+    <DashboardCard
+      title={title}
+      content={proverb}
+      className={cn(`${passageCount > 1 ? '' : 'pb-8'}`, className)}
+      onClick={passageCount > 1 ? handleClick : undefined}
+      graphic={
+        passageCount > 1 ? <div className="flex space-x-2">{dots}</div> : null
+      }
+    />
   );
 }
-
-// TODO --> onClick reload for a new proverb (if available?)
