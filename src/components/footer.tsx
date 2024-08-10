@@ -7,6 +7,7 @@ import { getDateInfo } from '../lib/utils';
 import Link from '@/components/ui/link';
 import { MousePointer2, MoveUp } from 'lucide-react';
 import { useSidebarContext } from '@/components/sidebar-provider';
+import { Button } from './ui/button';
 
 const Footer: React.FC = () => {
   const { collapsed } = useSidebarContext();
@@ -37,9 +38,9 @@ const Footer: React.FC = () => {
   };
 
   const toTop = (
-    <button
+    <Button
       onClick={scrollToTop}
-      className={`group fixed bottom-11 right-8 py-3 px-2 rounded-full shadow-lg transition-all duration-300 ease-in-out ${
+      className={`group fixed bottom-12 backdrop-blur-sm right-8 py-3 px-2 rounded-full shadow-lg transition-all duration-300 ease-in-out ${
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${atBottom ? 'bg-accent' : 'bg-element/20'} text-white/80`}
       aria-label="Scroll to top"
@@ -48,7 +49,7 @@ const Footer: React.FC = () => {
         <MoveUp className="w-5 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:-translate-y-6 group-hover:opacity-0 ease-in-out" />
         <MoveUp className="w-5 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:translate-y-0 translate-y-6 opacity-0 group-hover:opacity-100 ease-in-out" />
       </div>
-    </button>
+    </Button>
   );
 
   return (
