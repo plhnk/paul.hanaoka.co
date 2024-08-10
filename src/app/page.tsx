@@ -1,14 +1,8 @@
 import React from 'react';
 import { Sun, MoonStar, Coffee, Sunrise, Sunset } from 'lucide-react';
 import Projects from '@/components/projects';
-import MaskedImage from '@/components/ui/maskedImage';
 import Highlight from '@/components/ui/highlight';
-
-const svgMask = `
-<svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M100 0H0V70C0 97.6142 22.3858 120 50 120C77.6142 120 100 97.6142 100 70V0Z" fill="#D9D9D9"/>
-</svg>
-`;
+import WeirdGuy from '@/components/widgets/weird-guy';
 
 const TimeBasedGreeting = () => {
   const currentHour = new Date().getHours();
@@ -42,7 +36,7 @@ export default function Home() {
             />
             {message}
           </span>
-          <span className="mt-6 flex items-center gap-2 small-caps font-mono font-light text-green-50 px-3 py-0 h-8 bg-green-950/50 rounded-full outline outline-2 outline-green-950/30 -outline-offset-1">
+          <span className="mt-6 flex items-center gap-2 small-caps font-mono font-light text-xs text-green-200 px-2.5 py-0 bg-green-950/50 rounded-full outline outline-2 outline-green-950/30 -outline-offset-1">
             <div className="animate-pulse bg-green-500 rounded-full h-2 w-2 outline outline-2 -outline-offset-1 outline-green-700/50" />{' '}
             Available
           </span>
@@ -64,12 +58,7 @@ export default function Home() {
             <br />
             other stuff good too.
           </h1>
-          <MaskedImage
-            svgPath={svgMask}
-            imageSrc="/images/tiny-dank-guy.png"
-            width="300px"
-            height="300px"
-          />
+          <WeirdGuy />
         </div>
       </div>
       <div className="col-span-4 lg:col-start-2">

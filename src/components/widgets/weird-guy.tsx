@@ -1,56 +1,38 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import MaskedImage from '@/components/ui/maskedImage';
 
-interface WeirdGuyProps {
-  imageUrl: string;
-}
+const WeirdGuy = () => {
+  const svgPath = `M100 0H0V70C0 97.6142 22.3858 120 50 120C77.6142 120 100 97.6142 100 70V0Z`;
+  const [rotationClass, setRotationClass] = useState('rotateY(180deg)');
 
-const WeirdGuy: React.FC<WeirdGuyProps> = ({ imageUrl }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const imageElement = e.currentTarget;
+    const { left, width } = imageElement.getBoundingClientRect();
+    const x = e.clientX - left;
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const image = imageRef.current;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      if (container && image) {
-        const containerRect = container.getBoundingClientRect();
-        const containerCenterX = containerRect.left + containerRect.width / 2;
-        const containerCenterY = containerRect.top + containerRect.height / 2;
-
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        const angle = Math.atan2(
-          mouseY - containerCenterY,
-          mouseX - containerCenterX
-        );
-        const rotation = angle * (180 / Math.PI);
-
-        image.style.transform = `rotate(${rotation}deg)`;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+    if (x > width / 2) {
+      setRotationClass('rotateY(0deg)');
+    } else {
+      setRotationClass('rotateY(180deg)');
+    }
+  };
 
   return (
-    <div
-      ref={containerRef}
-      style={{ position: 'absolute', bottom: '0', right: '0' }}
-    >
-      <img
-        style={{ width: '400px', position:'fixed', bottom: '0', right: '0', transformOrigin:'bottom right'}} 
-        ref={imageRef}
-        src={imageUrl}
-        alt="Weird Guy"
+    <>
+      <MaskedImage
+        className="before:absolute before:inset-0 before:bg-card before:w-full before:h-[300px] before:rounded-full before:mt-auto transition-transform duration-300 ease-in-out"
+        variant="clip"
+        imagePosition="bottom"
+        maskPosition="bottom"
+        svgPath={svgPath}
+        imageSrc="/images/tiny-dank-guy.png"
+        width="300px"
+        height="360px"
+        onMouseMove={handleMouseMove}
+        style={{ transform: rotationClass }}
       />
-    </div>
+    </>
   );
 };
 

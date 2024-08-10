@@ -4,8 +4,6 @@ import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';
 import Link from '@/components/ui/link';
-import { Button } from './ui/button';
-import ProjectDialog from './ui/projectdialog';
 
 type Project = {
   id: string;
