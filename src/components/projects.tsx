@@ -4,6 +4,7 @@ import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';
 import Link from '@/components/ui/link';
+import NavButton from '@/components/ui/navbutton';
 
 type Project = {
   id: string;
@@ -43,18 +44,20 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   }, [viewedProjects]);
 
   const getNextProject = () => {
-    const unviewedProjects = projects.filter(project => !viewedProjects.includes(project.id));
+    const unviewedProjects = projects.filter(
+      (project) => !viewedProjects.includes(project.id)
+    );
     return unviewedProjects.length > 0 ? unviewedProjects[0] : null;
   };
 
   const renderProjectCard = (project: Project) => (
-    <Link href={'/projects/' + project.id}>
+    <Link className="group" href={'/projects/' + project.id}>
       <ProjectCard
+        className="h-full"
         id={project.id}
         labels={project.labels}
         title={project.title}
         subtitle={project.subtitle}
-        className={className}
       />
     </Link>
   );
@@ -75,24 +78,53 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   }
 
   if (variant === 'random') {
-    const randomProject = projects[Math.floor(Math.random() * projects.length)];
-    return randomProject ? renderProjectCard(randomProject) : <div>Contact me</div>;
+    const publishedProjects = projects.filter((project) => project.publish);
+    const randomProject =
+      publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
+    return randomProject ? (
+      renderProjectCard(randomProject)
+    ) : (
+      <div>
+        Thanks for checking out all of my projects! Hit <kbd>M</kbd> to email me
+        and let me know how I can help.
+      </div>
+    );
   }
 
   if (variant === 'next') {
     const nextProject = getNextProject();
     if (nextProject) {
-      setViewedProjects(prev => [...prev, nextProject.id]);
+      setViewedProjects((prev) => [...prev, nextProject.id]);
       return renderProjectCard(nextProject);
     }
-    return <div>Contact me</div>;
+    return (
+      <div>
+        Thanks for checking out all of my projects! Hit <kbd>M</kbd> to email me
+        and let me know how I can help.
+      </div>
+    );
   }
 
   if (variant === 'all') {
+    const publishedProjects = projects.filter((project) => project.publish);
+
     return (
-      <ul className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ${className}`}>
-        {projects.map(project => (
-          <li key={project.id}>
+      <ul
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 ${className}`}
+      >
+        {publishedProjects.map((project, index) => (
+          <li
+            key={project.id}
+            className={
+              index % 4 === 0
+                ? 'col-span-full md:col-span-4'
+                : index % 4 === 1
+                ? 'col-span-full md:col-span-2 lg:col-span-3'
+                : index % 4 === 2
+                ? 'col-span-full md:col-span-2 lg:col-span-3'
+                : 'col-span-full md:col-span-4'
+            }
+          >
             {renderProjectCard(project)}
           </li>
         ))}
