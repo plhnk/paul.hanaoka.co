@@ -1,5 +1,6 @@
 import Projects from '@/components/projects';
 import MaskedImage from '@/components/ui/maskedImage';
+import Highlight from '@/components/ui/highlight';
 
 const svgMask = `
 <svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,9 +19,17 @@ export default function Home() {
         <div className="flex justify-between my-40">
           <h1 className="text-4xl text-text/60">
             Paul Hanaoka is a <br />
-            <span className="text-text">designer</span> with a passion for
-            building <br />
-            <span className="text-text">high-quality software</span> and doing{' '}
+            <Highlight word="designer" hoverContent="designer" /> with a passion
+            for building <br />
+            <Highlight
+              word="high-quality"
+              hoverContent="Beautiful and useful"
+            />{' '}
+            <Highlight
+              word="products"
+              hoverContent="mostly software, but sometimes websites, homes, cabinets, and anything else that needs building"
+            />{' '}
+            and doing
             <br />
             other stuff good too.
           </h1>

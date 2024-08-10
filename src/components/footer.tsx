@@ -6,8 +6,10 @@ import Calendar from './widgets/calendar';
 import { getDateInfo } from '../lib/utils';
 import Link from '@/components/ui/link';
 import { MousePointer2, MoveUp } from 'lucide-react';
+import { useSidebarContext } from '@/components/sidebar-provider';
 
 const Footer: React.FC = () => {
+  const { collapsed } = useSidebarContext();
   const year = getDateInfo().year;
   const [isVisible, setIsVisible] = useState(false);
   const [atBottom, setAtBottom] = useState(false);
@@ -50,7 +52,11 @@ const Footer: React.FC = () => {
   );
 
   return (
-    <footer className="main-grid m-4 sm:mt-48 sm:m-8 sm:ml-80 xl:ml-0">
+    <footer
+      className={`main sm:mt-48 ${
+        collapsed ? 'sm:ml-32 xl:ml-0' : 'sm:ml-80 xl:ml-0'
+      }`}
+    >
       <Weather className="lg:col-start-2 col-span-2" />
       <Calendar className="col-span-2" />
       <Photos className="col-span-3 row-span-2" />
@@ -60,8 +66,10 @@ const Footer: React.FC = () => {
           <MousePointer2 className="-ml-8 -mt-8 inline mr-2 text-text/20" />
           <Link href="/about#Colophon">Designed & Built in the PNW </Link>
         </div>
-        <Link href="/privacy">Privacy</Link>
-        <span className="">{year + ' ©️ plhnk'}</span>
+        <span className="">
+        <Link href="/privacy">Privacy Policy</Link>
+          <span className='text-text/40 mx-4'>|</span> {'plhnk ©️ ' + year} 
+        </span>
       </div>
       {toTop}
     </footer>
