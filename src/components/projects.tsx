@@ -26,9 +26,9 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   const [viewedProjects, setViewedProjects] = useState<string[]>([]);
 
   const ThankYou = (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 w-96 my-40 md:col-start-2">
       <PartyPopper />
-      <h2>Thanks for checking out all of my projects!</h2>
+      <h2 className=''>Thanks for checking out all of my projects!</h2>
       <p>
         Hit <kbd>M</kbd> to email me and let me know how I can help.
       </p>

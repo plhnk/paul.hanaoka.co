@@ -1,8 +1,13 @@
 'use client';
 import React from 'react';
 import { Sun, MoonStar, Coffee, Sunrise, Sunset } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const Greeting: React.FC = () => {
+type GreetingProps = {
+  className?: string;
+};
+
+const Greeting: React.FC<GreetingProps> = ({ className }) => {
   const currentHour = new Date().getHours();
   let message: string;
   let IconComponent: React.ComponentType<any>;
@@ -25,7 +30,7 @@ const Greeting: React.FC = () => {
   }
 
   return (
-    <span className="flex items-center gap-2 mt-6">
+    <span className={cn('flex items-center gap-2', className)}>
       <IconComponent
         className="text-text/50 lg:-ml-6 lg:-mr-0.5"
         width={20}
