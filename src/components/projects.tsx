@@ -4,7 +4,7 @@ import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';
 import Link from '@/components/ui/link';
-import NavButton from '@/components/ui/navbutton';
+import { PartyPopper } from 'lucide-react';
 
 type Project = {
   id: string;
@@ -24,6 +24,16 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
   const [viewedProjects, setViewedProjects] = useState<string[]>([]);
+
+  const ThankYou = (
+    <section className="flex flex-col gap-4">
+      <PartyPopper />
+      <h2>Thanks for checking out all of my projects!</h2>
+      <p>
+        Hit <kbd>M</kbd> to email me and let me know how I can help.
+      </p>
+    </section>
+  );
 
   useEffect(() => {
     setTimeout(() => {
@@ -53,7 +63,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   const renderProjectCard = (project: Project) => (
     <Link className="group" href={'/projects/' + project.id}>
       <ProjectCard
-        className="h-full"
+        className={`${variant === 'all' ? 'h-full' : ''}`}
         id={project.id}
         labels={project.labels}
         title={project.title}
@@ -81,14 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
     const publishedProjects = projects.filter((project) => project.publish);
     const randomProject =
       publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
-    return randomProject ? (
-      renderProjectCard(randomProject)
-    ) : (
-      <div>
-        Thanks for checking out all of my projects! Hit <kbd>M</kbd> to email me
-        and let me know how I can help.
-      </div>
-    );
+    return randomProject ? renderProjectCard(randomProject) : ThankYou;
   }
 
   if (variant === 'next') {
@@ -97,12 +100,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
       setViewedProjects((prev) => [...prev, nextProject.id]);
       return renderProjectCard(nextProject);
     }
-    return (
-      <div>
-        Thanks for checking out all of my projects! Hit <kbd>M</kbd> to email me
-        and let me know how I can help.
-      </div>
-    );
+    return ThankYou;
   }
 
   if (variant === 'all') {
