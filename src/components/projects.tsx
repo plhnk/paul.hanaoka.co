@@ -1,9 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 import ProjectCard from '@/components/ui/projectcard';
 import projectsData from '@/lib/data/projects.json';
 import { Skeleton } from './ui/skeleton';
-import Link from '@/components/ui/link';
+import CustomLink from '@/components/ui/link';
 import { PartyPopper } from 'lucide-react';
 
 type Project = {
@@ -24,11 +25,14 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
   const [viewedProjects, setViewedProjects] = useState<string[]>([]);
+  const [clickDisabled, setClickDisabled] = useState(false);
+  const params = useParams();
+  const currentProjectId = params?.projectId as string | undefined;
 
   const ThankYou = (
     <section className="flex flex-col gap-4 w-96 my-40 md:col-start-2">
       <PartyPopper />
-      <h2 className=''>Thanks for checking out all of my projects!</h2>
+      <h2 className="">Thanks for checking out all of my projects!</h2>
       <p>
         Hit <kbd>M</kbd> to email me and let me know how I can help.
       </p>
@@ -37,31 +41,76 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setProjects(projectsData);
+      const publishedProjects = projectsData.filter(
+        (project) => project.publish
+      );
+      setProjects(publishedProjects);
       setLoading(false);
     }, 150);
   }, []);
 
   useEffect(() => {
-    const storedViewedProjects = localStorage.getItem('viewedProjects');
+    const storedViewedProjects = sessionStorage.getItem('viewedProjects');
     if (storedViewedProjects) {
       setViewedProjects(JSON.parse(storedViewedProjects));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('viewedProjects', JSON.stringify(viewedProjects));
+    if (viewedProjects.length > 0) {
+      sessionStorage.setItem('viewedProjects', JSON.stringify(viewedProjects));
+    }
   }, [viewedProjects]);
 
   const getNextProject = () => {
     const unviewedProjects = projects.filter(
-      (project) => !viewedProjects.includes(project.id)
+      (project) =>
+        !viewedProjects.includes(project.id) && project.id !== currentProjectId
     );
-    return unviewedProjects.length > 0 ? unviewedProjects[0] : null;
+
+    if (unviewedProjects.length > 0) {
+      return unviewedProjects[0];
+    }
+
+    // If all projects have been viewed, return null to trigger the Thank You message
+    return null;
+  };
+
+  const getRandomUnviewedProject = () => {
+    const unviewedProjects = projects.filter(
+      (project) =>
+        !viewedProjects.includes(project.id) && project.id !== currentProjectId
+    );
+    if (unviewedProjects.length > 0) {
+      return unviewedProjects[
+        Math.floor(Math.random() * unviewedProjects.length)
+      ];
+    }
+    // If all projects have been viewed, select a random project that's not the current one
+    const otherProjects = projects.filter(
+      (project) => project.id !== currentProjectId
+    );
+    return otherProjects.length > 0
+      ? otherProjects[Math.floor(Math.random() * otherProjects.length)]
+      : null;
+  };
+
+  const handleProjectClick = (projectId: string) => {
+    if (!clickDisabled) {
+      setViewedProjects((prev) => [...new Set([...prev, projectId])]);
+      setClickDisabled(true);  // Disable further clicks until navigation completes
+    }
   };
 
   const renderProjectCard = (project: Project) => (
-    <Link className="group" href={'/projects/' + project.id}>
+    <CustomLink
+      href={'/projects/' + project.id}
+      className="group mt-8 lg:col-start-2 col-span-3 lg:col-span-5"
+      onClick={() => handleProjectClick(project.id)}
+    >
+      {variant === 'next' && (
+        <span className="small-caps mb-4 block">Next Project</span>
+      )}
       <ProjectCard
         className={`${variant === 'all' ? 'h-full' : ''}`}
         id={project.id}
@@ -69,7 +118,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
         title={project.title}
         subtitle={project.subtitle}
       />
-    </Link>
+    </CustomLink>
   );
 
   if (loading) {
@@ -88,29 +137,21 @@ const Projects: React.FC<ProjectsProps> = ({ className, variant }) => {
   }
 
   if (variant === 'random') {
-    const publishedProjects = projects.filter((project) => project.publish);
-    const randomProject =
-      publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
+    const randomProject = getRandomUnviewedProject();
     return randomProject ? renderProjectCard(randomProject) : ThankYou;
   }
 
   if (variant === 'next') {
     const nextProject = getNextProject();
-    if (nextProject) {
-      setViewedProjects((prev) => [...prev, nextProject.id]);
-      return renderProjectCard(nextProject);
-    }
-    return ThankYou;
+    return nextProject ? renderProjectCard(nextProject) : ThankYou;
   }
 
   if (variant === 'all') {
-    const publishedProjects = projects.filter((project) => project.publish);
-
     return (
       <ul
         className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 ${className}`}
       >
-        {publishedProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <li
             key={project.id}
             className={

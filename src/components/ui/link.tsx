@@ -1,22 +1,23 @@
 import React from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface LinkProps {
+interface CustomLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
-  className?: string;
   children: React.ReactNode;
 }
 
-const CustomLink: React.FC<LinkProps> = ({ href, children, className }) => {
+const CustomLink: React.FC<CustomLinkProps> = ({ href, children, className, ...props }) => {
   const isExternal = href.startsWith('http');
 
   return (
-    <Link
-      rel="noopener"
+    <NextLink
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      target={isExternal ? "_blank" : undefined}
       href={href}
       className={cn(className, isExternal && 'group')}
+      {...props}
     >
       {children}
       {isExternal && (
@@ -25,7 +26,7 @@ const CustomLink: React.FC<LinkProps> = ({ href, children, className }) => {
           size={16}
         />
       )}
-    </Link>
+    </NextLink>
   );
 };
 
