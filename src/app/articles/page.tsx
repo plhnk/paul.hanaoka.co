@@ -1,18 +1,22 @@
-'use client';
-import React from 'react';
-import MdxLayout from '../../components/mdx-layout';
-import Content from './content.mdx';
+import Link from 'next/link';
+import { getAllPosts } from '@/server/api/posts';
 
-const Photos: React.FC = () => {
+export default async function BlogIndex() {
+  const posts = await getAllPosts();
+
   return (
-    <>
-      <MdxLayout>
-        <Content />
-      </MdxLayout>
-    </>
+    <ul>
+      {posts.map((post) => (
+        <li key={post.slug} className="my-16">
+          <Link href={`/articles/${post.slug}`}>
+            {post.frontmatter.title || 'Untitled Post'}
+          </Link>
+          {post.frontmatter.date && <span> - {post.frontmatter.date}</span>}
+          {post.frontmatter.author && (
+            <span> by {post.frontmatter.author}</span>
+          )}
+        </li>
+      ))}
+    </ul>
   );
-};
-
-export default Photos;
-
-// TODO --> unsplash photos
+}
