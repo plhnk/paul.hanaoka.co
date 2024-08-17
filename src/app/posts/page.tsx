@@ -10,15 +10,17 @@ export default async function BlogIndex() {
   const posts = await getAllPosts();
 
   // Sort posts by date, newest first
-  posts.sort((a, b) => parseDate(b.frontmatter.date).getTime() - parseDate(a.frontmatter.date).getTime());
+  posts.sort(
+    (a, b) =>
+      parseDate(b.frontmatter.date).getTime() -
+      parseDate(a.frontmatter.date).getTime()
+  );
 
   return (
-    <ul className='col-start-3 col-span-3'>
+    <ul className="lg:col-start-3 col-span-3">
       {posts.map((post) => (
         <li key={post.slug} className="my-16 flex flex-col gap-4">
-          <Link href={`/posts/${post.slug}`}>
-            {post.frontmatter.title || 'Untitled Post'}
-          </Link>
+          <Link href={`/posts/${post.slug}`}>{post.frontmatter.title}</Link>
         </li>
       ))}
     </ul>
