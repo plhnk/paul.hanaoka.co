@@ -101,10 +101,7 @@
     transition: 0.3s;
   }
   .body {
-    @apply sm:h-[calc(100vh-4rem)] 2xl:h-dvh transition-colors duration-200 text-text bg-background 2xl:bg-transparent 2xl:grid 2xl:grid-cols-[1fr_1920px_1fr] 2xl:grid-rows-[1fr_1200px_1fr];
-  }
-  .page-wrapper {
-    @apply relative 2xl:col-start-2 2xl:row-start-2 rounded-3xl 2xl:overflow-y-scroll 2xl:shadow-menu;
+    @apply sm:h-[calc(100vh-4rem)] transition-colors duration-200 text-text bg-background;
   }
   .main-wrapper {
     @apply 2xl:ml-auto sm:overflow-x-visible;
