@@ -1,15 +1,14 @@
 'use client'
 
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { useEffect } from 'react';
+import dynamic from 'next/dynamic'
+import MDXImage from '@/components/mdx-image'
 
-export default function ClientPostContent({ content }: { content: MDXRemoteSerializeResult }) {
-  useEffect(() => {
-    console.log('PostContent mounted or updated');
-    return () => {
-      console.log('PostContent unmounted');
-    };
-  }, [content]);
+const MDXRemote: any = dynamic(() => import('next-mdx-remote').then(mod => mod.MDXRemote), { ssr: false })
 
-  return <MDXRemote {...content} />;
+const components = {
+  img: MDXImage,
+}
+
+export default function ClientPostContent({ content }: { content: any }) {
+  return <MDXRemote {...content} components={components} />
 }

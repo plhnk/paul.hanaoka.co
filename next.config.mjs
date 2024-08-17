@@ -6,9 +6,7 @@ const isProduction = process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions`` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'md', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
   images: {
     unoptimized: !isProduction, // Disables image optimization unless it's production
     remotePatterns: [
@@ -20,17 +18,27 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'api.weather.gov',
       },
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/posts/:slug/:path*',
+        destination: '/src/posts/:slug/:path*',
+      },
+    ];
   },
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
   options: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
 });
 
-// Wrap MDX and Next.js config with each other
 export default withMDX(nextConfig);
