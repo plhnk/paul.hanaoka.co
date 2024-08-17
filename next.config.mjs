@@ -7,7 +7,7 @@ const isProduction = process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure `pageExtensions`` to include MDX files
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'md', 'ts', 'tsx'],
   // Optionally, add any other Next.js config below
   images: {
     unoptimized: !isProduction, // Disables image optimization unless it's production
