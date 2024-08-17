@@ -8,7 +8,7 @@ const isProduction = process.env.NEXT_PUBLIC_IS_PRODUCTION === 'true';
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'md', 'ts', 'tsx'],
   images: {
-    unoptimized: !isProduction, // Disables image optimization unless it's production
+    unoptimized: !isProduction, // disable image optimization unless it's production
     remotePatterns: [
       {
         protocol: 'https',
@@ -23,14 +23,6 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/posts/:slug/:path*',
-        destination: '/src/posts/:slug/:path*',
-      },
-    ];
   },
 };
 

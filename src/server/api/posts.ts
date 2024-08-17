@@ -3,8 +3,7 @@ import path from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-const rootDir = process.cwd()
-const postsDirectory = path.join(rootDir, 'src', 'posts')
+const publicPostsDirectory = path.join(process.cwd(), 'public', 'posts')
 
 interface Frontmatter {
   [key: string]: string;
@@ -30,15 +29,15 @@ function parseFrontmatter(fileContent: string): { data: Frontmatter; content: st
 }
 
 export async function getAllPosts(): Promise<{ slug: string; frontmatter: Frontmatter }[]> {
-  if (!fs.existsSync(postsDirectory)) {
-    console.error(`Directory not found: ${postsDirectory}`)
+  if (!fs.existsSync(publicPostsDirectory)) {
+    console.error(`Directory not found: ${publicPostsDirectory}`)
     return []
   }
 
-  const folders = fs.readdirSync(postsDirectory)
+  const folders = fs.readdirSync(publicPostsDirectory)
 
   return folders.map((folder) => {
-    const fullPath = path.join(postsDirectory, folder, 'index.mdx')
+    const fullPath = path.join(publicPostsDirectory, folder, 'index.mdx')
     if (!fs.existsSync(fullPath)) {
       console.error(`File not found: ${fullPath}`)
       return null
@@ -58,7 +57,7 @@ export async function getPost(slug: string): Promise<{
   frontmatter: Frontmatter;
   content: MDXRemoteSerializeResult;
 }> {
-  const fullPath = path.join(postsDirectory, slug, 'index.mdx')
+  const fullPath = path.join(publicPostsDirectory, slug, 'index.mdx')
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = parseFrontmatter(fileContents)
 
