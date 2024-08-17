@@ -3,7 +3,7 @@ date: 2020-03-25
 supertitle: How Should Designers Learn to Code?
 title: Part 2: Git, HTML/CSS, Engineering Principles
 canonicalLink: https://www.smashingmagazine.com/2020/03/designers-code-git-hmtl-css-engineering-principles/
-featuredImage: ./images/inactive-css.png
+featuredImage: images/inactive-css.png
 ---
 
 _In [Part 1][2], I explained the basics of the terminal, shared a few productivity hacks to get you started, and how to choose a code editor. In this part, he'll continue with the topics of version control (Git), HTML and CSS, semantic code, and a brief introduction to some key engineering principles._
@@ -34,13 +34,13 @@ Before doing these steps, you'll need a few things set up:
 
 On GitHub, you will fork _(fork = create a copy of the code in your account; in the following illustration, the blue, orange, red, and green lines show forks)_ the repository (repo) in question.
 
-![](./images/branches.png)By creating branches off of the master, it's possible for multiple people to contribute to different areas of a project and then merge their work together.
+![](/images/branches.png)By creating branches off of the master, it's possible for multiple people to contribute to different areas of a project and then merge their work together.
 
 You do this by navigating to [the repo in GitHub][13] and clicking the "Fork" button, currently at the top right-hand corner of a repo. This will be the "origin" — your fork on your GitHub account.
 
 As an example, navigating to  should show your fork of the Liferay.Design repo.
 
-![](./images/user-victorvalle-s-fork.png)This is victorvalle's GitHub fork. 
+![](/images/user-victorvalle-s-fork.png)This is victorvalle's GitHub fork. 
 
 #### Step 2: Clone (Download The Code To Your Computer)
 
@@ -101,7 +101,7 @@ Clicking the "Pull request" option here will take you to a page where you can co
 
 There are CLI tools like [Node GH][18] (GitHub also recently released [a beta of their CLI tool][19]) that allow you to initiate and manage pull requests in the terminal. At this point you may prefer to use the web interface, and that's great! So do I.
 
-![](./images/pull-request-and-compare)The 'Pull request' and 'Compare' options will appear once your fork has diverged from the upstream repo. 
+![](/images/pull-request-and-compare)The 'Pull request' and 'Compare' options will appear once your fork has diverged from the upstream repo. 
 
 #### Bonus Step: Remote (Link All The Repos)
 
@@ -122,7 +122,7 @@ To track the upstream remote, in your terminal enter the following:
 
 Now, check to see what remotes you have available — enter `git remote -v` into your terminal, you should see something like:
 
-![](./images/origin-and-upstream.png)`origin` and `upstream` are the most common labels for remotes — 'origin' is your fork, 'upstream' is the source. 
+![](/images/origin-and-upstream.png)`origin` and `upstream` are the most common labels for remotes — 'origin' is your fork, 'upstream' is the source. 
     
     origin   https://github.com/yourGitHubUsername/liferay.design (fetch)
     origin    https://github.com/yourGitHubUsername/liferay.design (push)
@@ -160,7 +160,7 @@ Markup Language:
 
 In case you also don't know what a lot of those words mean — briefly put, HTML is the combination of references (links) between _documents_ on the web, and _tags_ that you use to give structure to those documents.
 
-![](./images/html-tags.png)There's an HTML5 tag for pretty much any basic element — otherwise you can always use a `div`!
+![](/images/html-tags.png)There's an HTML5 tag for pretty much any basic element — otherwise you can always use a `div`!
 
 For a thorough introduction to HTML and CSS, I highly recommend the [Introduction to HTML][35] and [CSS first steps][36], both on the _Mozilla Developer Network (MDN)_ web docs. That, along with the excellent articles that websites such as [CSS Tricks][37], [24 Ways][38] and countless of others provide, contain basically everything you'll ever need to reference with regards to HTML/CSS.
 
@@ -188,7 +188,7 @@ Some code editors even [have built-in autocomplete][50] so you don't even need t
 
 One of my favorite new features in Firefox 70 is the [inactive CSS rules indicator][51]. It will save you hours of time trying to figure out why a style isn't being applied.
 
-![](./images/inactive-css.png)Kids these days have it so easy!
+![](/images/inactive-css.png)Kids these days have it so easy!
 
 ### Semantics
 
@@ -226,7 +226,7 @@ If you've used a modern design tool for any length of time, you've probably enco
 
 One layer of abstraction with tokens is to assign a name to a color — for example, `$blue-00` can be mapped to a hex value (or an HSL value, or whatever you want) — let's say `#0B5FFF`. Now, instead of using the hex value in your stylesheets, you use the token value — that way if you decide that `blue-00` is actually `#0B36CE`, then you only have to change it in a single place. This is a nice concept.
 
-![](./images/color-tokens.png)Tokens for colors in the Lexicon Alerts component helps keep things DRY.
+![](/images/color-tokens.png)Tokens for colors in the Lexicon Alerts component helps keep things DRY.
 
 If you take this same paradigm of abstraction and go a layer further, you can _token-ception_ — and assign a variable to a functional value. This is particularly useful if you have a robust system and want to have different themes within the system. A functional example of this would be assigning a variable like `$primary-color` and map that to `$blue-00` — so now you can create markup and instead of referencing blue, you're referencing a functional variable. If you ever want to use the same markup, but with a different style (theme), then you only need to map `$primary-color` to a new color, and your markup doesn't need to change at all! Magic!
 
