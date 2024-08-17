@@ -31,4 +31,6 @@ unoptimized: !isProduction,
 
 Then in the Vercel project settings, I can set the environment variable `NEXT_PUBLIC_IS_PRODUCTION` to `false` for `Preview` and `Development` and `true` for `Production`.  
 
+![Setting variables in your Vercel Project Settings](/vercel-project-settings.png)
+
 Thanks to this very straightforward (yet mostly undocumented) settings tweak, I’ve been able to stay under the image optimization limits, while still getting the benefits of Vercel’s image optimizations for production builds.
