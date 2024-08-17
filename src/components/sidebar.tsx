@@ -147,13 +147,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       <nav
         // wrapper (no bg)
         className={cn(
-          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1 2xl:left-auto 2xl:bottom-auto 2xl:top-auto 2xl:max-h-[calc(1200px_-_1rem)]',
+          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1',
           className
         )}
       >
         <div
           // inner wrapper (invisible on larger screens)
-          className={`sm:w-64 lg:w-auto backdrop-blur-lg rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-transparent shadow-menu sm:shadow-transparent transition-all duration-300 ${
+          className={`sm:w-64 lg:w-auto rounded-xl m-4 p-2 pt-3 pb-[3.25rem] sm:p-0 lg:p-2 sm:m-8 h-full bg-card lg:bg-transparent shadow-menu sm:shadow-transparent transition-all duration-300 ${
             collapsed && 'sm:w-auto'
           }`}
         >

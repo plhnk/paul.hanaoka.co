@@ -71,7 +71,7 @@ const config = {
         md: '1000px',
         lg: '1400px',
         xl: '1700px',
-        '2xl': '2000px',
+        '2xl': '2400px',
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

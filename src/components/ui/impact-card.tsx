@@ -46,7 +46,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({
   return (
     <Card
       className={cn(
-        'min-h-fit overflow-visible min-w-48 outline-background/40 pr-8',
+        'min-h-fit overflow-visible min-w-48 max-w-md outline-background/40 pr-8',
         className
       )}
       onClick={onClick}

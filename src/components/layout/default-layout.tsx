@@ -17,13 +17,13 @@ export default function DefaultLayout({
       <Navigation collapsed={collapsed} toggleCollapse={toggleCollapse} />
       <div
         className={`main-wrapper ${
-          collapsed ? 'xl:ml-80 2xl:mr-0' : 'xl:ml-80 2xl:mr-0'
+          collapsed ? 'xl:ml-80 2xl:mx-auto' : 'xl:ml-80 2xl:mx-auto'
         }`}
       >
         {/* removed overflow-x-hidden to for sticky onPage nav in recommends component */}
         <main
           className={`main ${
-            collapsed ? 'sm:ml-32 xl:ml-0' : 'sm:ml-80 xl:ml-0'
+            collapsed ? 'sm:ml-32 xl:ml-0 2xl:mx-0' : 'sm:ml-80 xl:ml-0 2xl:mx-0'
           }`}
         >
           {children}

@@ -104,7 +104,7 @@
     @apply sm:h-[calc(100vh-4rem)] transition-colors duration-200 text-text bg-background;
   }
   .main-wrapper {
-    @apply 2xl:ml-auto sm:overflow-x-visible;
+    @apply 2xl:mx-auto sm:overflow-x-visible 2xl:max-w-screen-xl;
   }
   .main-grid {
     /* note - use grid-cols-subgrid for any subgrids */
@@ -135,7 +135,7 @@
     @apply defaultContainer;
   }
   .caseStudyContainer > :is(blockquote, img, div, .themed-image) {
-    @apply col-span-full 2xl:col-start-2;
+    @apply col-span-full;
   }
   .caseStudyContainer > :is(table) {
     @apply col-span-full col-start-2;
