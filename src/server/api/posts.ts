@@ -6,22 +6,45 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 const publicPostsDirectory = path.join(process.cwd(), 'public', 'posts')
 
 interface Frontmatter {
-  [key: string]: string;
+  author: string;
+  date: string;
+  title: string;
+  canonicalLink?: string;
+  draft: boolean;
+  tags: string[];
+  description?: string;
+  lastModified?: string;
+  category?: string;
+  [key: string]: unknown;
 }
 
 function parseFrontmatter(fileContent: string): { data: Frontmatter; content: string } {
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/
   const match = frontmatterRegex.exec(fileContent)
-  if (!match) return { data: {}, content: fileContent }
+  if (!match) return { data: {} as Frontmatter, content: fileContent }
 
   const frontmatter = match[1]
   const content = fileContent.replace(frontmatterRegex, '')
 
-  const data: Frontmatter = {}
+  const data: Frontmatter = {} as Frontmatter
   frontmatter.split('\n').forEach(line => {
     const [key, ...valueArr] = line.split(':')
     if (key && valueArr.length) {
-      data[key.trim()] = valueArr.join(':').trim()
+      const value = valueArr.join(':').trim()
+      switch (key.trim()) {
+        case 'draft':
+          data[key.trim()] = value.toLowerCase() === 'true'
+          break
+        case 'tags':
+          data[key.trim()] = value.replace(/[\[\]']/g, '').split(',').map(tag => tag.trim())
+          break
+        case 'date':
+        case 'lastModified':
+          data[key.trim()] = new Date(value).toISOString().split('T')[0]
+          break
+        default:
+          data[key.trim()] = value
+      }
     }
   })
 
