@@ -3,7 +3,7 @@ import { getAllPosts } from '@/server/api/posts';
 
 function parseDate(dateString: string): Date {
   const date = new Date(dateString);
-  return isNaN(date.getTime()) ? new Date(0) : date; // Default to epoch if invalid
+  return isNaN(date.getTime()) ? new Date(0) : date; // sets date to 1/1/1970 so it doesn't break anything
 }
 
 export default async function BlogIndex() {
