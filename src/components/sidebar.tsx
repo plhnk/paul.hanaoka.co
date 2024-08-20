@@ -38,6 +38,14 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleCollapse,
 }) => {
   const pathname = usePathname();
+  const isActiveRoute = (
+    currentPath: string | null,
+    route: string
+  ): boolean => {
+    if (currentPath === null) return false;
+    return currentPath === route || currentPath.startsWith(`${route}/`);
+  };
+
   const [isMobile, setIsMobile] = useState(false);
   // const [isScrolled, setIsScrolled] = useState(false);
 
@@ -59,51 +67,55 @@ const Sidebar: React.FC<SidebarProps> = ({
     // }
   }, []);
 
-  const getIconStyle = (isActive: boolean) => ({
+  const getIconStyle = (route: string | null, checkActive: boolean = true) => ({
     size: 16,
     color: 'currentColor',
     strokeWidth: 2,
-    className: `hidden sm:block self-center group-hover:text-accent group-focus-visible:text-accent/60 ${isActive ? 'text-accent' : 'text-element/50'}`, 
+    className: `hidden sm:block self-center group-hover:text-accent group-focus-visible:text-accent/60 ${
+      checkActive && route && isActiveRoute(pathname, route)
+        ? 'text-accent'
+        : 'text-element/50'
+    }`,
   });
 
   const browse = [
     {
-      icon: <CircleUserRound {...getIconStyle(pathname === '/about')} />,
+      icon: <CircleUserRound {...getIconStyle('/about')} />,
       label: 'About',
       hotkey: 'a',
       collapsed: collapsed,
       url: '/about',
     },
     {
-      icon: <BookOpen {...getIconStyle(pathname === '/readme')} />,
+      icon: <BookOpen {...getIconStyle('/readme')} />,
       label: 'Readme',
       hotkey: 'e',
       collapsed: collapsed,
       url: '/readme',
     },
     {
-      icon: <BadgeCheck {...getIconStyle(pathname === '/recommends')} />,
+      icon: <BadgeCheck {...getIconStyle('/recommends')} />,
       label: 'Picks',
       hotkey: 'i',
       collapsed: collapsed,
       url: '/recommends',
     },
     {
-      icon: <Layers {...getIconStyle(pathname === '/projects')} />,
+      icon: <Layers {...getIconStyle('/projects')} />,
       label: 'Projects',
       hotkey: 'o',
       collapsed: collapsed,
       url: '/projects',
     },
     {
-      icon: <Camera {...getIconStyle(pathname === '/photos')} />,
+      icon: <Camera {...getIconStyle('/photos')} />,
       label: 'Photos',
       hotkey: 'u',
       collapsed: collapsed,
       url: '/photos',
     },
     {
-      icon: <PenLine {...getIconStyle(pathname === '/posts')} />,
+      icon: <PenLine {...getIconStyle('/posts')} />,
       label: 'Posts',
       hotkey: 'y',
       collapsed: collapsed,
@@ -114,35 +126,35 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const connect = [
     {
-      icon: <Calendar {...getIconStyle(false)} />,
+      icon: <Calendar {...getIconStyle(null, false)} />,
       label: 'Calendar',
       hotkey: 'c',
       collapsed: collapsed,
       url: 'https://cal.com/plhnk',
     },
     {
-      icon: <Mail {...getIconStyle(false)} />,
+      icon: <Mail {...getIconStyle(null, false)} />,
       label: 'Email',
       hotkey: 'm',
       collapsed: collapsed,
       textToCopy: 'paul@hanaoka.co',
     },
     {
-      icon: <Github {...getIconStyle(false)} />,
+      icon: <Github {...getIconStyle(null, false)} />,
       label: 'GitHub',
       hotkey: 'g',
       collapsed: collapsed,
       url: 'https://github.com/plhnk',
     },
     {
-      icon: <FileText {...getIconStyle(false)} />,
+      icon: <FileText {...getIconStyle(null, false)} />,
       label: 'Read.cv',
       hotkey: 'r',
       collapsed: collapsed,
       url: 'https://read.cv/plhnk',
     },
     {
-      icon: <Twitter {...getIconStyle(false)} />,
+      icon: <Twitter {...getIconStyle(null, false)} />,
       label: 'Twitter',
       hotkey: 't',
       collapsed: collapsed,
@@ -184,7 +196,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
                   collapsed={collapsed}
-                  icon={collapsed && <Home {...getIconStyle(false)} />}
+                  icon={collapsed && <Home {...getIconStyle(null, false)} />}
                   label={
                     <span>
                       <span className="text-text/90 gap-0">paul.</span>
@@ -222,9 +234,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                   hotkey="s"
                   icon={
                     collapsed ? (
-                      <PanelLeftOpen {...getIconStyle(false)} />
+                      <PanelLeftOpen {...getIconStyle(null, false)} />
                     ) : (
-                      <PanelLeftClose {...getIconStyle(false)} />
+                      <PanelLeftClose {...getIconStyle(null, false)} />
                     )
                   }
                 />
