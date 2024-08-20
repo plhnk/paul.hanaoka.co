@@ -13,7 +13,7 @@ export default async function BlogPost({
 
   return (
     <>
-      <div className="h-10 top-12 sm:sticky">
+      <div className="h-10 top-12 sm:sticky sm:col-start-2">
         <Link
           className="flex mt-0.5 sm:justify-center text-sm items-center gap-2 opacity-60"
           href="/posts"
@@ -21,7 +21,7 @@ export default async function BlogPost({
           <ArrowLeft size={16} className="text-element" /> /posts
         </Link>
       </div>
-      <article className="defaultContainer col-span-6 sm:col-start-2">
+      <article className="defaultContainer col-span-5 sm:col-start-3">
         <h1>{post.frontmatter.title}</h1>
         {post.frontmatter.canonicalLink && (
           <p className="italic">

@@ -59,7 +59,7 @@ export default function Home() {
         <Posts />
         <Link
           className="group mt-8 text-text/60 hover:text-text self-end flex text-nowrap"
-          href="/projects"
+          href="/posts"
         >
           View All{' '}
           <ArrowRight className="ml-4 text-text/40 group-hover:text-text/60 group-hover:translate-x-2 transition-all duration-300" />

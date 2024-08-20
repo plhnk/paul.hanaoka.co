@@ -11,6 +11,7 @@ import {
   PanelLeftOpen,
   PanelLeftClose,
   Mail,
+  PenLine,
   Github,
   Twitter,
   FileText,
@@ -100,6 +101,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       hotkey: 'u',
       collapsed: collapsed,
       url: '/photos',
+    },
+    {
+      icon: <PenLine {...getIconStyle(pathname === '/posts')} />,
+      label: 'Posts',
+      hotkey: 'y',
+      collapsed: collapsed,
+      url: '/posts',
     },
     // write a test so that hotkeys don't conflict
   ];

@@ -37,6 +37,14 @@ export function getDateInfo() {
   };
 }
 
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const day = date.toLocaleDateString('en-US', { day: '2-digit' });
+  const month = date.toLocaleDateString('en-US', { month: 'short' });
+  const year = date.toLocaleDateString('en-US', { year: 'numeric' });
+  return `${day} ${month}, ${year}`;
+}
+
 export function pluralize(input: number): string {
   if (input === 1) {
     return '';
