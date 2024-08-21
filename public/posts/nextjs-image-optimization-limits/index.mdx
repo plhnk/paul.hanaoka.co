@@ -1,18 +1,20 @@
 ---
 author: Paul Hanaoka
 date: 2024-08-17
-title: Solving NextJS Image Optimization Limits
+title: Optimizing NextJS Image Optimization
+tags: ['nextjs', 'Vercel', 'Web Development']
+featuredImage: limit-does-not-exist.gif
 ---
 
-If you’re using Vercel, you’ve likely run into the issue of running over the [NextJS Image Optimization Limits](https://nextjs.org/docs/app/api-reference/file-conventions/static-file-conventions#image-optimization-limits). This is a common issue for NextJS users, and it’s a pain to debug.
+If you’re using Vercel with even a moderate amount of images, you’ve likely run into the issue of running over the [NextJS Image Optimization Limits](https://nextjs.org/docs/app/api-reference/file-conventions/static-file-conventions#image-optimization-limits). 
 
-It also feels like the thing of thing that could be improved by adjusting some project defaults on the Vercel side, but since I can only control my own projects, I’m going to document the solution here.
+It also feels like the thing of thing that could potentially be solved by adjusting project defaults on the Vercel side, but since I can only control my own projects, I wanted to share what I did to be more efficient with image optimization.
 
 ## Problem
 
-Vercel’s default settings are to optimize images every time you build your project, regardless of whether or not it’s for a production build. I’'m sure they have a good reason for this &mdash; but for my purposes, I don’t really care if my images are optimized unless they’re for my production build.
+Vercel’s default settings are to optimize images every time you build your project (I think), regardless of whether or not it’s for a production build. I’'m sure they have a good reason for this &mdash; but for my purposes, I don’t really care if my images are optimized, unless they’re for my production build.
 
-This results in using a ton of image optimizations which are completely unnecessary for me. I suppose I could change the pattern or settings for how I get deploy previews, but I’m kind of used to how it behaves and rather like getting a deploy preview whenever I push code up.
+Optimizing images for build previews and non-production deploys results in using a ton of image optimizations (at least in my project) which are completely unnecessary for me. I suppose I could change the pattern or settings for how I get deploy previews, but I’m kind of used to how it behaves and rather like getting a deploy preview whenever I push code up.
 
 ## Solution
 
@@ -28,6 +30,8 @@ and then in the `images` section, set:
 ```js
 unoptimized: !isProduction,
 ```
+
+![My next.config file - yours probably looks different but the concept is the same](next-config.png)
 
 Then in the Vercel project settings, I can set the environment variable `NEXT_PUBLIC_IS_PRODUCTION` to `false` for `Preview` and `Development` and `true` for `Production`.  
 

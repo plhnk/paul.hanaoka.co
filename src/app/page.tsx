@@ -40,28 +40,30 @@ export default function Home() {
             other stuff good too.
           </h1>
           <WeirdGuy className="absolute top-32 lg:top-0 lg:relative -ml-8 right-4 lg:-mr-4" />
+          {/* fix this section in light mode */}
         </div>
       </div>
-      <div className="col-span-3 lg:col-span-4 lg:col-start-2">
+      <div className="col-span-3 lg:col-span-4 lg:col-start-2 my-40 sm:my-0">
         <span className="block mb-4 text-sm small-caps">Featured Project</span>
         <Projects variant="random" />
         <Link
           className="group mt-8 text-text/60 hover:text-text self-end flex text-nowrap"
           href="/projects"
         >
-          <span className="w-full" />
-          View All{' '}
+          <span className="w-0 sm:w-full" />
+          All Projects{' '}
           <ArrowRight className="ml-4 text-text/40 group-hover:text-text/60 group-hover:translate-x-2 transition-all duration-300" />
+          <span className="w-full sm:w-0" />
         </Link>
       </div>
       <div className="col-span-3 md:col-span-2 lg:col-span-3 lg:col-start-6">
         <span className="block mb-4 text-sm small-caps">Latest Posts</span>
         <Posts />
         <Link
-          className="group mt-8 text-text/60 hover:text-text self-end flex text-nowrap"
+          className="group mt-12 text-text/60 hover:text-text self-end flex text-nowrap"
           href="/posts"
         >
-          View All{' '}
+          All Posts{' '}
           <ArrowRight className="ml-4 text-text/40 group-hover:text-text/60 group-hover:translate-x-2 transition-all duration-300" />
           <span className="w-full" />
         </Link>

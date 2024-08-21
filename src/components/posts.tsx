@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { formatDate } from '@/lib/utils';
 
@@ -17,6 +17,7 @@ interface Frontmatter {
   description?: string;
   lastModified?: string;
   category?: string;
+  featuredImage?: string;
 }
 
 interface Post {
@@ -36,7 +37,12 @@ function parseDate(dateString: string): Date {
   return isNaN(date.getTime()) ? new Date(0) : date;
 }
 
-export default function Posts({ postsToShow = 5, filter = false, className, showAll = false }: PostsProps) {
+export default function Posts({
+  postsToShow = 5,
+  filter = false,
+  className,
+  showAll = false,
+}: PostsProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -70,7 +76,9 @@ export default function Posts({ postsToShow = 5, filter = false, className, show
     return posts.filter((post) => post.frontmatter.tags?.includes(selectedTag));
   }, [posts, selectedTag]);
 
-  const displayedPosts = showAll ? filteredPosts : filteredPosts.slice(0, postsToShow);
+  const displayedPosts = showAll
+    ? filteredPosts
+    : filteredPosts.slice(0, postsToShow);
 
   return (
     <div className={cn('', className)}>
@@ -79,11 +87,12 @@ export default function Posts({ postsToShow = 5, filter = false, className, show
           {Object.entries(tagCounts).map(([tag, count]) => (
             <Button
               key={tag}
-              variant={selectedTag === tag ? 'secondary' : 'outline'}
+              className="rounded-full gap-2 text-nowrap mr-2 sm:mr-0 sm:mb-2 px-4 py-1 bg-card text-element text-sm outline outline-background/80 -outline-offset-1 outline-1"
+              // variant={selectedTag === tag ? 'secondary' : 'outline'}
               size="sm"
               onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
             >
-              {tag} ({count})
+              {tag} <span>{count}</span>
             </Button>
           ))}
         </div>
@@ -93,12 +102,19 @@ export default function Posts({ postsToShow = 5, filter = false, className, show
         {displayedPosts.map((post) => (
           <li
             key={post.slug}
-            className="hover:shadow-md transition-shadow "
+            className="hover:shadow-md transition-shadow relative"
           >
             <Link
               href={`/posts/${post.slug}`}
-              className="group flex justify-between p-4 items-baseline"
+              className="group flex flex-col lg:flex-row justify-between p-4 items-baseline"
             >
+              <Image
+                src={`/posts/${post.slug}/${post.frontmatter.featuredImage}`}
+                alt={post.frontmatter.title}
+                width={400}
+                height={200}
+                className="absolute -z-10 left-2/3 lg:right-full lg:left-auto opacity-0 -top-[100px] group-hover:opacity-100"
+              />
               <h2 className="text-text/80 group-hover:text-text flex">
                 {post.frontmatter.title}
                 <ArrowRight
