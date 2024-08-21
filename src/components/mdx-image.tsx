@@ -1,14 +1,33 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
 
-export default function MDXImage({ src, alt, ...props }: { src: string; alt: string; [key: string]: any }) {
+type ImageProps = {
+  src: string;
+  alt: string;
+  [key: string]: any;
+};
+
+const imageSizes = {
+  sm: { width: 300, height: 200 },
+  md: { width: 600, height: 400 },
+  lg: { width: 1200, height: 800 },
+  xl: { width: 2000, height: 1200 },
+};
+
+export default function MDXImage({ src, alt, ...props }: ImageProps) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const params = useParams();
   let slug: string | undefined;
 
   if (params) {
-    slug = Array.isArray(params.slug) ? params.slug[0] : params.slug as string;
+    slug = Array.isArray(params.slug)
+      ? params.slug[0]
+      : (params.slug as string);
   }
 
   let imageSrc = src;
@@ -16,17 +35,92 @@ export default function MDXImage({ src, alt, ...props }: { src: string; alt: str
     imageSrc = `/posts/${slug}/${src}`;
   }
 
-  console.log('MDXImage: Rendering image with src:', imageSrc);
+  // Parse parameters
+  const [baseSrc, queryString] = imageSrc.split('?');
+  const parameters = queryString ? queryString.split('&') : [];
+
+  // Apply styles based on parameters
+  let imageStyles = '';
+  let wrapperClasses = 'relative block lg:inline overflow-x-hidden';
+  let imageSize = imageSizes.md; // Default to medium size
+
+  parameters.forEach((param) => {
+    switch (param) {
+      case 'xl':
+        imageSize = imageSizes.xl;
+        break;
+      case 'lg':
+        imageSize = imageSizes.lg;
+        props.className = 'lg:-ml-64';
+        break;
+      case 'sm':
+        imageSize = imageSizes.sm;
+        break;
+      case 'right':
+        wrapperClasses += ' float-right ml-4';
+        break;
+      case 'left':
+        wrapperClasses += ' float-left mr-4';
+        break;
+      case 'center':
+        wrapperClasses += ' mx-auto';
+        break;
+      case 'out':
+        wrapperClasses += ' -mx-[15%]';
+        break;
+      case 'wrap':
+        wrapperClasses += ' float-left';
+        break;
+      case 'round':
+        imageStyles += ' rounded-full';
+        break;
+    }
+  });
+
+  const handleImageClick = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
 
   return (
-    <Image 
-      src={imageSrc} 
-      alt={alt || ''}
-      width={props.width || 500}
-      height={props.height || 300}
-      {...props}
-      onError={() => console.error('MDXImage: Failed to load image:', imageSrc)}
-      onLoad={() => console.log('MDXImage: Successfully loaded image:', imageSrc)}
-    />
+    <>
+      <div className={cn(wrapperClasses)} onClick={handleImageClick}>
+        <Image
+          src={baseSrc}
+          alt={alt || ''}
+          width={imageSize.width}
+          height={imageSize.height}
+          {...props}
+          className={cn(
+            'cursor-zoom-in max-w-fit my-16 rounded-md',
+            imageStyles,
+            props.className
+          )}
+          onError={() =>
+            console.error('MDXImage: Failed to load image:', baseSrc)
+          }
+          onLoad={() =>
+            console.log('MDXImage: Successfully loaded image:', baseSrc)
+          }
+        />
+      </div>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
+          <div
+            className="w-[90vw] h-[90vh] cursor-zoom-out overflow-auto"
+            onClick={() => setIsDialogOpen(false)}
+          >
+            <div className="min-w-[100%] min-h-[100%] flex items-center justify-center">
+              <Image
+                src={baseSrc}
+                alt={alt || ''}
+                width={imageSize.width * 2}
+                height={imageSize.height * 2}
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
