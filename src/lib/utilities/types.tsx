@@ -18,6 +18,7 @@ export interface RecommendsProps {
 export interface NavButtonProps {
   icon?: ReactNode;
   label?: string | ReactNode;
+  minimal?: boolean;
   hotkey?: string;
   isActive?: boolean;
   // options
