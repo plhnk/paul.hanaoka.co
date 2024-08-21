@@ -1,10 +1,10 @@
 'use client';
-
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+import { ZoomIn, ZoomOut, X } from 'lucide-react';
 
 type ImageProps = {
   src: string;
@@ -21,6 +21,12 @@ const imageSizes = {
 
 export default function MDXImage({ src, alt, ...props }: ImageProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isPanning, setIsPanning] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const params = useParams();
   let slug: string | undefined;
 
@@ -78,8 +84,42 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
   });
 
   const handleImageClick = () => {
-    setIsDialogOpen(!isDialogOpen);
+    setIsDialogOpen(true);
   };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsPanning(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsPanning(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isPanning && containerRef.current) {
+      const dx = e.movementX;
+      const dy = e.movementY;
+      setPosition((prev) => ({
+        x: prev.x + dx,
+        y: prev.y + dy,
+      }));
+    }
+  };
+
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 0.5, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 0.5, 1));
+  };
+
+  useEffect(() => {
+    if (isDialogOpen) {
+      setPosition({ x: 0, y: 0 });
+      setZoom(2);
+    }
+  }, [isDialogOpen]);
 
   return (
     <>
@@ -106,17 +146,41 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
           <div
-            className="w-[90vw] h-[90vh] cursor-zoom-out overflow-auto"
-            onClick={() => setIsDialogOpen(false)}
+            ref={containerRef}
+            className="w-[90vw] h-[90vh] cursor-grab active:cursor-grabbing overflow-hidden relative"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseUp}
           >
-            <div className="min-w-[100%] min-h-[100%] flex items-center justify-center">
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                transform: `translate(${position.x}px, ${position.y}px) scale(${zoom})`,
+              }}
+            >
               <Image
+                ref={imageRef}
                 src={baseSrc}
                 alt={alt || ''}
                 width={imageSize.width * 2}
                 height={imageSize.height * 2}
                 className="object-contain"
               />
+            </div>
+            <div className="absolute bottom-2 right-2 flex space-x-2">
+              <button
+                className="p-2 bg-black bg-opacity-50 rounded-full text-white"
+                onClick={handleZoomIn}
+              >
+                <ZoomIn size={24} />
+              </button>
+              <button
+                className="p-2 bg-black bg-opacity-50 rounded-full text-white"
+                onClick={handleZoomOut}
+              >
+                <ZoomOut size={24} />
+              </button>
             </div>
           </div>
         </DialogContent>
