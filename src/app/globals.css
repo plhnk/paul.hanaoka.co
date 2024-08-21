@@ -7,6 +7,8 @@
 /* I think I need to add the classes for each theme in here and it should work? */
 
 /* wasnt super obvious to me that you need to specify the rgb values in this format — i.e. each value separated without a comma */
+/* TODO --> redo themes, stop using transparency, use the levels (e.g. -300) instead */
+/* TODO figure out why bg isn't changing */
 
 .dark {
   --dark: 8 7 7;

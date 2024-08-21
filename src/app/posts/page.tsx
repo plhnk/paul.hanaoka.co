@@ -10,7 +10,7 @@ export default function PostsPage() {
       <MdxLayout>
         <Content />
       </MdxLayout>
-      <Posts showAll className='col-start-3 col-span-4' />
+      <Posts showAll className='md:col-start-1 lg:col-start-3 col-span-4' />
     </>
   );
 }
