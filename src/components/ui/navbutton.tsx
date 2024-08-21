@@ -16,6 +16,7 @@ import {
 import { Button } from './button';
 
 const NavButton: React.FC<NavButtonProps> = ({
+  minimal,
   icon,
   label,
   url,
@@ -86,7 +87,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonContent = (
     <>
-      {icon}
+      {!minimal && icon}
       {!collapsed && (
         <>
           {label}
@@ -94,21 +95,23 @@ const NavButton: React.FC<NavButtonProps> = ({
           {url && !url.startsWith('/') ? (
             <ArrowUpRight {...IconStyles} />
           ) : null}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>{Hotkey}</TooltipTrigger>
-              <TooltipContent
-                side="right"
-                sideOffset={32}
-                // align="end"
-                align="center"
-                // alignOffset={20}
-                className="text-text/80 bg-element/10 rounded-md w-auto"
-              >
-                Press ‘{hotkey && hotkey.toUpperCase()}’ for {label}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          {!minimal && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>{Hotkey}</TooltipTrigger>
+                <TooltipContent
+                  side="right"
+                  sideOffset={32}
+                  // align="end"
+                  align="center"
+                  // alignOffset={20}
+                  className="text-text/80 bg-element/10 rounded-md w-auto"
+                >
+                  Press ‘{hotkey && hotkey.toUpperCase()}’ for {label}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </>
       )}
     </>
