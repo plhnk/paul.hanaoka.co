@@ -28,7 +28,6 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "fathom-client": "^3.7.2",
     "fs": "^0.0.1-security",

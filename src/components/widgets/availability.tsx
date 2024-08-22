@@ -8,9 +8,12 @@ import {
 } from '@/components/ui/hover-card';
 import { Calendar, Mail } from 'lucide-react';
 import NavButton from '../ui/navbutton';
+import Loading from '../ui/loading';
 
 export default function StatusIndicator() {
-  const [status, setStatus] = useState('Loading...');
+  const [status, setStatus] = useState('Loading');
+  const [ellipsis, setEllipsis] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const [reason, setReason] = useState('');
 
   const iconStyle = {
@@ -22,28 +25,56 @@ export default function StatusIndicator() {
   };
 
   useEffect(() => {
-    async function fetchStatus() {
+    const fetchStatusWithDelay = async () => {
+      const startTime = Date.now();
+
       try {
         const response = await fetch('/api/status');
         const data = await response.json();
+        const elapsedTime = Date.now() - startTime;
+
+        const remainingTime = 1500 - elapsedTime;
+        if (remainingTime > 0) {
+          await new Promise((resolve) => setTimeout(resolve, remainingTime));
+        }
+
         setStatus(data.status);
-        setReason(data.reason || ''); // Set reason if provided
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching status:', error);
         setStatus('Error');
         setReason('Failed to retrieve status');
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchStatus();
+    fetchStatusWithDelay();
 
-    // Optionally set up an interval to refresh status periodically
-    const intervalId = setInterval(fetchStatus, 60000); // every minute
+    const intervalId = setInterval(async () => {
+      try {
+        const response = await fetch('/api/status');
+        const data = await response.json();
+        setStatus(data.status);
+      } catch (error) {
+        console.error('Error fetching status:', error);
+        setStatus('Error');
+      }
+    }, 60000); // check status every minute
 
     return () => clearInterval(intervalId);
   }, []);
 
-  // Determine the styles for the outer span and inner div based on the status
+  // Ellipsis animation
+  useEffect(() => {
+    if (isLoading) {
+      const ellipsisInterval = setInterval(() => {
+        setEllipsis((prev) => (prev < 3 ? prev + 1 : 0));
+      }, 500); // Update ellipsis every 500ms
+
+      return () => clearInterval(ellipsisInterval);
+    }
+  }, [isLoading]);
+
   let outerSpanClasses = '';
   let innerDivClasses = '';
 
@@ -76,15 +107,27 @@ export default function StatusIndicator() {
       break;
   }
 
+  const presenceDot = (
+    <span
+      className={`animate-pulse rounded-full h-2 w-2 outline outline-2 -outline-offset-1 ${innerDivClasses}`}
+    />
+  );
+
   return (
     <HoverCard openDelay={100} closeDelay={300}>
       <HoverCardTrigger>
         <div
           className={`cursor-pointer md:mt-4 lg:mt-6 flex items-center gap-2 small-caps font-mono font-light text-xs px-2.5 py-1 rounded-full outline outline-2 -outline-offset-1 ${outerSpanClasses}`}
         >
-          <span
-            className={`animate-pulse rounded-full h-2 w-2 outline outline-2 -outline-offset-1 ${innerDivClasses}`}
-          />{' '}
+          {/* {isLoading ? (
+            <Loading
+              shape={presenceDot}
+              animationDuration={2}
+            />
+          ) : (
+            presenceDot
+          )}{' '} */}
+          {presenceDot}
           {status}
         </div>
       </HoverCardTrigger>
@@ -124,21 +167,3 @@ export default function StatusIndicator() {
     </HoverCard>
   );
 }
-
-// mt-6 flex items-center gap-2 small-caps font-mono font-light text-xs text-green-200 px-2.5 py-0 bg-green-950/50 rounded-full outline outline-2 outline-green-950/30 -outline-offset-1
-// animate-pulse bg-green-500 rounded-full h-2 w-2 outline outline-2 -outline-offset-1 outline-green-700/50
-
-// {
-//   icon={ <Calendar {...getIconStyle(null, false)} />}
-//   label={ 'Calendar'}
-//   hotkey={ 'c'}
-//   collapsed={ collapsed}
-//   url={ 'https://cal.com/plhnk'}
-// },
-// {
-//   icon: <Mail {...getIconStyle(null, false)} />,
-//   label: 'Email',
-//   hotkey: 'm',
-//   collapsed: collapsed,
-//   textToCopy: 'paul@hanaoka.co',
-// },
