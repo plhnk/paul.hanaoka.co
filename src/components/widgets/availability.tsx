@@ -27,51 +27,83 @@ export default function StatusIndicator() {
   useEffect(() => {
     const fetchStatusWithDelay = async () => {
       const startTime = Date.now();
+      console.log(
+        `[${new Date().toISOString()}] StatusIndicator: Starting status fetch`
+      );
 
       try {
         const response = await fetch('/api/status');
         const data = await response.json();
         const elapsedTime = Date.now() - startTime;
 
+        console.log(
+          `[${new Date().toISOString()}] StatusIndicator: Status received`,
+          data
+        );
+
         const remainingTime = 1500 - elapsedTime;
         if (remainingTime > 0) {
+          console.log(
+            `[${new Date().toISOString()}] StatusIndicator: Waiting for ${remainingTime}ms`
+          );
           await new Promise((resolve) => setTimeout(resolve, remainingTime));
         }
 
         setStatus(data.status);
+        setReason(data.reason || '');
         setIsLoading(false);
+        console.log(
+          `[${new Date().toISOString()}] StatusIndicator: Status updated to ${
+            data.status
+          }, reason: ${data.reason || 'N/A'}`
+        );
       } catch (error) {
-        console.error('Error fetching status:', error);
+        console.error(
+          `[${new Date().toISOString()}] StatusIndicator Error:`,
+          error
+        );
         setStatus('Error');
         setReason('Failed to retrieve status');
         setIsLoading(false);
       }
     };
 
+    console.log(
+      `[${new Date().toISOString()}] StatusIndicator: Initial render, calling fetchStatusWithDelay`
+    );
     fetchStatusWithDelay();
 
-    const intervalId = setInterval(async () => {
-      try {
-        const response = await fetch('/api/status');
-        const data = await response.json();
-        setStatus(data.status);
-      } catch (error) {
-        console.error('Error fetching status:', error);
-        setStatus('Error');
-      }
+    const intervalId = setInterval(() => {
+      console.log(
+        `[${new Date().toISOString()}] StatusIndicator: Starting periodic status check`
+      );
+      fetchStatusWithDelay();
     }, 60000); // check status every minute
 
-    return () => clearInterval(intervalId);
+    return () => {
+      console.log(
+        `[${new Date().toISOString()}] StatusIndicator: Cleaning up interval`
+      );
+      clearInterval(intervalId);
+    };
   }, []);
 
   // Ellipsis animation
   useEffect(() => {
     if (isLoading) {
+      console.log(
+        `[${new Date().toISOString()}] StatusIndicator: Starting ellipsis animation`
+      );
       const ellipsisInterval = setInterval(() => {
         setEllipsis((prev) => (prev < 3 ? prev + 1 : 0));
       }, 500); // Update ellipsis every 500ms
 
-      return () => clearInterval(ellipsisInterval);
+      return () => {
+        console.log(
+          `[${new Date().toISOString()}] StatusIndicator: Cleaning up ellipsis animation`
+        );
+        clearInterval(ellipsisInterval);
+      };
     }
   }, [isLoading]);
 
@@ -107,6 +139,10 @@ export default function StatusIndicator() {
       break;
   }
 
+  console.log(
+    `[${new Date().toISOString()}] StatusIndicator: Rendering with status: ${status}, isLoading: ${isLoading}`
+  );
+
   const presenceDot = (
     <span
       className={`animate-pulse rounded-full h-2 w-2 outline outline-2 -outline-offset-1 ${innerDivClasses}`}
@@ -119,14 +155,6 @@ export default function StatusIndicator() {
         <div
           className={`cursor-pointer md:mt-4 lg:mt-6 flex items-center gap-2 small-caps font-mono font-light text-xs px-2.5 py-1 rounded-full outline outline-2 -outline-offset-1 ${outerSpanClasses}`}
         >
-          {/* {isLoading ? (
-            <Loading
-              shape={presenceDot}
-              animationDuration={2}
-            />
-          ) : (
-            presenceDot
-          )}{' '} */}
           {presenceDot}
           {status}
         </div>

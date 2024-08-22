@@ -110,7 +110,7 @@ export default function Posts({
             className="hover:shadow-md transition-shadow relative"
           >
             <HoverCard openDelay={100} closeDelay={0}>
-              <HoverCardTrigger>
+              <HoverCardTrigger asChild>
                 <Link
                   href={`/posts/${post.slug}`}
                   className="group flex flex-col lg:gap-4 lg:flex-row justify-between p-4 items-baseline"
