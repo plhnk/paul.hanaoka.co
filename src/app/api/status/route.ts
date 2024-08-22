@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
     
     if (!isWithinWorkingHours(now)) {
       console.log('Outside working hours');
-      return NextResponse.json({ status: 'sleeping', reason: 'outside working hours' });
+      return NextResponse.json({ status: 'offline', reason: 'outside working hours' });
     }
 
     const calendarStatus = await checkCalendarStatus();

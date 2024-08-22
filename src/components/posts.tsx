@@ -6,6 +6,11 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { formatDate } from '@/lib/utils';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card';
 
 interface Frontmatter {
   author: string;
@@ -104,29 +109,41 @@ export default function Posts({
             key={post.slug}
             className="hover:shadow-md transition-shadow relative"
           >
-            <Link
-              href={`/posts/${post.slug}`}
-              className="group flex flex-col lg:flex-row justify-between p-4 items-baseline"
-            >
-              <Image
-                src={`/posts/${post.slug}/${post.frontmatter.featuredImage}`}
-                alt={post.frontmatter.title}
-                width={400}
-                height={200}
-                className="absolute -z-10 left-2/3 lg:right-full lg:left-auto opacity-0 -top-[100px] group-hover:opacity-100"
-              />
-              <h2 className="text-text/80 group-hover:text-text flex">
-                {post.frontmatter.title}
-                <ArrowRight
-                  className="ml-2 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200"
-                  size={20}
-                />
-              </h2>
+            <HoverCard openDelay={100} closeDelay={0}>
+              <HoverCardTrigger>
+                <Link
+                  href={`/posts/${post.slug}`}
+                  className="group flex flex-col lg:gap-4 lg:flex-row justify-between p-4 items-baseline"
+                >
+                  <h2 className="text-text/80 group-hover:text-text flex">
+                    {post.frontmatter.title}
+                    <ArrowRight
+                      className="opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-1 transition-all duration-200"
+                      size={20}
+                    />
+                  </h2>
 
-              <span className="text-text/50 uppercase font-medium tracking-wide text-sm font-mono group-hover:text-text/60">
-                {formatDate(post.frontmatter.date)}
-              </span>
-            </Link>
+                  <span className="text-text/50 uppercase font-medium tracking-wide text-sm font-mono group-hover:text-text/60 text-nowrap">
+                    {formatDate(post.frontmatter.date)}
+                  </span>
+                </Link>
+              </HoverCardTrigger>
+              <HoverCardContent
+                side="left"
+                sideOffset={16}
+                align="center"
+                alignOffset={-16}
+                className="max-w-lg w-full shadow-elevate"
+              >
+                <Image
+                  src={`/posts/${post.slug}/${post.frontmatter.featuredImage}`}
+                  alt={post.frontmatter.title}
+                  width={400}
+                  height={200}
+                  className="rounded-sm w-full h-full"
+                />
+              </HoverCardContent>
+            </HoverCard>
           </li>
         ))}
       </ul>
