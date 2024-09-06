@@ -56,27 +56,10 @@ const OnPageNav: React.FC<{
     if (!element) return;
 
     const viewportWidth = window.innerWidth;
-    const isLargeViewport = viewportWidth >= 2000;
 
-    if (isLargeViewport) {
-      const container = document.getElementById('2xl-faux-browser');
-      if (container) {
-        const containerRect = container.getBoundingClientRect();
-        const elementRect = element.getBoundingClientRect();
-        const scrollToPosition =
-          elementRect.top -
-          containerRect.top +
-          container.scrollTop -
-          scrollOffset;
-        container.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
-      }
-    } else {
-      const top =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        scrollOffset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    const top =
+      element.getBoundingClientRect().top + window.scrollY - scrollOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   const [arrowOpacity, setArrowOpacity] = useState(1);
