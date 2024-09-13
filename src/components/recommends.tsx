@@ -43,9 +43,9 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
     {} as Record<string, React.RefObject<HTMLDivElement>>
   );
 
-  console.log(Object.keys(groupedRecommends), 'onPageNav props');
+  // console.log(Object.keys(groupedRecommends), 'onPageNav props');
   // console.log(Object.entries(groupedRecommends), 'entries');
-  console.log(Object.entries(categoryRefs), 'categoryRefs');
+  // console.log(Object.entries(categoryRefs), 'categoryRefs');
 
   return (
     <div className={`relative flex flex-col main-content ${className} `}>
