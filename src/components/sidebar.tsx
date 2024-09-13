@@ -23,6 +23,7 @@ import NavSection from './ui/navsection';
 import NavButton from './ui/navbutton';
 import ModeToggle from './ui/modetoggle';
 import { cn } from '@/lib/utils';
+import { install } from '@github/hotkey';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -65,6 +66,32 @@ const Sidebar: React.FC<SidebarProps> = ({
     //   sidebarElement.addEventListener('scroll', handleScroll);
     //   return () => sidebarElement.removeEventListener('scroll', handleScroll);
     // }
+    const setupHotkeys = () => {
+      const elements = document.querySelectorAll('[data-hotkey]');
+      elements.forEach((el) => {
+        install(el as HTMLElement, el.getAttribute('data-hotkey')!);
+        el.addEventListener('hotkey-fire', (event) => {
+          if (event.target instanceof HTMLElement) {
+            event.target.click();
+          }
+        });
+      });
+    };
+
+    setupHotkeys();
+
+    // Setup a MutationObserver to handle dynamically added elements
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          setupHotkeys();
+        }
+      });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
   }, []);
 
   const getIconStyle = (route: string | null, checkActive: boolean = true) => ({
@@ -251,6 +278,3 @@ const Sidebar: React.FC<SidebarProps> = ({
 };
 
 export default Sidebar;
-
-// TODO add headshot in lower left corner
-// TODO rotate headshot based on cursor position

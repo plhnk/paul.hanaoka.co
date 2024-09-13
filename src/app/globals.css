@@ -10,6 +10,18 @@
 /* TODO --> redo themes, stop using transparency, use the levels (e.g. -300) instead */
 /* TODO figure out why bg isn't changing */
 
+/* Ensure content is always visible regardless of theme */
+html {
+  background: rgb(var(--background));
+  visibility: hidden;
+  transition: background-color 0.3s ease; /* Smooth background transition when theme changes */
+}
+
+html.dark, html.light {
+  visibility: visible;
+  transition: background-color 0.3s ease; /* Smooth background transition when theme changes */
+}
+
 .dark {
   --dark: 8 7 7;
   --light: 250 250 250;
@@ -103,7 +115,7 @@
     transition: 0.3s;
   }
   .body {
-    @apply sm:h-[calc(100vh-4rem)] transition-colors duration-200 text-text bg-background;
+    @apply bg-background transition-colors duration-200 text-text;
   }
   .main-wrapper {
     @apply 2xl:mx-auto sm:overflow-x-visible 2xl:max-w-screen-xl;

@@ -1,25 +1,29 @@
 'use client';
-
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { type ThemeProviderProps } from 'next-themes/dist/types';
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     window.requestAnimationFrame(() => {
-  //       // Trigger a reflow/repaint
-  //     });
-  //   };
+  const [mounted, setMounted] = useState(false);
 
-  //   window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+  // Ensure the default theme is 'dark' before hydration
+  if (!mounted) {
+    return <div className="dark">{children}</div>; // Apply the default 'dark' theme during SSR
+  }
+
   return (
-    <NextThemesProvider attribute="class" {...props}>
+    <NextThemesProvider
+      enableSystem
+      defaultTheme="dark"
+      attribute="class"
+      {...props}
+      themes={['light', 'dark', 'elite', 'exec']}
+      // add any new themes to this list, but also don't forget to add them to the tailwind config file
+    >
       {children}
     </NextThemesProvider>
   );

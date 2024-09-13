@@ -10,12 +10,29 @@ const fira_code = Fira_Code({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-fira-code',
+  fallback: [
+    'ui-monospace',
+    'Menlo',
+    'Source Code Pro',
+    'Fira Mono',
+    'Droid Sans Mono',
+    'Monaco',
+    'monospace',
+  ],
 });
 
 const fira_sans = Fira_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-fira-sans',
+  fallback: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica',
+    'sans-serif',
+  ],
   weight: ['200', '400', '600', '900'],
   style: ['normal', 'italic'],
 });
@@ -64,24 +81,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${fira_code.variable} ${fira_sans.variable}`}
+      className={`${fira_code.variable} ${fira_sans.variable} bg-background`}
       lang="en"
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
     >
-      <head>
+      <body className="body">
         <Analytics />
-      </head>
-      <body
-        className="body"
-        // TODO design themes, abstract them somehow
-      >
-        <ThemeProvider
-          themes={['light', 'dark', 'elite', 'exec']}
-          // add any new themes to this list, but also don't forget to add them to the tailwind config file
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-        >
+        <ThemeProvider>
           <SidebarProvider>
             <DefaultLayout>{children}</DefaultLayout>
           </SidebarProvider>
@@ -90,6 +96,3 @@ export default function RootLayout({
     </html>
   );
 }
-// fix footer
-// make sidebar sticky 2xl:
-// funny guy 2xl:

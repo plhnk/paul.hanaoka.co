@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { install } from '@github/hotkey';
+// import { install } from '@github/hotkey';
 import { Label } from '@/components/ui/label';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
@@ -43,9 +43,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
   const [mounted, setMounted] = useState(false);
   const [clientTheme, setClientTheme] = useState<string | undefined>();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // useEffect(() => {
+  // }, []);
 
   useEffect(() => {
     if (mounted) {
@@ -54,18 +53,19 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
   }, [mounted, theme, resolvedTheme]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll('[data-hotkey]');
-    for (const el of elements) {
-      install(el as HTMLElement, el.getAttribute('data-hotkey')!);
-      el.addEventListener('hotkey-fire', (event) => {
-        if (event.target) {
-          (event.target as HTMLElement).focus();
-          setTimeout(() => {
-            (event.target as HTMLElement).focus();
-          }, 500);
-        }
-      });
-    }
+    setMounted(true);
+    // const elements = document.querySelectorAll('[data-hotkey]');
+    // for (const el of elements) {
+    //   install(el as HTMLElement, el.getAttribute('data-hotkey')!);
+    //   el.addEventListener('hotkey-fire', (event) => {
+    //     if (event.target) {
+    //       (event.target as HTMLElement).focus();
+    //       setTimeout(() => {
+    //         (event.target as HTMLElement).focus();
+    //       }, 500);
+    //     }
+    //   });
+    // }
   }, []);
 
   if (!mounted) return null;
@@ -91,7 +91,9 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
             data-hotkey={modes.hotkey}
             className={`${
               clientTheme === modes.mode && 'bg-card '
-            } first:gap-3 gap-2 w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${collapsed && 'sm:w-10'}`}
+            } first:gap-3 gap-2 w-11 sm:w-auto h-11 sm:h-10 px-2.5 ${
+              collapsed && 'sm:w-10'
+            }`}
             key={index}
           >
             {modes.icon}
