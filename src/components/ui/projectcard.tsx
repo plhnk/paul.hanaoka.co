@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   }, [theme, systemTheme, id]);
 
   return (
-    <Card className={cn('max-sm:outline-none m-0 px-0 py-4 bg-transparent overflow-visible relative -z-20 text-left', className)}>
+    <Card className={cn('max-sm:outline-none m-0 px-0 py-4 bg-transparent overflow-visible relative isolate text-left', className)}>
       <CardContent className="sm:py-0 px-0 my-auto">
         <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color">
           {imageSrc && (
