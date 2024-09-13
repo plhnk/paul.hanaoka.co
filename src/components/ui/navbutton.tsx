@@ -1,6 +1,4 @@
 'use client';
-// import { useEffect } from 'react';
-// import { install } from '@github/hotkey';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { NavButtonProps } from '../../lib/utilities/types';
@@ -51,13 +49,6 @@ const NavButton: React.FC<NavButtonProps> = ({
       },
     });
   };
-
-  // useEffect(() => {
-  //   const elements = document.querySelectorAll('[data-hotkey]');
-  //   for (const el of elements) {
-  //     install(el as HTMLElement, el.getAttribute('data-hotkey')!);
-  //   }
-  // }, [onClick]);
 
   const ButtonStyles = {
     className: cn(

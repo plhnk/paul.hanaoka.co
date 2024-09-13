@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { WandSparkles, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-// import { install } from '@github/hotkey';
 import { Label } from '@/components/ui/label';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
@@ -36,37 +35,17 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
     },
   ];
 
-  // try resolving theme instead to solve theme not propogating / flashing?
-
   const { setTheme, resolvedTheme, systemTheme, theme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
   const [clientTheme, setClientTheme] = useState<string | undefined>();
 
-  // useEffect(() => {
-  // }, []);
-
   useEffect(() => {
+    setMounted(true);
     if (mounted) {
       setClientTheme(theme === 'system' ? resolvedTheme : theme);
     }
   }, [mounted, theme, resolvedTheme]);
-
-  useEffect(() => {
-    setMounted(true);
-    // const elements = document.querySelectorAll('[data-hotkey]');
-    // for (const el of elements) {
-    //   install(el as HTMLElement, el.getAttribute('data-hotkey')!);
-    //   el.addEventListener('hotkey-fire', (event) => {
-    //     if (event.target) {
-    //       (event.target as HTMLElement).focus();
-    //       setTimeout(() => {
-    //         (event.target as HTMLElement).focus();
-    //       }, 500);
-    //     }
-    //   });
-    // }
-  }, []);
 
   if (!mounted) return null;
 
