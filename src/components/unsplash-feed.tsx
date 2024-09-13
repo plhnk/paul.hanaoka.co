@@ -40,7 +40,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={cn(
-        'flex flex-col items-center sm:items-start gap-8 center sm:mx-4 sm:-ml-4 lg:-ml-8',
+        'flex flex-col items-center sm:items-start gap-8 center sm:mx-4 sm:-ml-4 lg:-ml-8 isolate',
         className
       )}
     >
