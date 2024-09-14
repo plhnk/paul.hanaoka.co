@@ -41,13 +41,13 @@ export default function Weather(props: WeatherProps) {
     setLocation({ lat: 48.7519, lon: -122.4787 });
   }, []);
 
-  const handleZipCodeSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const newLocation = await getLocationFromZip(zipCode);
-    if (newLocation) {
-      setLocation(newLocation);
-    }
-  };
+  // const handleZipCodeSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const newLocation = await getLocationFromZip(zipCode);
+  //   if (newLocation) {
+  //     setLocation(newLocation);
+  //   }
+  // };
 
   const handleLocateMe = () => {
     if (navigator.geolocation) {
