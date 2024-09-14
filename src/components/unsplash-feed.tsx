@@ -52,7 +52,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
         >
           <Image
             placeholder="blur"
-            blurDataURL="photo.blur_hash"
+            blurDataURL={photo.blur_hash}
             width={photo.width}
             height={photo.height}
             src={photo.urls.regular}
@@ -65,26 +65,26 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
           </figcaption>
         </figure>
       ))}
-      <div className='sm:ml-8 '>
-      {currentPage * photosPerPage >= photos.length ? (
-        <Link
-          href="https://unsplash.com/plhnk"
-          target="_blank"
-          rel="noopener noreferrer"
-          className='italic'
-        >
-          View more at unsplash.com/plhnk
-        </Link>
-      ) : (
-        <Button
-          variant="ghost"
-          className="hover:bg-card/80 hover:-translate-y-2 transition-transform transform"
-          onClick={loadMore}
-        >
-          <RotateCw size={16} className="text-element mr-2" />
-          Load more photos
-        </Button>
-      )}
+      <div className="sm:ml-8 ">
+        {currentPage * photosPerPage >= photos.length ? (
+          <Link
+            href="https://unsplash.com/plhnk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="italic"
+          >
+            View more at unsplash.com/plhnk
+          </Link>
+        ) : (
+          <Button
+            variant="ghost"
+            className="hover:bg-card/80 hover:-translate-y-2 transition-transform transform"
+            onClick={loadMore}
+          >
+            <RotateCw size={16} className="text-element mr-2" />
+            Load more photos
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -141,7 +141,8 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
               <Skeleton className="w-full h-full" />
             ) : (
               <Image
-                unoptimized
+                placeholder="blur"
+                blurDataURL={photo.blur_hash}
                 key={photo.id}
                 src={photo.urls.regular}
                 alt={photo.alt_description}

@@ -34,7 +34,6 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
     {}
   );
 
-  // Create categoryRefs
   const categoryRefs = Object.keys(groupedRecommends).reduce(
     (refs, category) => {
       refs[category] = React.createRef();
@@ -42,10 +41,6 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
     },
     {} as Record<string, React.RefObject<HTMLDivElement>>
   );
-
-  // console.log(Object.keys(groupedRecommends), 'onPageNav props');
-  // console.log(Object.entries(groupedRecommends), 'entries');
-  // console.log(Object.entries(categoryRefs), 'categoryRefs');
 
   return (
     <div className={`relative flex flex-col main-content ${className} `}>
@@ -115,14 +110,19 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                         </TooltipProvider>
                       ))}
                     </div>
-                    <div
-                      className="absolute w-[200%] h-[200%] bg-blend-hard-light bg-cover bg-left-bottom bg-no-repeat bg-background pointer-events-none inset-0 blur-3xl z-0 from-background/80 to-background/30 -rotate-12"
-                      style={{
-                        backgroundImage: `linear-gradient(to top right, var(--tw-gradient-stops)), url(${
-                          '/images/' + recommend.icon
-                        })`,
-                      }}
-                    />
+                    <div className="absolute w-[200%] h-[200%] overflow-hidden pointer-events-none -inset-[50%] z-0 -rotate-12">
+                      <Image
+                        src={'/images/' + recommend.icon}
+                        alt={`Background for ${recommend.label}`}
+                        fill
+                        sizes="600px"
+                        className="object-cover object-left-bottom blur-3xl"
+                        loading='lazy'
+                        placeholder='blur'
+                        quality={10}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-background/80 to-background/30" />
+                    </div>
                   </CardContent>
                 </Card>
                 {recommend.tags && (
@@ -153,9 +153,6 @@ export default Recommends;
 // card?
 // tags
 // onpage nav
-// TODO --> sticky nav not working on mobile
-// TODO --> review z-indexes on mobile
-// TODO --> review z-indexes on desktop
 // TODO --> style current onPage items for mobile
 // TODO --> styles for the diff tags
 // TODO --> link tags? lots more work there

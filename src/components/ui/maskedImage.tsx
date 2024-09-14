@@ -81,7 +81,7 @@ const MaskedImage: React.FC<MaskedImageProps & ComponentProps<'div'>> = ({
         </svg>
       )}
       <Image
-        unoptimized
+        placeholder='blur'
         src={imageSrc}
         alt={imageAlt}
         fill={true}
