@@ -14,6 +14,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '../ui/tooltip';
+import { useFathomEvent } from '@/hooks/useFathom';
 
 interface WeatherProps {
   className?: string;
@@ -29,7 +30,7 @@ export default function Weather(props: WeatherProps) {
     location?.lat || 0,
     location?.lon || 0
   );
-
+  const { trackEvent } = useFathomEvent();
   const [isCelsius, setIsCelsius] = useState(false);
 
   useEffect(() => {
@@ -70,6 +71,11 @@ export default function Weather(props: WeatherProps) {
         'Geolocation is not supported by your browser. Go outside and look up.'
       );
     }
+  };
+
+  const handleClick = () => {
+    trackEvent('Weather Locate Me Click');
+    handleLocateMe;
   };
 
   const currentTemp = data
@@ -144,7 +150,7 @@ export default function Weather(props: WeatherProps) {
           <Button
             variant="ghost"
             className="-mt-2 translate-x-2 rounded-lg sm:rounded-md sm:-mt-3.5 sm:translate-x-3.5 hover:text-text"
-            onClick={handleLocateMe}
+            onClick={handleClick}
           >
             <Navigation />
           </Button>

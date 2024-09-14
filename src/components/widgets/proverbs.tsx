@@ -12,11 +12,13 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
 import DashboardCard from '../ui/dashboardcard';
+import { useFathomEvent } from '@/hooks/useFathom';
 
 const { today } = getDateInfo();
 
 export default function Proverbs(props: { className?: string }) {
   const proverbs: Proverbs = proverbsData;
+  const {trackEvent} = useFathomEvent();
   interface Proverbs {
     [key: number]: {
       query: string;
@@ -37,6 +39,7 @@ export default function Proverbs(props: { className?: string }) {
     proverbs[proverbIndex].passage_meta[currentProverbIndex].canonical;
 
   const handleClick = () => {
+    trackEvent('Proverb Click');
     if (passageCount > 1) {
       setCurrentProverbIndex((prevIndex) => (prevIndex + 1) % passageCount);
     }

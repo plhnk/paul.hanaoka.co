@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 import { Label } from '@/components/ui/label';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
+import { useFathomEvent } from '@/hooks/useFathom';
 
 interface ModeToggleProps {
   className?: string;
@@ -34,6 +35,8 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
+
+  const { trackEvent } = useFathomEvent();
 
   const { setTheme, resolvedTheme, systemTheme, theme } = useTheme();
 
@@ -66,6 +69,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
           <Button
             onClick={() => {
               setTheme(`${modes.mode}`);
+              trackEvent('Mode Toggle Click - ' + modes.mode);
             }}
             data-hotkey={modes.hotkey}
             className={`${
