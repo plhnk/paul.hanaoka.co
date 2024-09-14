@@ -2,7 +2,7 @@
   {
     "label": "Wealthfront",
     "url": "https://www.wealthfront.com",
-    "icon": "wealthfront-favicon.ico",
+    "icon": "wealthfront-favicon.png",
     "category": "Finance",
     "tags": ["Investing", "Robo-Advisor", "ETFs", "Mutual Funds", "Stocks"],
     "description": "Robo-advisor I use mainly for 5%+ high-yield cash account — their same-day-transfer feature helps me keep a minimum balance in our checking account to maximize interest.",
@@ -163,7 +163,7 @@
   },
   {
     "label": "Sticker Mule",
-    "icon": "stickermule-icon.ico",
+    "icon": "stickermule-icon.png",
     "url": "https://stickermule.com",
     "category": "Misc",
     "tags": ["SWAG", "Printing", "Stickers", "Gifts"],

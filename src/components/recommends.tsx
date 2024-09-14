@@ -118,7 +118,6 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
                         sizes="600px"
                         className="object-cover object-left-bottom blur-3xl"
                         loading='lazy'
-                        placeholder='blur'
                         quality={10}
                       />
                       <div className="absolute inset-0 bg-gradient-to-tr from-background/80 to-background/30" />
