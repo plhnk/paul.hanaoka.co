@@ -35,7 +35,7 @@ const FileDownloader = () => {
   const [filesDownloaded, setFilesDownloaded] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const trackEvent = useFathomEvent();
+  const { trackEvent } = useFathomEvent();
 
   useEffect(() => {
     if (textAreaRef.current) {
