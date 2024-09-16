@@ -19,13 +19,14 @@ import {
 } from '@/components/ui/collapsible';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useFathomEvent } from '@/hooks/useFathom';
+import { cn } from '../../lib/utils';
 
 interface DownloadError {
   url: string;
-  error: string;
+  error: string | undefined;
 }
 
-const FileDownloader = () => {
+const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
   const [urls, setUrls] = useState('');
   const [status, setStatus] = useState('');
   const [progress, setProgress] = useState(0);
@@ -120,7 +121,10 @@ const FileDownloader = () => {
       if (result.success) {
         successCount++;
       } else {
-        setErrors((prev) => [...prev, { url, error: result.error }]);
+        setErrors((prev) => [
+          ...prev,
+          { url, error: result.error || 'Unknown error' },
+        ]);
       }
       setProgress(Math.round(((i + 1) / totalUrls) * 100));
     }
@@ -130,7 +134,9 @@ const FileDownloader = () => {
   };
 
   return (
-    <Card className="my-32 !col-start-2 !col-span-4 bg-card/40">
+    <Card
+      className={cn('bg-card/40', className)}
+    >
       <CardHeader>
         <CardTitle>File Downloader</CardTitle>
         <CardDescription>
