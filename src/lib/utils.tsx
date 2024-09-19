@@ -90,9 +90,8 @@ export function throttle<T extends (...args: any[]) => void>(
     }
   };
 }
-
-export function extractImageUrls(htmlString: string) {
-  const imgUrlSet = new Set();
+export function extractImageUrls(htmlString: string): string[] {
+  const imgUrlSet: Set<string> = new Set();
 
   const imgRegex = /<img[^>]+src="?([^"\s]+)"?\s*\/?>/gi;
   let match;
