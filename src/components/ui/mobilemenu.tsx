@@ -54,7 +54,7 @@ const MobileMenu: React.FC = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  });
 
   return (
     <>
