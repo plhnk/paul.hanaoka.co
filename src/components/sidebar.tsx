@@ -71,9 +71,9 @@ const Sidebar: React.FC<SidebarProps> = ({
       elements.forEach((el) => {
         install(el as HTMLElement, el.getAttribute('data-hotkey')!);
         el.addEventListener('hotkey-fire', (event) => {
-          console.log('Hotkey fired:', event);
+          // console.log('Hotkey fired:', event);
           if (event.target instanceof HTMLElement) {
-            console.log('Hotkey fired for element:', event.target);
+            // console.log('Hotkey fired for element:', event.target);
             event.target.click();
           }
         });
