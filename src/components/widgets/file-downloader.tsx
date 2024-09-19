@@ -17,9 +17,15 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useFathomEvent } from '@/hooks/useFathom';
 import { cn } from '../../lib/utils';
+import { extractImageUrls } from '@/lib/utils';
 
 interface DownloadError {
   url: string;
@@ -27,7 +33,7 @@ interface DownloadError {
 }
 
 const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
-  const [urls, setUrls] = useState('');
+  const [input, setInput] = useState('');
   const [status, setStatus] = useState('');
   const [progress, setProgress] = useState(0);
   const [errors, setErrors] = useState<DownloadError[]>([]);
@@ -35,20 +41,23 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
   const [duplicateUrls, setDuplicateUrls] = useState<string[]>([]);
   const [filesDownloaded, setFilesDownloaded] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [urlList, setUrlList] = useState<string[]>([]);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const { trackEvent } = useFathomEvent();
+
+  const isInputEmpty = input.trim() === '';
 
   useEffect(() => {
     if (textAreaRef.current) {
       textAreaRef.current.style.height = 'auto';
       textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     }
-  }, [urls]);
+  }, [input]);
 
-  const removeDuplicates = (urlList: string[]): string[] => {
+  const removeDuplicates = (urls: string[]): string[] => {
     const uniqueUrls = new Set<string>();
     const duplicates: string[] = [];
-    urlList.forEach((url) => {
+    urls.forEach((url) => {
       if (uniqueUrls.has(url)) {
         duplicates.push(url);
       } else {
@@ -102,20 +111,39 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
     }
   };
 
+  const processInput = () => {
+    let urls: string[];
+
+    if (/<[a-z][\s\S]*>/i.test(input)) {
+      urls = extractImageUrls(input);
+      setStatus('Extracted image URLs from HTML content.');
+    } else {
+      urls = input.split('\n').filter((url) => url.trim() !== '');
+    }
+
+    return removeDuplicates(urls);
+  };
+
+  const handlePreview = () => {
+    trackEvent('Preview Download List Click');
+    const urls = processInput();
+    setUrlList(urls);
+  };
+
   const handleDownload = async () => {
     trackEvent('File Downloader Click');
     setStatus('Preparing downloads...');
     setProgress(0);
     setErrors([]);
     setFilesDownloaded(0);
-    let urlList = urls.split('\n').filter((url) => url.trim() !== '');
-    urlList = removeDuplicates(urlList);
-    const totalUrls = urlList.length;
+
+    const urls = urlList.length > 0 ? urlList : processInput();
+    const totalUrls = urls.length;
 
     let successCount = 0;
 
     for (let i = 0; i < totalUrls; i++) {
-      const url = urlList[i];
+      const url = urls[i];
       setStatus(`Downloading file ${i + 1} of ${totalUrls}...`);
       const result = await downloadFile(url);
       if (result.success) {
@@ -134,24 +162,23 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <Card
-      className={cn('bg-card/40', className)}
-    >
+    <Card className={cn('bg-card/40', className)}>
       <CardHeader>
         <CardTitle>File Downloader</CardTitle>
         <CardDescription>
-          Pretty self-explanatory &mdash; paste in a bunch of URLs that lead to
-          files, click download, and then check your default downloads folder.
+          Paste in a list of file URLs (one per line) or HTML content containing
+          image URLs. The tool will automatically detect the input type and
+          process accordingly.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <Label>File URLs</Label>
+        <Label>File URLs or HTML Content</Label>
         <Textarea
           ref={textAreaRef}
           className="w-full text-text/90"
-          placeholder="Enter file URLs (one per line)"
-          value={urls}
-          onChange={(e) => setUrls(e.target.value)}
+          placeholder="Enter file URLs (one per line) or paste HTML content"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           rows={5}
         />
         {duplicatesRemoved > 0 && (
@@ -175,13 +202,48 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
         )}
       </CardContent>
       <CardFooter className="flex flex-col items-start w-full">
-        <Button
-          onClick={handleDownload}
-          variant="secondary"
-          className="w-full mb-4"
-        >
-          Download Files
-        </Button>
+        <div className="flex w-full gap-2 mb-4">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                className="w-1/2"
+                variant="ghost"
+                onClick={handlePreview}
+                disabled={isInputEmpty}
+              >
+                Preview Download List
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent asChild side="top" align='start' className="w-80 mb-8 p-0">
+              <Card className="bg-card/40 w-full backdrop-blur-lg border-card/90 outline outline-card/90 outline-1 shadow-elevate">
+                <CardHeader>
+                  <CardTitle>Files that will be downloaded</CardTitle>
+                  <CardDescription>
+                    This is the list of files that will be downloaded &mdash;
+                    duplicates have automatically been removed.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-none pl-0">
+                    {urlList.map((url, index) => (
+                      <li key={index} className="text-sm mb-1 break-all">
+                        {url}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </PopoverContent>
+          </Popover>
+          <Button
+            onClick={handleDownload}
+            variant="secondary"
+            className="w-1/2"
+            disabled={isInputEmpty}
+          >
+            Download Files
+          </Button>
+        </div>
         {status && <p className="mb-2 text-center w-full">{status}</p>}
         {progress > 0 && <Progress value={progress} className="w-full mb-4" />}
         {errors.length > 0 && (

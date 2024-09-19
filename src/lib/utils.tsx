@@ -81,7 +81,7 @@ export function throttle<T extends (...args: any[]) => void>(
   limit: number
 ): (...args: Parameters<T>) => void {
   let inThrottle: boolean;
-  return function(this: any, ...args: Parameters<T>) {
+  return function (this: any, ...args: Parameters<T>) {
     const context = this;
     if (!inThrottle) {
       func.apply(context, args);
@@ -89,4 +89,21 @@ export function throttle<T extends (...args: any[]) => void>(
       setTimeout(() => (inThrottle = false), limit);
     }
   };
+}
+
+export function extractImageUrls(htmlString: string) {
+  const imgUrlSet = new Set();
+
+  const imgRegex = /<img[^>]+src="?([^"\s]+)"?\s*\/?>/gi;
+  let match;
+  while ((match = imgRegex.exec(htmlString)) !== null) {
+    if (match[1]) imgUrlSet.add(match[1]);
+  }
+
+  const urlRegex = /https?:\/\/\S+\.(?:jpg|jpeg|gif|png|svg|webp)/gi;
+  while ((match = urlRegex.exec(htmlString)) !== null) {
+    imgUrlSet.add(match[0]);
+  }
+
+  return Array.from(imgUrlSet);
 }
