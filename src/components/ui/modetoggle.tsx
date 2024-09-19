@@ -31,7 +31,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
     {
       mode: 'system',
       label: 'Auto',
-      hotkey: 'd',
+      hotkey: 'm',
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
