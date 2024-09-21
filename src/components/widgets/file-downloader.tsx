@@ -251,7 +251,7 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
               checked={showBaseUrlInput}
               onCheckedChange={setShowBaseUrlInput}
             />
-            <Label htmlFor="base-url-switch" className="text-nowrap">
+            <Label htmlFor="base-url-switch" className="text-nowrap text-text/80">
               Base URL for relative filepaths
             </Label>
           </div>
