@@ -110,20 +110,29 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
       };
     }
   };
-
   const processInput = () => {
     let urls: string[];
 
     if (/<[a-z][\s\S]*>/i.test(input)) {
       urls = extractImageUrls(input);
-      setStatus('Extracted image URLs from HTML content.');
+      const urlCount = urls.length;
+      setStatus(
+        `Extracted ${urlCount} image URL${
+          urlCount !== 1 ? 's' : ''
+        } from HTML content.`
+      );
     } else {
       urls = input.split('\n').filter((url) => url.trim() !== '');
+      const urlCount = urls.length;
+      setStatus(
+        `Processed ${urlCount} URL${
+          urlCount !== 1 ? 's' : ''
+        } from plain text input.`
+      );
     }
 
     return removeDuplicates(urls);
   };
-
   const handlePreview = () => {
     trackEvent('Preview Download List Click');
     const urls = processInput();
@@ -165,44 +174,77 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
     <Card className={cn('bg-card/40', className)}>
       <CardHeader>
         <CardTitle>File Downloader</CardTitle>
-        <CardDescription>
-          Paste in a list of file URLs (one per line) or HTML content containing
-          image URLs. The tool will automatically detect the input type and
-          process accordingly.
+        <CardDescription className="italic">
+          Paste a list of file URLs or HTML containing image URLs. The Machine
+          will automatically detect the input type and process accordingly.
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <Label>File URLs or HTML Content</Label>
+      <CardContent className="flex flex-col gap-4 pb-0 sm:pb-0">
+        <Label className="small-caps">File URLs or HTML</Label>
         <Textarea
           ref={textAreaRef}
           className="w-full text-text/90"
-          placeholder="Enter file URLs (one per line) or paste HTML content"
+          placeholder="Paste or enter file URLs or HTML"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={5}
         />
-        {duplicatesRemoved > 0 && (
-          <Collapsible className="w-full">
-            <CollapsibleTrigger asChild onClick={() => setIsOpen(!isOpen)}>
-              <Button variant="ghost" className="w-full flex justify-between">
-                {duplicatesRemoved} redundant URLs removed
-                {isOpen ? <ChevronUp /> : <ChevronDown />}
-              </Button>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <ul className="list-none pl-3 font-mono mt-2">
-                {duplicateUrls.map((url, index) => (
-                  <li key={index} className="text-sm text-text/70">
-                    {url}
+        <div className="flex items-center">
+          {duplicatesRemoved > 0 && (
+            <Popover>
+              <PopoverTrigger asChild onClick={() => setIsOpen(!isOpen)}>
+                <Button variant="ghost"  className={status ? 'w-1/2' : 'w-full'}>
+                  {duplicatesRemoved} redundant URLs removed
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent
+                asChild
+                side="top"
+                align="start"
+                className="mb-8 p-0"
+              >
+                <Card className="bg-card/40 w-full backdrop-blur-lg border-card/90 outline outline-card/90 outline-1 shadow-elevate">
+                  <CardContent>
+                    <ul className="list-none pl-3 font-mono mt-2">
+                      {duplicateUrls.map((url, index) => (
+                        <li key={index} className="text-sm text-text/70">
+                          {url}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </PopoverContent>
+            </Popover>
+          )}
+          {status && (
+            <p
+              className={
+                'text-right text-sm text-text/70 ' +
+                (duplicatesRemoved > 0 ? 'w-1/2' : 'w-full')
+              }
+            >
+              {status}
+            </p>
+          )}
+        </div>
+        {errors.length > 0 && (
+          <Alert variant="destructive" className="rounded-md p-3 font-mono text-sm w-full mt-4 border-red-500 bg-red-500/5 text-red-100">
+            <AlertTitle className='small-caps text-red-500 font-bold tracking-wider'>Errors occurred during download</AlertTitle>
+            <AlertDescription>
+              <ul className="list-none">
+                {errors.map((error, index) => (
+                  <li className='mt-2 font-normal' key={index}>
+                    {error.error}: {error.url}
                   </li>
                 ))}
               </ul>
-            </CollapsibleContent>
-          </Collapsible>
+            </AlertDescription>
+          </Alert>
         )}
       </CardContent>
       <CardFooter className="flex flex-col items-start w-full">
-        <div className="flex w-full gap-2 mb-4">
+        <div className="flex w-full gap-2 mb-1">
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -214,7 +256,12 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
                 Preview Download List
               </Button>
             </PopoverTrigger>
-            <PopoverContent asChild side="top" align='start' className="w-80 mb-8 p-0">
+            <PopoverContent
+              asChild
+              side="top"
+              align="start"
+              className="w-80 mb-8 p-0"
+            >
               <Card className="bg-card/40 w-full backdrop-blur-lg border-card/90 outline outline-card/90 outline-1 shadow-elevate">
                 <CardHeader>
                   <CardTitle>Files that will be downloaded</CardTitle>
@@ -244,22 +291,7 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
             Download Files
           </Button>
         </div>
-        {status && <p className="mb-2 text-center w-full">{status}</p>}
-        {progress > 0 && <Progress value={progress} className="w-full mb-4" />}
-        {errors.length > 0 && (
-          <Alert variant="destructive" className="w-full">
-            <AlertTitle>Errors occurred during download:</AlertTitle>
-            <AlertDescription>
-              <ul className="list-none pl-3">
-                {errors.map((error, index) => (
-                  <li key={index}>
-                    {error.url}: {error.error}
-                  </li>
-                ))}
-              </ul>
-            </AlertDescription>
-          </Alert>
-        )}
+        {progress > 0 && <Progress value={progress} className="w-full mt-4" />}
       </CardFooter>
     </Card>
   );
