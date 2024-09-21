@@ -4,6 +4,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 import {
   Card,
   CardContent,
@@ -13,16 +15,10 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useFathomEvent } from '@/hooks/useFathom';
 import { cn } from '../../lib/utils';
 import { extractImageUrls } from '@/lib/utils';
@@ -42,6 +38,11 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
   const [filesDownloaded, setFilesDownloaded] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [urlList, setUrlList] = useState<string[]>([]);
+  const [showBaseUrlInput, setShowBaseUrlInput] = useState(false);
+  const [baseUrl, setBaseUrl] = useState('');
+  const [baseUrlUsed, setBaseUrlUsed] = useState(false);
+  const [showUrlError, setShowUrlError] = useState(false);
+
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const { trackEvent } = useFathomEvent();
 
@@ -67,6 +68,58 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
     setDuplicatesRemoved(duplicates.length);
     setDuplicateUrls(duplicates);
     return Array.from(uniqueUrls);
+  };
+
+  const baseUrlValidationTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (baseUrlValidationTimer.current !== null) {
+      window.clearTimeout(baseUrlValidationTimer.current);
+    }
+
+    if (baseUrl) {
+      baseUrlValidationTimer.current = window.setTimeout(() => {
+        setShowUrlError(!isValidUrl(baseUrl));
+      }, 300);
+    } else {
+      setShowUrlError(false);
+    }
+
+    return () => {
+      if (baseUrlValidationTimer.current !== null) {
+        window.clearTimeout(baseUrlValidationTimer.current);
+      }
+    };
+  }, [baseUrl]);
+
+  const isValidUrl = (url: string): boolean => {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const resolveUrl = (url: string, base: string): string => {
+    if (isValidUrl(url)) return url;
+
+    const baseUrlObj = new URL(base);
+    baseUrlObj.pathname = baseUrlObj.pathname.replace(/\/?$/, '/');
+    return new URL(url, baseUrlObj).toString();
+  };
+
+  const processUrls = (urls: string[]): string[] => {
+    let baseUrlUsed = false;
+    const processedUrls = urls.map((url) => {
+      if (showBaseUrlInput && baseUrl && !isValidUrl(url)) {
+        baseUrlUsed = true;
+        return new URL(url, baseUrl).toString();
+      }
+      return url;
+    });
+    setBaseUrlUsed(baseUrlUsed);
+    return processedUrls;
   };
 
   const downloadFile = async (url: string) => {
@@ -110,6 +163,7 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
       };
     }
   };
+
   const processInput = () => {
     let urls: string[];
 
@@ -131,8 +185,9 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
       );
     }
 
-    return removeDuplicates(urls);
+    return processUrls(removeDuplicates(urls));
   };
+
   const handlePreview = () => {
     trackEvent('Preview Download List Click');
     const urls = processInput();
@@ -179,7 +234,7 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
           will automatically detect the input type and process accordingly.
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4 pb-0 sm:pb-0">
+      <CardContent className="flex flex-col gap-4">
         <Label className="small-caps">File URLs or HTML</Label>
         <Textarea
           ref={textAreaRef}
@@ -189,52 +244,100 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
           onChange={(e) => setInput(e.target.value)}
           rows={5}
         />
-        <div className="flex items-center">
-          {duplicatesRemoved > 0 && (
-            <Popover>
-              <PopoverTrigger asChild onClick={() => setIsOpen(!isOpen)}>
-                <Button variant="ghost"  className={status ? 'w-1/2' : 'w-full'}>
-                  {duplicatesRemoved} redundant URLs removed
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent
-                asChild
-                side="top"
-                align="start"
-                className="mb-8 p-0"
-              >
-                <Card className="bg-card/40 w-full backdrop-blur-lg border-card/90 outline outline-card/90 outline-1 shadow-elevate">
-                  <CardContent>
-                    <ul className="list-none pl-3 font-mono mt-2">
-                      {duplicateUrls.map((url, index) => (
-                        <li key={index} className="text-sm text-text/70">
-                          {url}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </PopoverContent>
-            </Popover>
-          )}
-          {status && (
-            <p
-              className={
-                'text-right text-sm text-text/70 ' +
-                (duplicatesRemoved > 0 ? 'w-1/2' : 'w-full')
-              }
-            >
-              {status}
-            </p>
+        <div className="flex items-center justify-between space-x-3 h-10">
+          <div className="flex items-center gap-2">
+            <Switch
+              id="base-url-switch"
+              checked={showBaseUrlInput}
+              onCheckedChange={setShowBaseUrlInput}
+            />
+            <Label htmlFor="base-url-switch" className="text-nowrap">
+              Base URL for relative filepaths
+            </Label>
+          </div>
+          {showBaseUrlInput && (
+            <Input
+              type="url"
+              className="text-text/90"
+              placeholder="Enter base URL"
+              value={baseUrl}
+              onChange={(e) => setBaseUrl(e.target.value)}
+            />
           )}
         </div>
+          {showBaseUrlInput &&
+            filesDownloaded > 0 &&
+            !baseUrlUsed &&
+            input.trim() !== '' && (
+              <p className="text-yellow-500 text-sm text-right">
+                All filepaths entered had complete URLs, this input was not
+                used
+              </p>
+            )}
+        <div className="relative h-0 w-full">
+          <div className="absolute">
+            {showBaseUrlInput && showUrlError && baseUrl !== '' && (
+              <p className="text-red-500 text-sm">Please enter a valid URL</p>
+            )}
+          </div>
+        </div>
+        {duplicatesRemoved > 0 ||
+          (status && (
+            <div className="flex items-center">
+              {duplicatesRemoved > 0 && (
+                <Popover>
+                  <PopoverTrigger asChild onClick={() => setIsOpen(!isOpen)}>
+                    <Button
+                      variant="ghost"
+                      className={status ? 'w-1/2' : 'w-full'}
+                    >
+                      {duplicatesRemoved} redundant URLs removed
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    asChild
+                    side="top"
+                    align="start"
+                    className="mb-8 p-0"
+                  >
+                    <Card className="bg-card/40 w-full backdrop-blur-lg border-card/90 outline outline-card/90 outline-1 shadow-elevate">
+                      <CardContent>
+                        <ul className="list-none pl-3 font-mono mt-2">
+                          {duplicateUrls.map((url, index) => (
+                            <li key={index} className="text-sm text-text/70">
+                              {url}
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </PopoverContent>
+                </Popover>
+              )}
+              {status && (
+                <p
+                  className={
+                    'text-right text-sm text-text/70 ' +
+                    (duplicatesRemoved > 0 ? 'w-1/2' : 'w-full')
+                  }
+                >
+                  {status}
+                </p>
+              )}
+            </div>
+          ))}
         {errors.length > 0 && (
-          <Alert variant="destructive" className="rounded-md p-3 font-mono text-sm w-full mt-4 border-red-500 bg-red-500/5 text-red-100">
-            <AlertTitle className='small-caps text-red-500 font-bold tracking-wider'>Errors occurred during download</AlertTitle>
+          <Alert
+            variant="destructive"
+            className="rounded-md p-3 font-mono text-sm w-full mt-4 border-red-500 bg-red-500/5 text-red-100"
+          >
+            <AlertTitle className="small-caps text-red-500 font-bold tracking-wider">
+              Errors occurred during download
+            </AlertTitle>
             <AlertDescription>
               <ul className="list-none">
                 {errors.map((error, index) => (
-                  <li className='mt-2 font-normal' key={index}>
+                  <li className="mt-2 font-normal" key={index}>
                     {error.error}: {error.url}
                   </li>
                 ))}
@@ -243,7 +346,7 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
           </Alert>
         )}
       </CardContent>
-      <CardFooter className="flex flex-col items-start w-full">
+      <CardFooter className="flex flex-col sm:pt-0 items-start w-full">
         <div className="flex w-full gap-2 mb-1">
           <Popover>
             <PopoverTrigger asChild>
@@ -274,7 +377,16 @@ const FileDownloader: React.FC<{ className?: string }> = ({ className }) => {
                   <ul className="list-none pl-0">
                     {urlList.map((url, index) => (
                       <li key={index} className="text-sm mb-1 break-all">
-                        {url}
+                        {showBaseUrlInput &&
+                        baseUrl &&
+                        url.startsWith(baseUrl) ? (
+                          <>
+                            <span className="text-blue-500">{baseUrl}</span>
+                            {url.slice(baseUrl.length)}
+                          </>
+                        ) : (
+                          url
+                        )}
                       </li>
                     ))}
                   </ul>
