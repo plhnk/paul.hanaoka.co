@@ -179,6 +179,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       url: 'https://github.com/plhnk',
     },
     {
+      icon: <Github {...getIconStyle(null, false)} />,
+      label: 'Text me',
+      hotkey: 'w',
+      collapsed: collapsed,
+      url: 'sms:+13105259584',
+    },
+    {
       icon: <FileText {...getIconStyle(null, false)} />,
       label: 'Read.cv',
       hotkey: 'r',
@@ -199,7 +206,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <nav
         // wrapper (no bg)
         className={cn(
-          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1',
+          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1 hide-scrollbar',
           className
         )}
       >
