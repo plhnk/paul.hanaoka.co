@@ -206,7 +206,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <nav
         // wrapper (no bg)
         className={cn(
-          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1 hide-scrollbar',
+          'z-40 w-full sm:w-auto fixed bottom-0 sm:top-0 left-0 h-auto sm:h-screen sm:pb-16 mb-1',
           className
         )}
       >
@@ -230,7 +230,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               isScrolled ? 'bg-gradient-to-t from-gray-100' : ''
             }`}
           /> */}
-          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-0 lg:gap-8 grid-cols-[1fr_2fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto] content-start overflow-y-scroll transition-all duration-300">
+          <div className="grid p-0 pb-0.5 sm:h-full gap-3 sm:gap-0 lg:gap-8 grid-cols-[1fr_2fr] grid-rows-auto sm:grid-cols-none sm:grid-rows-[auto_1fr_auto] content-start overflow-y-scroll hide-scrollbar transition-all duration-300">
             <div className="lg:bg-card rounded-xl sm:p-2">
               <div className="hidden sm:col-auto sm:block">
                 <NavButton
