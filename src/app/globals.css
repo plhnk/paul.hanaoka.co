@@ -26,9 +26,9 @@ html.dark, html.light {
 - 添加了div主题
 -
 */
-div{
+/* div{
   border:1px solid #000000;
-}
+} */
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

@@ -82,7 +82,7 @@ const PhotoFeed: React.FC<{ className?: string }> = ({ className }) => {
             onClick={loadMore}
           >
             <RotateCw size={16} className="text-element mr-2" />
-            Load more photos
+           加载更多
           </Button>
         )}
       </div>
