@@ -73,7 +73,7 @@ export default function Proverbs(props: { className?: string }) {
 
   const title = (
     <span className="flex justify-between">
-      {'Proverb of the Day'}
+      {'每日一句'}
       {ESV_hover}
     </span>
   );

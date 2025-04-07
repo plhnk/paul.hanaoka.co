@@ -1,48 +1,48 @@
-Arguably one of the best shows ever on television &mdash; learning how things are made has always fascinated me. Hopefully you can relate, otherwise this section will be quite dull.
+好的，这是这段文字的中文翻译：
 
+可以说，《How It's Made》（制造业全接触）是有史以来最好的电视节目之一——了解事物是如何制造出来的，一直让我着迷。希望您也有同感，否则这一部分可能会相当枯燥。
 
-Built with NextJS
-  - 5 years ago I built [the first version of this site](https://v1.paul.hanaoka.co) using GatsbyJS, and I wanted to try something new &mdash; NextJS has become an industry leader in the React space, and I wanted to see what all the fuss was about
+使用 NextJS 构建
+    - 5 年前，我使用 GatsbyJS 构建了[本网站的第一个版本](https://v1.paul.hanaoka.co)，并且想尝试一些新的东西——NextJS 已经成为 React 领域的行业领导者，我想看看它到底有什么吸引力。
 
-Hosted on Vercel
-  - seemed to make sense to use the host that built NextJS
+托管在 Vercel 上
+    - 使用构建 NextJS 的主机似乎很合理。
 
-Components from Radix UI and Shadcn
-  - coming from ThemeUI, Radix and Shadcn both seemed like good options
-  - I'm still getting used to it &mdash; I still prefer the mental model of ThemeUI? I think?
+组件来自 Radix UI 和 Shadcn
+    - 之前我使用的是 ThemeUI，Radix 和 Shadcn 看起来都是不错的选择。
+    - 我还在适应中——我仍然更喜欢 ThemeUI 的心智模型吗？我想是吧？
 
-Styled with TailwindCSS
-  - I've been wanting to use Tailwind for awhile, a brand new build is a great opportunity to try things
-  - Again &mdash; I think I may possibily prefer ThemeUI for styling / re-use, but I've actually really enjoyed how quickly I can work in Tailwind, getting 80% of the way very quickly
+使用 TailwindCSS 进行样式化
+    - 我一直想使用 Tailwind 一段时间了，一个全新的构建是尝试的好机会。
+    - 再次声明——我认为我可能更喜欢 ThemeUI 来进行样式化/重用，但我实际上非常享受在 Tailwind 中快速工作的过程，能够很快完成 80% 的工作。
 
-Themed using TailwindCSS and Shadcn
-  - I started using Radix Themes but it wasn't as immediately obvious to me how to go beyond Dark/Light themes &mdash; and Shadcn documentation had Tailwind specs that made sense to me
+使用 TailwindCSS 和 Shadcn 进行主题化
+    - 我一开始使用 Radix Themes，但对我来说，如何超越暗黑/浅色主题并不是那么直观——而 Shadcn 的文档中包含的 Tailwind 规范对我来说更有意义。
 
-Informed via Fathom Analytics
-  - I take privacy very seriously, but it's also useful to know what is working and what isn't, so I use Fathom &mdash; if you're similarly keen, use [my referral link](https://usefathom.com/ref/JKKQQB) and we'll both benefit!
+通过 Fathom Analytics 获取信息
+    - 我非常重视隐私，但了解哪些有效、哪些无效也很有用，所以我使用了 Fathom——如果您也有同样的兴趣，请使用[我的推荐链接](https://usefathom.com/ref/JKKQQB)，我们都会受益！
 
-## Archive
+## 归档
 
-I was inspired by [Jeff’s site](https://jeffanders.co/) to archive the different iterations of my site over the years. 
+我受到 [Jeff 的网站](https://jeffanders.co/) 的启发，将我网站多年来的不同迭代版本进行归档。
 
-To do this, I create branches for each version. The `master` branch is where the current version of the site lives. The `working` branch is where I'll experiment and work on major changes. The `v1` branch is where the first version of the site lives. The `v2` branch is where the second version of the site lives, et cetera, et cetera, et cetera.
+为此，我为每个版本创建分支。`master` 分支是当前网站版本所在的位置。`working` 分支是我进行实验和重大更改的地方。`v1` 分支是网站第一个版本所在的位置。`v2` 分支是网站第二个版本所在的位置，以此类推。
 
-_To see the first version of the site built cira 2017, visit [v1.paul.hanaoka.co](https://v1.paul.hanaoka.co)._
+_要查看大约在 2017 年构建的网站第一个版本，请访问 [v1.paul.hanaoka.co](https://v1.paul.hanaoka.co)。_
 
+{/* ## 主题化
 
-{/* ## Themeing
+主题化是一个挑战。
 
-Themeing is a challenge.
+颜色（如果您喜欢，也可以用 colour）是主题化最明显的方面——所以我们将从这里开始。
 
-Color (or colour if you prefer) is the most obvious aspect of themeing &mdash; so that's where we'll begin.
+我的方法是迭代的——选择颜色不是我的强项，而且也不应该孤立地进行。正如——使用在下一个更大的上下文中进行设计的原则——我想看到颜色的实际效果，并在做出“最终”决定之前在实际场景中调整它们。
 
-My approach is iterative &mdash; choosing colors is not a strength I have, it's also not something that should be done in isolation. As in &mdash; using the principle of designing in the next larger context &mdash; I want to see the colors in action, and adjust them in situ before making a "final" decision.
+大约阅读了 [shadcn 的主题化页面](https://ui.shadcn.com/docs/theming) 10 次之后，偶然发现了 [Kasia 关于令牌命名的文章](https://hybridheroes.de/blog/2023-11-24-colour-tokens-uidesign/)，在点击了 [指向 Smashing Magazine 上关于 HSL 的文章的链接](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) 之后，我的方法终于开始清晰起来。
 
-After reading the [shadcn Theming page](https://ui.shadcn.com/docs/theming) approximately 10x, coming across [Kasia's article on token naming](https://hybridheroes.de/blog/2023-11-24-colour-tokens-uidesign/), my approach finally began to crystalize after clicking [the link to the Smashing Magazine article on HSL](https://www.smashingmagazine.com/2021/07/hsl-colors-css/).
+Ahmad 将每个属性拆分为一个变量的方法非常吸引我。如果我可以找出饱和度和亮度（通常对应于元素的状态）的近似值，然后调整色调（通常对应于整体主题）以获得所需的效果，那会怎么样？
 
-Ahmad's approach, splitting each property into a variable, was really intriguing to menubar. What if I could figure out approximate values for Saturation and Lightness (which generally correspond to an element's state) and then adjust the Hue (which generally corresponds to the overall theme) to get the desired effect?
-
-So my `global.css` file would have:
+所以我的 `global.css` 文件会是这样的：
 
 ```css
 :root {
@@ -69,7 +69,7 @@ So my `global.css` file would have:
 }
 ```
 
-And my `tailwind.config.js` file would have:
+我的 `tailwind.config.js` 文件会是这样的：
 
 ```js
   theme: {
@@ -89,23 +89,20 @@ And my `tailwind.config.js` file would have:
   },
 ```
 
-...but that didn't work. I think for a few reasons &mdash; first of all (obvious to those of you who are familiar with extending Tailwind colors) you can't use hsl in that context.
+...但这并没有奏效。我认为有几个原因——首先（对于熟悉扩展 Tailwind 颜色的人来说很明显），你不能在这种情况下使用 hsl。
 
-Also I realized in the middle of working out the variable steps, that tying "weak" and "strong" to saturation and lightness didn't exactly map to how they would be used.
+我还意识到，在制定变量步骤的过程中，“weak”和“strong”与饱和度和亮度的关联并不完全符合它们的实际使用方式。
 
-Reading [MDN docs on the `color-scheme` property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) I realized that, perhaps, my mental model of this is not entirely correct.
+阅读了 [MDN 上关于 `color-scheme` 属性的文档]([https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)) 后，我意识到，也许我对这个概念的理解并不完全正确。
 
-Because browsers only give us two modes (light and dark), anything beyond that isn't really a mode. It's a theme. And a theme is a collection of colors that are used in a particular context. But my impression is that the words "theme" and "mode" are interchangeable (at least in the context of Tailwind, Shadcn, Radix, etc). But for my purposes, they aren't. My goal is to be able to change the look and feel (to some extent) of the site AND also have light and dark modes for each theme.
+因为浏览器只给我们两种模式（浅色和深色），所以除此之外的任何东西都不是真正的模式。它是一个主题。而一个主题是在特定上下文中使用的颜色集合。但我的印象是，“theme”和“mode”这两个词是可以互换的（至少在 Tailwind、Shadcn、Radix 等的上下文中是这样）。但就我的目的而言，它们不是。我的目标是能够（在一定程度上）改变网站的外观和感觉，并且每个主题都有浅色和深色模式。
 
-Learnings:
+学习到的知识：
 
+* 颜色应该使用 rgb 值指定，这样你就可以使用 `a` 值来调整 alpha 通道。
+* 这使得选择有限的调色板并使用 Tailwind 的 `/alpha` 值即时调整变得更容易。
+* 缺点是 alpha 只能变浅？所以你不能真正做到一刀切。
+* 如果能有一种使用 hsl 选择颜色，然后自动计算出 rgb 值的方法就好了。
 
-colors should be specified using rgb values, this allows you to use the `a` value to adjust the alpha channel
-
-this makes it easier to choose a limited palette of colors and adjust on-the-fly using `/alpha` values w/Tailwind
-
-drawbacks are that alpha only goes lighter? so you can't really go w/a 1-size-fits-all
-
-would be nice to have a way to choose colors using hsl and then have the rgb values calculated for you
-
-{/* TODO add esv copyright info */}
+{/* TODO 添加 esv 版权信息 */}
+```

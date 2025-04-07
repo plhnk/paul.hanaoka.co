@@ -99,6 +99,7 @@ export default function Weather(props: WeatherProps) {
 
   const temperatureUnit = (
     <>
+    weather
       <span className={isCelsius ? 'text-text' : ''}>C</span>/
       <span className={isCelsius ? '' : 'text-text'}>F</span>
     </>

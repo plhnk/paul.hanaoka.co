@@ -107,7 +107,7 @@ export default function Posts({
         {displayedPosts.map((post) => (
           <li
             key={post.slug}
-            className="hover:shadow-md transition-shadow relative"
+            className="hover:shadow-md transition-shadow relative border-4 rounded-xl border-b-yellow-200"
           >
             <HoverCard openDelay={100} closeDelay={0}>
               <HoverCardTrigger asChild>
@@ -119,7 +119,7 @@ export default function Posts({
                     {post.frontmatter.title}
                     <ArrowRight
                       className="opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-1 transition-all duration-200"
-                      size={20}
+                      size={10}
                     />
                   </h2>
 
@@ -138,7 +138,7 @@ export default function Posts({
                 <Image
                   src={`/posts/${post.slug}/${post.frontmatter.featuredImage}`}
                   alt={post.frontmatter.title}
-                  width={400}
+                  width={200}
                   height={200}
                   className="rounded-sm w-full h-full"
                 />

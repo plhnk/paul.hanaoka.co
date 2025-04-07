@@ -3,19 +3,19 @@
     "label": "Wealthfront",
     "url": "https://www.wealthfront.com",
     "icon": "wealthfront-favicon.png",
-    "category": "Finance",
-    "tags": ["Investing", "Robo-Advisor", "ETFs", "Mutual Funds", "Stocks"],
-    "description": "Robo-advisor I use mainly for 5%+ high-yield cash account — their same-day-transfer feature helps me keep a minimum balance in our checking account to maximize interest.",
+    "category": "金融",
+    "tags": ["投资", "智能投顾", "交易所交易基金 (ETFs)", "共同基金", "股票"],
+    "description": "我主要使用这个智能投顾平台来获得 5% 以上的高收益现金账户——他们的当日转账功能帮助我在支票账户中保持最低余额，以最大化利息收入。",
     "referralLink": [
       {
         "url": "https://www.wealthfront.com/c/affiliates/invited/AFFB-7ZHS-7S3J-UZM5",
-        "cta": "Cash Account Referral",
-        "description": "Get (and give me) a .5% APY boost for 3 months when you sign up with my referral link."
+        "cta": "现金账户推荐",
+        "description": "通过我的推荐链接注册，您和我都可以获得 3 个月的 0.5% 年利率提升。"
       },
       {
         "url": "https://www.wealthfront.com/c/affiliates/invited/AFFB-3I8M-QTI0-CIKN",
-        "cta": "Automated Account Referral",
-        "description": "Get (and give me) $5,000 managed in an Automated Index Investment Account for free."
+        "cta": "自动投资账户推荐",
+        "description": "免费获得（并给我）价值 5,000 美元的自动化指数投资账户管理服务。"
       }
     ]
   },
@@ -23,14 +23,14 @@
     "label": "Fathom Analytics",
     "url": "https://usefathom.com",
     "icon": "fathom-pixel-cat.svg",
-    "category": "Software",
-    "tags": ["Analytics", "Privacy", "Web", "SaaS"],
-    "description": "A privacy-focused web analytics tool that helps me understand my traffic without compromising the privacy of my dear visitors — it doesn't track personal data or use cookies.",
+    "category": "软件",
+    "tags": ["分析", "隐私", "网页", "SaaS"],
+    "description": "一个注重隐私的网络分析工具，帮助我了解网站流量，同时不侵犯我亲爱访客的隐私——它不跟踪个人数据或使用 Cookie。",
     "referralLink": [
       {
         "url": "https://usefathom.com/ref/JKKQQB",
-        "cta": "$10 off first invoice",
-        "description": "Get $10 off your first invoice when you sign up with my referral link, I will get a 25% lifetime commission."
+        "cta": "首次账单减免 10 美元",
+        "description": "通过我的推荐链接注册，您的首次账单可减免 10 美元，我将获得 25% 的终身佣金。"
       }
     ]
   },
@@ -38,57 +38,57 @@
     "label": "Raycast",
     "url": "https://raycast.com",
     "icon": "raycast-favicon.svg",
-    "category": "Software",
-    "tags": ["Productivity", "Mac", "Apps", "Workflow"],
-    "description": "A productivity tool for macOS that (in theory) enables me to do 95% of my work without touching the trackpad. The vibrant extension ecosystem has helped me create a very ergonomic workspace."
+    "category": "软件",
+    "tags": ["效率", "Mac", "应用", "工作流"],
+    "description": "一款 macOS 效率工具，（理论上）让我可以在不触摸触控板的情况下完成 95% 的工作。充满活力的扩展生态系统帮助我创建了一个非常符合人体工程学的工作空间。"
   },
   {
     "label": "Bitwarden",
     "icon": "bitwarden-favicon.png",
     "url": "https://bitwarden.com",
-    "category": "Software",
-    "tags": ["Password Manager", "Security", "Privacy", "Open Source"],
-    "description": "An open-source password manager that replaced 1Password for me — they have a generous free tier which I tested out and never looked back!"
+    "category": "软件",
+    "tags": ["密码管理器", "安全", "隐私", "开源"],
+    "description": "一个取代了我之前使用的 1Password 的开源密码管理器——他们提供了慷慨的免费套餐，我试用后就再也没回头！"
   },
   {
     "label": "Apple Notes",
-    "category": "Software",
+    "category": "软件",
     "icon": "apple-notes.png",
-    "tags": ["Notes", "Productivity", "Apple", "iOS", "Mac"],
-    "description": "You were expecting Notion here, weren't you. Surprise! I prefer to use Apple’s built-in apps whenever possible (unless the alternative is at least 10x better). I love starting notes on my phone and picking up on my laptop and vice versa. It’s the simple things."
+    "tags": ["笔记", "效率", "苹果", "iOS", "Mac"],
+    "description": "你肯定以为这里会是 Notion，对吧？惊喜！我尽可能更喜欢使用 Apple 的内置应用程序（除非替代品至少好 10 倍）。我喜欢在手机上开始笔记，然后在笔记本电脑上继续，反之亦然。这就是简单的美好。"
   },
   {
     "label": "Costco Anywhere Visa",
     "icon": "costco-citi.png",
-    "category": "Credit Cards",
-    "tags": ["Cash Back", "Rewards", "Travel", "Costco"],
-    "description": "If you pair this card with the Executive Membership, you get a minimum 3% cash back on most purchases at Costco (1% min cash back w/ card + 2% annual member reward cash back). You have to spend an insanely low amount of money to break even — it’s a no-brainer."
+    "category": "信用卡",
+    "tags": ["现金返还", "奖励", "旅行", "Costco"],
+    "description": "如果你将这张卡与 Executive 会员资格结合使用，你在 Costco 的大部分消费至少可以获得 3% 的现金返还（信用卡最低 1% 现金返还 + 2% 年度会员奖励现金返还）。你只需要花费极低的金额就能收回成本——这简直是不用动脑子的选择。"
   },
   {
     "label": "Chase Sapphire",
     "icon": "csr.png",
-    "category": "Credit Cards",
-    "tags": ["Travel", "Rewards", "Points", "Chase"],
-    "description": "This used to be a great deal, but with the price increases and Priority Pass decreases, I would say it’s more on the average side. The travel insurance perk is nice, but not unique to this card.",
+    "category": "信用卡",
+    "tags": ["旅行", "奖励", "积分", "Chase"],
+    "description": "这曾经是很划算的，但随着价格上涨和 Priority Pass 权益减少，我认为现在只能算一般。旅行保险福利不错，但并非这张卡独有。",
     "referralLink": [
       {
         "url": "https://www.referyourchasecard.com/19m/EZ9JVNN2FT",
-        "cta": "Get 60k bonus points",
-        "description": "Earn 60,000 bonus points with the Chase Sapphire Preferred or Reserve Card when you sign up with my referral link, I think I get 10,000 points."
+        "cta": "获取 6 万奖励积分",
+        "description": "通过我的推荐链接注册 Chase Sapphire Preferred 或 Reserve 卡，即可赚取 60,000 奖励积分，我想我能获得 10,000 积分。"
       }
     ]
   },
   {
     "label": "Robinhood Gold Card",
     "icon": "robinhood-card.png",
-    "category": "Credit Cards",
-    "tags": ["Cash Back", "Rewards", "Stonks", "Points", "Gold"],
-    "description": "There’s no way the 3% cash back on all purchases will last forever, so get this crazy offer while you can.",
+    "category": "信用卡",
+    "tags": ["现金返还", "奖励", "股票", "积分", "Gold"],
+    "description": "所有消费 3% 的现金返还不可能永远持续下去，所以赶紧抓住这个难得的机会吧。",
     "referralLink": [
       {
         "url": "https://robinhood.com/creditcard?referral_code=c2cf91b8",
-        "cta": "Reserve your spot",
-        "description": "You’ll help me get the solid gold card — if this happens I will buy you something with it."
+        "cta": "预留您的名额",
+        "description": "您将帮助我获得那张纯金卡——如果真的发生了，我会用它给您买点东西。"
       }
     ]
   },
@@ -96,14 +96,14 @@
     "label": "Arc",
     "icon": "arc-app-icon.webp",
     "url": "https://arc.net",
-    "category": "Software",
-    "tags": ["Productivity", "Web", "Browser"],
-    "description": "Arc is radically different browser that helps you stay focused and organized while browsing the web. I've been using it as my full-time browser since Feb 2023 and it's changed the way I internet.",
+    "category": "软件",
+    "tags": ["效率", "网页", "浏览器"],
+    "description": "Arc 是一款与众不同的浏览器，可以帮助您在浏览网页时保持专注和井井有条。自 2023 年 2 月以来，我一直将其作为我的主要浏览器，它改变了我上网的方式。",
     "referralLink": [
       {
         "url": "https://arc.net/gift/52adc68a",
-        "cta": "Receive the gift of Arc",
-        "description": "Arc was (is?) possibly invite only for now...so here's an invite!"
+        "cta": "领取 Arc 赠礼",
+        "description": "Arc 现在可能仍然需要邀请才能使用……所以这里有一个邀请！"
       }
     ]
   },
@@ -111,68 +111,68 @@
     "label": "Robinhood",
     "icon": "robinhood-app-icon.png",
     "url": "https://robinhood.com",
-    "category": "Finance",
-    "tags": ["Finance", "Investing", "Stocks", "Crypto"],
-    "description": "The first ever investing app I downloaded, Robinhood has a special place in my heart. I still use it to remind me that picking individual stocks is largely a fool’s errand. But as someone who stands to benefit if you use my referral link, I definitely recommend you use it.",
+    "category": "金融",
+    "tags": ["金融", "投资", "股票", "加密货币"],
+    "description": "Robinhood 是我下载的第一个投资应用程序，在我心中有着特殊的地位。我仍然使用它来提醒自己，挑选个股很大程度上是徒劳的。但作为如果你们使用我的推荐链接我会从中受益的人，我绝对推荐你们使用它。",
     "referralLink": [
       {
         "url": "https://join.robinhood.com/paulh197",
-        "cta": "Start trading and get a free stock!",
-        "description": "We both get free stock when you sign up and fund an account — 99% of rewards are worth $5. 1-in-100 customers can get at least $10; 1-in-1,000 can get $200."
+        "cta": "开始交易并获得免费股票！",
+        "description": "当您注册并为账户充值时，我们都会获得免费股票——99% 的奖励价值 5 美元。1/100 的客户可以获得至少 10 美元；1/1000 的客户可以获得 200 美元。"
       }
     ]
   },
   {
-    "label": "The 3-2-1 Newsletter by James Clear",
+    "label": "James Clear 的 3-2-1 Newsletter",
     "icon": "james-clear.png",
     "url": "https://www.jamesclear.com/3-2-1-newsletter",
-    "category": "Newsletters",
-    "tags": ["Self-Help", "Productivity", "Habits", "Lifestyle", "Wellness"],
-    "description": "You’ve no doubt heard of James Clear, or at least his book ’Atomic Habits’ — I read it a few years ago, and while I’m still working on fully implementing all his principles, it’s definitely contributed to growth in my life."
+    "category": "新闻邮件",
+    "tags": ["自助", "效率", "习惯", "生活方式", "健康"],
+    "description": "你无疑听说过 James Clear，或者至少他的书《原子习惯》——我几年前读过这本书，虽然我仍在努力完全实践他所有的原则，但它无疑促进了我生活中的成长。"
   },
   {
     "label": "Dense Discovery",
     "icon": "kai-brach.jpeg",
     "url": "https://www.densediscovery.com",
-    "category": "Newsletters",
-    "tags": ["Design", "Technology", "Sustainability", "Internet"],
-    "description": "Brought to you by the Kai Brach (creator of Offscreen), Dense Discovery brings you a weekly roundup of interesting things Kai has found on the web with a focus on sustainability and responsible tech."
+    "category": "新闻邮件",
+    "tags": ["设计", "科技", "可持续性", "互联网"],
+    "description": "由 Kai Brach（Offscreen 的创始人）为您带来，Dense Discovery 每周为您汇总 Kai 在网上发现的有趣事物，重点关注可持续性和负责任的技术。"
   },
   {
     "label": "Snacks",
     "icon": "snacks-icon.png",
     "url": "https://sherwood.news/snacks/newsletters/",
-    "category": "Newsletters",
-    "tags": ["Technology", "Investing", "Stocks", "Financial"],
-    "description": "Robinhood’s weekly newsletter is a light hearted way to get the latest on the stock market — I generally skim the weekly newsletter and occasionally read one of the deep dives."
+    "category": "新闻邮件",
+    "tags": ["科技", "投资", "股票", "金融"],
+    "description": "Robinhood 的每周新闻邮件以轻松愉快的方式提供最新的股市信息——我通常会浏览每周的新闻邮件，偶尔会阅读一些深入分析的文章。"
   },
   {
     "label": "Money Stuff",
     "icon": "matt-levine.png",
     "url": "https://www.bloomberg.com/account/newsletters/money-stuff",
-    "category": "Newsletters",
-    "tags": ["Finance", "Investing", "Wall Street", "Humor", "Insider Trading"],
-    "description": "Matt Levine is one of the most prolific financial writers — seriously it’s hard to believe he’s not just writing 24/7. I actually don’t read every newsletter, they’re so, so long — when I have an extra 20 minutes or an post seems extra interesting I’ll make time for it. It’s some of the best writing you’ll read."
+    "category": "新闻邮件",
+    "tags": ["金融", "投资", "华尔街", "幽默", "内幕交易"],
+    "description": "Matt Levine 是最多产的金融作家之一——说实话，很难相信他不是 24/7 地在写作。我实际上并没有阅读每一封新闻邮件，它们太长了——当我有额外的 20 分钟或者某个帖子看起来特别有趣时，我才会抽出时间阅读。这是你将读到的最好的文章之一。"
   },
   {
     "label": "Costco",
     "icon": "costco-app-icon.webp",
-    "category": "Misc",
-    "tags": ["Wholesale", "Groceries", "Electronics", "Home Goods"],
-    "description": "Where else can you get prime grade brisket, a year’s supply of floss, a set of new tires, and a $1.50 hotdog while you wait to have them installed? Arguably the industry’s best return policy, and to top it off they treat their employees exceptionally well — Costco is almost too good to be true."
+    "category": "其他",
+    "tags": ["批发", "杂货", "电子产品", "家居用品"],
+    "description": "还有哪里可以在等待轮胎安装的时候买到特级牛腩、一年的牙线、一套新轮胎和 1.5 美元的烤肠？可以说这是业内最好的退货政策，更重要的是，他们对待员工非常好——Costco 简直好得令人难以置信。"
   },
   {
     "label": "Sticker Mule",
     "icon": "stickermule-icon.png",
     "url": "https://stickermule.com",
-    "category": "Misc",
-    "tags": ["SWAG", "Printing", "Stickers", "Gifts"],
-    "description": "Sticker Mule is the gold standard for online printing — great quality, prices, and customer service.",
+    "category": "其他",
+    "tags": ["周边", "印刷", "贴纸", "礼品"],
+    "description": "Sticker Mule 是在线印刷的黄金标准——质量、价格和客户服务都很棒。",
     "referralLink": [
       {
         "url": "https://www.stickermule.com/unlock?ref_id=6172170701&utm_medium=link&utm_source=invite",
-        "cta": "Get a $10 credit with this link!",
-        "description": "You get a $10 credit, I get a small commission on your purchases for 1 year."
+        "cta": "通过此链接获得 10 美元抵用金！",
+        "description": "您将获得 10 美元抵用金，我将在您购买的 1 年内获得少量佣金。"
       }
     ]
   }

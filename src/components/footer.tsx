@@ -45,9 +45,9 @@ const Footer: React.FC = () => {
       } ${atBottom ? 'bg-accent' : 'bg-element/20'} text-white/80`}
       aria-label="Scroll to top"
     >
-      <div className="relative w-5 h-8">
-        <MoveUp className="w-5 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:-translate-y-6 group-hover:opacity-0 ease-in-out" />
-        <MoveUp className="w-5 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:translate-y-0 translate-y-6 opacity-0 group-hover:opacity-100 ease-in-out" />
+      <div className="relative w-8 h-8">
+        <MoveUp className="w-8 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:-translate-y-6 group-hover:opacity-0 ease-in-out" />
+        <MoveUp className="w-8 h-8 absolute top-0 left-0 transform transition-all duration-300 group-hover:translate-y-0 translate-y-6 opacity-0 group-hover:opacity-100 ease-in-out" />
       </div>
     </Button>
   );
@@ -65,11 +65,11 @@ const Footer: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between lg:col-start-2 col-span-full lg:col-span-7 mt-40 md:mb-14 text-text/80 pr-12 lg:pr-0 order-last">
         <div className="">
           <MousePointer2 className="-ml-2 -mt-2 lg:-ml-6 md:-mt-8 block md:inline text-text/20" />
-          <Link href="/about#Colophon">Designed & Built in the PNW </Link>
+          <Link href="/about#Colophon">本网站通过React18 + next.js 构建 </Link>
         </div>
         <span className="">
-        <Link href="/privacy">Privacy Policy</Link>
-          <span className='text-text/40 mx-4'>|</span> {'plhnk ©️ ' + year} 
+        <Link href="/privacy">隐私&版权</Link>
+          <span className='text-text/40 mx-4'>|</span> {'xiao ©️ ' + year} 
         </span>
       </div>
       {toTop}

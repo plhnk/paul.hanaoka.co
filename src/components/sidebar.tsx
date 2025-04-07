@@ -153,6 +153,14 @@ const Sidebar: React.FC<SidebarProps> = ({
       collapsed: collapsed,
       url: '/posts',
     },
+    {
+      icon: <PenLine {...getIconStyle('/posts')} />,
+      label: '笔记',
+      hotkey: 'n',
+      collapsed: collapsed,
+      url: '/notes',
+    },
+
     // write a test so that hotkeys don't conflict
   ];
 

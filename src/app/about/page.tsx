@@ -12,9 +12,9 @@ import { useSidebarContext } from '@/components/sidebar-provider';
 const About: React.FC = () => {
   const sections = [
     // { id: 'Bio', component: Bio },
-    { id: 'Experience', component: CV },
-    { id: "How It's Made", component: HowItsMade },
-    { id: 'Colophon', component: Colophon },
+    { id: '经验', component: CV },
+    { id: "网站制作", component: HowItsMade },
+    { id: ' 出版题记', component: Colophon },
   ];
 
   const categoryRefs = sections.reduce((refs, section) => {

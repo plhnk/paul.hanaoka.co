@@ -64,7 +64,7 @@ const NavButton: React.FC<NavButtonProps> = ({
     color: 'currentColor',
     strokeWidth: 2,
     className:
-      'text-element/30 self-center group-hover:text-text/80 group-focus-visible:text-text/60',
+      'text-element/30 self-center group-hover:text-text/100 group-focus-visible:text-text/60',
   };
 
   const Hotkey = (
