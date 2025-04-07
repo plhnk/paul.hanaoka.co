@@ -113,42 +113,42 @@ const Sidebar: React.FC<SidebarProps> = ({
   const browse = [
     {
       icon: <CircleUserRound {...getIconStyle('/about')} />,
-      label: 'About',
+      label: '关于我',
       hotkey: 'a',
       collapsed: collapsed,
       url: '/about',
     },
     {
       icon: <BookOpen {...getIconStyle('/readme')} />,
-      label: 'Readme',
+      label: '了解我',
       hotkey: 'e',
       collapsed: collapsed,
       url: '/readme',
     },
     {
       icon: <BadgeCheck {...getIconStyle('/recommends')} />,
-      label: 'Picks',
+      label: '选择',
       hotkey: 'i',
       collapsed: collapsed,
       url: '/recommends',
     },
     {
       icon: <Layers {...getIconStyle('/projects')} />,
-      label: 'Projects',
+      label: '项目',
       hotkey: 'o',
       collapsed: collapsed,
       url: '/projects',
     },
     {
       icon: <Camera {...getIconStyle('/photos')} />,
-      label: 'Photos',
+      label: '照片',
       hotkey: 'u',
       collapsed: collapsed,
       url: '/photos',
     },
     {
       icon: <PenLine {...getIconStyle('/posts')} />,
-      label: 'Posts',
+      label: '职位',
       hotkey: 'y',
       collapsed: collapsed,
       url: '/posts',
@@ -219,8 +219,8 @@ const Sidebar: React.FC<SidebarProps> = ({
           {/* TODO customize overflow scrollbar */}
           {/* {isScrolled && (
               <div className="absolute top-0 left-[-8px] h-full w-2 bg-gray-300 rounded-full" />
-            )} */}
-          {/* <div
+            )}
+          <div
             className={`absolute top-0 left-0 right-0 h-6 pointer-events-none ${
               isScrolled ? 'bg-gradient-to-b from-gray-100' : ''
             }`}
@@ -238,8 +238,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                   icon={collapsed && <Home {...getIconStyle(null, false)} />}
                   label={
                     <span>
-                      <span className="text-text/90 gap-0">paul.</span>
-                      <span className="text-text/50">hanaoka.co</span>
+                      <span className="text-text/90 gap-0">xiao.</span>
+                      <span className="text-text/50">com</span>
                     </span>
                   }
                   hotkey={'h'}
@@ -250,7 +250,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               <NavSection
                 collapsed={collapsed}
                 className=""
-                label="Browse"
+                label="浏览"
                 buttons={browse}
               />
             </div>
@@ -259,7 +259,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               <NavSection
                 collapsed={collapsed}
                 className="w-full"
-                label="Connect"
+                label="联系方式"
                 buttons={connect}
               />
               <ModeToggle

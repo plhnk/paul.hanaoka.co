@@ -42,7 +42,8 @@ const WeirdGuy: React.FC<WeirdGuyProps> = ({ className }) => {
         imagePosition="50% 18px"
         maskPosition="bottom"
         svgPath={svgPath}
-        imageSrc="/images/tiny-dank-guy.png"
+        // TODO: 首页头像
+        imageSrc="#"
         width="300px"
         height="360px"
         style={{ transform: rotationClass }}

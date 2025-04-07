@@ -28,7 +28,7 @@ const NavSection: React.FC<NavSectionProps> = ({
     >
       {!collapsed && (
         <Label
-          className="uppercase text-xs tracking-widest text-text/50 font-semibold ml-3 my-2"
+          className="uppercase text-lx tracking-widest text-text/50 font-semibold ml-3 my-2"
           htmlFor="span"
         >
           {label}

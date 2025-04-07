@@ -38,21 +38,21 @@ const fira_sans = Fira_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Paul Hanaoka | Designer',
-  description: 'My digital workshop and garden',
+  title: 'xiao | Designer',
+  description: '我的静态网站和资源展示，博客',
   openGraph: {
-    title: 'Paul Hanaoka | Designer',
-    description: 'My digital workshop and garden',
+    title: 'xiao | Designer',
+    description: '我的静态网站和资源展示，博客',
     url: 'https://paul.hanaoka.co',
     images: [
       {
         url: 'https://paul.hanaoka.co/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Paul Hanaoka | Designer',
+        alt: 'xiao  | Designer',
       },
     ],
-    siteName: 'Paul Hanaoka | Designer',
+    siteName: 'xiao | Designer',
     type: 'website',
     locale: 'en_US',
   },
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
         rel: 'icon',
         type: 'image/png',
         media: '(prefers-color-scheme: light)',
-        url: '/favicon/favicon-light.png',
+        url: '/favicon/favicon.svg',
       },
       {
         rel: 'icon',
         type: 'image/png',
         media: '(prefers-color-scheme: dark)',
-        url: '/favicon/favicon-dark.png',
+        url: '/favicon/favicon.svg',
       },
     ],
   },

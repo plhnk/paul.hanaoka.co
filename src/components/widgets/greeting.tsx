@@ -11,18 +11,18 @@ const Greeting: React.FC<GreetingProps> = ({ className }) => {
   const currentHour = new Date().getHours();
   let message: string;
   let IconComponent: React.ComponentType<any>;
-
+  //TODO:    做个动态效果
   if (currentHour >= 5 && currentHour < 8) {
     message = 'Hello Early Bird';
     IconComponent = Sunrise;
   } else if (currentHour >= 8 && currentHour < 12) {
-    message = 'Good Morning';
+    message = '早上好';
     IconComponent = Coffee;
   } else if (currentHour >= 12 && currentHour < 18) {
-    message = 'Good Afternoon';
+    message = '下午好';
     IconComponent = Sun;
   } else if (currentHour >= 18 && currentHour < 21) {
-    message = 'Good Evening';
+    message = '晚上好';
     IconComponent = Sunset;
   } else {
     message = 'Sweet Dreams';

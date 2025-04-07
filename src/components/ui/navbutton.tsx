@@ -52,7 +52,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 
   const ButtonStyles = {
     className: cn(
-      `rounded-lg w-full justify-start ${
+      `rounded-lg w-full  justify-start ${
         collapsed && 'w-11 p-3 justify-center'
       }`,
       className
@@ -138,7 +138,7 @@ const NavButton: React.FC<NavButtonProps> = ({
           // alignOffset={-32}
           className="text-text/80 bg-element/10 rounded-md w-auto flex gap-4 items-center"
         >
-          {label} {Hotkey}
+           {label}{Hotkey} 
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
