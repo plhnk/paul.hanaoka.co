@@ -25,14 +25,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => <p className="mb-2">{children}</p>,
     ol: ({ children }) => <ol className="list-decimal marker:text-text/60 max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ol>, 
     ul: ({ children }) => <ul className="list-disc marker:text-text/60 max-sm:pl-6 *:mb-2 *:!ps-0">{children}</ul>, 
-    img: (props) => (
-      <Image
-        width={1200}
-        height={800}
-        className=""
-        {...(props as ImageProps)}
-      />
-    ),
+    img: (props) => {
+      const imageProps = props as ImageProps;
+      return (
+        <Image
+          width={1200}
+          height={800}
+          className=""
+          {...imageProps}
+          alt={typeof imageProps.alt === 'string' ? imageProps.alt : ''}
+        />
+      );
+    },
     hoverCard: ({ children, content }) => (
       <HoverCard>
         <HoverCardTrigger>{children}</HoverCardTrigger>

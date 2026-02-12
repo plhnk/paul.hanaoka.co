@@ -20,7 +20,7 @@ const About: React.FC = () => {
   const categoryRefs = sections.reduce((refs, section) => {
     refs[section.id] = React.createRef();
     return refs;
-  }, {} as Record<string, React.RefObject<HTMLDivElement>>);
+  }, {} as Record<string, React.RefObject<HTMLDivElement | null>>);
   
   const { collapsed } = useSidebarContext();
 

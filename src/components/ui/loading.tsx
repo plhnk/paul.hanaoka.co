@@ -60,7 +60,7 @@ const Loading: React.FC<LoadingProps> = ({
                 // width: shapeSize,
                 // height: shapeSize,
               },
-            })}
+            } as React.HTMLAttributes<HTMLElement>)}
           </div>
         );
       })}

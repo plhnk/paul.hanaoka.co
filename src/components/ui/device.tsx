@@ -113,7 +113,7 @@ const Device: React.FC<DeviceProps> = ({
     src: string,
     alt: string,
     videoSrc?: string,
-    videoRef?: React.RefObject<HTMLVideoElement>
+    videoRef?: React.RefObject<HTMLVideoElement | null>
   ) => {
     return videoSrc ? (
       <video

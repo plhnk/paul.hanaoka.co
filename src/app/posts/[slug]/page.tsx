@@ -7,9 +7,10 @@ import { formatDate } from '@/lib/utils';
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   return (
     <>
@@ -41,7 +42,7 @@ export default async function BlogPost({
 
         {post.frontmatter.featuredImage && (
           <Image
-            src={`/posts/${params.slug}/${post.frontmatter.featuredImage}`}
+            src={`/posts/${slug}/${post.frontmatter.featuredImage}`}
             alt={post.frontmatter.title}
             width={800}
             height={400}

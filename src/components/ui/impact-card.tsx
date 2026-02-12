@@ -20,7 +20,7 @@ const getOutcomeColor = (outcome: ImpactCardProps['outcome']): string => {
 
 const getNumberModifier = (
   type: 'percentage' | 'integer'
-): JSX.Element | null => {
+): React.JSX.Element | null => {
   if (type === 'percentage') {
     return <sup style={{ marginLeft: '-0.1em' }}>&#65130;</sup>;
   }

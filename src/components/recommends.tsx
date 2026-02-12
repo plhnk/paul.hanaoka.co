@@ -39,7 +39,7 @@ const Recommends: React.FC<{ className?: string; collapsed?: boolean }> = ({
       refs[category] = React.createRef();
       return refs;
     },
-    {} as Record<string, React.RefObject<HTMLDivElement>>
+    {} as Record<string, React.RefObject<HTMLDivElement | null>>
   );
 
   return (

@@ -46,13 +46,14 @@ const TranslationAPI: React.FC<TranslationAPIProps> = ({ className }) => {
       { threshold: 0.1 }
     );
 
-    if (svgRef.current) {
-      observer.observe(svgRef.current);
+    const node = svgRef.current;
+    if (node) {
+      observer.observe(node);
     }
 
     return () => {
-      if (svgRef.current) {
-        observer.unobserve(svgRef.current);
+      if (node) {
+        observer.unobserve(node);
       }
     };
   }, []);
