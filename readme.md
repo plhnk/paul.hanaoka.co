@@ -31,6 +31,12 @@ After using the GTN (Gatsby, ThemeUI, Netlify) stack for about 5 years, I've dec
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment variables
+
+Optional, for the **YouTube channel export** utility on `/utils`:
+
+- **YOUTUBE_API_KEY** – Google Cloud API key with YouTube Data API v3 enabled. If missing, the export button returns a “server config” error. Quota: 10,000 units/day by default.
+
 ## Getting Started
 
 First, run the development server:
