@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import {
   BadgeCheck,
   BookOpen,
-  Calendar,
+  PocketKnife,
   Camera,
   CircleUserRound,
   Layers,
@@ -13,10 +13,6 @@ import {
   Mail,
   PenLine,
   Github,
-  Twitter,
-  FileText,
-  Terminal,
-  Pizza,
   Home,
 } from 'lucide-react';
 import NavSection from './ui/navsection';
@@ -153,17 +149,17 @@ const Sidebar: React.FC<SidebarProps> = ({
       collapsed: collapsed,
       url: '/posts',
     },
+    {
+      icon: <PocketKnife {...getIconStyle('/utils')} />,
+      label: 'Utils',
+      hotkey: 't',
+      collapsed: collapsed,
+      url: '/utils',
+    },
     // write a test so that hotkeys don't conflict
   ];
 
   const connect = [
-    {
-      icon: <Calendar {...getIconStyle(null, false)} />,
-      label: 'Calendar',
-      hotkey: 'c',
-      collapsed: collapsed,
-      url: 'https://cal.com/plhnk',
-    },
     {
       icon: <Mail {...getIconStyle(null, false)} />,
       label: 'Email',
@@ -177,27 +173,6 @@ const Sidebar: React.FC<SidebarProps> = ({
       hotkey: 'g',
       collapsed: collapsed,
       url: 'https://github.com/plhnk',
-    },
-    {
-      icon: <Github {...getIconStyle(null, false)} />,
-      label: 'Text me',
-      hotkey: 'w',
-      collapsed: collapsed,
-      url: 'sms:+13105259584',
-    },
-    {
-      icon: <FileText {...getIconStyle(null, false)} />,
-      label: 'Read.cv',
-      hotkey: 'r',
-      collapsed: collapsed,
-      url: 'https://read.cv/plhnk',
-    },
-    {
-      icon: <Twitter {...getIconStyle(null, false)} />,
-      label: 'Twitter',
-      hotkey: 't',
-      collapsed: collapsed,
-      url: 'https://twitter.com/plhnk',
     },
   ];
 
