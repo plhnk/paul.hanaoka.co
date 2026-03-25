@@ -22,7 +22,7 @@ test('convertPngToHtml converts a 1x1 red PNG', async () => {
   assert.equal(result.totalCells, 1);
   assert.equal((result.html.match(/<tr>/g) ?? []).length, 1);
   assert.equal((result.html.match(/<td /g) ?? []).length, 1);
-  assert.match(result.html, /background:rgb\(255, 0, 0\)/);
+  assert.match(result.html, /bgcolor=#f00/);
 });
 
 test('convertPngToHtml converts a 2x2 mixed-color PNG', async () => {
@@ -39,10 +39,10 @@ test('convertPngToHtml converts a 2x2 mixed-color PNG', async () => {
   assert.equal(result.totalCells, 4);
   assert.equal((result.html.match(/<tr>/g) ?? []).length, 2);
   assert.equal((result.html.match(/<td /g) ?? []).length, 4);
-  assert.match(result.html, /background:rgb\(255, 0, 0\)/);
-  assert.match(result.html, /background:rgb\(0, 255, 0\)/);
-  assert.match(result.html, /background:rgb\(0, 0, 255\)/);
-  assert.match(result.html, /background:rgb\(255, 255, 0\)/);
+  assert.match(result.html, /bgcolor=#f00/);
+  assert.match(result.html, /bgcolor=#0f0/);
+  assert.match(result.html, /bgcolor=#00f/);
+  assert.match(result.html, /bgcolor=#ff0/);
 });
 
 test('convertPngToHtml preserves transparency for translucent PNG pixels', async () => {
@@ -57,8 +57,8 @@ test('convertPngToHtml preserves transparency for translucent PNG pixels', async
     transparency: 'preserve',
   });
 
-  assert.match(result.html, /background:rgba\(0, 0, 255, 0.251\)/);
-  assert.match(result.html, /background:rgba\(255, 255, 0, 0.502\)/);
+  assert.match(result.html, /background:rgba\(0,0,255,.251\)/);
+  assert.match(result.html, /background:rgba\(255,255,0,.502\)/);
 });
 
 test('convertPngToHtml rejects oversized images unless force is enabled', async () => {

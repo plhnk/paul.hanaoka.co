@@ -30,9 +30,30 @@ export function rgbToCss({ r, g, b }: RgbColor): string {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+export function rgbToHex({ r, g, b }: RgbColor): string {
+  const hex = [r, g, b]
+    .map((value) => value.toString(16).padStart(2, '0'))
+    .join('');
+
+  if (
+    hex[0] === hex[1] &&
+    hex[2] === hex[3] &&
+    hex[4] === hex[5]
+  ) {
+    return `#${hex[0]}${hex[2]}${hex[4]}`;
+  }
+
+  return `#${hex}`;
+}
+
 export function rgbaToCss({ r, g, b, a }: RgbaColor): string {
-  const alpha = Number((a / 255).toFixed(3)).toString();
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  let alpha = (a / 255).toFixed(3).replace(/0+$/, '').replace(/\.$/, '');
+
+  if (alpha.startsWith('0.')) {
+    alpha = alpha.slice(1);
+  }
+
+  return `rgba(${r},${g},${b},${alpha})`;
 }
 
 export function flattenRgba(
@@ -62,4 +83,33 @@ export function pixelToCssColor(
   }
 
   return rgbaToCss(color);
+}
+
+export function pixelToMarkupBackground(
+  color: RgbaColor,
+  transparency: TransparencyMode,
+  flattenBg: string
+): { attribute: 'bgcolor' | 'style'; value: string } | null {
+  if (transparency === 'flatten') {
+    return {
+      attribute: 'bgcolor',
+      value: rgbToHex(flattenRgba(color, parseHexColor(flattenBg))),
+    };
+  }
+
+  if (color.a === 0) {
+    return null;
+  }
+
+  if (color.a === 255) {
+    return {
+      attribute: 'bgcolor',
+      value: rgbToHex(color),
+    };
+  }
+
+  return {
+    attribute: 'style',
+    value: `background:${rgbaToCss(color)}`,
+  };
 }
