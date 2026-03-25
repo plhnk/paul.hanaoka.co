@@ -34,13 +34,11 @@ export default function PngToHtmlTable({
 }: PngToHtmlTableProps) {
   const [file, setFile] = useState<File | null>(null);
   const [cellSize, setCellSize] = useState('10');
-  const [transparency, setTransparency] = useState<'preserve' | 'flatten'>(
-    'preserve'
-  );
+  const [transparency, setTransparency] = useState<'preserve' | 'flatten'>('flatten');
   const [flattenBg, setFlattenBg] = useState('#ffffff');
   const [maxCells, setMaxCells] = useState(String(DEFAULT_MAX_CELLS));
   const [force, setForce] = useState(false);
-  const [fragment, setFragment] = useState(false);
+  const [fragment, setFragment] = useState(true);
   const [status, setStatus] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
@@ -174,8 +172,8 @@ export default function PngToHtmlTable({
       <CardHeader>
         <CardTitle>PNG to HTML table</CardTitle>
         <CardDescription className="italic">
-          Upload a PNG and convert each pixel into a table cell with matching
-          color output.
+          Upload a PNG and generate compact table markup intended for email
+          signatures and other inline-only embeds.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
@@ -228,8 +226,8 @@ export default function PngToHtmlTable({
             <div className="flex items-center justify-between rounded-md border border-element/30 bg-background px-3 py-2">
               <span className="text-sm text-text/80">
                 {transparency === 'preserve'
-                  ? 'Preserve alpha as rgba()'
-                  : 'Flatten alpha into rgb()'}
+                  ? 'Preserve alpha with inline rgba()'
+                  : 'Flatten alpha for better email compatibility'}
               </span>
               <Switch
                 checked={transparency === 'flatten'}
@@ -265,7 +263,7 @@ export default function PngToHtmlTable({
           </div>
           <div className="flex items-center justify-between rounded-md border border-element/30 bg-background px-3 py-2">
             <Label htmlFor="png-fragment" className="text-text/80">
-              Output fragment only
+              Output table only
             </Label>
             <Switch
               id="png-fragment"
