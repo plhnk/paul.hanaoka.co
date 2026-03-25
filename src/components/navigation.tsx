@@ -1,5 +1,4 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 import Sidebar from './sidebar';
 import MobileMenu from './ui/mobilemenu';
 
@@ -9,19 +8,16 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ collapsed, toggleCollapse }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 640);
-  }, []);
-
   return (
     <>
-      {isMobile ? <MobileMenu /> : <Sidebar collapsed={collapsed} toggleCollapse={toggleCollapse} />}
+      <Sidebar
+        className="hidden sm:block"
+        collapsed={collapsed}
+        toggleCollapse={toggleCollapse}
+      />
+      <MobileMenu />
     </>
   );
 };
 
 export default Navigation;
-
-// TODO use reference instead of hardcoding value https://tailwindcss.com/docs/configuration#referencing-in-java-script

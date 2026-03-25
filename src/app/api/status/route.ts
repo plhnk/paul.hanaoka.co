@@ -5,7 +5,11 @@ import {
   CalendarStatus,
 } from '@/lib/utilities/googleCal';
 
-export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
+const cacheHeaders = {
+  'Cache-Control': 's-maxage=60, stale-while-revalidate=300',
+};
 
 export async function GET() {
   try {
@@ -13,10 +17,15 @@ export async function GET() {
 
     if (!isWithinWorkingHours(now)) {
       // console.log('Outside working hours');
-      return NextResponse.json({
-        status: 'offline',
-        reason: 'outside working hours',
-      });
+      return NextResponse.json(
+        {
+          status: 'offline',
+          reason: 'outside working hours',
+        },
+        {
+          headers: cacheHeaders,
+        }
+      );
     }
 
     const calendarStatus = await checkCalendarStatus();
@@ -44,7 +53,12 @@ export async function GET() {
     // console.log(
     //   `Current status: ${status}${reason ? `, reason: ${reason}` : ''}`
     // );
-    return NextResponse.json({ status, reason });
+    return NextResponse.json(
+      { status, reason },
+      {
+        headers: cacheHeaders,
+      }
+    );
   } catch (error: unknown) {
     console.error('Error in status API:', error);
     if (error instanceof Error) {

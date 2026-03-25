@@ -49,6 +49,11 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
   let imageStyles = '';
   let wrapperClasses = 'relative block lg:inline overflow-x-hidden';
   let imageSize = imageSizes.md; // Default to medium size
+  const imageProps: Record<string, any> = {
+    ...props,
+    style:
+      props.style && typeof props.style !== 'string' ? props.style : undefined,
+  };
 
   parameters.forEach((param) => {
     switch (param) {
@@ -57,7 +62,7 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
         break;
       case 'lg':
         imageSize = imageSizes.lg;
-        props.className = 'lg:-ml-64';
+        imageProps.className = 'lg:-ml-64';
         break;
       case 'sm':
         imageSize = imageSizes.sm;
@@ -129,18 +134,13 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
           alt={alt || ''}
           width={imageSize.width}
           height={imageSize.height}
-          {...props}
+          sizes="(max-width: 1024px) 100vw, 1200px"
+          {...imageProps}
           className={cn(
             'cursor-zoom-in max-w-fit my-16 rounded-md',
             imageStyles,
-            props.className
+            imageProps.className
           )}
-          onError={() =>
-            console.error('MDXImage: Failed to load image:', baseSrc)
-          }
-          onLoad={() =>
-            console.log('MDXImage: Successfully loaded image:', baseSrc)
-          }
         />
       </div>
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -166,6 +166,7 @@ export default function MDXImage({ src, alt, ...props }: ImageProps) {
                 width={imageSize.width * 2}
                 height={imageSize.height * 2}
                 className="object-contain"
+                sizes="90vw"
               />
             </div>
             <div className="absolute bottom-2 right-2 flex space-x-2">

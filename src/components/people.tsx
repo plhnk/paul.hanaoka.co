@@ -1,5 +1,3 @@
-'use client';
-import React from 'react';
 import PeopleData from '@/lib/data/people.json';
 import { convertIdToFilename } from '@/lib/utils';
 import Link from '@/components/ui/link';
@@ -22,12 +20,8 @@ interface Person {
 
 const people: Person[] = PeopleData as unknown as Person[];
 
-const People: React.FC<{ className?: string }> = ({ className }) => {
+const People = () => {
   const sortedPeople = [...people].sort((a, b) => a.id.localeCompare(b.id));
-
-  const truncateText = (text: string, length: number) => {
-    return text.length > length ? text.substring(0, length) + '...' : text;
-  };
 
   return (
     <ul className="grid col-start-1 lg:col-start-2 col-span-3 md:col-span-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16 lg:-ml-28">
@@ -45,6 +39,7 @@ const People: React.FC<{ className?: string }> = ({ className }) => {
                         className="w-full h-full object-cover"
                         src={`/headshots/${convertIdToFilename(person.id)}`}
                         alt={person.id}
+                        sizes="96px"
                       />
                     </div>
                     <h3 className="font-semibold">

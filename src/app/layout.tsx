@@ -1,41 +1,9 @@
 import type { Metadata } from 'next';
-import { Fira_Code, Fira_Sans } from 'next/font/google';
 import { ThemeProvider } from '../components/theme-provider';
 import Analytics from '@/components/analytics';
 import DefaultLayout from '@/components/layout/default-layout';
 import { SidebarProvider } from '@/components/sidebar-provider';
 import './globals.css';
-
-const fira_code = Fira_Code({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fira-code',
-  fallback: [
-    'ui-monospace',
-    'Menlo',
-    'Source Code Pro',
-    'Fira Mono',
-    'Droid Sans Mono',
-    'Monaco',
-    'monospace',
-  ],
-});
-
-const fira_sans = Fira_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fira-sans',
-  fallback: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica',
-    'sans-serif',
-  ],
-  weight: ['200', '400', '600', '900'],
-  style: ['normal', 'italic'],
-});
 
 export const metadata: Metadata = {
   title: 'Paul Hanaoka | Designer',
@@ -62,7 +30,7 @@ export const metadata: Metadata = {
         rel: 'icon',
         type: 'image/png',
         media: '(prefers-color-scheme: light)',
-        url: '/favicon/favicon-light.png',
+        url: '/favicon/favicon.png',
       },
       {
         rel: 'icon',
@@ -80,11 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      className={`${fira_code.variable} ${fira_sans.variable} bg-background`}
-      lang="en"
-      suppressHydrationWarning={true}
-    >
+    <html className="bg-background" lang="en" suppressHydrationWarning>
       <body className="body">
         <Analytics />
         <ThemeProvider>

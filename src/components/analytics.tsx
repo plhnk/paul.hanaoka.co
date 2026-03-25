@@ -1,28 +1,28 @@
 'use client';
 import { useEffect } from 'react';
-import Router from 'next/router';
+import { usePathname } from 'next/navigation';
 import * as Fathom from 'fathom-client';
 
 export default function Analytics() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      Fathom.load('ERQBAFPH', {
-        includedDomains: ['paul.hanaoka.co'],
-      });
-
-      function onRouteChangeComplete() {
-        Fathom.trackPageview();
-      }
-      // Record a pageview when route changes
-      Router.events.on('routeChangeComplete', onRouteChangeComplete);
-
-      // Unassign event listener
-      return () => {
-        Router.events.off('routeChangeComplete', onRouteChangeComplete);
-      };
+    if (process.env.NODE_ENV !== 'production') {
+      return;
     }
+
+    Fathom.load('ERQBAFPH', {
+      includedDomains: ['paul.hanaoka.co'],
+    });
   }, []);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      return;
+    }
+
+    Fathom.trackPageview();
+  }, [pathname]);
+
   return null;
 }
-
-// TODO: write a post about implementing Fathom analytics w/app router in nextjs

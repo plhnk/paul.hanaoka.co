@@ -1,35 +1,50 @@
-import { google } from 'googleapis';
-
-function log(level: 'info' | 'error' | 'debug', message: string, ...args: any[]) {
-  const timestamp = new Date().toISOString();
-  console[level](`[${timestamp}] [${level.toUpperCase()}] ${message}`, ...args);
-}
-
-log('info', 'Initializing Google Auth');
-const auth = new google.auth.GoogleAuth({
-  credentials: {
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  },
-  scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
-});
-
-log('info', 'Google Auth initialized with client email:', process.env.GOOGLE_CLIENT_EMAIL);
-log('debug', 'Private key length:', process.env.GOOGLE_PRIVATE_KEY?.length);
-
-const calendar = google.calendar({ version: 'v3', auth });
-
 export type CalendarStatus = 'available' | 'busy' | 'unavailable' | 'error';
 
+const CALENDAR_STATUS_TTL_MS = 60_000;
+
+let cachedCalendarStatus:
+  | {
+      status: CalendarStatus;
+      expiresAt: number;
+    }
+  | undefined;
+
+async function getCalendarClient() {
+  const { google } = await import('googleapis');
+
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+    },
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
+  });
+
+  return google.calendar({ version: 'v3', auth });
+}
+
 export async function checkCalendarStatus(): Promise<CalendarStatus> {
+  if (
+    cachedCalendarStatus &&
+    cachedCalendarStatus.expiresAt > Date.now()
+  ) {
+    return cachedCalendarStatus.status;
+  }
+
+  if (
+    !process.env.GOOGLE_CALENDAR_ID ||
+    !process.env.GOOGLE_CLIENT_EMAIL ||
+    !process.env.GOOGLE_PRIVATE_KEY
+  ) {
+    return 'error';
+  }
+
   const now = new Date();
   const endOfDay = new Date(now);
   endOfDay.setUTCHours(23, 59, 59, 999);
 
-  log('info', 'Checking calendar status', { now: now.toISOString(), endOfDay: endOfDay.toISOString() });
-
   try {
-    log('info', 'Querying Google Calendar API');
+    const calendar = await getCalendarClient();
     const response = await calendar.freebusy.query({
       requestBody: {
         timeMin: now.toISOString(),
@@ -38,32 +53,17 @@ export async function checkCalendarStatus(): Promise<CalendarStatus> {
       },
     });
 
-    log('debug', 'Google Calendar API response:', JSON.stringify(response.data, null, 2));
-
     const calendars = response.data.calendars;
-    if (!calendars || !process.env.GOOGLE_CALENDAR_ID) {
-      log('error', 'Calendars data is missing or GOOGLE_CALENDAR_ID is not set');
+    if (!calendars) {
       return 'error';
     }
 
     const calendarData = calendars[process.env.GOOGLE_CALENDAR_ID];
-    if (!calendarData) {
-      log('error', 'Calendar data not found for the specified GOOGLE_CALENDAR_ID');
+    if (!calendarData || calendarData.errors || !calendarData.busy) {
       return 'error';
     }
 
-    if (calendarData.errors) {
-      log('error', 'Errors in calendar data:', calendarData.errors);
-      return 'error';
-    }
-
-    const busySlots = calendarData.busy;
-    if (!busySlots) {
-      log('error', 'Busy slots data is missing');
-      return 'error';
-    }
-
-    const isBusy = busySlots.some(slot => {
+    const isBusy = calendarData.busy.some((slot) => {
       if (slot.start && slot.end) {
         const startTime = new Date(slot.start);
         const endTime = new Date(slot.end);
@@ -72,19 +72,26 @@ export async function checkCalendarStatus(): Promise<CalendarStatus> {
       return false;
     });
 
-    log('info', `Busy status: ${isBusy}`);
-    return isBusy ? 'busy' : 'available';
-  } catch (error) {
-    log('error', 'Error checking busy status:', error);
-    log('error', 'Error details:', (error as any).response?.data);
+    const status = isBusy ? 'busy' : 'available';
+    cachedCalendarStatus = {
+      status,
+      expiresAt: Date.now() + CALENDAR_STATUS_TTL_MS,
+    };
+
+    return status;
+  } catch {
     return 'error';
   }
 }
 
 export function isWithinWorkingHours(date: Date): boolean {
-  const pstOffset = -7; // PST offset from UTC (TODO adjust for daylight savings)
-  const hours = date.getUTCHours() + pstOffset;
-  const isWithin = hours >= 9 && hours < 17;
-  log('debug', 'Checking working hours', { date: date.toISOString(), pstHours: hours, isWithinWorkingHours: isWithin });
-  return isWithin;
+  const pacificHour = Number(
+    new Intl.DateTimeFormat('en-US', {
+      hour: '2-digit',
+      hour12: false,
+      timeZone: 'America/Los_Angeles',
+    }).format(date)
+  );
+
+  return pacificHour >= 9 && pacificHour < 17;
 }
