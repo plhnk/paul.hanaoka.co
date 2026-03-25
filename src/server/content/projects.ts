@@ -9,12 +9,12 @@ export interface Project {
   prototypeUrl: string;
 }
 
-const coverExtensions: Record<string, 'jpg' | 'png'> = {
+const coverExtensions: Record<string, 'jpg' | 'png' | 'webp'> = {
   quality: 'jpg',
   navigation: 'jpg',
   'translation-experience': 'png',
   hiring: 'jpg',
-  insurance: 'jpg',
+  insurance: 'webp',
 };
 
 export function getAllProjects(): Project[] {
