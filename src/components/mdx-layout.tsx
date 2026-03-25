@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react';
 import '../app/globals.css';
 
 interface MdxLayoutProps {
@@ -11,11 +10,11 @@ export default function MdxLayout({
   caseStudy = false,
 }: MdxLayoutProps) {
   return (
-    <MDXProvider>
+    <>
       <div className={caseStudy ? 'caseStudyContainer' : 'defaultContainer'}>
         {children}
       </div>
       <div className="bgBlender" />
-    </MDXProvider>
+    </>
   );
 }

@@ -8,8 +8,7 @@ const OnPageNav: React.FC<{
   categories: string[];
   scrollOffset: number;
   className?: string;
-  collapsed?: boolean;
-}> = ({ categories, scrollOffset, className, collapsed }) => {
+}> = ({ categories, scrollOffset, className }) => {
   const [arrowDirections, setArrowDirections] = useState<
     Record<string, 'up' | 'down' | 'none'>
   >({});
@@ -36,26 +35,14 @@ const OnPageNav: React.FC<{
       setArrowDirections(newArrowDirections);
     };
 
-    window.addEventListener('scroll', handleWindowScroll);
-    handleWindowScroll(); // Initial call to set directions on mount
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+    handleWindowScroll();
     return () => window.removeEventListener('scroll', handleWindowScroll);
   }, [categories]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      // add more resize logic...
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial call on mount
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
-
-    const viewportWidth = window.innerWidth;
 
     const top =
       element.getBoundingClientRect().top + window.scrollY - scrollOffset;
@@ -81,8 +68,8 @@ const OnPageNav: React.FC<{
       setArrowRotate(rotate);
     };
 
-    parentDiv.addEventListener('scroll', handleParentScroll);
-    handleParentScroll(); // Initial call to set opacity and rotate on mount
+    parentDiv.addEventListener('scroll', handleParentScroll, { passive: true });
+    handleParentScroll();
     return () => parentDiv.removeEventListener('scroll', handleParentScroll);
   }, []);
 
@@ -140,9 +127,7 @@ const OnPageNav: React.FC<{
         </div>
       </div>
       <ProgressiveBlur
-        className={`block sticky -ml-4 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw lg:-ml-[25%] lg:max-w-[150%] rotate-180 ${
-          collapsed ? 'sm:-ml-32' : 'sm:-ml-80'
-        }`}
+        className="block sticky -ml-4 sm:-ml-7 -mt-10 z-20 top-0 h-32 sm:h-64 w-dvw lg:-ml-[25%] lg:max-w-[150%] rotate-180"
       />
     </>
   );

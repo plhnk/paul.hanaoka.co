@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import Proverbs from './widgets/proverbs';
 import Weather from './widgets/weather';

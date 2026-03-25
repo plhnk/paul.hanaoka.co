@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Sun, MoonStar, Coffee, Sunrise, Sunset } from 'lucide-react';
 import { cn } from '@/lib/utils';

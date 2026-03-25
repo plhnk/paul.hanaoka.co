@@ -64,7 +64,7 @@ export interface UnsplashPhoto {
   };
   created_at: string;
   updated_at: string;
-  promoted_at: string;
+  promoted_at: string | null;
   width: number;
   height: number;
   color: string;

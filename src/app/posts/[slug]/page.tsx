@@ -1,8 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPost } from '@/server/api/posts';
+import { getAllPosts, getPost } from '@/server/content/posts';
 import ClientPostContent from '@/components/client-post-component';
 import { formatDate } from '@/lib/utils';
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 export default async function BlogPost({
   params,
@@ -46,6 +53,8 @@ export default async function BlogPost({
             alt={post.frontmatter.title}
             width={800}
             height={400}
+            priority
+            sizes="(max-width: 1024px) 100vw, 800px"
           />
         )}
         <ClientPostContent content={post.content} />

@@ -42,16 +42,8 @@ const config = {
           'linear-gradient(to right, rgb(var(--background)) 0%, rgb(var(--background)) 3%, transparent 15%, transparent 85%, rgb(var(--background)) 97%, rgb(var(--background)) 100%)',
       },
       fontFamily: {
-        sans: [
-          'var(--font-fira-sans)',
-          'Fira Sans',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        mono: [
-          'var(--font-fira-code)',
-          'Fira Code',
-          ...defaultTheme.fontFamily.mono,
-        ],
+        sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Code', ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
         'accordion-down': {
@@ -98,4 +90,3 @@ const config = {
 } satisfies Config;
 
 export default config;
-// TODO --> remove typography plugin

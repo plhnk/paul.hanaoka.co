@@ -31,14 +31,14 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ collapsed, className }) => {
     {
       mode: 'system',
       label: 'Auto',
-      hotkey: 'm',
+      hotkey: 'w',
       icon: <WandSparkles {...iconStyle} />,
     },
   ];
 
   const { trackEvent } = useFathomEvent();
 
-  const { setTheme, resolvedTheme, systemTheme, theme } = useTheme();
+  const { setTheme, resolvedTheme, theme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
   const [clientTheme, setClientTheme] = useState<string | undefined>();

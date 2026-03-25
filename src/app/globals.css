@@ -1,3 +1,14 @@
+@import '@fontsource/fira-code/400.css';
+@import '@fontsource/fira-code/600.css';
+@import '@fontsource/fira-sans/200.css';
+@import '@fontsource/fira-sans/200-italic.css';
+@import '@fontsource/fira-sans/400.css';
+@import '@fontsource/fira-sans/400-italic.css';
+@import '@fontsource/fira-sans/600.css';
+@import '@fontsource/fira-sans/600-italic.css';
+@import '@fontsource/fira-sans/900.css';
+@import '@fontsource/fira-sans/900-italic.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +28,10 @@ html {
   transition: background-color 0.3s ease; /* Smooth background transition when theme changes */
 }
 
-html.dark, html.light {
+html.dark,
+html.light,
+html.elite,
+html.exec {
   visibility: visible;
   transition: background-color 0.3s ease; /* Smooth background transition when theme changes */
 }

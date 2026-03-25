@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavButton from './navbutton';
 import { Button } from './button';
 import { usePathname } from 'next/navigation';
@@ -10,8 +10,6 @@ import { X, Menu } from 'lucide-react';
 import ProgressiveBlur from './progressiveblur';
 
 const MobileMenu: React.FC = () => {
-  const menuRef = useRef(null);
-
   const { data, isLoading } = useWeatherData(48.7519, -122.4787);
 
   const shortForecast = data
@@ -25,52 +23,30 @@ const MobileMenu: React.FC = () => {
 
   const icon = getIcon(shortForecast, iconStyle);
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(true);
-
-  const handleMenuButtonClick = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  // reset the mobile menu state when the pathname changes
-  const resetState = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [resetState]);
-
-  // close the mobile menu when clicking/touching outside it
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (
-        menuRef.current &&
-        (menuRef.current as HTMLElement).contains(event.target as Node)
-      ) {
-        handleMenuButtonClick();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
+  }, [pathname]);
 
   return (
     <>
-      <div
-        ref={menuRef}
-        className={
-          isMobileMenuOpen ? 'absolute top-0 left-0 w-dvw h-dvh' : 'hidden'
-        }
-      />
+      {isMobileMenuOpen ? (
+        <button
+          aria-label="Close menu"
+          className="absolute inset-0 w-dvw h-dvh sm:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+          type="button"
+        />
+      ) : null}
       <ProgressiveBlur
         className={
           'z-40 fixed block inset-[auto 0 0 0] sm:hidden bottom-0 left-0 w-full ' +
           `${isMobileMenuOpen ? 'h-4/5' : 'h-1/5'}`
         }
       />
-      <Sidebar className={isMobileMenuOpen ? 'block' : 'hidden'} />
+      <Sidebar className={cn('sm:hidden', isMobileMenuOpen ? 'block' : 'hidden')} />
       <div className="sm:hidden fixed bottom-1 left-0 w-full z-50">
         <div
           className={cn(
@@ -93,7 +69,7 @@ const MobileMenu: React.FC = () => {
             hotkey={'h'}
           />
           <Button
-            onClick={handleMenuButtonClick}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
             className="py-2 pl-4 pr-3 flex rounded-[.85rem]"
           >
             {isMobileMenuOpen ? (

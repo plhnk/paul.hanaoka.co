@@ -1,10 +1,8 @@
-'use client';
-import React from 'react';
 import MdxLayout from '../../components/mdx-layout';
 import UnsplashFeed from '../../components/unsplash-feed';
 import Content from './content.mdx';
 
-const Photos: React.FC = () => {
+const Photos = () => {
   return (
     <>
       <MdxLayout>
@@ -16,5 +14,3 @@ const Photos: React.FC = () => {
 };
 
 export default Photos;
-
-// TODO --> unsplash photos

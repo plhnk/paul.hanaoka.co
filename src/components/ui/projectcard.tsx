@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
-  id: string;
+  cover: {
+    light: string;
+    dark: string;
+  };
   labels: string[];
   title: string;
   subtitle: string;
@@ -13,58 +15,32 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
-  id,
+  cover,
   labels,
   title,
   subtitle,
   className
 }) => {
-  const { theme, systemTheme } = useTheme();
-  const [imageSrc, setImageSrc] = useState('');
-
-  const checkImageExists = (src: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      const img = new window.Image();
-      img.src = src;
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
-    });
-  };
-
-  useEffect(() => {
-    const loadImage = async () => {
-      const currentTheme = theme === 'system' ? systemTheme : theme;
-      const baseSrc = `/projects/${id}/cover-${currentTheme}`;
-      const extensions = ['jpg', 'png', 'webp'];
-
-      for (const ext of extensions) {
-        const src = `${baseSrc}.${ext}`;
-        const exists = await checkImageExists(src);
-        if (exists) {
-          setImageSrc(src);
-          return;
-        }
-      }
-
-      setImageSrc('/images/dank-guy.png');
-    };
-
-    loadImage();
-  }, [theme, systemTheme, id]);
-
   return (
     <Card className={cn('max-sm:outline-none m-0 px-0 py-4 bg-transparent overflow-visible relative isolate text-left', className)}>
       <CardContent className="sm:py-0 px-0 my-auto">
         <div className="iso relative -z-10 group-hover:rotate-0 after:shadow-bgBlend after:w-full after:h-full after:absolute after:top-0 after:left-0 dark:after:mix-blend-normal after:mix-blend-color">
-          {imageSrc && (
-            <Image
-              className="rounded-sm"
-              src={imageSrc}
-              alt={`${title} ${subtitle}`}
-              width={900}
-              height={600}
-            />
-          )}
+          <Image
+            className="rounded-sm dark:hidden elite:hidden exec:hidden"
+            src={cover.light}
+            alt={`${title} ${subtitle}`}
+            width={900}
+            height={600}
+            sizes="(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 900px"
+          />
+          <Image
+            className="rounded-sm hidden dark:block elite:block exec:block"
+            src={cover.dark}
+            alt={`${title} ${subtitle}`}
+            width={900}
+            height={600}
+            sizes="(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 900px"
+          />
         </div>
         <div className="shadow" />
       </CardContent>

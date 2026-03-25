@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import fs from 'fs';
 import passages from './proverbsList.js';
 import dotenv from 'dotenv';
