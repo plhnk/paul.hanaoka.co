@@ -1,6 +1,5 @@
 import createMDX from '@next/mdx';
 import path from 'path';
-import remarkGfm from 'remark-gfm';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -22,7 +21,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: ['remark-gfm'],
     rehypePlugins: [],
   },
 });
