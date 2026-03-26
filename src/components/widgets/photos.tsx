@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { UnsplashPhoto } from '@/lib/utilities/types';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -7,27 +7,51 @@ import { RotateCw, Camera } from 'lucide-react';
 import Image from 'next/image';
 import { Skeleton } from '../ui/skeleton';
 
-function getRandomPhotos(photos: any, count: number) {
-  // Create a copy of the array
+type UnsplashPage = Record<string, UnsplashPhoto[]>;
+
+function sortPhotos(data: UnsplashPage): UnsplashPhoto[] {
+  return Object.values(data)
+    .flat()
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+}
+
+function getRandomPhotos(photos: UnsplashPhoto[], count: number): UnsplashPhoto[] {
   const tempPhotos = [...photos];
 
-  // The array to store our random photos
-  const randomPhotos = [];
+  const randomPhotos: UnsplashPhoto[] = [];
 
   for (let i = 0; i < count; i++) {
-    // Get a random index
-    const randomIndex = Math.floor(Math.random() * tempPhotos.length);
+    if (tempPhotos.length === 0) {
+      break;
+    }
 
-    // Remove the photo at the random index from the array and add it to the randomPhotos array
-    randomPhotos.push(...tempPhotos.splice(randomIndex, 1));
+    const randomIndex = Math.floor(Math.random() * tempPhotos.length);
+    const [photo] = tempPhotos.splice(randomIndex, 1);
+
+    if (photo) {
+      randomPhotos.push(photo);
+    }
   }
 
   return randomPhotos;
 }
 
-type PhotoOrMoreButton = UnsplashPhoto & { isMoreButton?: boolean };
+type MoreButtonItem = {
+  id: 'more';
+  isMoreButton: true;
+};
+
+type PhotoOrMoreButton = UnsplashPhoto | MoreButtonItem;
+
+function isMoreButtonItem(photo: PhotoOrMoreButton): photo is MoreButtonItem {
+  return 'isMoreButton' in photo && photo.isMoreButton;
+}
 
 const Photos: React.FC<{ className?: string }> = ({ className }) => {
+  const [allPhotos, setAllPhotos] = useState<UnsplashPhoto[] | null>(null);
   const [photos, setPhotos] = useState<PhotoOrMoreButton[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreButton, setShowMoreButton] = useState(false);
@@ -35,30 +59,36 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
   const [isMobile, setIsMobile] = useState(false);
   // const [touchStartX, setTouchStartX] = useState(0);
 
-  const fetchPhotos = async () => {
+  const loadPhotos = useCallback(async () => {
+    setLoading(true);
+
     try {
-      const response = await fetch('/api/photos');
-      const data = await response.json();
+      const sortedPhotos =
+        allPhotos ??
+        sortPhotos(
+          (await import('@/lib/data/unsplash.json'))
+            .default as unknown as UnsplashPage
+        );
 
-      const allPhotos = data.photos;
+      if (!allPhotos) {
+        setAllPhotos(sortedPhotos);
+      }
 
-      const randomPhotos = getRandomPhotos(allPhotos, 5);
+      const randomPhotos = getRandomPhotos(sortedPhotos, 5);
 
-      setPhotos([...randomPhotos, { id: 'more' }]);
-
+      setPhotos([...randomPhotos, { id: 'more', isMoreButton: true }]);
+      setCurrentIndex(0);
       setShowMoreButton(false);
       setLoading(false);
-
-      // console.log(data);
     } catch (error) {
       setLoading(false);
-      console.error('Error fetching photos:', error);
+      console.error('Error loading cached photos:', error);
     }
-  };
+  }, [allPhotos]);
 
   useEffect(() => {
-    fetchPhotos();
-  }, []);
+    loadPhotos();
+  }, [loadPhotos]);
 
   const handleClick = () => {
     const newIndex = (currentIndex + 1) % photos.length;
@@ -106,14 +136,14 @@ const Photos: React.FC<{ className?: string }> = ({ className }) => {
       // onTouchMove={handleTouchMove}
     >
       {photos.map((photo, index) =>
-        photo.id === 'more' ? (
+        isMoreButtonItem(photo) ? (
           showMoreButton && (
             <div
               key={index + 1}
               className="w-full h-full bg-card rounded-xl flex flex-col gap-2 p-2 overflow-hidden *:flex-1 *:flex *:items-center *:justify-center *:flex-col *:rounded-lg *:text-center outline outline-background/40 -outline-offset-1 outline-1"
               style={{ position: 'absolute', zIndex: photos.length + 1 }}
             >
-              <button onClick={fetchPhotos} className="hover:bg-text/5 p-4">
+              <button onClick={loadPhotos} className="hover:bg-text/5 p-4">
                 <RotateCw size={24} className="text-element mb-2" />
                 Load more photos
               </button>

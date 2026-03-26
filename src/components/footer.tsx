@@ -1,14 +1,43 @@
 'use client';
+import dynamic from 'next/dynamic';
 import React, { useState, useEffect } from 'react';
-import Proverbs from './widgets/proverbs';
-import Weather from './widgets/weather';
-import Photos from './widgets/photos';
-import Calendar from './widgets/calendar';
 import { getDateInfo } from '../lib/utils';
 import Link from '@/components/ui/link';
 import { MousePointer2, MoveUp } from 'lucide-react';
 import { useSidebarContext } from '@/components/sidebar-provider';
 import { Button } from './ui/button';
+import { Skeleton } from './ui/skeleton';
+import LazyWhenVisible from './lazy-when-visible';
+
+const Weather = dynamic(() => import('./widgets/weather'), { ssr: false });
+const Calendar = dynamic(() => import('./widgets/calendar'), { ssr: false });
+const Photos = dynamic(() => import('./widgets/photos'), { ssr: false });
+const Proverbs = dynamic(() => import('./widgets/proverbs'), { ssr: false });
+
+function FooterCardPlaceholder() {
+  return (
+    <div
+      aria-hidden="true"
+      className="rounded-xl border border-background/40 bg-card p-6"
+    >
+      <Skeleton className="mb-4 h-4 w-32" />
+      <Skeleton className="mb-6 h-16 w-24" />
+      <Skeleton className="mb-2 h-4 w-full" />
+      <Skeleton className="h-4 w-2/3" />
+    </div>
+  );
+}
+
+function FooterPhotoPlaceholder() {
+  return (
+    <div
+      aria-hidden="true"
+      className="rounded-xl border border-background/40 bg-card p-2 w-full h-full"
+    >
+      <Skeleton className="w-full h-full min-h-[26rem] rounded-lg" />
+    </div>
+  );
+}
 
 const Footer: React.FC = () => {
   const { collapsed } = useSidebarContext();
@@ -59,10 +88,30 @@ const Footer: React.FC = () => {
         collapsed ? 'sm:ml-32 xl:ml-0 2xl:mx-0' : 'sm:ml-80 xl:ml-0 2xl:mx-0'
       }`}
     >
-      <Weather className="lg:col-start-2 col-span-2" />
-      <Calendar className="col-span-2 md:max-lg:order-2" />
-      <Photos className="col-start-1 md:col-start-3 lg:col-start-6 max-md:col-span-4 col-span-3 max-sm:h-[70vh] max-h-[800px] row-span-2 md:max-lg:order-1 md:max-lg:row-span-3" />
-      <Proverbs className="lg:col-start-2 col-span-4 md:max-lg:col-span-2 md:max-lg:order-3" />
+      <LazyWhenVisible
+        className="lg:col-start-2 col-span-2"
+        fallback={<FooterCardPlaceholder />}
+      >
+        <Weather />
+      </LazyWhenVisible>
+      <LazyWhenVisible
+        className="col-span-2 md:max-lg:order-2"
+        fallback={<FooterCardPlaceholder />}
+      >
+        <Calendar />
+      </LazyWhenVisible>
+      <LazyWhenVisible
+        className="col-start-1 md:col-start-3 lg:col-start-6 max-md:col-span-4 col-span-3 max-sm:h-[70vh] max-h-[800px] row-span-2 md:max-lg:order-1 md:max-lg:row-span-3"
+        fallback={<FooterPhotoPlaceholder />}
+      >
+        <Photos />
+      </LazyWhenVisible>
+      <LazyWhenVisible
+        className="lg:col-start-2 col-span-4 md:max-lg:col-span-2 md:max-lg:order-3"
+        fallback={<FooterCardPlaceholder />}
+      >
+        <Proverbs />
+      </LazyWhenVisible>
       <div className="flex flex-col md:flex-row justify-between lg:col-start-2 col-span-full lg:col-span-7 mt-40 md:mb-14 text-text/80 pr-12 lg:pr-0 order-last">
         <div className="">
           <MousePointer2 className="-ml-2 -mt-2 lg:-ml-6 md:-mt-8 block md:inline text-text/20" />
